@@ -66,34 +66,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload Google Fonts stylesheet to avoid render-blocking @import in CSS -->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
+    <link rel="stylesheet" href="assets/css/main.min.css" />
     <noscript
-      ><link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
-        rel="stylesheet"
+      ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
-    <!-- Preload main stylesheet to reduce render-blocking and swap onload -->
-    <link
-      rel="preload"
-      href="assets/css/main.min.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/main.min.css"
-    /></noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" />
-    <!-- Preload visible logo (LCP candidate) and mark high priority -->
-    <link rel="preload" as="image" href="images/logo_small.png" />
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -105,7 +81,7 @@
             src="images/logo_small.png"
             alt="Logo der kleinen Musikschule Karlsruhe"
             class="logo-img"
-            fetchpriority="high"
+            loading="lazy"
           />
           <strong>kleine</strong> <span>musikschule Karlsruhe</span></a
         >
@@ -373,15 +349,15 @@
       </footer>
     </div>
 
-    <!-- Scripts (deferred to avoid blocking rendering) -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/cookie-consent.js" defer></script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cookie-consent.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -390,35 +366,13 @@
         articles.forEach((article) => {
           const video = article.querySelector(".tile-video");
           if (video) {
-            // On hover, check whether the video source is reachable before attempting to play.
-            article.addEventListener("mouseenter", async function () {
-              const source = video.querySelector("source");
-              const src = (source && source.src) || video.currentSrc || null;
-              if (!src) return;
-
-              try {
-                // Try a HEAD request to avoid downloading the whole file.
-                const res = await fetch(src, {
-                  method: "HEAD",
-                  cache: "no-store",
-                });
-                if (res && res.ok) {
-                  // source available — try to play (ignore promise rejection)
-                  video.play().catch(() => {});
-                }
-                // if not ok, do not attempt to play — fallback link is present inside the <video>
-              } catch (e) {
-                // network or CORS error — do nothing (avoid calling play)
-              }
+            article.addEventListener("mouseenter", function () {
+              video.play();
             });
 
             article.addEventListener("mouseleave", function () {
-              try {
-                video.pause();
-                video.currentTime = 0;
-              } catch (e) {
-                // ignore errors if video couldn't be controlled
-              }
+              video.pause();
+              video.currentTime = 0;
             });
           }
         });

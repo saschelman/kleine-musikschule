@@ -12,6 +12,7 @@
   font-weight: 600;
 }
 @import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap");
 
 /* Blog image sizing: keep images visually balanced */
 .post img,

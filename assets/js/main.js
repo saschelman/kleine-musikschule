@@ -90,26 +90,12 @@
     }, 100);
   });
 
-  // Clear transitioning state when the page is being hidden.
-  // Avoid using the deprecated `unload` event; use `pagehide` and visibilitychange instead.
-  var _clearTransitioning = function () {
+  // Clear transitioning state on unload/hide.
+  $window.on("unload pagehide", function () {
     window.setTimeout(function () {
       $(".is-transitioning").removeClass("is-transitioning");
     }, 250);
-  };
-
-  // When the page is being hidden (modern browsers)
-  $window.on("pagehide", _clearTransitioning);
-
-  // Also clear on visibility change when the document becomes hidden (mobile/background).
-  if (
-    typeof document !== "undefined" &&
-    typeof document.addEventListener === "function"
-  ) {
-    document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "hidden") _clearTransitioning();
-    });
-  }
+  });
 
   // Fix: Enable IE-only tweaks.
   if (browser.name == "ie" || browser.name == "edge") $body.addClass("is-ie");
