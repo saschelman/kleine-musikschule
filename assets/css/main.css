@@ -2324,7 +2324,15 @@ input[type="radio"] + label:before {
 }
 
 .icon > .label {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .icon:before {
@@ -4156,7 +4164,7 @@ body.is-preload #banner > .inner {
 
 #footer .copyright li {
   border-left: solid 1px rgba(212, 212, 255, 0.1);
-  color: rgba(244, 244, 255, 0.2);
+  color: #ffffff;
   display: inline-block;
   line-height: 1;
   margin-left: 1em;

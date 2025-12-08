@@ -6,61 +6,72 @@
 
 /* Icon */
 
-	.icon {
-		@include icon;
-		border-bottom: none;
-		position: relative;
+.icon {
+  @include icon;
+  border-bottom: none;
+  position: relative;
 
-		> .label {
-			display: none;
-		}
+  > .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
-		&:before {
-			line-height: inherit;
-		}
+  &:before {
+    line-height: inherit;
+  }
 
-		&.solid {
-			&:before {
-				font-weight: 900;
-			}
-		}
+  &.solid {
+    &:before {
+      font-weight: 900;
+    }
+  }
 
-		&.brands {
-			&:before {
-				font-family: 'Font Awesome 5 Brands';
-			}
-		}
+  &.brands {
+    &:before {
+      font-family: "Font Awesome 5 Brands";
+    }
+  }
 
-		&.alt {
-			&:before {
-				background-color: _palette(fg-bold);
-				border-radius: 100%;
-				color: _palette(bg);
-				display: inline-block;
-				height: 2em;
-				line-height: 2em;
-				text-align: center;
-				width: 2em;
-			}
-		}
-	}
+  &.alt {
+    &:before {
+      background-color: _palette(fg-bold);
+      border-radius: 100%;
+      color: _palette(bg);
+      display: inline-block;
+      height: 2em;
+      line-height: 2em;
+      text-align: center;
+      width: 2em;
+    }
+  }
+}
 
-	a.icon {
-		&.alt {
-			&:before {
-				@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out');
-			}
+a.icon {
+  &.alt {
+    &:before {
+      @include vendor(
+        "transition",
+        "background-color #{_duration(transition)} ease-in-out"
+      );
+    }
 
-			&:hover {
-				&:before {
-					background-color: _palette(accent1);
-				}
-			}
+    &:hover {
+      &:before {
+        background-color: _palette(accent1);
+      }
+    }
 
-			&:active {
-				&:before {
-					background-color: desaturate(darken(_palette(accent1), 15), 5);
-				}
-			}
-		}
-	}
+    &:active {
+      &:before {
+        background-color: desaturate(darken(_palette(accent1), 15), 5);
+      }
+    }
+  }
+}
