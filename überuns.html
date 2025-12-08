@@ -76,10 +76,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.min.css" />
+    <!-- Preconnect & preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
     <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
+        rel="stylesheet"
     /></noscript>
+    <!-- Preload main stylesheet -->
+    <link
+      rel="preload"
+      href="assets/css/main.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/main.min.css"
+    /></noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -199,13 +220,13 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
   </body>
 </html>
