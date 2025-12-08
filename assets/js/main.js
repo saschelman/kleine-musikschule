@@ -90,8 +90,8 @@
     }, 100);
   });
 
-  // Clear transitioning state on unload/hide.
-  $window.on("unload pagehide", function () {
+  // Clear transitioning state on hide (pagehide is sufficient).
+  $window.on("pagehide", function () {
     window.setTimeout(function () {
       $(".is-transitioning").removeClass("is-transitioning");
     }, 250);
@@ -136,6 +136,11 @@
 
       $link.on("click", function (event) {
         var href = $link.attr("href");
+
+        // Check if href is valid
+        if (!href || href === "#" || href === "undefined") {
+          return;
+        }
 
         // Prevent default.
         event.stopPropagation();
@@ -246,6 +251,11 @@
     })
     .on("click", "a", function (event) {
       var href = $(this).attr("href");
+
+      // Check if href is valid
+      if (!href || href === "#" || href === "undefined") {
+        return;
+      }
 
       event.preventDefault();
       event.stopPropagation();
