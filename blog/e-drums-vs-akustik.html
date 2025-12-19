@@ -39,6 +39,93 @@
     <noscript
       ><link rel="stylesheet" href="../assets/css/noscript.css"
     /></noscript>
+    <style>
+      /* Blog Content Styling */
+      #main p {
+        line-height: 1.8;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      #main h2,
+      #main h3,
+      #main h4 {
+        color: #667eea;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      #main strong {
+        color: #f0ad4e;
+      }
+
+      #main ul,
+      #main ol {
+        line-height: 1.9;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      #main li {
+        margin-bottom: 0.8em;
+      }
+
+      .inner {
+        max-width: 900px;
+      }
+
+      /* Content Box Styling */
+      .content-box {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.08) 0%,
+          rgba(118, 75, 162, 0.08) 100%
+        );
+        padding: 1.8em;
+        border-radius: 10px;
+        margin: 2em 0;
+        border-left: 4px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.25);
+        border-left: 4px solid #667eea;
+      }
+
+      .content-box h3,
+      .content-box h4 {
+        color: #667eea;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      .content-box p {
+        margin-bottom: 0.8em;
+      }
+
+      .content-box:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Kleinere Bilder in Boxen */
+      .content-box .image.main {
+        max-width: 400px;
+        margin: 1em auto;
+      }
+
+      .content-box .image.main img {
+        max-height: 300px;
+        width: auto;
+      }
+
+      @media screen and (max-width: 736px) {
+        #main p {
+          font-size: 0.95em;
+          line-height: 1.7;
+        }
+        #main ul,
+        #main ol {
+          font-size: 0.95em;
+        }
+      }
+    </style>
   </head>
   <body class="is-preload blog-post">
     <div id="wrapper">
@@ -72,11 +159,6 @@
               <h1>E-Drums oder Akustik-Drumset?</h1>
               <p>📅 Oktober 2024 | ⏱️ 9 Minuten Lesezeit</p>
             </header>
-            <span class="image main"
-              ><img
-                src="../images/edrum.jpg"
-                alt="E-Drums und Akustik Schlagzeug"
-            /></span>
 
             <p>
               Du möchtest Schlagzeug lernen – herzlichen Glückwunsch! Aber jetzt
@@ -88,149 +170,162 @@
 
             <h2>Akustisches Schlagzeug: Der Klassiker</h2>
 
-            <h3>✅ Vorteile akustisches Schlagzeug</h3>
-            <span class="image main"
-              ><img
-                src="../images/drum-set-1839383_1280.jpg"
-                alt="Akustisches Schlagzeug"
-            /></span>
+            <div class="content-box">
+              <h3>✅ Vorteile akustisches Schlagzeug</h3>
+              <span class="image main"
+                ><img
+                  src="../images/drum-set-1839383_1280.jpg"
+                  alt="Akustisches Schlagzeug"
+              /></span>
 
-            <h4>Authentisches Spielgefühl</h4>
-            <p>
-              Nichts geht über das echte Feeling eines akustischen Schlagzeugs.
-              Das Feedback der Felle, die natürliche Schwingung der Becken, die
-              Resonanz der Kessel – das alles lässt sich elektronisch nur schwer
-              nachbilden. Viele Profis schwören auf akustische Drums, weil die
-              Dynamik und das Anschlaggefühl einzigartig sind.
-            </p>
+              <h4>Authentisches Spielgefühl</h4>
+              <p>
+                Nichts geht über das echte Feeling eines akustischen
+                Schlagzeugs. Das Feedback der Felle, die natürliche Schwingung
+                der Becken, die Resonanz der Kessel – das alles lässt sich
+                elektronisch nur schwer nachbilden. Viele Profis schwören auf
+                akustische Drums, weil die Dynamik und das Anschlaggefühl
+                einzigartig sind.
+              </p>
 
-            <h4>Keine Latenz, kein Strom</h4>
-            <p>
-              Bei akustischen Drums gibt es keine Verzögerung zwischen Schlag
-              und Sound. Du brauchst keinen Strom, keine Module, keine
-              Software-Updates. Es ist das purste und direkteste Drum-Erlebnis,
-              das du haben kannst.
-            </p>
+              <h4>Keine Latenz, kein Strom</h4>
+              <p>
+                Bei akustischen Drums gibt es keine Verzögerung zwischen Schlag
+                und Sound. Du brauchst keinen Strom, keine Module, keine
+                Software-Updates. Es ist das purste und direkteste
+                Drum-Erlebnis, das du haben kannst.
+              </p>
 
-            <h4>Der echte Sound</h4>
-            <p>
-              Ein gut gestimmtes akustisches Set klingt einfach fantastisch –
-              warm, lebendig und druckvoll. Dieser Sound ist in Proberäumen und
-              auf der Bühne unschlagbar. Wenn du in einer Band spielen möchtest,
-              brauchst du früher oder später Erfahrung mit akustischen Drums.
-            </p>
+              <h4>Der echte Sound</h4>
+              <p>
+                Ein gut gestimmtes akustisches Set klingt einfach fantastisch –
+                warm, lebendig und druckvoll. Dieser Sound ist in Proberäumen
+                und auf der Bühne unschlagbar. Wenn du in einer Band spielen
+                möchtest, brauchst du früher oder später Erfahrung mit
+                akustischen Drums.
+              </p>
 
-            <h4>Wertstabilität</h4>
-            <p>
-              Gute akustische Drums behalten ihren Wert besser als
-              elektronische. Sie werden nicht durch neue Technologie überholt
-              und können über Jahrzehnte halten, wenn man sie pflegt.
-            </p>
+              <h4>Wertstabilität</h4>
+              <p>
+                Gute akustische Drums behalten ihren Wert besser als
+                elektronische. Sie werden nicht durch neue Technologie überholt
+                und können über Jahrzehnte halten, wenn man sie pflegt.
+              </p>
+            </div>
 
-            <h3>❌ Nachteile akustisches Schlagzeug</h3>
+            <div class="content-box">
+              <h3>❌ Nachteile akustisches Schlagzeug</h3>
 
-            <h4>LAUT!</h4>
-            <p>
-              Das ist der größte Knackpunkt. Ein akustisches Schlagzeug ist
-              unfassbar laut – oft 100-120 Dezibel! Das ist so laut wie ein
-              Presslufthammer. In Wohnungen fast unmöglich, außer du hast sehr
-              tolerante (oder taube) Nachbarn. Selbst im Eigenheim kann es zum
-              Problem werden.
-            </p>
+              <h4>LAUT!</h4>
+              <p>
+                Das ist der größte Knackpunkt. Ein akustisches Schlagzeug ist
+                unfassbar laut – oft 100-120 Dezibel! Das ist so laut wie ein
+                Presslufthammer. In Wohnungen fast unmöglich, außer du hast sehr
+                tolerante (oder taube) Nachbarn. Selbst im Eigenheim kann es zum
+                Problem werden.
+              </p>
 
-            <h4>Platzbedarf</h4>
-            <p>
-              Ein komplettes Drumset braucht Platz – mindestens 2x2 Meter,
-              besser mehr. Dazu kommt der Platzbedarf für Beckenständer und den
-              Hocker. In kleinen Wohnungen oft schwierig.
-            </p>
+              <h4>Platzbedarf</h4>
+              <p>
+                Ein komplettes Drumset braucht Platz – mindestens 2x2 Meter,
+                besser mehr. Dazu kommt der Platzbedarf für Beckenständer und
+                den Hocker. In kleinen Wohnungen oft schwierig.
+              </p>
 
-            <h4>Keine Kopfhörer möglich</h4>
-            <p>
-              Du kannst nicht "leise" für dich üben. Mesh-Heads und Übungs-Pads
-              helfen etwas, aber das Feeling ist dann auch nicht mehr echt.
-              Late-Night-Sessions? Vergiss es.
-            </p>
+              <h4>Keine Kopfhörer möglich</h4>
+              <p>
+                Du kannst nicht "leise" für dich üben. Mesh-Heads und
+                Übungs-Pads helfen etwas, aber das Feeling ist dann auch nicht
+                mehr echt. Late-Night-Sessions? Vergiss es.
+              </p>
 
-            <h4>Aufwändige Pflege</h4>
-            <p>
-              Drums müssen gestimmt werden, Felle nutzen sich ab und müssen
-              gewechselt werden. Becken wollen gereinigt werden. Es ist mehr
-              Wartungsaufwand als bei E-Drums.
-            </p>
+              <h4>Aufwändige Pflege</h4>
+              <p>
+                Drums müssen gestimmt werden, Felle nutzen sich ab und müssen
+                gewechselt werden. Becken wollen gereinigt werden. Es ist mehr
+                Wartungsaufwand als bei E-Drums.
+              </p>
+            </div>
 
             <h2>E-Drums: Die moderne Alternative</h2>
 
-            <h3>✅ Vorteile E-Drums</h3>
-            <span class="image main" <!-- image removed --> /></span>
+            <div class="content-box">
+              <h3>✅ Vorteile E-Drumm</h3>
+              <span class="image main"
+                ><img src="../images/edrum.jpg" alt="E-Drums"
+              /></span>
 
-            <h4>Lautstärke kontrollierbar</h4>
-            <p>
-              Das ist der Killer-Vorteil: Du kannst mit Kopfhörern spielen!
-              Deine Nachbarn hören nur das mechanische Klacken der Pads – und
-              auch das lässt sich mit Matten dämpfen. Du kannst üben, wann immer
-              du willst, ohne jemanden zu stören.
-            </p>
+              <h4>Lautstärke kontrollierbar</h4>
+              <p>
+                Das ist der Killer-Vorteil: Du kannst mit Kopfhörern spielen!
+                Deine Nachbarn hören nur das mechanische Klacken der Pads – und
+                auch das lässt sich mit Matten dämpfen. Du kannst üben, wann
+                immer du willst, ohne jemanden zu stören.
+              </p>
 
-            <h4>Unglaubliche Vielseitigkeit</h4>
-            <p>
-              Mit E-Drums hast du hunderte verschiedene Drum-Sounds auf
-              Knopfdruck. Jazz-Set? Klar! Metal-Drums? Kein Problem! Du kannst
-              zu Songs aus deinen Kopfhörern spielen, Metronom einbauen, dich
-              aufnehmen – die Möglichkeiten sind riesig.
-            </p>
+              <h4>Unglaubliche Vielseitigkeit</h4>
+              <p>
+                Mit E-Drums hast du hunderte verschiedene Drum-Sounds auf
+                Knopfdruck. Jazz-Set? Klar! Metal-Drums? Kein Problem! Du kannst
+                zu Songs aus deinen Kopfhörern spielen, Metronom einbauen, dich
+                aufnehmen – die Möglichkeiten sind riesig.
+              </p>
 
-            <h4>Kompakter</h4>
-            <p>
-              E-Drums sind in der Regel kompakter als akustische Sets. Viele
-              Modelle lassen sich zusammenklappen oder leichter umstellen.
-              Perfekt für kleinere Wohnungen!
-            </p>
+              <h4>Kompakter</h4>
+              <p>
+                E-Drums sind in der Regel kompakter als akustische Sets. Viele
+                Modelle lassen sich zusammenklappen oder leichter umstellen.
+                Perfekt für kleinere Wohnungen!
+              </p>
 
-            <h4>Weniger Wartung</h4>
-            <p>
-              Keine Felle wechseln, kein Stimmen, weniger Pflege. E-Drums sind
-              in dieser Hinsicht deutlich wartungsärmer.
-            </p>
+              <h4>Weniger Wartung</h4>
+              <p>
+                Keine Felle wechseln, kein Stimmen, weniger Pflege. E-Drums sind
+                in dieser Hinsicht deutlich wartungsärmer.
+              </p>
 
-            <h4>Perfekt zum Üben</h4>
-            <p>
-              Viele E-Drums haben eingebaute Lernfunktionen, Metronome, und du
-              kannst dich leicht aufnehmen, um deine Fortschritte zu hören.
-              Großartig für strukturiertes Üben!
-            </p>
+              <h4>Perfekt zum Üben</h4>
+              <p>
+                Viele E-Drums haben eingebaute Lernfunktionen, Metronome, und du
+                kannst dich leicht aufnehmen, um deine Fortschritte zu hören.
+                Großartig für strukturiertes Üben!
+              </p>
+            </div>
 
-            <h3>❌ Nachteile E-Drums</h3>
+            <div class="content-box">
+              <h3>❌ Nachteile E-Drums</h3>
 
-            <h4>Andere Spielgefühl</h4>
-            <p>
-              Auch die besten E-Drums fühlen sich anders an als akustische. Die
-              Pads (besonders Gummi) haben ein anderes Rebound-Verhalten.
-              Mesh-Heads kommen näher ran, sind aber auch nicht identisch.
-              Manche Drummer empfinden das als störend.
-            </p>
+              <h4>Andere Spielgefühl</h4>
+              <p>
+                Auch die besten E-Drums fühlen sich anders an als akustische.
+                Die Pads (besonders Gummi) haben ein anderes Rebound-Verhalten.
+                Mesh-Heads kommen näher ran, sind aber auch nicht identisch.
+                Manche Drummer empfinden das als störend.
+              </p>
 
-            <h4>Abhängig von Technik</h4>
-            <p>
-              Du brauchst Strom, funktionierende Module, manchmal
-              Software-Updates. Wenn das Modul ausfällt, ist Stille. Bei
-              günstigen Sets können elektronische Teile nach Jahren kaputtgehen.
-            </p>
+              <h4>Abhängig von Technik</h4>
+              <p>
+                Du brauchst Strom, funktionierende Module, manchmal
+                Software-Updates. Wenn das Modul ausfällt, ist Stille. Bei
+                günstigen Sets können elektronische Teile nach Jahren
+                kaputtgehen.
+              </p>
 
-            <h4>Klang nicht ganz natürlich</h4>
-            <p>
-              Auch wenn moderne E-Drums erstaunlich gut klingen – an ein gut
-              aufgenommenes akustisches Schlagzeug kommen sie klanglich nicht
-              ganz heran. Für Proberäume und Konzerte oft nicht ideal (ohne
-              zusätzliche PA).
-            </p>
+              <h4>Klang nicht ganz natürlich</h4>
+              <p>
+                Auch wenn moderne E-Drums erstaunlich gut klingen – an ein gut
+                aufgenommenes akustisches Schlagzeug kommen sie klanglich nicht
+                ganz heran. Für Proberäume und Konzerte oft nicht ideal (ohne
+                zusätzliche PA).
+              </p>
 
-            <h4>Wertverlust</h4>
-            <p>
-              Elektronik altert schneller. Ein 10 Jahre altes E-Drum-Set ist
-              technisch oft überholt. Der Wiederverkaufswert sinkt schneller als
-              bei akustischen Drums.
-            </p>
+              <h4>Wertverlust</h4>
+              <p>
+                Elektronik altert schneller. Ein 10 Jahre altes E-Drum-Set ist
+                technisch oft überholt. Der Wiederverkaufswert sinkt schneller
+                als bei akustischen Drums.
+              </p>
+            </div>
 
             <h2>Kostenvergleich</h2>
 

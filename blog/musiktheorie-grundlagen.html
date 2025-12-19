@@ -66,6 +66,82 @@
     <noscript
       ><link rel="stylesheet" href="../assets/css/noscript.css"
     /></noscript>
+    <style>
+      /* Blog Content Styling */
+      #main p {
+        line-height: 1.8;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      #main h2,
+      #main h3,
+      #main h4 {
+        color: #667eea;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      #main strong {
+        color: #f0ad4e;
+      }
+
+      #main ul,
+      #main ol {
+        line-height: 1.9;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      #main li {
+        margin-bottom: 0.8em;
+      }
+
+      .inner {
+        max-width: 900px;
+      }
+
+      /* Content Box Styling */
+      .content-box {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.08) 0%,
+          rgba(118, 75, 162, 0.08) 100%
+        );
+        padding: 1.8em;
+        border-radius: 10px;
+        margin: 2em 0;
+        border-left: 4px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.25);
+        border-left: 4px solid #667eea;
+      }
+
+      .content-box h3,
+      .content-box h4 {
+        color: #667eea;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      .content-box p {
+        margin-bottom: 0.8em;
+      }
+
+      .content-box:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (max-width: 736px) {
+        #main p {
+          font-size: 0.95em;
+          line-height: 1.7;
+        }
+        #main ul,
+        #main ol {
+          font-size: 0.95em;
+        }
+      }
+    </style>
   </head>
   <body class="is-preload blog-post">
     <div id="wrapper">
@@ -109,7 +185,7 @@
             </header>
             <span class="image main">
               <img
-                src="../images/pic01.jpg"
+                src="../images/lehre.jpg"
                 alt="Musiktheorie Grundlagen - Noten und Notenschlüssel"
                 loading="lazy"
               />
@@ -132,166 +208,185 @@
               dich zu einem besseren Musiker.
             </p>
 
-            <h2>1. Noten und das Notensystem</h2>
-            <p>
-              Das Notensystem besteht aus fünf Linien und vier Zwischenräumen.
-              Jede Position steht für einen bestimmten Ton. Der
-              <strong>Notenschlüssel</strong> am Anfang zeigt dir, wo welche
-              Töne liegen:
-            </p>
-            <ul>
-              <li>
-                <strong>Violinschlüssel (G-Schlüssel):</strong> Wird für hohe
-                Töne verwendet (z. B. Klavier rechte Hand, Gitarre, Gesang)
-              </li>
-              <li>
-                <strong>Bassschlüssel (F-Schlüssel):</strong> Wird für tiefe
-                Töne verwendet (z. B. Klavier linke Hand, Bass, Cello)
-              </li>
-            </ul>
-            <p>
-              Die Grundtöne heißen:
-              <strong>C – D – E – F – G – A – H</strong> (in Deutschland) oder
-              <strong>C – D – E – F – G – A – B</strong> (international).
-            </p>
+            <div class="content-box">
+              <h3>1. Noten und das Notensystem</h3>
+              <p>
+                Das Notensystem besteht aus fünf Linien und vier Zwischenräumen.
+                Jede Position steht für einen bestimmten Ton. Der
+                <strong>Notenschlüssel</strong> am Anfang zeigt dir, wo welche
+                Töne liegen:
+              </p>
+              <ul>
+                <li>
+                  <strong>Violinschlüssel (G-Schlüssel):</strong> Wird für hohe
+                  Töne verwendet (z. B. Klavier rechte Hand, Gitarre, Gesang)
+                </li>
+                <li>
+                  <strong>Bassschlüssel (F-Schlüssel):</strong> Wird für tiefe
+                  Töne verwendet (z. B. Klavier linke Hand, Bass, Cello)
+                </li>
+              </ul>
+              <p>
+                Die Grundtöne heißen:
+                <strong>C – D – E – F – G – A – H</strong> (in Deutschland) oder
+                <strong>C – D – E – F – G – A – B</strong> (international).
+              </p>
+            </div>
 
-            <h2>2. Tonleitern: Die Bausteine der Musik</h2>
-            <p>
-              Eine <strong>Tonleiter</strong> ist eine aufsteigende oder
-              absteigende Folge von Tönen. Die bekannteste ist die
-              <strong>C-Dur-Tonleiter</strong>:
-            </p>
-            <p style="text-align: center; font-size: 1.2em; font-weight: bold">
-              C – D – E – F – G – A – H – C
-            </p>
-            <p>
-              Zwischen den Tönen gibt es unterschiedliche
-              <strong>Abstände</strong> (Intervalle):
-            </p>
-            <ul>
-              <li>
-                <strong>Ganztonschritt:</strong> Zwei Halbtöne (z. B. C → D)
-              </li>
-              <li>
-                <strong>Halbtonschritt:</strong> Ein Halbton (z. B. E → F)
-              </li>
-            </ul>
-            <p>
-              Das Muster der Dur-Tonleiter ist:
-              <strong>Ganz – Ganz – Halb – Ganz – Ganz – Ganz – Halb</strong>.
-              Mit diesem Muster kannst du jede Dur-Tonleiter bilden!
-            </p>
+            <div class="content-box">
+              <h3>2. Tonleitern: Die Bausteine der Musik</h3>
+              <p>
+                Eine <strong>Tonleiter</strong> ist eine aufsteigende oder
+                absteigende Folge von Tönen. Die bekannteste ist die
+                <strong>C-Dur-Tonleiter</strong>:
+              </p>
+              <p
+                style="text-align: center; font-size: 1.2em; font-weight: bold"
+              >
+                C – D – E – F – G – A – H – C
+              </p>
+              <p>
+                Zwischen den Tönen gibt es unterschiedliche
+                <strong>Abstände</strong> (Intervalle):
+              </p>
+              <ul>
+                <li>
+                  <strong>Ganztonschritt:</strong> Zwei Halbtöne (z. B. C → D)
+                </li>
+                <li>
+                  <strong>Halbtonschritt:</strong> Ein Halbton (z. B. E → F)
+                </li>
+              </ul>
+              <p>
+                Das Muster der Dur-Tonleiter ist:
+                <strong>Ganz – Ganz – Halb – Ganz – Ganz – Ganz – Halb</strong>.
+                Mit diesem Muster kannst du jede Dur-Tonleiter bilden!
+              </p>
 
-            <h3>Moll-Tonleitern: Der melancholische Bruder</h3>
-            <p>
-              Moll-Tonleitern klingen trauriger oder düsterer als
-              Dur-Tonleitern. Die <strong>natürliche Moll-Tonleiter</strong> hat
-              ein anderes Muster:
-              <strong>Ganz – Halb – Ganz – Ganz – Halb – Ganz – Ganz</strong>.
-            </p>
+              <h4>Moll-Tonleitern: Der melancholische Bruder</h4>
+              <p>
+                Moll-Tonleitern klingen trauriger oder düsterer als
+                Dur-Tonleitern. Die
+                <strong>natürliche Moll-Tonleiter</strong> hat ein anderes
+                Muster:
+                <strong>Ganz – Halb – Ganz – Ganz – Halb – Ganz – Ganz</strong>.
+              </p>
+            </div>
 
-            <h2>3. Akkorde: Töne im Einklang</h2>
-            <p>
-              Ein <strong>Akkord</strong> besteht aus mindestens drei Tönen, die
-              gleichzeitig gespielt werden. Der einfachste Akkord ist der
-              <strong>Dreiklang</strong>, der aus drei Tönen besteht:
-            </p>
-            <ul>
-              <li>
-                <strong>Grundton:</strong> Der Hauptton des Akkords (z. B. C)
-              </li>
-              <li>
-                <strong>Terz:</strong> Der dritte Ton der Tonleiter (z. B. E)
-              </li>
-              <li>
-                <strong>Quinte:</strong> Der fünfte Ton der Tonleiter (z. B. G)
-              </li>
-            </ul>
-            <p>
-              Ein <strong>C-Dur-Akkord</strong> besteht also aus den Tönen
-              <strong>C – E – G</strong>.
-            </p>
+            <div class="content-box">
+              <h3>3. Akkorde: Töne im Einklang</h3>
+              <p>
+                Ein <strong>Akkord</strong> besteht aus mindestens drei Tönen,
+                die gleichzeitig gespielt werden. Der einfachste Akkord ist der
+                <strong>Dreiklang</strong>, der aus drei Tönen besteht:
+              </p>
+              <ul>
+                <li>
+                  <strong>Grundton:</strong> Der Hauptton des Akkords (z. B. C)
+                </li>
+                <li>
+                  <strong>Terz:</strong> Der dritte Ton der Tonleiter (z. B. E)
+                </li>
+                <li>
+                  <strong>Quinte:</strong> Der fünfte Ton der Tonleiter (z. B.
+                  G)
+                </li>
+              </ul>
+              <p>
+                Ein <strong>C-Dur-Akkord</strong> besteht also aus den Tönen
+                <strong>C – E – G</strong>.
+              </p>
 
-            <h3>Dur vs. Moll: Der Unterschied</h3>
-            <ul>
-              <li>
-                <strong>Dur-Akkorde:</strong> Klingen fröhlich, hell (große
-                Terz)
-              </li>
-              <li>
-                <strong>Moll-Akkorde:</strong> Klingen traurig, dunkel (kleine
-                Terz)
-              </li>
-            </ul>
-            <p>
-              Beispiel: <strong>C-Dur = C – E – G</strong>,
-              <strong>C-Moll = C – Es – G</strong> (Es ist ein Halbton tiefer
-              als E).
-            </p>
+              <h4>Dur vs. Moll: Der Unterschied</h4>
+              <ul>
+                <li>
+                  <strong>Dur-Akkorde:</strong> Klingen fröhlich, hell (große
+                  Terz)
+                </li>
+                <li>
+                  <strong>Moll-Akkorde:</strong> Klingen traurig, dunkel (kleine
+                  Terz)
+                </li>
+              </ul>
+              <p>
+                Beispiel: <strong>C-Dur = C – E – G</strong>,
+                <strong>C-Moll = C – Es – G</strong> (Es ist ein Halbton tiefer
+                als E).
+              </p>
+            </div>
 
-            <h2>4. Rhythmus und Takt</h2>
-            <p>
-              Der <strong>Takt</strong> gibt den Rhythmus vor. Die häufigsten
-              Taktarten sind:
-            </p>
-            <ul>
-              <li>
-                <strong>4/4-Takt:</strong> Vier Schläge pro Takt (Standard in
-                Pop, Rock, Jazz)
-              </li>
-              <li><strong>3/4-Takt:</strong> Drei Schläge pro Takt (Walzer)</li>
-              <li>
-                <strong>6/8-Takt:</strong> Sechs Achtel-Noten pro Takt (viele
-                Balladen)
-              </li>
-            </ul>
-            <p>Notenwerte zeigen, wie lange ein Ton gespielt wird:</p>
-            <ul>
-              <li><strong>Ganze Note:</strong> 4 Schläge</li>
-              <li><strong>Halbe Note:</strong> 2 Schläge</li>
-              <li><strong>Viertelnote:</strong> 1 Schlag</li>
-              <li><strong>Achtelnote:</strong> ½ Schlag</li>
-            </ul>
+            <div class="content-box">
+              <h3>4. Rhythmus und Takt</h3>
+              <p>
+                Der <strong>Takt</strong> gibt den Rhythmus vor. Die häufigsten
+                Taktarten sind:
+              </p>
+              <ul>
+                <li>
+                  <strong>4/4-Takt:</strong> Vier Schläge pro Takt (Standard in
+                  Pop, Rock, Jazz)
+                </li>
+                <li>
+                  <strong>3/4-Takt:</strong> Drei Schläge pro Takt (Walzer)
+                </li>
+                <li>
+                  <strong>6/8-Takt:</strong> Sechs Achtel-Noten pro Takt (viele
+                  Balladen)
+                </li>
+              </ul>
+              <p>Notenwerte zeigen, wie lange ein Ton gespielt wird:</p>
+              <ul>
+                <li><strong>Ganze Note:</strong> 4 Schläge</li>
+                <li><strong>Halbe Note:</strong> 2 Schläge</li>
+                <li><strong>Viertelnote:</strong> 1 Schlag</li>
+                <li><strong>Achtelnote:</strong> ½ Schlag</li>
+              </ul>
+            </div>
 
-            <h2>5. Intervalle: Der Abstand zwischen Tönen</h2>
-            <p>
-              Ein <strong>Intervall</strong> ist der Abstand zwischen zwei
-              Tönen. Die wichtigsten Intervalle sind:
-            </p>
-            <ul>
-              <li><strong>Prime:</strong> Kein Abstand (gleicher Ton)</li>
-              <li><strong>Sekunde:</strong> Ein Ton weiter (C → D)</li>
-              <li><strong>Terz:</strong> Zwei Töne weiter (C → E)</li>
-              <li><strong>Quarte:</strong> Drei Töne weiter (C → F)</li>
-              <li><strong>Quinte:</strong> Vier Töne weiter (C → G)</li>
-              <li><strong>Oktave:</strong> Acht Töne weiter (C → C')</li>
-            </ul>
-            <p>
-              Intervalle sind wichtig, um Melodien und Akkorde zu verstehen.
-            </p>
+            <div class="content-box">
+              <h3>5. Intervalle: Der Abstand zwischen Tönen</h3>
+              <p>
+                Ein <strong>Intervall</strong> ist der Abstand zwischen zwei
+                Tönen. Die wichtigsten Intervalle sind:
+              </p>
+              <ul>
+                <li><strong>Prime:</strong> Kein Abstand (gleicher Ton)</li>
+                <li><strong>Sekunde:</strong> Ein Ton weiter (C → D)</li>
+                <li><strong>Terz:</strong> Zwei Töne weiter (C → E)</li>
+                <li><strong>Quarte:</strong> Drei Töne weiter (C → F)</li>
+                <li><strong>Quinte:</strong> Vier Töne weiter (C → G)</li>
+                <li><strong>Oktave:</strong> Acht Töne weiter (C → C')</li>
+              </ul>
+              <p>
+                Intervalle sind wichtig, um Melodien und Akkorde zu verstehen.
+              </p>
+            </div>
 
-            <h2>Fazit: Musiktheorie ist dein Werkzeug</h2>
-            <p>
-              Musiktheorie ist kein Selbstzweck – sie ist ein Werkzeug, das dir
-              hilft, Musik besser zu verstehen und kreativer zu werden. Du musst
-              nicht alles auswendig lernen, aber die Grundlagen (Noten,
-              Tonleitern, Akkorde, Rhythmus) sind Gold wert.
-            </p>
-            <p>
-              <strong>Tipp:</strong> Wende dein Wissen direkt am Instrument an!
-              Spiele Tonleitern, bilde Akkorde und experimentiere mit
-              verschiedenen Rhythmen. So bleibt die Theorie nicht trocken,
-              sondern wird lebendig.
-            </p>
+            <div class="content-box">
+              <h3>Fazit: Musiktheorie ist dein Werkzeug</h3>
+              <p>
+                Musiktheorie ist kein Selbstzweck – sie ist ein Werkzeug, das
+                dir hilft, Musik besser zu verstehen und kreativer zu werden. Du
+                musst nicht alles auswendig lernen, aber die Grundlagen (Noten,
+                Tonleitern, Akkorde, Rhythmus) sind Gold wert.
+              </p>
+              <p>
+                <strong>Tipp:</strong> Wende dein Wissen direkt am Instrument
+                an! Spiele Tonleitern, bilde Akkorde und experimentiere mit
+                verschiedenen Rhythmen. So bleibt die Theorie nicht trocken,
+                sondern wird lebendig.
+              </p>
 
-            <h3>Du willst mehr lernen?</h3>
-            <p>
-              In unserem
-              <a href="../instrumente.html">Musikunterricht in Karlsruhe</a>
-              erklären wir dir Musiktheorie Schritt für Schritt – praxisnah und
-              individuell. Vereinbare jetzt deine
-              <a href="../kontakt.html">kostenlose Probestunde</a>!
-            </p>
+              <h4>Du willst mehr lernen?</h4>
+              4>
+              <p>
+                In unserem
+                <a href="../instrumente.html">Musikunterricht in Karlsruhe</a>
+                erklären wir dir Musiktheorie Schritt für Schritt – praxisnah
+                und individuell. Vereinbare jetzt deine
+                <a href="../kontakt.html">kostenlose Probestunde</a>!
+              </p>
+            </div>
 
             <ul class="actions">
               <li><a href="../blog.html" class="button">Zurück zum Blog</a></li>

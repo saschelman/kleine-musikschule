@@ -41,6 +41,82 @@
     <noscript
       ><link rel="stylesheet" href="../assets/css/noscript.css"
     /></noscript>
+    <style>
+      /* Blog Content Styling */
+      #main p {
+        line-height: 1.8;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      #main h2,
+      #main h3,
+      #main h4 {
+        color: #667eea;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      #main strong {
+        color: #f0ad4e;
+      }
+
+      #main ul,
+      #main ol {
+        line-height: 1.9;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      #main li {
+        margin-bottom: 0.8em;
+      }
+
+      .inner {
+        max-width: 900px;
+      }
+
+      /* Content Box Styling */
+      .content-box {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.08) 0%,
+          rgba(118, 75, 162, 0.08) 100%
+        );
+        padding: 1.8em;
+        border-radius: 10px;
+        margin: 2em 0;
+        border-left: 4px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.25);
+        border-left: 4px solid #667eea;
+      }
+
+      .content-box h3,
+      .content-box h4 {
+        color: #667eea;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      .content-box p {
+        margin-bottom: 0.8em;
+      }
+
+      .content-box:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (max-width: 736px) {
+        #main p {
+          font-size: 0.95em;
+          line-height: 1.7;
+        }
+        #main ul,
+        #main ol {
+          font-size: 0.95em;
+        }
+      }
+    </style>
   </head>
   <body class="is-preload blog-post">
     <div id="wrapper">
@@ -74,11 +150,6 @@
               <h1>Musik lernen im Alter – es ist nie zu spät!</h1>
               <p>📅 September 2024 | ⏱️ 8 Minuten Lesezeit</p>
             </header>
-            <span class="image main"
-              ><img
-                src="../images/classicpiano.jpg"
-                alt="Klavier spielen im Alter"
-            /></span>
 
             <p>
               "Dafür bin ich zu alt." – Diesen Satz hören wir oft von Menschen,
@@ -89,220 +160,212 @@
               das so ist.
             </p>
 
-            <h2>Die Vorurteile – und warum sie falsch sind</h2>
+            <div class="content-box">
+              <h3>Die Vorurteile – und warum sie falsch sind</h3>
 
-            <h3>"Man muss als Kind anfangen, um gut zu werden"</h3>
-            <p>
-              <strong>Falsch!</strong> Ja, Kinder lernen manche motorische
-              Fähigkeiten leichter. Aber Erwachsene haben riesige Vorteile:
-              besseres Verständnis für Musik, mehr Geduld, klarere Ziele und vor
-              allem – die bewusste Entscheidung, Musik lernen zu wollen. Sie
-              müssen nicht "gut" im Sinne von "Profi-Musiker" werden. Sie müssen
-              Spaß haben und sich entwickeln!
-            </p>
+              <h4>"Man muss als Kind anfangen, um gut zu werden"</h4>
+              <p>
+                <strong>Falsch!</strong> Ja, Kinder lernen manche motorische
+                Fähigkeiten leichter. Aber Erwachsene haben riesige Vorteile:
+                besseres Verständnis für Musik, mehr Geduld, klarere Ziele und
+                vor allem – die bewusste Entscheidung, Musik lernen zu wollen.
+                Sie müssen nicht "gut" im Sinne von "Profi-Musiker" werden. Sie
+                müssen Spaß haben und sich entwickeln!
+              </p>
 
-            <h3>"Mein Gehirn ist zu alt für was Neues"</h3>
-            <p>
-              <strong>Wissenschaftlich widerlegt!</strong> Unser Gehirn bleibt
-              bis ins hohe Alter lernfähig (Neuroplastizität). Tatsächlich
-              zeigen Studien, dass Musiklernen das Gehirn aktiv hält und sogar
-              vor kognitivem Abbau schützen kann. Musik lernen ist Gehirnjogging
-              auf höchstem Niveau!
-            </p>
+              <h4>"Mein Gehirn ist zu alt für was Neues"</h4>
+              <p>
+                <strong>Wissenschaftlich widerlegt!</strong> Unser Gehirn bleibt
+                bis ins hohe Alter lernfähig (Neuroplastizität). Tatsächlich
+                zeigen Studien, dass Musiklernen das Gehirn aktiv hält und sogar
+                vor kognitivem Abbau schützen kann. Musik lernen ist
+                Gehirnjogging auf höchstem Niveau!
+              </p>
 
-            <h3>"Ich habe zu wenig Zeit"</h3>
-            <p>
-              <strong>Quatsch!</strong> Als Erwachsener bestimmen Sie Ihr Tempo
-              selbst. Sie müssen nicht täglich zwei Stunden üben. Auch 15-20
-              Minuten an den meisten Tagen bringen Sie weiter. Und ganz ehrlich:
-              Haben Sie nicht Zeit für Hobbys, die Sie glücklich machen?
-            </p>
+              <h4>"Ich habe zu wenig Zeit"</h4>
+              <p>
+                <strong>Quatsch!</strong> Als Erwachsener bestimmen Sie Ihr
+                Tempo selbst. Sie müssen nicht täglich zwei Stunden üben. Auch
+                15-20 Minuten an den meisten Tagen bringen Sie weiter. Und ganz
+                ehrlich: Haben Sie nicht Zeit für Hobbys, die Sie glücklich
+                machen?
+              </p>
+            </div>
 
-            <h2>Die wissenschaftlichen Vorteile von Musik im Alter</h2>
+            <div class="content-box">
+              <h3>Die wissenschaftlichen Vorteile von Musik im Alter</h3>
 
-            <h3>1. Geistige Fitness</h3>
-            <p>
-              Musikmachen aktiviert fast alle Bereiche des Gehirns gleichzeitig.
-              Es trainiert das Gedächtnis, verbessert die Koordination und hält
-              den Geist wach. Mehrere Studien haben gezeigt, dass ältere
-              Menschen, die regelmäßig musizieren, ein geringeres Risiko für
-              Demenz und Alzheimer haben.
-            </p>
+              <h4>1. Geistige Fitness</h4>
+              <p>
+                Musikmachen aktiviert fast alle Bereiche des Gehirns
+                gleichzeitig. Es trainiert das Gedächtnis, verbessert die
+                Koordination und hält den Geist wach. Mehrere Studien haben
+                gezeigt, dass ältere Menschen, die regelmäßig musizieren, ein
+                geringeres Risiko für Demenz und Alzheimer haben.
+              </p>
 
-            <h3>2. Feinmotorik und Koordination</h3>
-            <p>
-              Das Spielen eines Instruments erfordert präzise Fingerbewegungen
-              und Hand-Augen-Koordination. Das hält die Feinmotorik auf Trab und
-              kann sogar bei altersbedingte Steifheit helfen (natürlich in
-              Absprache mit dem Arzt).
-            </p>
+              <h4>2. Feinmotorik und Koordination</h4>
+              <p>
+                Das Spielen eines Instruments erfordert präzise Fingerbewegungen
+                und Hand-Augen-Koordination. Das hält die Feinmotorik auf Trab
+                und kann sogar bei altersbedingte Steifheit helfen (natürlich in
+                Absprache mit dem Arzt).
+              </p>
 
-            <h3>3. Emotionales Wohlbefinden</h3>
-            <p>
-              Musik macht glücklich! Sie baut Stress ab, hebt die Stimmung und
-              gibt Ihnen ein Erfolgserlebnis. Gerade im Ruhestand, wenn manche
-              das Gefühl haben, "nichts mehr zu leisten", kann ein neues Hobby
-              wie Musik enorm erfüllend sein.
-            </p>
+              <h4>3. Emotionales Wohlbefinden</h4>
+              <p>
+                Musik macht glücklich! Sie baut Stress ab, hebt die Stimmung und
+                gibt Ihnen ein Erfolgserlebnis. Gerade im Ruhestand, wenn manche
+                das Gefühl haben, "nichts mehr zu leisten", kann ein neues Hobby
+                wie Musik enorm erfüllend sein.
+              </p>
 
-            <h3>4. Soziale Kontakte</h3>
-            <p>
-              Musikunterricht und gemeinsames Musizieren schaffen soziale
-              Begegnungen. Sie treffen Gleichgesinnte, können in Gruppen spielen
-              oder einfach Ihre Fortschritte mit anderen teilen. Das ist
-              besonders wertvoll, wenn soziale Kontakte im Alter weniger werden.
-            </p>
+              <h4>4. Soziale Kontakte</h4>
+              <p>
+                Musikunterricht und gemeinsames Musizieren schaffen soziale
+                Begegnungen. Sie treffen Gleichgesinnte, können in Gruppen
+                spielen oder einfach Ihre Fortschritte mit anderen teilen. Das
+                ist besonders wertvoll, wenn soziale Kontakte im Alter weniger
+                werden.
+              </p>
+            </div>
 
             <h2>Welches Instrument ist am besten für ältere Einsteiger?</h2>
-            <span class="image main" <!-- image removed --> /></span>
 
-            <h3>🎹 Klavier/Keyboard – Der Allrounder</h3>
-            <p>
-              <strong>Warum ideal:</strong> Klavier ist besonders beliebt bei
-              älteren Lernenden. Es ist angenehm für die Hände (keine drückenden
-              Saiten), vermittelt ein gutes Verständnis von Musiktheorie und
-              bietet eine riesige Bandbreite von klassischer Musik bis Pop.
-            </p>
-            <p>
-              <strong>Bedenken:</strong> Manche finden die Unabhängigkeit beider
-              Hände anfangs herausfordernd. Aber mit Geduld und gutem Unterricht
-              ist das absolut machbar!
-            </p>
+            <div class="content-box">
+              <h3>🌹 Klavier/Keyboard – Der Allrounder</h3>
+              <p>
+                <strong>Warum ideal:</strong> Klavier ist besonders beliebt bei
+                älteren Lernenden. Es ist angenehm für die Hände (keine
+                drückenden Saiten), vermittelt ein gutes Verständnis von
+                Musiktheorie und bietet eine riesige Bandbreite von klassischer
+                Musik bis Pop.
+              </p>
+              <p>
+                <strong>Bedenken:</strong> Manche finden die Unabhängigkeit
+                beider Hände anfangs herausfordernd. Aber mit Geduld und gutem
+                Unterricht ist das absolut machbar!
+              </p>
+            </div>
 
-            <h3>🎸 Gitarre – Der Klassiker</h3>
-            <p>
-              <strong>Warum ideal:</strong> Sehr vielseitig, relativ schnelle
-              Erfolgserlebnisse (erste Akkorde nach wenigen Wochen), und Sie
-              können sich selbst begleiten, wenn Sie gerne singen.
-            </p>
-            <p>
-              <strong>Bedenken:</strong> Am Anfang können die Fingerkuppen etwas
-              wehtun, bis sich Hornhaut bildet. Aber das ist nach 2-3 Wochen
-              vorbei. Bei Arthrose in den Händen sollten Sie vorher mit einem
-              Arzt sprechen.
-            </p>
+            <div class="content-box">
+              <h3>🎸 Gitarre – Der Klassiker</h3>
+              <p>
+                <strong>Warum ideal:</strong> Sehr vielseitig, relativ schnelle
+                Erfolgserlebnisse (erste Akkorde nach wenigen Wochen), und Sie
+                können sich selbst begleiten, wenn Sie gerne singen.
+              </p>
+              <p>
+                <strong>Bedenken:</strong> Am Anfang können die Fingerkuppen
+                etwas wehtun, bis sich Hornhaut bildet. Aber das ist nach 2-3
+                Wochen vorbei. Bei Arthrose in den Händen sollten Sie vorher mit
+                einem Arzt sprechen.
+              </p>
+            </div>
 
-            <h3>🪕 Ukulele – Der Einsteigerfreund</h3>
-            <span class="image main" <!-- image removed --> /></span>
-            <p>
-              <strong>Warum ideal:</strong> Kleiner, leichter und sanfter zu den
-              Fingern als Gitarre. Weiche Nylonsaiten, schnelle
-              Erfolgserlebnisse, fröhlicher Sound. Perfekt für entspanntes
-              Musizieren!
-            </p>
-            <p>
-              <strong>Bedenken:</strong> Wird manchmal nicht ganz ernst genommen
-              (völlig zu Unrecht!). Für große Hände manchmal etwas fummelig.
-            </p>
+            <div class="content-box">
+              <h3>🪕 Ukulele – Der Einsteigerfreund</h3>
+              <p>
+                <strong>Warum ideal:</strong> Kleiner, leichter und sanfter zu
+                den Fingern als Gitarre. Weiche Nylonsaiten, schnelle
+                Erfolgserlebnisse, fröhlicher Sound. Perfekt für entspanntes
+                Musizieren!
+              </p>
+              <p>
+                <strong>Bedenken:</strong> Wird manchmal nicht ganz ernst
+                genommen (völlig zu Unrecht!). Für große Hände manchmal etwas
+                fummelig.
+              </p>
+            </div>
 
-            <h3>🎷 Blasinstrumente – Für Atem und Ausdauer</h3>
-            <p>
-              <strong>Warum interessant:</strong> Blasinstrumente wie Saxophon
-              oder Klarinette trainieren die Atemmuskulatur und Lungenkapazität.
-              Das ist gesundheitlich sehr wertvoll!
-            </p>
-            <p>
-              <strong>Bedenken:</strong> Erfordert körperliche Fitness und
-              gesunde Lungen. Bei Atemproblemen nicht ideal.
-            </p>
+            <div class="content-box">
+              <h3>🎷 Blasinstrumente – Für Atem und Ausdauer</h3>
+              <p>
+                <strong>Warum interessant:</strong> Blasinstrumente wie Saxophon
+                oder Klarinette trainieren die Atemmuskulatur und
+                Lungenkapazität. Das ist gesundheitlich sehr wertvoll!
+              </p>
+              <p>
+                <strong>Bedenken:</strong> Erfordert körperliche Fitness und
+                gesunde Lungen. Bei Atemproblemen nicht ideal.
+              </p>
+            </div>
 
-            <h2>Realistische Erwartungen: Was können Sie erreichen?</h2>
+            <div class="content-box">
+              <h3>Realistische Erwartungen: Was können Sie erreichen?</h3>
 
-            <h3>Nach 3 Monaten:</h3>
-            <ul>
-              <li>Erste einfache Stücke oder Lieder spielen</li>
-              <li>Grundlegende Akkorde beherrschen (bei Gitarre/Ukulele)</li>
-              <li>Sich mit dem Instrument vertraut fühlen</li>
-              <li>Grundlagen der Noten oder Tabulatur verstehen</li>
-            </ul>
+              <h4>Nach 3 Monaten:</h4>
+              <ul>
+                <li>Erste einfache Stücke oder Lieder spielen</li>
+                <li>Grundlegende Akkorde beherrschen (bei Gitarre/Ukulele)</li>
+                <li>Sich mit dem Instrument vertraut fühlen</li>
+                <li>Grundlagen der Noten oder Tabulatur verstehen</li>
+              </ul>
 
-            <h3>Nach 6-12 Monaten:</h3>
-            <ul>
-              <li>Mehrere Songs im Repertoire haben</li>
-              <li>Sicherer in der Technik sein</li>
-              <li>Anfangen, eigene Interpretationen zu entwickeln</li>
-              <li>
-                Vielleicht erste Auftritte in kleinem Rahmen (wenn gewünscht)
-              </li>
-            </ul>
+              <h4>Nach 6-12 Monaten:</h4>
+              <ul>
+                <li>Mehrere Songs im Repertoire haben</li>
+                <li>Sicherer in der Technik sein</li>
+                <li>Anfangen, eigene Interpretationen zu entwickeln</li>
+                <li>
+                  Vielleicht erste Auftritte in kleinem Rahmen (wenn gewünscht)
+                </li>
+              </ul>
 
-            <h3>Nach 2-3 Jahren:</h3>
-            <ul>
-              <li>Breites Repertoire an Stücken</li>
-              <li>Gutes musikalisches Verständnis</li>
-              <li>Eventuell in einer Gruppe oder Band spielen</li>
-              <li>
-                Musik als festen, wertvollen Teil Ihres Lebens etabliert haben
-              </li>
-            </ul>
+              <h4>Nach 2-3 Jahren:</h4>
+              <ul>
+                <li>Breites Repertoire an Stücken</li>
+                <li>Gutes musikalisches Verständnis</li>
+                <li>Eventuell in einer Gruppe oder Band spielen</li>
+                <li>
+                  Musik als festen, wertvollen Teil Ihres Lebens etabliert haben
+                </li>
+              </ul>
+            </div>
 
-            <h2>Tipps für den erfolgreichen Einstieg</h2>
+            <div class="content-box">
+              <h3>Tipps für den erfolgreichen Einstieg</h3>
 
-            <h3>1. Suchen Sie sich einen geduldigen Lehrer</h3>
-            <p>
-              Nicht jeder Musiklehrer ist gut darin, ältere Erwachsene zu
-              unterrichten. Suchen Sie jemanden, der Erfahrung mit erwachsenen
-              Schülern hat, Ihre Ziele versteht und das Tempo an Sie anpasst.
-              Bei uns haben wir Lehrer, die speziell darauf geschult sind!
-            </p>
+              <h4>1. Suchen Sie sich einen geduldigen Lehrer</h4>
+              <p>
+                Nicht jeder Musiklehrer ist gut darin, ältere Erwachsene zu
+                unterrichten. Suchen Sie jemanden, der Erfahrung mit erwachsenen
+                Schülern hat, Ihre Ziele versteht und das Tempo an Sie anpasst.
+                Bei uns haben wir Lehrer, die speziell darauf geschult sind!
+              </p>
 
-            <h3>2. Üben Sie regelmäßig, aber ohne Druck</h3>
-            <p>
-              Lieber täglich 15 Minuten als einmal pro Woche eine Stunde. Machen
-              Sie das Üben zur angenehmen Routine – vielleicht mit einer Tasse
-              Kaffee danach als Belohnung. Aber setzen Sie sich nicht unter
-              Druck. Das ist Ihr Hobby, nicht Ihre Prüfung!
-            </p>
+              <h4>2. Üben Sie regelmäßig, aber ohne Druck</h4>
+              <p>
+                Lieber täglich 15 Minuten als einmal pro Woche eine Stunde.
+                Machen Sie das Üben zur angenehmen Routine – vielleicht mit
+                einer Tasse Kaffee danach als Belohnung. Aber setzen Sie sich
+                nicht unter Druck. Das ist Ihr Hobby, nicht Ihre Prüfung!
+              </p>
 
-            <h3>3. Wählen Sie Musik, die Sie lieben</h3>
-            <p>
-              Sie müssen nicht Mozart spielen, wenn Sie Jazz lieben. Sie müssen
-              keine Pop-Songs lernen, wenn Sie klassische Musik bevorzugen.
-              Spielen Sie, was Ihr Herz zum Singen bringt! Das ist der beste
-              Motivator.
-            </p>
+              <h4>3. Wählen Sie Musik, die Sie lieben</h4>
+              <p>
+                Sie müssen nicht Mozart spielen, wenn Sie Jazz lieben. Sie
+                müssen keine Pop-Songs lernen, wenn Sie klassische Musik
+                bevorzugen. Spielen Sie, was Ihr Herz zum Singen bringt! Das ist
+                der beste Motivator.
+              </p>
 
-            <h3>4. Seien Sie geduldig mit sich selbst</h3>
-            <p>
-              Fortschritte im Erwachsenenalter können langsamer sein als bei
-              Kindern – aber sie sind nicht weniger wertvoll! Feiern Sie kleine
-              Erfolge. Vergleichen Sie sich nicht mit anderen. Genießen Sie die
-              Reise!
-            </p>
+              <h4>4. Seien Sie geduldig mit sich selbst</h4>
+              <p>
+                Fortschritte im Erwachsenenalter können langsamer sein als bei
+                Kindern – aber sie sind nicht weniger wertvoll! Feiern Sie
+                kleine Erfolge. Vergleichen Sie sich nicht mit anderen. Genießen
+                Sie die Reise!
+              </p>
 
-            <h3>5. Kümmern Sie sich um Ihre Gesundheit</h3>
-            <p>
-              Bei Schmerzen in Händen, Fingern oder Rücken hören Sie auf und
-              machen Sie Pausen. Sprechen Sie mit Ihrem Lehrer über ergonomische
-              Haltung. Wenn Sie gesundheitliche Bedenken haben, konsultieren Sie
-              vorher Ihren Arzt.
-            </p>
-
-            <h2>Inspirierende Geschichten</h2>
-
-            <h3>Herr Schmidt, 67 – Gitarre</h3>
-            <p>
-              "Ich habe mein ganzes Leben davon geträumt, Gitarre zu spielen.
-              Mit 65, im Ruhestand, habe ich endlich angefangen. Jetzt, zwei
-              Jahre später, spiele ich in einer kleinen Band mit anderen
-              'Junggebliebenen'. Es ist das Beste, was ich je gemacht habe!"
-            </p>
-
-            <h3>Frau Weber, 72 – Klavier</h3>
-            <p>
-              "Nach dem Tod meines Mannes suchte ich etwas, das mir Freude gibt.
-              Klavier lernen hat mir nicht nur ein neues Hobby gegeben, sondern
-              auch neue Freunde und eine Struktur im Alltag. Ich spiele jeden
-              Morgen – es ist meine Meditation."
-            </p>
-
-            <h3>Herr Müller, 58 – Ukulele</h3>
-            <p>
-              "Ich dachte immer, ich wäre unmusikalisch. Aber die Ukulele hat
-              mir gezeigt, dass das Unsinn war! Nach nur drei Monaten konnte ich
-              meiner Frau zum Geburtstag ein Lied spielen. Ihr Lächeln war
-              unbezahlbar!"
-            </p>
+              <h4>5. Kümmern Sie sich um Ihre Gesundheit</h4>
+              <p>
+                Bei Schmerzen in Händen, Fingern oder Rücken hören Sie auf und
+                machen Sie Pausen. Sprechen Sie mit Ihrem Lehrer über
+                ergonomische Haltung. Wenn Sie gesundheitliche Bedenken haben,
+                konsultieren Sie vorher Ihren Arzt.
+              </p>
+            </div>
 
             <h2>Das Fazit: Fangen Sie heute an!</h2>
             <p>

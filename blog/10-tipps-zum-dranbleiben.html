@@ -39,6 +39,82 @@
     <noscript
       ><link rel="stylesheet" href="../assets/css/noscript.css"
     /></noscript>
+    <style>
+      /* Blog Content Styling */
+      #main p {
+        line-height: 1.8;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      #main h2,
+      #main h3,
+      #main h4 {
+        color: #667eea;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      #main strong {
+        color: #f0ad4e;
+      }
+
+      #main ul,
+      #main ol {
+        line-height: 1.9;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      #main li {
+        margin-bottom: 0.8em;
+      }
+
+      .inner {
+        max-width: 900px;
+      }
+
+      /* Content Box Styling */
+      .content-box {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.08) 0%,
+          rgba(118, 75, 162, 0.08) 100%
+        );
+        padding: 1.8em;
+        border-radius: 10px;
+        margin: 2em 0;
+        border-left: 4px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.25);
+        border-left: 4px solid #667eea;
+      }
+
+      .content-box h3,
+      .content-box h4 {
+        color: #667eea;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      .content-box p {
+        margin-bottom: 0.8em;
+      }
+
+      .content-box:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (max-width: 736px) {
+        #main p {
+          font-size: 0.95em;
+          line-height: 1.7;
+        }
+        #main ul,
+        #main ol {
+          font-size: 0.95em;
+        }
+      }
+    </style>
   </head>
   <body class="is-preload blog-post">
     <div id="wrapper">
@@ -82,76 +158,98 @@
               />
             </span>
 
-            <h3>1) Mini‑Ziele für schnelle Erfolge</h3>
-            <p>
-              Setze dir kleine, messbare Ziele für jede Woche: ein Riff sauber
-              spielen, ein Voicing sicher greifen, ein Beat bei 70 → 80 BPM.
-              Kleine Siege halten die Motivation hoch.
-            </p>
+            <div class="content-box">
+              <h4>1) Mini‑Ziele für schnelle Erfolge</h4>
+              <p>
+                Setze dir kleine, messbare Ziele für jede Woche: ein Riff sauber
+                spielen, ein Voicing sicher greifen, ein Beat bei 70 → 80 BPM.
+                Kleine Siege halten die Motivation hoch.
+              </p>
+            </div>
 
-            <h3>2) 10‑Minuten‑Regel statt Perfektion</h3>
-            <p>
-              Starte mit nur 10 Minuten. Oft wird daraus mehr – aber selbst wenn
-              nicht: Du bleibst in Bewegung und verankerst die Gewohnheit.
-            </p>
+            <div class="content-box">
+              <h4>2) 10‑Minuten‑Regel statt Perfektion</h4>
+              <p>
+                Starte mit nur 10 Minuten. Oft wird daraus mehr – aber selbst
+                wenn nicht: Du bleibst in Bewegung und verankerst die
+                Gewohnheit.
+              </p>
+            </div>
 
-            <h3>3) Feste Slots im Kalender</h3>
-            <p>
-              Plane 2–4 feste Übezeiten pro Woche. Klar definierte Zeiten
-              schlagen „Ich übe irgendwann“. Tipp: gleiche Tage, gleiche
-              Uhrzeit.
-            </p>
+            <div class="content-box">
+              <h4>3) Feste Slots im Kalender</h4>
+              <p>
+                Plane 2–4 feste Übezeiten pro Woche. Klar definierte Zeiten
+                schlagen „Ich übe irgendwann". Tipp: gleiche Tage, gleiche
+                Uhrzeit.
+              </p>
+            </div>
 
-            <h3>4) Starte mit einem Warm‑up</h3>
-            <p>
-              2–5 Minuten einfache Technik (Lockerung, Finger‑/Rudiment‑Übungen,
-              leichte Skalen). Ein kurzer Einstieg senkt die Hürde und
-              verbessert die Konzentration.
-            </p>
+            <div class="content-box">
+              <h4>4) Starte mit einem Warm‑up</h4>
+              <p>
+                2–5 Minuten einfache Technik (Lockerung,
+                Finger‑/Rudiment‑Übungen, leichte Skalen). Ein kurzer Einstieg
+                senkt die Hürde und verbessert die Konzentration.
+              </p>
+            </div>
 
-            <h3>5) Metronom als Freund</h3>
-            <p>
-              Tempo in kleinen Schritten steigern (z. B. +4 BPM). Spiele bewusst
-              <em>unter</em> der Komfortzone, dann leicht <em>über</em> der
-              Komfortzone.
-              <a href="ueben-mit-metronom.html"
-                >Warum das Metronom so wichtig ist →</a
-              >
-            </p>
+            <div class="content-box">
+              <h4>5) Metronom als Freund</h4>
+              <p>
+                Tempo in kleinen Schritten steigern (z. B. +4 BPM). Spiele
+                bewusst
+                <em>unter</em> der Komfortzone, dann leicht <em>über</em> der
+                Komfortzone.
+                <a href="ueben-mit-metronom.html"
+                  >Warum das Metronom so wichtig ist →</a
+                >
+              </p>
+            </div>
 
-            <h3>6) Repertoire zuerst, dann Technik</h3>
-            <p>
-              Arbeite an echten Stücken/Songs und verknüpfe Technik damit. Das
-              steigert die Motivation und hält die Technik praxisnah.
-            </p>
+            <div class="content-box">
+              <h4>6) Repertoire zuerst, dann Technik</h4>
+              <p>
+                Arbeite an echten Stücken/Songs und verknüpfe Technik damit. Das
+                steigert die Motivation und hält die Technik praxisnah.
+              </p>
+            </div>
 
-            <h3>7) Micro‑Notizen nach jeder Session</h3>
-            <p>
-              Schreibe 1–2 Sätze: „Was hat geklappt? Was übe ich nächstes Mal?“
-              So gehst du fokussiert in die nächste Einheit und siehst deinen
-              Fortschritt.
-            </p>
+            <div class="content-box">
+              <h4>7) Micro‑Notizen nach jeder Session</h4>
+              <p>
+                Schreibe 1–2 Sätze: „Was hat geklappt? Was übe ich nächstes
+                Mal?" So gehst du fokussiert in die nächste Einheit und siehst
+                deinen Fortschritt.
+              </p>
+            </div>
 
-            <h3>8) Variiere die Perspektive</h3>
-            <p>
-              Wechsle zwischen Hören, Spielen, Aufnehmen. Eine kurze Sprach‑
-              oder Audioaufnahme zeigt dir nüchtern, was schon gut klingt – und
-              was als Nächstes dran ist.
-            </p>
+            <div class="content-box">
+              <h4>8) Variiere die Perspektive</h4>
+              <p>
+                Wechsle zwischen Hören, Spielen, Aufnehmen. Eine kurze Sprach‑
+                oder Audioaufnahme zeigt dir nüchtern, was schon gut klingt –
+                und was als Nächstes dran ist.
+              </p>
+            </div>
 
-            <h3>9) Motivation koppeln</h3>
-            <p>
-              Verbinde Üben mit etwas Angenehmem: Lieblingsgetränk, kurzer
-              Spaziergang danach, 15 Minuten Lieblingssongs hören. Positive
-              Routinen tragen dich durch Flauten.
-            </p>
+            <div class="content-box">
+              <h4>9) Motivation koppeln</h4>
+              <p>
+                Verbinde Üben mit etwas Angenehmem: Lieblingsgetränk, kurzer
+                Spaziergang danach, 15 Minuten Lieblingssongs hören. Positive
+                Routinen tragen dich durch Flauten.
+              </p>
+            </div>
 
-            <h3>10) Mit Menschen lernen</h3>
-            <p>
-              Band, Jam‑Session, Unterricht oder Lernpartner: Gemeinsames
-              Musizieren multipliziert Motivation und Feedback. Vereinbare
-              kleine „Deadlines“ für ein Mini‑Vorspiel.
-            </p>
+            <div class="content-box">
+              <h4>10) Mit Menschen lernen</h4>
+              <p>
+                Band, Jam‑Session, Unterricht oder Lernpartner: Gemeinsames
+                Musizieren multipliziert Motivation und Feedback. Vereinbare
+                kleine „Deadlines" für ein Mini‑Vorspiel.
+              </p>
+            </div>
 
             <hr />
 
@@ -189,7 +287,7 @@
                 >
               </li>
               <li>
-                <a href="welches-instrument-passt-zu-mir.html" class="button"
+                <a href="quiz-musiker.html" class="button"
                   >Zum Instrumenten‑Quiz</a
                 >
               </li>

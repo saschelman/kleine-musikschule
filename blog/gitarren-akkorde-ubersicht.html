@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>
+      Gitarren-Akkorde Übersicht - Alle wichtigen Akkorde | Kleine Musikschule
+      Karlsruhe
+    </title>
+    <meta
+      name="description"
+      content="Komplette Übersicht aller wichtigen Gitarren-Akkorde mit Grifftabellen. Dur, Moll, Septakkorde und mehr für Anfänger und Fortgeschrittene."
+    />
+    <meta
+      name="keywords"
+      content="Gitarren-Akkorde, Akkorde Übersicht, Grifftabelle, Dur Moll Akkorde, Gitarre lernen"
+    />
+    <link
+      rel="canonical"
+      href="https://www.kleine-muskischule.de/blog/gitarren-akkorde-ubersicht.html"
+    />
+    <meta
+      property="og:title"
+      content="Gitarren-Akkorde Übersicht - Alle wichtigen Akkorde"
+    />
+    <meta
+      property="og:description"
+      content="Komplette Übersicht aller wichtigen Gitarren-Akkorde mit Grifftabellen."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://www.kleine-muskischule.de/blog/gitarren-akkorde-ubersicht.html"
+    />
+    <meta
+      property="og:image"
+      content="https://www.kleine-muskischule.de/images/logo_small.png"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="../assets/css/main.min.css" />
+    <link rel="icon" href="../images/logo_small.png" />
+    <noscript
+      ><link rel="stylesheet" href="../assets/css/noscript.css"
+    /></noscript>
+    <style>
+      /* Chord Selector */
+      .chord-selector {
+        padding: 1.5em 0;
+        text-align: center;
+      }
+
+      .root-note-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.3em;
+        margin-bottom: 1.5em;
+        background: rgba(58, 58, 58, 0.8);
+        padding: 0.5em;
+        border-radius: 12px;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .root-tab {
+        padding: 0.7em 1.8em;
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid transparent;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 1.05em;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .root-tab::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .root-tab:hover::before {
+        left: 100%;
+      }
+
+      .root-tab:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(240, 173, 78, 0.3);
+      }
+
+      .root-tab.active {
+        background: linear-gradient(135deg, #f0ad4e 0%, #f39c12 100%);
+        color: #000;
+        border-color: #f39c12;
+        box-shadow: 0 6px 20px rgba(240, 173, 78, 0.4);
+        transform: scale(1.05);
+      }
+
+      .chord-types-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7em;
+        justify-content: center;
+        margin: 1.5em 0;
+        padding: 0 1em;
+      }
+
+      .chord-type-btn {
+        padding: 0.7em 1.5em;
+        background: rgba(90, 90, 90, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.95em;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .chord-type-btn::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+      }
+
+      .chord-type-btn:hover {
+        background: rgba(102, 126, 234, 0.3);
+        border-color: #667eea;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      .chord-type-btn:hover::after {
+        width: 100%;
+      }
+
+      .chord-type-btn.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-color: #764ba2;
+        color: #fff;
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+        transform: scale(1.05);
+      }
+
+      .chord-type-btn.active::after {
+        width: 100%;
+      }
+
+      .advanced-toggle {
+        margin-top: 0;
+        text-align: center;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .advanced-toggle.pushed-down {
+        transform: translateY(0);
+      }
+
+      .advanced-btn {
+        padding: 0.8em 2.5em;
+        background: rgba(118, 75, 162, 0.1);
+        border: 2px solid #764ba2;
+        border-radius: 10px;
+        color: #764ba2;
+        font-weight: bold;
+        font-size: 1.05em;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .advanced-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(118, 75, 162, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .advanced-btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .advanced-btn:hover {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+      }
+
+      .advanced-btn span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .advanced-btn.active {
+        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        color: white;
+      }
+
+      .advanced-chords {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0;
+        padding-top: 0;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.4s ease, margin-top 0.5s ease, padding-top 0.5s ease;
+      }
+
+      .advanced-chords.show {
+        max-height: 2000px;
+        opacity: 1;
+        margin-top: 1.5em;
+        padding-top: 1.5em;
+        border-top: 2px solid rgba(118, 75, 162, 0.3);
+        animation: slideDown 0.5s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* Fretboard Display */
+      .fretboard-container {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 2.5em 1.5em;
+        border-radius: 14px;
+        margin: 2.5em auto;
+        max-width: 1400px;
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(102, 126, 234, 0.15);
+      }
+
+      .chord-display-name {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bold;
+        color: #667eea;
+        margin-bottom: 0.3em;
+        text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+      }
+
+      .chord-display-info {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 1.5em;
+        font-size: 1.05em;
+      }
+
+      .chord-variants {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        margin-bottom: 1.5em;
+      }
+
+      .variant-btn {
+        padding: 0.3em 0.7em;
+        background: rgba(90, 90, 90, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.75em;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .variant-btn::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transform: translateX(-50%);
+        transition: width 0.3s ease;
+      }
+
+      .variant-btn:hover {
+        background: rgba(102, 126, 234, 0.3);
+        border-color: #667eea;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .variant-btn:hover::after {
+        width: 100%;
+      }
+
+      .variant-btn.active {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-color: #764ba2;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        transform: scale(1.05);
+      }
+
+      .variant-btn.active::after {
+        width: 100%;
+      }
+
+      .fretboard {
+        position: relative;
+        background: #2a2a2a;
+        border-radius: 12px;
+        padding: 2.5em 2em;
+        overflow-x: auto;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .fretboard-grid {
+        display: grid;
+        grid-template-columns: 60px repeat(15, 85px);
+        gap: 0;
+        min-width: 1200px;
+        position: relative;
+        background: linear-gradient(180deg, #333 0%, #2a2a2a 100%);
+      }
+
+      .string-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffd700;
+        font-weight: bold;
+        font-size: 1.3em;
+        background: rgba(0, 0, 0, 0.5);
+        border-right: 5px solid #d4af37;
+        letter-spacing: 2px;
+      }
+
+      .fret {
+        position: relative;
+        height: 65px;
+        border-right: 2px solid #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #2a2a2a;
+        transition: background 0.2s ease;
+      }
+
+      .fret:hover {
+        background: rgba(102, 126, 234, 0.1);
+      }
+
+      .fret:first-child {
+        border-left: 4px solid #888;
+      }
+
+      .fret-marker {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: #666;
+        border-radius: 50%;
+        opacity: 0.4;
+        z-index: 1;
+        transition: all 0.2s ease;
+      }
+
+      .fret-marker.double {
+        top: 12px;
+      }
+
+      .fret-marker.double.bottom {
+        top: auto;
+        bottom: 12px;
+      }
+
+      .fret-number {
+        grid-column: span 1;
+        text-align: center;
+        color: #888;
+        font-size: 1em;
+        font-weight: 600;
+        padding: 0.5em 0;
+        background: #1a1a1a;
+        border-right: 2px solid #555;
+        letter-spacing: 1px;
+      }
+
+      .string-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #666;
+        pointer-events: none;
+      }
+
+      .finger-dot {
+        width: 40px;
+        height: 40px;
+        background: #667eea;
+        border: 3px solid #667eea;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1em;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+        z-index: 10;
+        transition: all 0.2s ease;
+      }
+
+      .finger-dot:hover {
+        transform: scale(1.15);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
+      }
+
+      .finger-dot::after {
+        content: attr(data-note);
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: #f0ad4e;
+        padding: 0.4em 0.8em;
+        border-radius: 6px;
+        font-size: 0.85em;
+        font-weight: bold;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 100;
+        border: 1px solid rgba(240, 173, 78, 0.5);
+      }
+
+      .finger-dot:hover::after {
+        opacity: 1;
+      }
+
+      .open-string {
+        color: #4ade80;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .muted-string {
+        color: #ef4444;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .chord-tips {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.1) 0%,
+          rgba(118, 75, 162, 0.1) 100%
+        );
+        padding: 2em;
+        border-radius: 12px;
+        margin: 2.5em 0;
+        border-left: 5px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.3);
+        border-left: 5px solid #667eea;
+      }
+
+      .chord-tips h3 {
+        color: #667eea;
+        font-size: 1.4em;
+        margin-top: 0;
+        margin-bottom: 1.2em;
+      }
+
+      .chord-tips p {
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.05em;
+        margin-bottom: 0;
+      }
+
+      .chord-tips ul {
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05em;
+        margin: 0;
+      }
+
+      .chord-tips li {
+        margin-bottom: 1em;
+        padding-left: 0.5em;
+      }
+
+      .chord-tips strong {
+        color: #f0ad4e;
+      }
+
+      .chord-tips br {
+        line-height: 2;
+      }
+
+      /* Content Box Styling */
+      .content-box {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.08) 0%,
+          rgba(118, 75, 162, 0.08) 100%
+        );
+        padding: 1.8em;
+        border-radius: 10px;
+        margin: 2em 0;
+        border-left: 4px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.25);
+        border-left: 4px solid #667eea;
+      }
+
+      .content-box h3,
+      .content-box h4 {
+        color: #667eea;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      .content-box p {
+        margin-bottom: 0.8em;
+      }
+
+      .content-box:last-child {
+        margin-bottom: 0;
+      }
+
+      @media screen and (max-width: 736px) {
+        .fretboard-grid {
+          min-width: 700px;
+        }
+
+        .fretboard-grid {
+          grid-template-columns: 30px repeat(15, 50px);
+        }
+
+        .fret {
+          height: 40px;
+        }
+
+        .chord-display-name {
+          font-size: 1.8em;
+        }
+
+        .chord-tips {
+          padding: 1.5em;
+        }
+
+        .chord-tips h3 {
+          font-size: 1.2em;
+        }
+
+        .chord-tips p,
+        .chord-tips ul {
+          font-size: 0.95em;
+          line-height: 1.7;
+        }
+      }
+    </style>
+  </head>
+  <body class="is-preload blog-post">
+    <div id="wrapper">
+      <header id="header">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo_small.png" alt="Logo" class="logo-img" />
+          <strong>kleine</strong> <span>musikschule Karlsruhe</span>
+        </a>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../überuns.html">Über uns</a></li>
+          <li><a href="../lehre.html">Lehre</a></li>
+          <li><a href="../instrumente.html">Instrumente</a></li>
+          <li><a href="../preise.html">Preise</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+          <li><a href="../kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <div id="main" class="alt">
+        <section id="one">
+          <div class="inner">
+            <header class="major">
+              <h1>Gitarren-Akkorde Übersicht</h1>
+              <p>
+                📅 Dezember 2024 | 🎸 Deine komplette Akkord-Bibliothek zum
+                Nachschlagen
+              </p>
+            </header>
+
+            <p>
+              Willkommen zu deiner interaktiven Akkord-Bibliothek! Wähle einen
+              Akkord aus und sieh dir die Griffposition auf dem Gitarrenhals an.
+              Perfekt zum Lernen und Nachschlagen für Anfänger und
+              Fortgeschrittene.
+            </p>
+
+            <div class="fretboard-container">
+              <div class="chord-display-name" id="chordDisplayName">
+                Wähle einen Akkord
+              </div>
+              <div class="chord-display-info" id="chordDisplayInfo">
+                Klicke auf einen Akkord-Button unten, um die Griffposition zu
+                sehen
+              </div>
+              <div class="chord-variants" id="chordVariants">
+                <!-- Varianten-Buttons werden hier dynamisch eingefügt -->
+              </div>
+
+              <div class="fretboard">
+                <div class="fretboard-grid" id="fretboard">
+                  <!-- Fretboard wird dynamisch generiert -->
+                </div>
+              </div>
+
+              <div class="chord-selector">
+                <div class="root-note-tabs" id="rootNoteTabs">
+                  <!-- Root notes: C, C#, D, D#, E, F, F#, G, G#, A, A#, B -->
+                </div>
+
+                <div class="chord-types-row" id="chordTypes">
+                  <!-- Basic chord types -->
+                </div>
+
+                <div class="advanced-chords" id="advancedChords">
+                  <div class="chord-types-row" id="advancedTypes">
+                    <!-- Advanced chord types -->
+                  </div>
+                </div>
+
+                <div class="advanced-toggle">
+                  <button class="advanced-btn" id="advancedToggle">
+                    <span>Advanced ▼</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="chord-tips">
+              <h3>📝 Wie liest man das Griffbrett?</h3>
+              <p>
+                <strong>Weiße Punkte mit Zahlen:</strong> Zeigen wo du deine
+                Finger platzieren sollst (1=Zeigefinger, 2=Mittelfinger,
+                3=Ringfinger, 4=Kleiner Finger)<br />
+                <strong>O (Grün):</strong> Leere Saite - spielen ohne Finger
+                aufzulegen<br />
+                <strong>X (Rot):</strong> Diese Saite nicht spielen<br />
+                <strong>Saiten:</strong> Von oben nach unten: E, B, G, D, A, E
+                (dünn nach dick)
+              </p>
+            </div>
+
+            <div class="chord-tips">
+              <h3>💡 Tipps zum Üben</h3>
+              <ul>
+                <li>
+                  <strong>Langsam starten:</strong> Übe jeden Akkord erst
+                  langsam, bis alle Saiten klar klingen
+                </li>
+                <li>
+                  <strong>Akkordwechsel:</strong> Übe gezielt die Wechsel
+                  zwischen häufigen Akkordkombinationen (z.B. C-G-Am-F)
+                </li>
+                <li>
+                  <strong>Finger-Unabhängigkeit:</strong> Setze jeden Finger
+                  einzeln auf und achte auf die richtige Position
+                </li>
+                <li>
+                  <strong>Regelmäßigkeit:</strong> 10 Minuten täglich sind
+                  besser als einmal 2 Stunden pro Woche
+                </li>
+                <li>
+                  <strong>Mit Songs üben:</strong> Such dir einfache Lieder mit
+                  den Akkorden, die du gerade lernst
+                </li>
+              </ul>
+            </div>
+
+            <div class="content-box">
+              <h3>📚 4-Wochen Trainingsplan</h3>
+
+              <h4>Woche 1-2: Em und Am</h4>
+              <ul>
+                <li>Greife jeden Akkord einzeln und schlage alle Saiten an</li>
+                <li>Achte darauf, dass jede Saite klar klingt</li>
+                <li>
+                  Übe den Wechsel: Em → Am → Em → Am (jeweils 4 Schläge pro
+                  Akkord)
+                </li>
+                <li>Ziel: Flüssiger Wechsel ohne lange Pausen</li>
+              </ul>
+
+              <h4>Woche 3-4: C und G hinzunehmen</h4>
+              <ul>
+                <li>Lerne C und G einzeln, bis sie sauber klingen</li>
+                <li>Übe die Kombinationen: C → Am, G → Em, C → G</li>
+                <li>
+                  Probiere die Akkordfolge: C → G → Am → Em (eine der häufigsten
+                  Folgen überhaupt!)
+                </li>
+              </ul>
+            </div>
+
+            <h2>🎸 Weiterführende Ressourcen</h2>
+            <p>
+              Möchtest du diese Akkorde in der Praxis lernen? Bei der kleinen
+              Musikschule Karlsruhe helfen wir dir, die Akkorde richtig zu
+              greifen und in Songs anzuwenden. Unsere erfahrenen Gitarrenlehrer
+              zeigen dir Schritt für Schritt, wie du die Akkorde meisterst.
+            </p>
+
+            <ul class="actions">
+              <li>
+                <a href="../kontakt.html" class="button primary"
+                  >Kostenlose Probestunde vereinbaren</a
+                >
+              </li>
+              <li>
+                <a href="erste-akkorde-gitarre.html" class="button"
+                  >Die ersten 5 Akkorde lernen</a
+                >
+              </li>
+              <li>
+                <a href="../blog.html" class="button">← Zurück zum Blog</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <footer id="footer">
+        <div class="inner">
+          <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a> &gt;
+            <a href="../blog.html">Blog</a> &gt;
+            <span>Gitarren-Akkorde Übersicht</span>
+          </nav>
+          <ul class="icons">
+            <li>
+              <a href="#" class="icon brands alt fa-instagram"
+                ><span class="label">Instagram</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="icon brands alt fa-youtube"
+                ><span class="label">YouTube</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="icon brands alt fa-tiktok"
+                ><span class="label">TikTok</span></a
+              >
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Kleine Musikschule Karlsruhe</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/cookie-consent.js"></script>
+
+    <script>
+      // Akkord-Datenbank
+      const chordData = {
+        major: {
+          C: {
+            name: "C-Dur",
+            info: "Anfängerfreundlich | Sehr häufig in Pop-Songs",
+            variants: [
+              {
+                name: "Position 1 (Offen)",
+                positions: [
+                  { string: 0, fret: 0, finger: 0 },
+                  { string: 1, fret: 1, finger: 1 },
+                  { string: 2, fret: 0, finger: 0 },
+                  { string: 3, fret: 2, finger: 2 },
+                  { string: 4, fret: 3, finger: 3 },
+                  { string: 5, fret: -1, finger: 0 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 3. Bund)",
+                positions: [
+                  { string: 0, fret: 3, finger: 1 },
+                  { string: 1, fret: 5, finger: 3 },
+                  { string: 2, fret: 5, finger: 4 },
+                  { string: 3, fret: 5, finger: 2 },
+                  { string: 4, fret: 3, finger: 1 },
+                  { string: 5, fret: 3, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 8. Bund)",
+                positions: [
+                  { string: 0, fret: 8, finger: 1 },
+                  { string: 1, fret: 8, finger: 1 },
+                  { string: 2, fret: 9, finger: 2 },
+                  { string: 3, fret: 10, finger: 4 },
+                  { string: 4, fret: 10, finger: 3 },
+                  { string: 5, fret: 8, finger: 1 },
+                ],
+              },
+            ],
+          },
+          "C#": {
+            name: "C#-Dur / Db-Dur",
+            info: "Barré-Akkord | 1. Bund",
+            variants: [
+              {
+                name: "Position 1 (Barré)",
+                positions: [
+                  { string: 0, fret: 1, finger: 1 },
+                  { string: 1, fret: 2, finger: 2 },
+                  { string: 2, fret: 1, finger: 1 },
+                  { string: 3, fret: 3, finger: 3 },
+                  { string: 4, fret: 4, finger: 4 },
+                  { string: 5, fret: -1, finger: 0 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 4. Bund)",
+                positions: [
+                  { string: 0, fret: 4, finger: 1 },
+                  { string: 1, fret: 6, finger: 3 },
+                  { string: 2, fret: 6, finger: 4 },
+                  { string: 3, fret: 6, finger: 2 },
+                  { string: 4, fret: 4, finger: 1 },
+                  { string: 5, fret: 4, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 9. Bund)",
+                positions: [
+                  { string: 0, fret: 9, finger: 1 },
+                  { string: 1, fret: 9, finger: 1 },
+                  { string: 2, fret: 10, finger: 2 },
+                  { string: 3, fret: 11, finger: 4 },
+                  { string: 4, fret: 11, finger: 3 },
+                  { string: 5, fret: 9, finger: 1 },
+                ],
+              },
+            ],
+          },
+          D: {
+            name: "D-Dur",
+            info: "Sehr häufig | Klingt hell und fröhlich",
+            variants: [
+              {
+                name: "Position 1 (Offen)",
+                positions: [
+                  { string: 0, fret: 2, finger: 1 },
+                  { string: 1, fret: 3, finger: 3 },
+                  { string: 2, fret: 2, finger: 2 },
+                  { string: 3, fret: 0, finger: 0 },
+                  { string: 4, fret: -1, finger: 0 },
+                  { string: 5, fret: -1, finger: 0 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 5. Bund)",
+                positions: [
+                  { string: 0, fret: 5, finger: 1 },
+                  { string: 1, fret: 7, finger: 3 },
+                  { string: 2, fret: 7, finger: 4 },
+                  { string: 3, fret: 7, finger: 2 },
+                  { string: 4, fret: 5, finger: 1 },
+                  { string: 5, fret: 5, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 10. Bund)",
+                positions: [
+                  { string: 0, fret: 10, finger: 1 },
+                  { string: 1, fret: 10, finger: 1 },
+                  { string: 2, fret: 11, finger: 2 },
+                  { string: 3, fret: 12, finger: 4 },
+                  { string: 4, fret: 12, finger: 3 },
+                  { string: 5, fret: 10, finger: 1 },
+                ],
+              },
+            ],
+          },
+          "D#": {
+            name: "D#-Dur / Eb-Dur",
+            info: "Barré-Akkord | Voller Sound",
+            positions: [
+              { string: 0, fret: 3, finger: 1 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 3, finger: 2 },
+              { string: 3, fret: 1, finger: 0 },
+              { string: 4, fret: -1, finger: 0 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          E: {
+            name: "E-Dur",
+            info: "Kraftvoll | Alle Saiten spielen",
+            variants: [
+              {
+                name: "Position 1 (Offen)",
+                positions: [
+                  { string: 0, fret: 0, finger: 0 },
+                  { string: 1, fret: 0, finger: 0 },
+                  { string: 2, fret: 1, finger: 1 },
+                  { string: 3, fret: 2, finger: 3 },
+                  { string: 4, fret: 2, finger: 2 },
+                  { string: 5, fret: 0, finger: 0 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 7. Bund)",
+                positions: [
+                  { string: 0, fret: 7, finger: 1 },
+                  { string: 1, fret: 9, finger: 3 },
+                  { string: 2, fret: 9, finger: 4 },
+                  { string: 3, fret: 9, finger: 2 },
+                  { string: 4, fret: 7, finger: 1 },
+                  { string: 5, fret: 7, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 12. Bund)",
+                positions: [
+                  { string: 0, fret: 12, finger: 1 },
+                  { string: 1, fret: 12, finger: 1 },
+                  { string: 2, fret: 13, finger: 2 },
+                  { string: 3, fret: 14, finger: 4 },
+                  { string: 4, fret: 14, finger: 3 },
+                  { string: 5, fret: 12, finger: 1 },
+                ],
+              },
+            ],
+          },
+          F: {
+            name: "F-Dur",
+            info: "Barré-Akkord | Etwas schwieriger",
+            variants: [
+              {
+                name: "Position 1 (Barré 1. Bund)",
+                positions: [
+                  { string: 0, fret: 1, finger: 1 },
+                  { string: 1, fret: 1, finger: 1 },
+                  { string: 2, fret: 2, finger: 2 },
+                  { string: 3, fret: 3, finger: 4 },
+                  { string: 4, fret: 3, finger: 3 },
+                  { string: 5, fret: 1, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 8. Bund)",
+                positions: [
+                  { string: 0, fret: 8, finger: 1 },
+                  { string: 1, fret: 10, finger: 3 },
+                  { string: 2, fret: 10, finger: 4 },
+                  { string: 3, fret: 10, finger: 2 },
+                  { string: 4, fret: 8, finger: 1 },
+                  { string: 5, fret: 8, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 13. Bund)",
+                positions: [
+                  { string: 0, fret: 13, finger: 1 },
+                  { string: 1, fret: 13, finger: 1 },
+                  { string: 2, fret: 14, finger: 2 },
+                  { string: 3, fret: 15, finger: 4 },
+                  { string: 4, fret: 15, finger: 3 },
+                  { string: 5, fret: 13, finger: 1 },
+                ],
+              },
+            ],
+          },
+          "F#": {
+            name: "F#-Dur / Gb-Dur",
+            info: "Barré-Akkord | 2. Bund",
+            positions: [
+              { string: 0, fret: 2, finger: 1 },
+              { string: 1, fret: 2, finger: 1 },
+              { string: 2, fret: 3, finger: 2 },
+              { string: 3, fret: 4, finger: 4 },
+              { string: 4, fret: 4, finger: 3 },
+              { string: 5, fret: 2, finger: 1 },
+            ],
+          },
+          G: {
+            name: "G-Dur",
+            info: "Beliebt | Voller Sound",
+            variants: [
+              {
+                name: "Position 1 (Offen)",
+                positions: [
+                  { string: 0, fret: 3, finger: 3 },
+                  { string: 1, fret: 0, finger: 0 },
+                  { string: 2, fret: 0, finger: 0 },
+                  { string: 3, fret: 0, finger: 0 },
+                  { string: 4, fret: 2, finger: 1 },
+                  { string: 5, fret: 3, finger: 2 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 3. Bund)",
+                positions: [
+                  { string: 0, fret: 3, finger: 1 },
+                  { string: 1, fret: 3, finger: 1 },
+                  { string: 2, fret: 4, finger: 2 },
+                  { string: 3, fret: 5, finger: 4 },
+                  { string: 4, fret: 5, finger: 3 },
+                  { string: 5, fret: 3, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 10. Bund)",
+                positions: [
+                  { string: 0, fret: 10, finger: 1 },
+                  { string: 1, fret: 12, finger: 3 },
+                  { string: 2, fret: 12, finger: 4 },
+                  { string: 3, fret: 12, finger: 2 },
+                  { string: 4, fret: 10, finger: 1 },
+                  { string: 5, fret: 10, finger: 1 },
+                ],
+              },
+            ],
+          },
+          "G#": {
+            name: "G#-Dur / Ab-Dur",
+            info: "Barré-Akkord | 4. Bund",
+            positions: [
+              { string: 0, fret: 4, finger: 1 },
+              { string: 1, fret: 4, finger: 1 },
+              { string: 2, fret: 5, finger: 2 },
+              { string: 3, fret: 6, finger: 4 },
+              { string: 4, fret: 6, finger: 3 },
+              { string: 5, fret: 4, finger: 1 },
+            ],
+          },
+          A: {
+            name: "A-Dur",
+            info: "Einfach | Für Anfänger geeignet",
+            variants: [
+              {
+                name: "Position 1 (Offen)",
+                positions: [
+                  { string: 0, fret: 0, finger: 0 },
+                  { string: 1, fret: 2, finger: 2 },
+                  { string: 2, fret: 2, finger: 3 },
+                  { string: 3, fret: 2, finger: 1 },
+                  { string: 4, fret: 0, finger: 0 },
+                  { string: 5, fret: -1, finger: 0 },
+                ],
+              },
+              {
+                name: "Position 2 (Barré 5. Bund)",
+                positions: [
+                  { string: 0, fret: 5, finger: 1 },
+                  { string: 1, fret: 5, finger: 1 },
+                  { string: 2, fret: 6, finger: 2 },
+                  { string: 3, fret: 7, finger: 4 },
+                  { string: 4, fret: 7, finger: 3 },
+                  { string: 5, fret: 5, finger: 1 },
+                ],
+              },
+              {
+                name: "Position 3 (Barré 12. Bund)",
+                positions: [
+                  { string: 0, fret: 12, finger: 1 },
+                  { string: 1, fret: 14, finger: 3 },
+                  { string: 2, fret: 14, finger: 4 },
+                  { string: 3, fret: 14, finger: 2 },
+                  { string: 4, fret: 12, finger: 1 },
+                  { string: 5, fret: 12, finger: 1 },
+                ],
+              },
+            ],
+          },
+          "A#": {
+            name: "A#-Dur / Bb-Dur",
+            info: "Barré-Akkord | 1. Bund",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 3, finger: 2 },
+              { string: 2, fret: 3, finger: 3 },
+              { string: 3, fret: 3, finger: 4 },
+              { string: 4, fret: 1, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          B: {
+            name: "H-Dur / B",
+            info: "Fortgeschritten | Barré im 2. Bund",
+            positions: [
+              { string: 0, fret: 2, finger: 1 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 4, finger: 2 },
+              { string: 4, fret: 2, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        minor: {
+          Cm: {
+            name: "C-Moll",
+            info: "Barré-Akkord | Im 3. Bund",
+            positions: [
+              { string: 0, fret: 3, finger: 3 },
+              { string: 1, fret: 4, finger: 4 },
+              { string: 2, fret: 5, finger: 4 },
+              { string: 3, fret: 5, finger: 2 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "C#m": {
+            name: "C#-Moll / Dbm",
+            info: "Barré-Akkord | 4. Bund",
+            positions: [
+              { string: 0, fret: 4, finger: 3 },
+              { string: 1, fret: 5, finger: 4 },
+              { string: 2, fret: 6, finger: 4 },
+              { string: 3, fret: 6, finger: 2 },
+              { string: 4, fret: 4, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          Dm: {
+            name: "D-Moll",
+            info: "Häufig | Melancholischer Klang",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 3, finger: 3 },
+              { string: 2, fret: 2, finger: 2 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: -1, finger: 0 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "D#m": {
+            name: "D#-Moll / Ebm",
+            info: "Barré-Akkord | Dunkler Sound",
+            positions: [
+              { string: 0, fret: 2, finger: 1 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 3, finger: 2 },
+              { string: 3, fret: 1, finger: 0 },
+              { string: 4, fret: -1, finger: 0 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          Em: {
+            name: "E-Moll",
+            info: "Einfachster Akkord | Perfekt für Anfänger",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 2, finger: 1 },
+              { string: 5, fret: 0, finger: 0 },
+            ],
+          },
+          Fm: {
+            name: "F-Moll",
+            info: "Schwierig | Barré-Akkord",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 1, finger: 1 },
+              { string: 3, fret: 3, finger: 4 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: 1, finger: 1 },
+            ],
+          },
+          "F#m": {
+            name: "F#-Moll / Gbm",
+            info: "Häufig | Emotionaler Klang",
+            positions: [
+              { string: 0, fret: 2, finger: 1 },
+              { string: 1, fret: 2, finger: 1 },
+              { string: 2, fret: 2, finger: 1 },
+              { string: 3, fret: 4, finger: 4 },
+              { string: 4, fret: 4, finger: 3 },
+              { string: 5, fret: 2, finger: 1 },
+            ],
+          },
+          Gm: {
+            name: "G-Moll",
+            info: "Barré-Akkord | Voller Klang",
+            positions: [
+              { string: 0, fret: 3, finger: 1 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 3, finger: 1 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 5, finger: 3 },
+              { string: 5, fret: 3, finger: 1 },
+            ],
+          },
+          "G#m": {
+            name: "G#-Moll / Abm",
+            info: "Barré-Akkord | 4. Bund",
+            positions: [
+              { string: 0, fret: 4, finger: 1 },
+              { string: 1, fret: 4, finger: 1 },
+              { string: 2, fret: 4, finger: 1 },
+              { string: 3, fret: 6, finger: 4 },
+              { string: 4, fret: 6, finger: 3 },
+              { string: 5, fret: 4, finger: 1 },
+            ],
+          },
+          Am: {
+            name: "A-Moll",
+            info: "Sehr einfach | Anfänger-Akkord #2",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 3 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 0, finger: 0 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "A#m": {
+            name: "A#-Moll / Bbm",
+            info: "Barré-Akkord | 1. Bund",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 2, finger: 2 },
+              { string: 2, fret: 3, finger: 4 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 1, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          Bm: {
+            name: "H-Moll / Bm",
+            info: "Fortgeschritten | Barré im 2. Bund",
+            positions: [
+              { string: 0, fret: 2, finger: 1 },
+              { string: 1, fret: 3, finger: 2 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 4, finger: 3 },
+              { string: 4, fret: 2, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        seventh: {
+          C7: {
+            name: "C-Septakkord",
+            info: "Blues & Jazz | Dominantseptakkord",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 3, finger: 4 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "C#7": {
+            name: "C#-Septakkord / Db7",
+            info: "Blues | Barré 4. Bund",
+            positions: [
+              { string: 0, fret: 4, finger: 1 },
+              { string: 1, fret: 4, finger: 1 },
+              { string: 2, fret: 4, finger: 1 },
+              { string: 3, fret: 6, finger: 3 },
+              { string: 4, fret: 6, finger: 4 },
+              { string: 5, fret: 4, finger: 1 },
+            ],
+          },
+          D7: {
+            name: "D-Septakkord",
+            info: "Häufig | Leicht zu spielen",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 3 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: -1, finger: 0 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "D#7": {
+            name: "D#-Septakkord / Eb7",
+            info: "Jazz | Barré 6. Bund",
+            positions: [
+              { string: 0, fret: 6, finger: 1 },
+              { string: 1, fret: 6, finger: 1 },
+              { string: 2, fret: 6, finger: 1 },
+              { string: 3, fret: 8, finger: 3 },
+              { string: 4, fret: 8, finger: 4 },
+              { string: 5, fret: 6, finger: 1 },
+            ],
+          },
+          E7: {
+            name: "E-Septakkord",
+            info: "Einfach | Kraftvoller Blues-Sound",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 1, finger: 1 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: 2, finger: 2 },
+              { string: 5, fret: 0, finger: 0 },
+            ],
+          },
+          F7: {
+            name: "F-Septakkord",
+            info: "Blues | Barré 1. Bund",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 2 },
+              { string: 3, fret: 1, finger: 1 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: 1, finger: 1 },
+            ],
+          },
+          "F#7": {
+            name: "F#-Septakkord / Gb7",
+            info: "Blues | Barré 2. Bund",
+            positions: [
+              { string: 0, fret: 2, finger: 1 },
+              { string: 1, fret: 2, finger: 1 },
+              { string: 2, fret: 3, finger: 2 },
+              { string: 3, fret: 2, finger: 1 },
+              { string: 4, fret: 4, finger: 4 },
+              { string: 5, fret: 2, finger: 1 },
+            ],
+          },
+          G7: {
+            name: "G-Septakkord",
+            info: "Beliebt | Klassischer Blues-Akkord",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: 2, finger: 2 },
+              { string: 5, fret: 3, finger: 3 },
+            ],
+          },
+          "G#7": {
+            name: "G#-Septakkord / Ab7",
+            info: "Jazz | Barré 4. Bund",
+            positions: [
+              { string: 0, fret: 4, finger: 1 },
+              { string: 1, fret: 4, finger: 1 },
+              { string: 2, fret: 5, finger: 2 },
+              { string: 3, fret: 4, finger: 1 },
+              { string: 4, fret: 6, finger: 4 },
+              { string: 5, fret: 4, finger: 1 },
+            ],
+          },
+          A7: {
+            name: "A-Septakkord",
+            info: "Einfach | Entspannter Klang",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 2, finger: 2 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 0, finger: 0 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "A#7": {
+            name: "A#-Septakkord / Bb7",
+            info: "Jazz | Barré 1. Bund",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 3, finger: 2 },
+              { string: 2, fret: 1, finger: 1 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 1, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          B7: {
+            name: "H-Septakkord / B7",
+            info: "Jazz | Interessanter Klang",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 2, finger: 3 },
+              { string: 3, fret: 1, finger: 1 },
+              { string: 4, fret: 2, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        five: {
+          C5: {
+            name: "C-Power Chord",
+            info: "Rock | Nur Grundton + Quinte",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 5, finger: 3 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "C#5": {
+            name: "C#-Power Chord / Db5",
+            info: "Rock | Power Chord",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 6, finger: 3 },
+              { string: 4, fret: 4, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          D5: {
+            name: "D-Power Chord",
+            info: "Rock | Kraftvoll",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 7, finger: 3 },
+              { string: 4, fret: 5, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          "D#5": {
+            name: "D#-Power Chord / Eb5",
+            info: "Rock | Heavy Sound",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 8, finger: 3 },
+              { string: 4, fret: 6, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+          E5: {
+            name: "E-Power Chord",
+            info: "Rock | Sehr beliebt",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 9, finger: 3 },
+              { string: 4, fret: 7, finger: 1 },
+              { string: 5, fret: 0, finger: 0 },
+            ],
+          },
+          F5: {
+            name: "F-Power Chord",
+            info: "Rock | 1. Bund",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: 1, finger: 1 },
+            ],
+          },
+          "F#5": {
+            name: "F#-Power Chord / Gb5",
+            info: "Rock | 2. Bund",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 4, finger: 3 },
+              { string: 4, fret: 4, finger: 3 },
+              { string: 5, fret: 2, finger: 1 },
+            ],
+          },
+          G5: {
+            name: "G-Power Chord",
+            info: "Rock | Sehr häufig",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 5, finger: 3 },
+              { string: 4, fret: 5, finger: 3 },
+              { string: 5, fret: 3, finger: 1 },
+            ],
+          },
+          "G#5": {
+            name: "G#-Power Chord / Ab5",
+            info: "Rock | 4. Bund",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 6, finger: 3 },
+              { string: 4, fret: 6, finger: 3 },
+              { string: 5, fret: 4, finger: 1 },
+            ],
+          },
+          A5: {
+            name: "A-Power Chord",
+            info: "Rock | Einfach",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 7, finger: 3 },
+              { string: 4, fret: 7, finger: 3 },
+              { string: 5, fret: 5, finger: 1 },
+            ],
+          },
+          "A#5": {
+            name: "A#-Power Chord / Bb5",
+            info: "Rock | 1. Bund",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: 1, finger: 1 },
+            ],
+          },
+          B5: {
+            name: "B-Power Chord / H5",
+            info: "Rock | 2. Bund",
+            positions: [
+              { string: 0, fret: -1, finger: 0 },
+              { string: 1, fret: -1, finger: 0 },
+              { string: 2, fret: -1, finger: 0 },
+              { string: 3, fret: 4, finger: 3 },
+              { string: 4, fret: 4, finger: 3 },
+              { string: 5, fret: 2, finger: 1 },
+            ],
+          },
+        },
+        dim: {
+          Cdim: {
+            name: "C-Vermindert",
+            info: "Spannungsgeladen | Übergangsakkord",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 1, finger: 2 },
+              { string: 3, fret: 2, finger: 4 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        dim7: {
+          Cdim7: {
+            name: "C-Vermindert 7",
+            info: "Spannungsreich | Jazz",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 1, finger: 2 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        aug: {
+          Caug: {
+            name: "C-Übermäßig",
+            info: "Erhöhte Quinte | Spannender Sound",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 1, finger: 2 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        sus2: {
+          Csus2: {
+            name: "C-sus2",
+            info: "Schwebend | Keine Terz",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        sus4: {
+          Csus4: {
+            name: "C-sus4",
+            info: "Schwebend | Quarte statt Terz",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 1, finger: 2 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 3, finger: 4 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        maj7: {
+          Cmaj7: {
+            name: "C-Major 7",
+            info: "Jazz | Weicher Klang",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m7: {
+          Cm7: {
+            name: "C-Moll 7",
+            info: "Jazz/Blues | Weich und melancholisch",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 3, finger: 1 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7sus4": {
+          C7sus4: {
+            name: "C-7sus4",
+            info: "Blues | Sus4 mit Septime",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 1, finger: 2 },
+              { string: 2, fret: 3, finger: 4 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        maj9: {
+          Cmaj9: {
+            name: "C-Major 9",
+            info: "Jazz | Erweitert",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 3, finger: 3 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 1 },
+              { string: 4, fret: 3, finger: 2 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        maj11: {
+          Cmaj11: {
+            name: "C-Major 11",
+            info: "Jazz | Sehr erweitert",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        maj13: {
+          Cmaj13: {
+            name: "C-Major 13",
+            info: "Jazz | Voller Sound",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 2, finger: 2 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "maj9#11": {
+          "Cmaj9#11": {
+            name: "C-Major 9#11",
+            info: "Modern Jazz | Lydisch",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 2, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "maj13#11": {
+          "Cmaj13#11": {
+            name: "C-Major 13#11",
+            info: "Modern Jazz | Komplex",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 2, finger: 1 },
+              { string: 4, fret: 2, finger: 2 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        6: {
+          C6: {
+            name: "C-Sext",
+            info: "Jazz | Helle Färbung",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 3 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        9: {
+          C9: {
+            name: "C-None",
+            info: "Jazz | Erweiterte Harmonie",
+            positions: [
+              { string: 0, fret: 3, finger: 3 },
+              { string: 1, fret: 3, finger: 2 },
+              { string: 2, fret: 3, finger: 1 },
+              { string: 3, fret: 2, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        11: {
+          C11: {
+            name: "C-11",
+            info: "Jazz | Erweitert",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 1, finger: 2 },
+              { string: 2, fret: 3, finger: 4 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        13: {
+          C13: {
+            name: "C-13",
+            info: "Jazz | Vollständig",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 3, finger: 3 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        add9: {
+          Cadd9: {
+            name: "C-add9",
+            info: "Beliebt | Dur mit None",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 3, finger: 3 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 2, finger: 1 },
+              { string: 4, fret: 3, finger: 2 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "6add9": {
+          C6add9: {
+            name: "C-6add9",
+            info: "Jazz | 6 mit None",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 3, finger: 3 },
+              { string: 2, fret: 2, finger: 2 },
+              { string: 3, fret: 2, finger: 1 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        maj7b5: {
+          Cmaj7b5: {
+            name: "C-maj7b5",
+            info: "Modern Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 1, finger: 1 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "maj7#5": {
+          "Cmaj7#5": {
+            name: "C-maj7#5",
+            info: "Jazz | Erhöhte Quinte",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 1, finger: 2 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m6: {
+          Cm6: {
+            name: "C-Moll 6",
+            info: "Jazz | Moll mit Sexte",
+            positions: [
+              { string: 0, fret: 3, finger: 3 },
+              { string: 1, fret: 4, finger: 4 },
+              { string: 2, fret: 5, finger: 4 },
+              { string: 3, fret: 5, finger: 2 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m9: {
+          Cm9: {
+            name: "C-Moll 9",
+            info: "Jazz | Moll mit None",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 3, finger: 1 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m11: {
+          Cm11: {
+            name: "C-Moll 11",
+            info: "Jazz | Erweitert",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 3, finger: 1 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m13: {
+          Cm13: {
+            name: "C-Moll 13",
+            info: "Jazz | Voller Moll-Sound",
+            positions: [
+              { string: 0, fret: 3, finger: 1 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 5, finger: 3 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        madd9: {
+          Cmadd9: {
+            name: "C-Moll add9",
+            info: "Modern | Moll mit None",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 5, finger: 4 },
+              { string: 3, fret: 5, finger: 3 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m6add9: {
+          Cm6add9: {
+            name: "C-Moll 6add9",
+            info: "Jazz | Komplex",
+            positions: [
+              { string: 0, fret: 3, finger: 1 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 5, finger: 3 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        mmaj7: {
+          Cmmaj7: {
+            name: "C-Moll/Major 7",
+            info: "Jazz | Melodisch Moll",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        mmaj9: {
+          Cmmaj9: {
+            name: "C-Moll/Major 9",
+            info: "Modern Jazz | Komplex",
+            positions: [
+              { string: 0, fret: 3, finger: 1 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 4, finger: 2 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        m7b5: {
+          Cm7b5: {
+            name: "C-Moll 7b5",
+            info: "Jazz | Halbvermindert",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 4, finger: 3 },
+              { string: 2, fret: 3, finger: 1 },
+              { string: 3, fret: 4, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "m7#5": {
+          "Cm7#5": {
+            name: "C-Moll 7#5",
+            info: "Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 4, finger: 3 },
+              { string: 1, fret: 4, finger: 2 },
+              { string: 2, fret: 4, finger: 1 },
+              { string: 3, fret: 5, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7b5": {
+          C7b5: {
+            name: "C-7b5",
+            info: "Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 2 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7#5": {
+          "C7#5": {
+            name: "C-7#5",
+            info: "Jazz | Erhöhte Quinte",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7b9": {
+          C7b9: {
+            name: "C-7b9",
+            info: "Jazz | Dominant alteriert",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 3, finger: 4 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7#9": {
+          "C7#9": {
+            name: "C-7#9",
+            info: "Blues/Funk | Hendrix-Akkord",
+            positions: [
+              { string: 0, fret: 4, finger: 4 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 3, finger: 3 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7(b5,b9)": {
+          "C7(b5,b9)": {
+            name: "C-7(b5,b9)",
+            info: "Jazz | Voll alteriert",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 3 },
+              { string: 3, fret: 2, finger: 4 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7(b5,#9)": {
+          "C7(b5,#9)": {
+            name: "C-7(b5,#9)",
+            info: "Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 4, finger: 4 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 2, finger: 2 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7(#5,b9)": {
+          "C7(#5,b9)": {
+            name: "C-7(#5,b9)",
+            info: "Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 2, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "7(#5,#9)": {
+          "C7(#5,#9)": {
+            name: "C-7(#5,#9)",
+            info: "Jazz | Voll alteriert",
+            positions: [
+              { string: 0, fret: 4, finger: 4 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 4, finger: 4 },
+              { string: 3, fret: 2, finger: 2 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "9b5": {
+          C9b5: {
+            name: "C-9b5",
+            info: "Jazz | None mit b5",
+            positions: [
+              { string: 0, fret: 3, finger: 3 },
+              { string: 1, fret: 3, finger: 2 },
+              { string: 2, fret: 2, finger: 1 },
+              { string: 3, fret: 2, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "9#5": {
+          "C9#5": {
+            name: "C-9#5",
+            info: "Jazz | None mit #5",
+            positions: [
+              { string: 0, fret: 3, finger: 2 },
+              { string: 1, fret: 3, finger: 1 },
+              { string: 2, fret: 4, finger: 3 },
+              { string: 3, fret: 2, finger: 4 },
+              { string: 4, fret: 3, finger: 1 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "13#11": {
+          "C13#11": {
+            name: "C-13#11",
+            info: "Modern Jazz | Lydisch Dominant",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 0, finger: 0 },
+              { string: 2, fret: 3, finger: 3 },
+              { string: 3, fret: 2, finger: 1 },
+              { string: 4, fret: 2, finger: 2 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "13b9": {
+          C13b9: {
+            name: "C-13b9",
+            info: "Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 3, finger: 3 },
+              { string: 3, fret: 2, finger: 4 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "11b9": {
+          C11b9: {
+            name: "C-11b9",
+            info: "Jazz | Alteriert",
+            positions: [
+              { string: 0, fret: 2, finger: 2 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 3, finger: 4 },
+              { string: 3, fret: 3, finger: 3 },
+              { string: 4, fret: 3, finger: 3 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        sus2sus4: {
+          Csus2sus4: {
+            name: "C-sus2sus4",
+            info: "Experimental | Beide Sus",
+            positions: [
+              { string: 0, fret: 1, finger: 1 },
+              { string: 1, fret: 1, finger: 2 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 0, finger: 0 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+        "-5": {
+          "C-5": {
+            name: "C-Minus 5",
+            info: "Alteriert | Verminderte Quinte",
+            positions: [
+              { string: 0, fret: 0, finger: 0 },
+              { string: 1, fret: 1, finger: 1 },
+              { string: 2, fret: 0, finger: 0 },
+              { string: 3, fret: 1, finger: 2 },
+              { string: 4, fret: 3, finger: 4 },
+              { string: 5, fret: -1, finger: 0 },
+            ],
+          },
+        },
+      };
+
+      const stringNames = ["E", "B", "G", "D", "A", "E"];
+
+      // Fretboard generieren
+      function generateFretboard() {
+        const fretboard = document.getElementById("fretboard");
+        fretboard.innerHTML = "";
+
+        // Bünde mit Markierungen (wie bei echter Gitarre)
+        const fretMarkers = {
+          3: "single",
+          5: "single",
+          7: "single",
+          9: "single",
+          12: "double",
+          15: "single",
+        };
+
+        // Header-Zeile mit Bund-Nummern
+        fretboard.innerHTML += '<div class="string-label"></div>';
+        for (let fret = 1; fret <= 15; fret++) {
+          fretboard.innerHTML += `<div class="fret-number">${fret}</div>`;
+        }
+
+        // String-Zeilen
+        for (let string = 0; string < 6; string++) {
+          // String-Name (dient als Sattel/Nut)
+          fretboard.innerHTML += `<div class="string-label">${stringNames[string]}</div>`;
+
+          // Bünde 1-15
+          for (let fret = 1; fret <= 15; fret++) {
+            let markerHtml = "";
+
+            // Markierungen nur auf der D-Saite (String 3) anzeigen
+            if (string === 3 && fretMarkers[fret]) {
+              if (fretMarkers[fret] === "single") {
+                markerHtml = '<div class="fret-marker"></div>';
+              } else if (fretMarkers[fret] === "double") {
+                markerHtml =
+                  '<div class="fret-marker double"></div><div class="fret-marker double bottom"></div>';
+              }
+            }
+
+            fretboard.innerHTML += `
+              <div class="fret" data-string="${string}" data-fret="${fret}">
+                <div class="string-line"></div>
+                ${markerHtml}
+              </div>
+            `;
+          }
+        }
+      }
+
+      // Akkord anzeigen mit Variante
+      let currentChordKey = "";
+      let currentVariantIndex = 0;
+
+      function displayChord(chordKey, variantIndex = 0) {
+        currentChordKey = chordKey;
+        currentVariantIndex = variantIndex;
+
+        // Extract root note and chord type from chordKey
+        let root = "";
+        let type = "";
+
+        // Check for sharp notes first (2 characters)
+        if (chordKey.length > 1 && chordKey[1] === "#") {
+          root = chordKey.substring(0, 2);
+          type = chordKey.substring(2);
+        } else {
+          root = chordKey[0];
+          type = chordKey.substring(1);
+        }
+
+        // Try to find exact chord first (for chords with open positions)
+        let chordTemplate = null;
+        for (let category in chordData) {
+          if (chordData[category][chordKey]) {
+            chordTemplate = chordData[category][chordKey];
+            break;
+          }
+        }
+
+        // If not found, look for C + type template and transpose
+        let needsTranspose = false;
+        if (!chordTemplate) {
+          needsTranspose = true;
+          const cKey = "C" + type;
+
+          for (let category in chordData) {
+            if (chordData[category][cKey]) {
+              chordTemplate = chordData[category][cKey];
+              break;
+            }
+          }
+        }
+
+        if (!chordTemplate) {
+          // Chord type not found
+          document.getElementById("chordDisplayName").textContent = chordKey;
+          document.getElementById("chordDisplayInfo").textContent =
+            "Dieser Akkord-Typ ist noch nicht verfügbar";
+          document.getElementById("chordVariants").innerHTML = "";
+          generateFretboard();
+          return;
+        }
+
+        // Get the selected variant
+        const variant = chordTemplate.variants
+          ? chordTemplate.variants[variantIndex]
+          : { positions: chordTemplate.positions };
+        if (!variant) return;
+
+        let chord;
+
+        if (needsTranspose) {
+          // Calculate transpose offset from C to target root
+          const noteMap = {
+            C: 0,
+            "C#": 1,
+            D: 2,
+            "D#": 3,
+            E: 4,
+            F: 5,
+            "F#": 6,
+            G: 7,
+            "G#": 8,
+            A: 9,
+            "A#": 10,
+            B: 11,
+          };
+          const offset = noteMap[root];
+
+          // Check if this is an open position (has frets 0-3 or open strings)
+          const hasOpenStrings = variant.positions.some(
+            (pos) => pos.fret === 0
+          );
+          const isLowPosition = variant.positions.every(
+            (pos) => pos.fret <= 3 || pos.fret === -1 || pos.fret === 0
+          );
+
+          // For open positions, don't transpose - use barré instead
+          if (hasOpenStrings && isLowPosition && offset > 0) {
+            // Skip to next variant if this was an open position
+            if (chordTemplate.variants && chordTemplate.variants.length > 1) {
+              const barrVariant = chordTemplate.variants[1]; // Use second variant (usually barré)
+              const transposedPositions = barrVariant.positions.map((pos) => {
+                if (pos.fret === 0 || pos.fret === -1) return pos;
+                return { ...pos, fret: pos.fret + offset };
+              });
+              chord = {
+                name: chordTemplate.name.replace("C", root),
+                info: chordTemplate.info,
+                positions: transposedPositions,
+              };
+            } else {
+              // Fallback: transpose anyway
+              const transposedPositions = variant.positions.map((pos) => {
+                if (pos.fret === 0 || pos.fret === -1) return pos;
+                return { ...pos, fret: pos.fret + offset };
+              });
+              chord = {
+                name: chordTemplate.name.replace("C", root),
+                info: chordTemplate.info,
+                positions: transposedPositions,
+              };
+            }
+          } else {
+            // Normal transpose
+            const transposedPositions = variant.positions.map((pos) => {
+              if (pos.fret === 0 || pos.fret === -1) return pos;
+              return { ...pos, fret: pos.fret + offset };
+            });
+            chord = {
+              name: chordTemplate.name.replace("C", root),
+              info: chordTemplate.info,
+              positions: transposedPositions,
+            };
+          }
+        } else {
+          // No transpose needed - use as is
+          chord = {
+            name: chordTemplate.name,
+            info: chordTemplate.info,
+            positions: variant.positions,
+          };
+        }
+
+        // Varianten-Buttons generieren
+        const variantsContainer = document.getElementById("chordVariants");
+        variantsContainer.innerHTML = "";
+        if (chordTemplate.variants) {
+          chordTemplate.variants.forEach((v, index) => {
+            const btn = document.createElement("button");
+            btn.className =
+              "variant-btn" + (index === variantIndex ? " active" : "");
+            btn.textContent = `Variante ${index + 1}`;
+            btn.onclick = () => displayChord(chordKey, index);
+            variantsContainer.appendChild(btn);
+          });
+        }
+
+        // Name und Info aktualisieren
+        document.getElementById("chordDisplayName").textContent = chordKey;
+        document.getElementById("chordDisplayInfo").textContent =
+          chord.name + " | " + chord.info;
+
+        // Fretboard leeren und Marker neu generieren
+        generateFretboard();
+
+        // Finger-Positionen setzen
+        chord.positions.forEach((pos) => {
+          if (pos.fret === 0) {
+            // Leere Saite - O im ersten Bund anzeigen
+            const fret = document.querySelector(
+              `[data-string="${pos.string}"][data-fret="1"]`
+            );
+            if (fret) {
+              const openMark = document.createElement("div");
+              openMark.className = "open-string";
+              openMark.style.cssText =
+                "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;";
+              openMark.textContent = "O";
+              fret.appendChild(openMark);
+            }
+          } else if (pos.fret === -1) {
+            // Gedämpfte Saite - X im ersten Bund anzeigen
+            const fret = document.querySelector(
+              `[data-string="${pos.string}"][data-fret="1"]`
+            );
+            if (fret) {
+              const mutedMark = document.createElement("div");
+              mutedMark.className = "muted-string";
+              mutedMark.style.cssText =
+                "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;";
+              mutedMark.textContent = "X";
+              fret.appendChild(mutedMark);
+            }
+          } else {
+            // Finger-Position
+            const fret = document.querySelector(
+              `[data-string="${pos.string}"][data-fret="${pos.fret}"]`
+            );
+            if (fret) {
+              const dot = document.createElement("div");
+              dot.className = "finger-dot";
+              dot.textContent = pos.finger || "";
+
+              // Berechne die Note basierend auf String und Fret
+              const stringNotes = ["E", "B", "G", "D", "A", "E"];
+              const notes = [
+                "C",
+                "C#",
+                "D",
+                "D#",
+                "E",
+                "F",
+                "F#",
+                "G",
+                "G#",
+                "A",
+                "A#",
+                "B",
+              ];
+
+              let stringNote = stringNotes[pos.string];
+              let stringNoteIndex = notes.indexOf(stringNote);
+              let noteIndex = (stringNoteIndex + pos.fret) % 12;
+              let note = notes[noteIndex];
+
+              dot.setAttribute("data-note", note);
+              fret.appendChild(dot);
+            }
+          }
+        });
+      }
+
+      const rootNotes = [
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "B",
+      ];
+      const basicTypes = [
+        { label: "Major", suffix: "" },
+        { label: "Minor", suffix: "m" },
+        { label: "7", suffix: "7" },
+        { label: "5", suffix: "5" },
+        { label: "dim", suffix: "dim" },
+        { label: "dim7", suffix: "dim7" },
+        { label: "aug", suffix: "aug" },
+        { label: "sus2", suffix: "sus2" },
+        { label: "sus4", suffix: "sus4" },
+        { label: "maj7", suffix: "maj7" },
+      ];
+      const advancedTypes = [
+        { label: "m7", suffix: "m7" },
+        { label: "7sus4", suffix: "7sus4" },
+        { label: "maj9", suffix: "maj9" },
+        { label: "maj11", suffix: "maj11" },
+        { label: "maj13", suffix: "maj13" },
+        { label: "maj9#11", suffix: "maj9#11" },
+        { label: "maj13#11", suffix: "maj13#11" },
+        { label: "add9", suffix: "add9" },
+        { label: "6add9", suffix: "6add9" },
+        { label: "maj7b5", suffix: "maj7b5" },
+        { label: "maj7#5", suffix: "maj7#5" },
+        { label: "m6", suffix: "m6" },
+        { label: "m9", suffix: "m9" },
+        { label: "m11", suffix: "m11" },
+        { label: "m13", suffix: "m13" },
+        { label: "madd9", suffix: "madd9" },
+        { label: "m6add9", suffix: "m6add9" },
+        { label: "mmaj7", suffix: "mmaj7" },
+        { label: "mmaj9", suffix: "mmaj9" },
+        { label: "m7b5", suffix: "m7b5" },
+        { label: "m7#5", suffix: "m7#5" },
+        { label: "6", suffix: "6" },
+        { label: "9", suffix: "9" },
+        { label: "11", suffix: "11" },
+        { label: "13", suffix: "13" },
+        { label: "7b5", suffix: "7b5" },
+        { label: "7#5", suffix: "7#5" },
+        { label: "7b9", suffix: "7b9" },
+        { label: "7#9", suffix: "7#9" },
+        { label: "7(b5,b9)", suffix: "7(b5,b9)" },
+        { label: "7(b5,#9)", suffix: "7(b5,#9)" },
+        { label: "7(#5,b9)", suffix: "7(#5,b9)" },
+        { label: "7(#5,#9)", suffix: "7(#5,#9)" },
+        { label: "9b5", suffix: "9b5" },
+        { label: "9#5", suffix: "9#5" },
+        { label: "13#11", suffix: "13#11" },
+        { label: "13b9", suffix: "13b9" },
+        { label: "11b9", suffix: "11b9" },
+        { label: "sus2sus4", suffix: "sus2sus4" },
+        { label: "-5", suffix: "-5" },
+      ];
+
+      let currentRoot = "C";
+      let currentType = "";
+
+      // Generate root note tabs
+      function generateRootTabs() {
+        const container = document.getElementById("rootNoteTabs");
+        container.innerHTML = "";
+        rootNotes.forEach((note, index) => {
+          const btn = document.createElement("button");
+          btn.className = "root-tab" + (note === "C" ? " active" : "");
+          btn.textContent = note;
+          btn.onclick = () => {
+            document
+              .querySelectorAll(".root-tab")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentRoot = note;
+            // If a type is already selected, update the chord
+            if (currentType !== null) {
+              const chordKey = currentRoot + currentType;
+              displayChord(chordKey);
+            }
+          };
+          container.appendChild(btn);
+        });
+      }
+
+      // Generate chord type buttons
+      function generateTypeButtons() {
+        const basicContainer = document.getElementById("chordTypes");
+
+        basicContainer.innerHTML = "";
+        basicTypes.forEach((type) => {
+          const btn = document.createElement("button");
+          btn.className = "chord-type-btn";
+          btn.textContent = type.label;
+          btn.onclick = () => {
+            document
+              .querySelectorAll(".chord-type-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentType = type.suffix;
+            const chordKey = currentRoot + currentType;
+            displayChord(chordKey);
+          };
+          basicContainer.appendChild(btn);
+        });
+
+        // Advanced types
+        const advancedContainer = document.getElementById("advancedTypes");
+        advancedContainer.innerHTML = "";
+        advancedTypes.forEach((type) => {
+          const btn = document.createElement("button");
+          btn.className = "chord-type-btn";
+          btn.textContent = type.label;
+          btn.onclick = () => {
+            document
+              .querySelectorAll(".chord-type-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentType = type.suffix;
+            const chordKey = currentRoot + currentType;
+            displayChord(chordKey);
+          };
+          advancedContainer.appendChild(btn);
+        });
+      }
+
+      // Advanced toggle
+      document.getElementById("advancedToggle").onclick = () => {
+        const advancedSection = document.getElementById("advancedChords");
+        const btn = document.getElementById("advancedToggle");
+        const toggleContainer = document.querySelector(".advanced-toggle");
+        advancedSection.classList.toggle("show");
+        btn.classList.toggle("active");
+        toggleContainer.classList.toggle("pushed-down");
+        btn.querySelector("span").textContent =
+          advancedSection.classList.contains("show")
+            ? "Advanced ▲"
+            : "Advanced ▼";
+      };
+
+      // Initialisierung
+      generateFretboard();
+      generateRootTabs();
+      generateTypeButtons();
+    </script>
+  </body>
+</html>

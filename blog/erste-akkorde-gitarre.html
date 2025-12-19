@@ -38,6 +38,357 @@
     <noscript
       ><link rel="stylesheet" href="../assets/css/noscript.css"
     /></noscript>
+    <style>
+      /* Blog Content Styling */
+      #main p {
+        line-height: 1.8;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      #main h2, #main h3, #main h4 {
+        color: #667eea;
+        margin-top: 1.5em;
+        margin-bottom: 0.8em;
+      }
+
+      #main strong {
+        color: #f0ad4e;
+      }
+
+      #main ul, #main ol {
+        line-height: 1.9;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      #main li {
+        margin-bottom: 0.8em;
+      }
+
+      .inner {
+        max-width: 900px;
+      }
+
+      /* Large Fretboard Styling */
+      .fretboard-display {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 2.5em 1.5em;
+        border-radius: 14px;
+        margin: 2.5em auto;
+        max-width: 1400px;
+        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(102, 126, 234, 0.15);
+      }
+
+      .chord-title {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bold;
+        color: #667eea;
+        margin-bottom: 1.5em;
+        text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+      }
+
+      .fretboard {
+        position: relative;
+        background: #2a2a2a;
+        border-radius: 12px;
+        padding: 2.5em 2em;
+        overflow-x: auto;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .fretboard-grid {
+        display: grid;
+        grid-template-columns: 60px repeat(5, 85px);
+        gap: 0;
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+        background: linear-gradient(180deg, #333 0%, #2a2a2a 100%);
+      }
+
+      .string-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffd700;
+        font-weight: bold;
+        font-size: 1.3em;
+        background: rgba(0, 0, 0, 0.5);
+        border-right: 5px solid #d4af37;
+        letter-spacing: 2px;
+      }
+
+      .fret {
+        position: relative;
+        height: 65px;
+        border-right: 2px solid #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #2a2a2a;
+        transition: background 0.2s ease;
+      }
+
+      .fret:hover {
+        background: rgba(102, 126, 234, 0.1);
+      }
+
+      .fret:first-child {
+        border-left: 4px solid #888;
+      }
+
+      .fret-marker {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: #666;
+        border-radius: 50%;
+        opacity: 0.4;
+        z-index: 1;
+        transition: all 0.2s ease;
+      }
+
+      .fret-marker.double {
+        top: 12px;
+      }
+
+      .fret-marker.double.bottom {
+        top: auto;
+        bottom: 12px;
+      }
+
+      .fret-number {
+        grid-column: span 1;
+        text-align: center;
+        color: #888;
+        font-size: 1em;
+        font-weight: 600;
+        padding: 0.5em 0;
+        background: #1a1a1a;
+        border-right: 2px solid #555;
+        letter-spacing: 1px;
+      }
+
+      .string-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #666;
+        pointer-events: none;
+      }
+
+      .finger-dot {
+        width: 40px;
+        height: 40px;
+        background: #667eea;
+        border: 3px solid #667eea;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1em;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+        z-index: 10;
+        transition: all 0.2s ease;
+      }
+
+      .finger-dot:hover {
+        transform: scale(1.15);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
+      }
+
+      .finger-dot::after {
+        content: attr(data-note);
+        position: absolute;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: #f0ad4e;
+        padding: 0.4em 0.8em;
+        border-radius: 6px;
+        font-size: 0.85em;
+        font-weight: bold;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 100;
+        border: 1px solid rgba(240, 173, 78, 0.5);
+      }
+
+      .finger-dot:hover::after {
+        opacity: 1;
+      }
+
+      .open-string {
+        color: #4ade80;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .muted-string {
+        color: #ef4444;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .chord-info {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        padding: 2em;
+        border-radius: 12px;
+        margin: 2.5em 0;
+        border-left: 5px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.3);
+        border-left: 5px solid #667eea;
+      }
+
+      .chord-info h4 {
+        color: #667eea;
+        font-size: 1.4em;
+        margin-top: 0;
+        margin-bottom: 1.2em;
+      }
+
+      .chord-info p {
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.05em;
+        margin-bottom: 0;
+      }
+
+      .chord-info ul {
+        line-height: 1.9;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05em;
+        margin: 0;
+      }
+
+      .chord-info li {
+        margin-bottom: 1em;
+        padding-left: 0.5em;
+      }
+
+      .chord-info strong {
+        color: #f0ad4e;
+      }
+
+      .chord-info br {
+        line-height: 2;
+      }
+
+      /* Content Box Styling */
+      .content-box {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+        padding: 1.8em;
+        border-radius: 10px;
+        margin: 2em 0;
+        border-left: 4px solid #667eea;
+        border: 1px solid rgba(102, 126, 234, 0.25);
+        border-left: 4px solid #667eea;
+      }
+
+      .content-box h3, .content-box h4 {
+        color: #667eea;
+        margin-top: 0;
+        margin-bottom: 1em;
+      }
+
+      .content-box p {
+        margin-bottom: 0.8em;
+      }
+
+      .content-box:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Old Chord Diagram Styling - Keep for compatibility */
+      .chord-diagram {
+        display: none;
+      }
+        width: 70px;
+        height: 60px;
+        border: 1px solid #555;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0f0f1e;
+      }
+
+      .fret-cell.open::before {
+        content: '●';
+        font-size: 24px;
+        color: #4ade80;
+      }
+
+      .fret-cell.muted::before {
+        content: '✕';
+        font-size: 24px;
+        color: #ef4444;
+      }
+
+      .fret-cell.pressed::before {
+        content: '●';
+        font-size: 24px;
+        color: #667eea;
+      }
+
+      .chord-name {
+        grid-column: 1 / -1;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #f0ad4e;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .chord-info {
+        background: rgba(102, 126, 234, 0.1);
+        padding: 1.2em;
+        border-radius: 8px;
+        margin: 1.5em 0;
+        border-left: 4px solid #f0ad4e;
+      }
+
+      .chord-info h4 {
+        color: #f0ad4e;
+        margin-top: 0;
+      }
+
+      @media screen and (max-width: 736px) {
+        #main p {
+          font-size: 0.95em;
+          line-height: 1.7;
+        }
+        #main ul, #main ol {
+          font-size: 0.95em;
+        }
+
+        .chord-diagram {
+          grid-template-columns: 35px repeat(6, 50px);
+          padding: 10px;
+        }
+
+        .fret-cell {
+          width: 50px;
+          height: 45px;
+        }
+
+        .fret-cell.open::before,
+        .fret-cell.muted::before,
+        .fret-cell.pressed::before {
+          font-size: 18px;
+        }
+      }
+    </style>
   </head>
   <body class="is-preload blog-post">
     <div id="wrapper">
@@ -71,11 +422,38 @@
               <h1>Die ersten 5 Akkorde auf der Gitarre</h1>
               <p>📅 Oktober 2024 | ⏱️ 7 Minuten Lesezeit</p>
             </header>
-            <span class="image main"
-              ><img
-                src="../images/nahaufnahme-mann-der-lernt-wie-man-die-gitarre-stimmt.jpg"
-                alt="Gitarre spielen lernen"
-            /></span>
+
+            <div
+              style="
+                text-align: center;
+                margin: 2em 0;
+                padding: 1.5em;
+                background: rgba(102, 126, 234, 0.08);
+                border-radius: 10px;
+                border-left: 4px solid #667eea;
+              "
+            >
+              <h3 style="color: #667eea; margin-top: 0">
+                Die 5 Akkorde auf einen Blick
+              </h3>
+              <p style="font-size: 0.95em; margin: 0.5em 0">
+                <strong>Em</strong> | <strong>Am</strong> | <strong>C</strong> |
+                <strong>G</strong> | <strong>D</strong>
+              </p>
+              <p
+                style="
+                  font-size: 0.9em;
+                  color: rgba(255, 255, 255, 0.85);
+                  margin: 0;
+                "
+              >
+                Du möchtest diese Akkorde interaktiv üben? Besuche unsere
+                <a href="gitarren-akkorde-ubersicht.html" style="color: #f0ad4e"
+                  >Gitarren-Akkorde Übersicht</a
+                >
+                mit interaktiven Grifftabellen und 3 Varianten pro Akkord!
+              </p>
+            </div>
 
             <p>
               Du möchtest Gitarre spielen lernen und fragst dich, wo du anfangen
@@ -93,27 +471,30 @@
             </p>
 
             <h2>1. E-Moll (Em) – Der perfekte Einstieg</h2>
-            <span class="image main"
-              ><img
-                src="../images/rollholzband-griffbrett-studio.jpg"
-                alt="Gitarre Griffbrett"
-            /></span>
             <p>
               <strong>Warum zuerst Em?</strong> Dieser Akkord ist der einfachste
               von allen. Du brauchst nur zwei Finger und kannst direkt loslegen!
             </p>
-            <p>
-              <strong>So greifst du Em:</strong><br />
-              • Zeigefinger auf den 2. Bund der A-Saite (5. Saite)<br />
-              • Mittelfinger auf den 2. Bund der D-Saite (4. Saite)<br />
-              • Alle sechs Saiten anschlagen
-            </p>
-            <p>
-              <strong>Tipps:</strong> Achte darauf, dass deine Fingerkuppen
-              senkrecht auf die Saiten drücken, damit die anderen Saiten frei
-              klingen können. E-Moll klingt melancholisch und kommt in vielen
-              emotionalen Songs vor.
-            </p>
+
+            <div class="fretboard-display">
+              <div class="chord-title">Em</div>
+              <div id="fretboard-Em" class="fretboard"></div>
+            </div>
+
+            <div class="chord-info">
+              <h4>Griffweise:</h4>
+              <ul style="margin: 0.5em 0">
+                <li>Zeigefinger auf den 2. Bund der A-Saite (5. Saite)</li>
+                <li>Mittelfinger auf den 2. Bund der D-Saite (4. Saite)</li>
+                <li>Alle sechs Saiten anschlagen</li>
+              </ul>
+              <p style="margin: 0.8em 0 0 0">
+                <strong>Tipps:</strong> Achte darauf, dass deine Fingerkuppen
+                senkrecht auf die Saiten drücken, damit die anderen Saiten frei
+                klingen können. E-Moll klingt melancholisch und kommt in vielen
+                emotionalen Songs vor.
+              </p>
+            </div>
 
             <h2>2. A-Moll (Am) – Der zweite leichte Akkord</h2>
             <p>
@@ -121,18 +502,26 @@
               passt perfekt zu Em. Die beiden zusammen ergeben schon eine schöne
               Akkordfolge!
             </p>
-            <p>
-              <strong>So greifst du Am:</strong><br />
-              • Zeigefinger auf den 1. Bund der H-Saite (2. Saite)<br />
-              • Mittelfinger auf den 2. Bund der D-Saite (4. Saite)<br />
-              • Ringfinger auf den 2. Bund der G-Saite (3. Saite)<br />
-              • Schlage die Saiten 5 bis 1 an (nicht die tiefe E-Saite)
-            </p>
-            <p>
-              <strong>Tipps:</strong> A-Moll ist der Zwilling von E-Moll – fast
-              dieselbe Fingerposition, nur eine Saite höher! Das macht den
-              Übergang zwischen den beiden super einfach.
-            </p>
+
+            <div class="fretboard-display">
+              <div class="chord-title">Am</div>
+              <div id="fretboard-Am" class="fretboard"></div>
+            </div>
+
+            <div class="chord-info">
+              <h4>Griffweise:</h4>
+              <ul style="margin: 0.5em 0">
+                <li>Zeigefinger auf den 1. Bund der H-Saite (2. Saite)</li>
+                <li>Mittelfinger auf den 2. Bund der D-Saite (4. Saite)</li>
+                <li>Ringfinger auf den 2. Bund der G-Saite (3. Saite)</li>
+                <li>Schlage die Saiten 5 bis 1 an (nicht die tiefe E-Saite)</li>
+              </ul>
+              <p style="margin: 0.8em 0 0 0">
+                <strong>Tipps:</strong> A-Moll ist der Zwilling von E-Moll –
+                fast dieselbe Fingerposition, nur eine Saite höher! Das macht
+                den Übergang zwischen den beiden super einfach.
+              </p>
+            </div>
 
             <h2>3. C-Dur (C) – Die erste kleine Herausforderung</h2>
             <p>
@@ -140,19 +529,27 @@
               Dur-Akkorde und kommt in gefühlt jedem zweiten Popsong vor. Etwas
               anspruchsvoller als Em und Am, aber mit etwas Übung gut machbar.
             </p>
-            <p>
-              <strong>So greifst du C:</strong><br />
-              • Zeigefinger auf den 1. Bund der H-Saite (2. Saite)<br />
-              • Mittelfinger auf den 2. Bund der D-Saite (4. Saite)<br />
-              • Ringfinger auf den 3. Bund der A-Saite (5. Saite)<br />
-              • Schlage die Saiten 5 bis 1 an (nicht die tiefe E-Saite)
-            </p>
-            <p>
-              <strong>Tipps:</strong> C-Dur braucht etwas mehr Fingerstreckung.
-              Achte darauf, dass dein Ringfinger die tiefe E-Saite nicht
-              versehentlich berührt. Der Daumen bleibt hinten am Hals! C-Dur
-              klingt fröhlich und hell.
-            </p>
+
+            <div class="fretboard-display">
+              <div class="chord-title">C</div>
+              <div id="fretboard-C" class="fretboard"></div>
+            </div>
+
+            <div class="chord-info">
+              <h4>Griffweise:</h4>
+              <ul style="margin: 0.5em 0">
+                <li>Zeigefinger auf den 1. Bund der H-Saite (2. Saite)</li>
+                <li>Mittelfinger auf den 2. Bund der D-Saite (4. Saite)</li>
+                <li>Ringfinger auf den 3. Bund der A-Saite (5. Saite)</li>
+                <li>Schlage die Saiten 5 bis 1 an (nicht die tiefe E-Saite)</li>
+              </ul>
+              <p style="margin: 0.8em 0 0 0">
+                <strong>Tipps:</strong> C-Dur braucht etwas mehr
+                Fingerstreckung. Achte darauf, dass dein Ringfinger die tiefe
+                E-Saite nicht versehentlich berührt. Der Daumen bleibt hinten am
+                Hals! C-Dur klingt fröhlich und hell.
+              </p>
+            </div>
 
             <h2>4. G-Dur (G) – Der Kraftprotz</h2>
             <p>
@@ -160,23 +557,28 @@
               Akkord, der in vielen Akkordfolgen vorkommt. Er ist die perfekte
               Ergänzung zu C, Em und Am.
             </p>
-            <p>
-              <strong>So greifst du G:</strong><br />
-              • Zeigefinger auf den 2. Bund der A-Saite (5. Saite)<br />
-              • Mittelfinger auf den 3. Bund der tiefen E-Saite (6. Saite)<br />
-              • Ringfinger auf den 3. Bund der hohen E-Saite (1. Saite)<br />
-              • Alle sechs Saiten anschlagen
-            </p>
-            <p>
-              <strong>Alternative Griffweise:</strong> Manche bevorzugen
-              Mittel-, Ring- und kleiner Finger. Probiere aus, was dir besser
-              liegt!
-            </p>
-            <p>
-              <strong>Tipps:</strong> G-Dur braucht eine größere Handspanne.
-              Nimm dir Zeit, bis alle Saiten sauber klingen. Dieser Akkord
-              klingt offen und strahlend.
-            </p>
+
+            <div class="fretboard-display">
+              <div class="chord-title">G</div>
+              <div id="fretboard-G" class="fretboard"></div>
+            </div>
+
+            <div class="chord-info">
+              <h4>Griffweise:</h4>
+              <ul style="margin: 0.5em 0">
+                <li>Zeigefinger auf den 2. Bund der A-Saite (5. Saite)</li>
+                <li>
+                  Mittelfinger auf den 3. Bund der tiefen E-Saite (6. Saite)
+                </li>
+                <li>Ringfinger auf den 3. Bund der hohen E-Saite (1. Saite)</li>
+                <li>Alle sechs Saiten anschlagen</li>
+              </ul>
+              <p style="margin: 0.8em 0 0 0">
+                <strong>Tipps:</strong> G-Dur braucht eine größere Handspanne.
+                Nimm dir Zeit, bis alle Saiten sauber klingen. Dieser Akkord
+                klingt offen und strahlend.
+              </p>
+            </div>
 
             <h2>5. D-Dur (D) – Die letzte große Hürde</h2>
             <p>
@@ -184,26 +586,53 @@
               Akkord-Arsenal. Zusammen mit G und A bildet D die Grundlage für
               viele Rock- und Folk-Songs.
             </p>
-            <p>
-              <strong>So greifst du D:</strong><br />
-              • Zeigefinger auf den 2. Bund der G-Saite (3. Saite)<br />
-              • Mittelfinger auf den 2. Bund der hohen E-Saite (1. Saite)<br />
-              • Ringfinger auf den 3. Bund der H-Saite (2. Saite)<br />
-              • Schlage nur die Saiten 4 bis 1 an (nicht E und A!)
-            </p>
-            <p>
-              <strong>Tipps:</strong> D-Dur erfordert Präzision bei der rechten
-              Hand – du musst gezielt nur die oberen vier Saiten anspielen. Das
-              braucht etwas Übung, aber dann sitzt es! D-Dur klingt hell und
-              energiegeladen.
-            </p>
+
+            <div class="fretboard-display">
+              <div class="chord-title">D</div>
+              <div id="fretboard-D" class="fretboard"></div>
+            </div>
+
+            <div class="chord-info">
+              <h4>Griffweise:</h4>
+              <ul style="margin: 0.5em 0">
+                <li>Zeigefinger auf den 2. Bund der G-Saite (3. Saite)</li>
+                <li>
+                  Mittelfinger auf den 2. Bund der hohen E-Saite (1. Saite)
+                </li>
+                <li>Ringfinger auf den 3. Bund der H-Saite (2. Saite)</li>
+                <li>Schlage nur die Saiten 4 bis 1 an (nicht E und A!)</li>
+              </ul>
+              <p style="margin: 0.8em 0 0 0">
+                <strong>Tipps:</strong> D-Dur erfordert Präzision bei der
+                rechten Hand – du musst gezielt nur die oberen vier Saiten
+                anspielen. Das braucht etwas Übung, aber dann sitzt es! D-Dur
+                klingt hell und energiegeladen.
+              </p>
+            </div>
 
             <h2>Übungsplan: So lernst du die Akkorde</h2>
-            <span class="image main"
-              ><img
-                src="../images/gitarrenverstarker-musikausrustung-foto-der-studioaufnahmesitzung.jpg"
-                alt="Gitarren Equipment"
-            /></span>
+
+            <div
+              style="
+                text-align: center;
+                margin: 2em 0;
+                padding: 1.5em;
+                background: rgba(240, 173, 78, 0.08);
+                border-radius: 10px;
+                border-left: 4px solid #f0ad4e;
+              "
+            >
+              <h3 style="color: #f0ad4e; margin-top: 0">💡 Übe-Tipp</h3>
+              <p style="font-size: 0.95em; margin: 0.5em 0">
+                Nutze unsere
+                <a href="gitarren-akkorde-ubersicht.html" style="color: #667eea"
+                  ><strong>interaktive Akkord-Übersicht</strong></a
+                >
+                zum Nachschlagen während des Übens! Dort kannst du jeden Akkord
+                visualisiert sehen und zwischen verschiedenen Griffpositionen
+                wechseln.
+              </p>
+            </div>
 
             <h3>Woche 1-2: Em und Am</h3>
             <ul>
@@ -347,5 +776,190 @@
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/cookie-consent.js"></script>
+    <script>
+      // Fretboard-Daten für die 5 Akkorde
+      const chordData = {
+        Em: {
+          positions: [
+            { string: 0, fret: 0, finger: 0 },
+            { string: 1, fret: 0, finger: 0 },
+            { string: 2, fret: 0, finger: 0 },
+            { string: 3, fret: 2, finger: 2 },
+            { string: 4, fret: 2, finger: 1 },
+            { string: 5, fret: 0, finger: 0 },
+          ],
+        },
+        Am: {
+          positions: [
+            { string: 0, fret: 0, finger: 0 },
+            { string: 1, fret: 1, finger: 1 },
+            { string: 2, fret: 2, finger: 3 },
+            { string: 3, fret: 2, finger: 2 },
+            { string: 4, fret: 0, finger: 0 },
+            { string: 5, fret: -1, finger: 0 },
+          ],
+        },
+        C: {
+          positions: [
+            { string: 0, fret: -1, finger: 0 },
+            { string: 1, fret: 1, finger: 1 },
+            { string: 2, fret: 0, finger: 0 },
+            { string: 3, fret: 2, finger: 2 },
+            { string: 4, fret: 3, finger: 3 },
+            { string: 5, fret: 0, finger: 0 },
+          ],
+        },
+        G: {
+          positions: [
+            { string: 0, fret: 3, finger: 3 },
+            { string: 1, fret: 0, finger: 0 },
+            { string: 2, fret: 0, finger: 0 },
+            { string: 3, fret: 0, finger: 0 },
+            { string: 4, fret: 2, finger: 1 },
+            { string: 5, fret: 3, finger: 2 },
+          ],
+        },
+        D: {
+          positions: [
+            { string: 0, fret: 2, finger: 1 },
+            { string: 1, fret: 3, finger: 3 },
+            { string: 2, fret: 2, finger: 2 },
+            { string: 3, fret: 0, finger: 0 },
+            { string: 4, fret: -1, finger: 0 },
+            { string: 5, fret: -1, finger: 0 },
+          ],
+        },
+      };
+
+      const stringNames = ["E", "B", "G", "D", "A", "E"];
+
+      // Fretboard generieren
+      function generateFretboard() {
+        const fretboards = ["Em", "Am", "C", "G", "D"];
+
+        fretboards.forEach((chordName) => {
+          const container = document.getElementById("fretboard-" + chordName);
+          if (!container) return;
+
+          container.innerHTML = "";
+          const chord = chordData[chordName];
+
+          // Bünde mit Markierungen (wie bei echter Gitarre)
+          const fretMarkers = {
+            3: "single",
+            5: "single",
+            7: "single",
+            9: "single",
+            12: "double",
+            15: "single",
+          };
+
+          let html = '<div class="fretboard-grid">';
+
+          // Header-Zeile mit Bund-Nummern
+          html += '<div class="string-label"></div>';
+          for (let fret = 1; fret <= 5; fret++) {
+            html += `<div class="fret-number">${fret}</div>`;
+          }
+
+          // String-Zeilen
+          for (let string = 0; string < 6; string++) {
+            // String-Name (dient als Sattel/Nut)
+            html += `<div class="string-label">${stringNames[string]}</div>`;
+
+            // Bünde 1-5
+            for (let fret = 1; fret <= 5; fret++) {
+              let markerHtml = "";
+
+              // Markierungen nur auf der D-Saite (String 3) anzeigen
+              if (string === 3 && fretMarkers[fret]) {
+                if (fretMarkers[fret] === "single") {
+                  markerHtml = '<div class="fret-marker"></div>';
+                } else if (fretMarkers[fret] === "double") {
+                  markerHtml =
+                    '<div class="fret-marker double"></div><div class="fret-marker double bottom"></div>';
+                }
+              }
+
+              html += `
+                <div class="fret" data-string="${string}" data-fret="${fret}">
+                  <div class="string-line"></div>
+                  ${markerHtml}
+                </div>
+              `;
+            }
+          }
+
+          html += "</div>";
+          container.innerHTML = html;
+
+          // Finger-Positionen setzen
+          chord.positions.forEach((pos) => {
+            if (pos.fret === 0) {
+              // Leere Saite - O anzeigen
+              const fret = document.querySelector(
+                `#fretboard-${chordName} [data-string="${pos.string}"][data-fret="1"]`
+              );
+              if (fret) {
+                const mark = document.createElement("div");
+                mark.className = "open-string";
+                mark.textContent = "O";
+                fret.appendChild(mark);
+              }
+            } else if (pos.fret === -1) {
+              // Gedämpfte Saite - X anzeigen
+              const fret = document.querySelector(
+                `#fretboard-${chordName} [data-string="${pos.string}"][data-fret="1"]`
+              );
+              if (fret) {
+                const mark = document.createElement("div");
+                mark.className = "muted-string";
+                mark.textContent = "X";
+                fret.appendChild(mark);
+              }
+            } else {
+              // Finger-Position
+              const fret = document.querySelector(
+                `#fretboard-${chordName} [data-string="${pos.string}"][data-fret="${pos.fret}"]`
+              );
+              if (fret) {
+                const dot = document.createElement("div");
+                dot.className = "finger-dot";
+                dot.textContent = pos.finger || "";
+
+                // Berechne die Note basierend auf String und Fret
+                const notes = [
+                  "C",
+                  "C#",
+                  "D",
+                  "D#",
+                  "E",
+                  "F",
+                  "F#",
+                  "G",
+                  "G#",
+                  "A",
+                  "A#",
+                  "B",
+                ];
+
+                let stringNote = stringNames[pos.string];
+                let stringNoteIndex = notes.indexOf(stringNote);
+                let noteIndex = (stringNoteIndex + pos.fret) % 12;
+                let note = notes[noteIndex];
+
+                dot.setAttribute("data-note", note);
+                fret.appendChild(dot);
+              }
+            }
+          });
+        });
+      }
+
+      // Initialisierung
+      document.addEventListener("DOMContentLoaded", function () {
+        generateFretboard();
+      });
+    </script>
   </body>
 </html>
