@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -26,10 +26,20 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "LocalBusiness",
         "name": "Kleine Musikschule Karlsruhe",
         "url": "https://www.kleine-muskischule.de/",
         "logo": "https://www.kleine-muskischule.de/images/logo_small.png",
+        "description": "Mobile Musikschule in Karlsruhe - Gitarrenunterricht, Klavierunterricht, Schlagzeugunterricht und mehr. Professioneller Musikunterricht für Anfänger und Fortgeschrittene.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Karlsruhe",
+          "addressRegion": "Baden-Württemberg",
+          "addressCountry": "DE"
+        },
+        "telephone": "+49-15208905901",
+        "email": "alex@kleine-musikschule.de",
+        "priceRange": "$$",
         "sameAs": [
           "https://www.instagram.com/kleine_musikschule/",
           "https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
@@ -39,7 +49,51 @@
           "telephone": "+49-15208905901",
           "contactType": "customer service",
           "email": "alex@kleine-musikschule.de"
-        }
+        },
+        "image": "https://www.kleine-muskischule.de/images/IMG_2503.jpg"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Gitarrenunterricht Karlsruhe",
+        "description": "Professioneller Gitarrenunterricht in Karlsruhe für Anfänger und Fortgeschrittene. Unterricht zuhause, online oder vor Ort. Akustikgitarre und E-Gitarre.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Kleine Musikschule Karlsruhe"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Karlsruhe"
+        },
+        "serviceType": "Musikunterricht"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Klavierunterricht Karlsruhe",
+        "description": "Professioneller Klavierunterricht in Karlsruhe für Anfänger und Fortgeschrittene. Unterricht zuhause, online oder vor Ort.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Kleine Musikschule Karlsruhe"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Karlsruhe"
+        },
+        "serviceType": "Musikunterricht"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "url": "https://www.kleine-muskischule.de/images/IMG_2503.jpg",
+        "name": "Kleine Musikschule Karlsruhe Unterricht",
+        "description": "Professioneller Musikunterricht für Gitarre, Klavier, Schlagzeug, Ukulele und Bass"
       }
     </script>
     <link rel="icon" href="images/logo_small.png" />
@@ -64,8 +118,10 @@
     />
     <meta
       property="og:image"
-      content="https://www.kleine-muskischule.de/images/banner.jpg"
+      content="https://www.kleine-muskischule.de/images/IMG_2503.jpg"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Die kleine Musikschule Karlsruhe" />
     <meta property="og:locale" content="de_DE" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -76,7 +132,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.kleine-muskischule.de/images/banner.jpg"
+      content="https://www.kleine-muskischule.de/images/IMG_2503.jpg"
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -121,21 +177,29 @@
       </nav>
 
       <!-- Banner -->
-      <section id="banner" class="major">
+      <section
+        id="banner"
+        class="major"
+        style="background: linear-gradient(135deg, #6fc3df 0%, #9bf1ff 100%)"
+      >
         <div class="inner">
           <header class="major">
-            <h1>Die kleine Musikschule Karlsruhe</h1>
+            <h1>Musikunterricht, der zu dir kommt</h1>
+            <h2 class="hero-subtitle">Musikunterricht in Karlsruhe</h2>
           </header>
           <div class="content">
             <p>
-              Musikunterricht, der Spaß macht: Persönlich, flexibel und
-              individuell für jedes Alter.<br />
-              Lerne Gitarre, Klavier, Schlagzeug, Ukulele oder E-Bass in
-              Karlsruhe – mit Freude und Erfolg!
+              Gitarre, Klavier, Schlagzeug, Ukulele, E-Bass für Anfänger und
+              Fortgeschrittene in jedem Alter.
             </p>
             <ul class="actions">
               <li>
-                <a href="#one" class="button next scrolly">Los gehts!</a>
+                <a href="kontakt.html" class="button next"
+                  >Kostenlose Probestunde</a
+                >
+              </li>
+              <li>
+                <a href="#one" class="button next scrolly">Mehr erfahren</a>
               </li>
             </ul>
           </div>
@@ -153,6 +217,7 @@
               loop
               playsinline
               preload="none"
+              loading="lazy"
               aria-label="Über uns – Vorstellungsvideo der Musikschule"
             >
               <source src="vids/überuns.mp4" type="video/mp4" />
@@ -175,6 +240,7 @@
               loop
               playsinline
               preload="none"
+              loading="lazy"
               aria-label="Lehre – So unterrichten wir"
             >
               <source src="vids/lehre.mp4" type="video/mp4" />
@@ -195,6 +261,7 @@
               loop
               playsinline
               preload="none"
+              loading="lazy"
               aria-label="Instrumente – Unser Angebot"
             >
               <source src="vids/instrumente.mp4" type="video/mp4" />
@@ -217,6 +284,7 @@
               loop
               playsinline
               preload="none"
+              loading="lazy"
               aria-label="Preise – Unsere Tarife"
             >
               <source src="vids/prices.mp4" type="video/mp4" />
@@ -237,6 +305,7 @@
               loop
               playsinline
               preload="none"
+              loading="lazy"
               aria-label="FAQ – Häufige Fragen"
             >
               <source src="vids/faq.mp4" type="video/mp4" />
@@ -256,6 +325,7 @@
               loop
               playsinline
               preload="none"
+              loading="lazy"
               aria-label="Kontakt – Jetzt anfragen"
             >
               <source src="vids/kontakt.mp4" type="video/mp4" />
@@ -275,6 +345,97 @@
 
         <!-- Two -->
         <section id="two">
+          <div class="inner">
+            <header class="major">
+              <h2>🌟 Warum über 50 Karlsruher bei uns lernen</h2>
+            </header>
+            <p>
+              <strong
+                >Unterricht kommt zu dir | Dein Lieblingslied | Kein Druck |
+                100% flexibel</strong
+              >
+            </p>
+            <div class="row">
+              <div class="col-6 col-12-medium">
+                <div
+                  style="
+                    background: rgba(155, 241, 255, 0.05);
+                    padding: 1.5em;
+                    border-radius: 8px;
+                    border-left: 4px solid #9bf1ff;
+                  "
+                >
+                  <h4>📍 Unterricht zuhause</h4>
+                  <p>
+                    Kommt zu dir nach Hause, oder du lernst bei uns. Keine
+                    Anfahrtszeiten, keine Stress.
+                  </p>
+                </div>
+              </div>
+              <div class="col-6 col-12-medium">
+                <div
+                  style="
+                    background: rgba(155, 241, 255, 0.05);
+                    padding: 1.5em;
+                    border-radius: 8px;
+                    border-left: 4px solid #9bf1ff;
+                  "
+                >
+                  <h4>🎵 Deine Lieblingssongs</h4>
+                  <p>
+                    Statt Noten-Drilling: Lerne die Lieder, die du wirklich
+                    spielen willst!
+                  </p>
+                </div>
+              </div>
+              <div class="col-6 col-12-medium">
+                <div
+                  style="
+                    background: rgba(155, 241, 255, 0.05);
+                    padding: 1.5em;
+                    border-radius: 8px;
+                    border-left: 4px solid #9bf1ff;
+                  "
+                >
+                  <h4>⏱️ Dein Tempo</h4>
+                  <p>
+                    Jeder lernt unterschiedlich. Du bestimmst das Tempo – wir
+                    passen uns an.
+                  </p>
+                </div>
+              </div>
+              <div class="col-6 col-12-medium">
+                <div
+                  style="
+                    background: rgba(155, 241, 255, 0.05);
+                    padding: 1.5em;
+                    border-radius: 8px;
+                    border-left: 4px solid #9bf1ff;
+                  "
+                >
+                  <h4>😊 Spaß statt Stress</h4>
+                  <p>
+                    Kein Druck, keine strengen Noten. Hier macht Musik wirklich
+                    Freude!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <ul class="actions" style="margin-top: 2em">
+              <li>
+                <a
+                  href="kontakt.html"
+                  class="button next"
+                  style="width: 100%; text-align: center; font-size: 1.1em"
+                  >✓ Kostenlose Probestunde buchen</a
+                >
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Three -->
+        <section id="three">
           <div class="inner">
             <header class="major">
               <h2>10 Tipps zum Dranbleiben</h2>
@@ -335,28 +496,21 @@
           </nav>
           <ul class="icons">
             <li>
-              <a href="#" class="icon brands alt fa-twitter"
-                ><span class="label">Twitter</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-facebook-f"
-                ><span class="label">Facebook</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-instagram"
+              <a
+                href="https://www.instagram.com/kleine_musikschule/"
+                class="icon brands alt fa-instagram"
+                target="_blank"
+                rel="noreferrer"
                 ><span class="label">Instagram</span></a
               >
             </li>
             <li>
-              <a href="#" class="icon brands alt fa-github"
-                ><span class="label">GitHub</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-linkedin-in"
-                ><span class="label">LinkedIn</span></a
+              <a
+                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
+                class="icon brands alt fa-music"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="label">TikTok</span></a
               >
             </li>
           </ul>
@@ -381,20 +535,50 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const articles = document.querySelectorAll(".tiles article");
+        const supportsHover = window.matchMedia("(hover: hover)").matches;
 
-        articles.forEach((article) => {
-          const video = article.querySelector(".tile-video");
-          if (video) {
-            article.addEventListener("mouseenter", function () {
-              video.play();
-            });
+        if (supportsHover) {
+          articles.forEach((article) => {
+            const video = article.querySelector(".tile-video");
+            if (video) {
+              article.addEventListener("mouseenter", function () {
+                video.play();
+              });
 
-            article.addEventListener("mouseleave", function () {
-              video.pause();
-              video.currentTime = 0;
+              article.addEventListener("mouseleave", function () {
+                video.pause();
+                video.currentTime = 0;
+              });
+            }
+          });
+        }
+
+        // On touch/mobile devices, auto-play when video scrolls into view
+        if (!supportsHover && "IntersectionObserver" in window) {
+          const observerOptions = {
+            threshold: 0.3,
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              const video = entry.target.querySelector(".tile-video");
+              if (!video) return;
+
+              if (entry.isIntersecting) {
+                video.play().catch(() => {
+                  // Autoplay may be blocked by browser; silently fail
+                });
+              } else {
+                video.pause();
+                video.currentTime = 0;
+              }
             });
-          }
-        });
+          }, observerOptions);
+
+          articles.forEach((article) => {
+            observer.observe(article);
+          });
+        }
 
         // Register service worker for PWA
         if ("serviceWorker" in navigator) {
@@ -430,6 +614,42 @@
 
       .tiles article:before {
         z-index: 2;
+      }
+
+      /* Improve hero text readability on the homepage */
+      #banner.major .content p,
+      #banner.major .content p strong {
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        line-height: 1.6;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        max-width: 48ch;
+      }
+
+      #banner.major .hero-subtitle {
+        margin: 0.35em 0 0;
+        font-size: 1.15em;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
+
+      @media (max-width: 640px) {
+        #banner.major .actions {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.6em;
+        }
+
+        #banner.major .actions li {
+          width: 100%;
+        }
+
+        #banner.major .actions .button {
+          width: 100%;
+          text-align: center;
+          padding: 0.9em 1.1em;
+        }
       }
     </style>
   </body>

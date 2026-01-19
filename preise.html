@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <title>Preise - Kleine Musikschule Karlsruhe</title>
@@ -343,11 +343,12 @@
         </ul>
       </nav>
 
-      <section id="banner" class="style4">
+      <section
+        id="banner"
+        class="style4"
+        style="background: linear-gradient(135deg, #6fc3df 0%, #9bf1ff 100%)"
+      >
         <div class="inner">
-          <span class="image">
-            <img src="images/preise.jpg" alt="Preise" loading="lazy" />
-          </span>
           <header class="major">
             <h1>Unsere Preise</h1>
           </header>
@@ -593,7 +594,7 @@
                   attribution:
                     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                   maxZoom: 18,
-                }
+                },
               ).addTo(map);
 
               // Service zone boundary - accurate coordinates from manual tracing
@@ -710,7 +711,7 @@
               }).addTo(map);
 
               heimservicePolygon.bindPopup(
-                '<strong style="color: #3b82f6;">Heimservice-Zone</strong><br>✓ Standard-Tarif<br><small>Waldstadt, Rintheim, Oststadt, Südstadt,<br>Innenstadt-West, Weststadt, Südweststadt,<br>Beiertheim-Bulach, Mühlburg</small>'
+                '<strong style="color: #3b82f6;">Heimservice-Zone</strong><br>✓ Standard-Tarif<br><small>Waldstadt, Rintheim, Oststadt, Südstadt,<br>Innenstadt-West, Weststadt, Südweststadt,<br>Beiertheim-Bulach, Mühlburg</small>',
               );
 
               // Draw the Durlach zone with blue border and light blue fill
@@ -724,7 +725,7 @@
               }).addTo(map);
 
               durlachPolygon.bindPopup(
-                '<strong style="color: #3b82f6;">Heimservice-Zone</strong><br>✓ Standard-Tarif<br><small>Durlach</small>'
+                '<strong style="color: #3b82f6;">Heimservice-Zone</strong><br>✓ Standard-Tarif<br><small>Durlach</small>',
               );
 
               // Add marker for school location
@@ -736,7 +737,7 @@
                 }),
               }).addTo(map);
               schoolMarker.bindPopup(
-                "<strong>🎵 Kleine Musikschule Karlsruhe</strong><br>Zentrale Lage<br><small>Tullastraße 82, 76131 Karlsruhe</small>"
+                "<strong>🎵 Kleine Musikschule Karlsruhe</strong><br>Zentrale Lage<br><small>Tullastraße 82, 76131 Karlsruhe</small>",
               );
 
               // Location checker function
@@ -770,7 +771,7 @@
                     try {
                       // Get address from coordinates using reverse geocoding
                       const response = await fetch(
-                        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
+                        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`,
                       );
                       const data = await response.json();
                       const address = data.display_name || "Dein Standort";
@@ -778,7 +779,7 @@
                       // Check if point is in heimservice zone
                       const inMainZone = isPointInPolygon(
                         point,
-                        heimserviceArea
+                        heimserviceArea,
                       );
                       const inDurlach = isPointInPolygon(point, durlachArea);
                       const inZone = inMainZone || inDurlach;
@@ -789,7 +790,7 @@
                         lat,
                         lon,
                         schoolLocation[0],
-                        schoolLocation[1]
+                        schoolLocation[1],
                       );
 
                       // Remove old marker if exists
@@ -820,7 +821,7 @@
                           <strong style="color: #9bf1ff;">✓ Glückwunsch!</strong><br>
                           <p style="margin: 0.5em 0;">Dein Standort liegt in unserer <strong>Standard-Heimservice-Zone</strong>.</p>
                           <p style="margin: 0.5em 0; font-size: 0.9em;">📍 Entfernung zur Schule: ca. ${distance.toFixed(
-                            1
+                            1,
                           )} km</p>
                           <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.8); font-size: 0.9em;">
                             → <strong>Keine Extrakosten</strong> für Heimservice!
@@ -844,7 +845,7 @@
                           <strong style="color: #ff9999;">ℹ️ Außerhalb der Hauptzone</strong><br>
                           <p style="margin: 0.5em 0;">Dein Standort liegt außerhalb unserer Standard-Zone.</p>
                           <p style="margin: 0.5em 0; font-size: 0.9em;">📍 Entfernung zur Schule: ca. ${distance.toFixed(
-                            1
+                            1,
                           )} km</p>
                           <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.9);">
                             → <strong>Geschätzte Extrakosten: +${extraCost}€</strong> pro Unterrichtseinheit<br>
@@ -891,7 +892,7 @@
                     enableHighAccuracy: true,
                     timeout: 10000,
                     maximumAge: 0,
-                  }
+                  },
                 );
               };
 
@@ -1014,24 +1015,28 @@
           </nav>
           <ul class="icons">
             <li>
-              <a href="#" class="icon brands alt fa-twitter"
-                ><span class="label">Twitter</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-facebook-f"
-                ><span class="label">Facebook</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-instagram"
+              <a
+                href="https://www.instagram.com/kleine_musikschule/"
+                class="icon brands alt fa-instagram"
+                target="_blank"
+                rel="noreferrer"
                 ><span class="label">Instagram</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
+                class="icon brands alt fa-music"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="label">TikTok</span></a
               >
             </li>
           </ul>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
       </footer>

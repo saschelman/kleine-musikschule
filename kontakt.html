@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -95,6 +95,115 @@
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    <style>
+      /* Kontakt einspaltig (Formular über Impressum) */
+      #contact {
+        border-bottom: 0 !important;
+      }
+
+      #contact > .inner {
+        display: block !important;
+      }
+      #contact > .inner > :nth-child(2n - 1) {
+        padding: 4em 0 2em 0;
+        border-right: 0;
+        width: 100%;
+      }
+      #contact > .inner > :nth-child(2n) {
+        padding: 2.5em 0 0 0;
+        width: 100%;
+        border-top: solid 1px rgba(212, 212, 255, 0.1);
+        padding-left: 0;
+      }
+      #contact > .inner > .split {
+        padding: 0;
+      }
+      #contact > .inner > .split > * {
+        padding: 2em 0 1em 0;
+      }
+      #contact > .inner > .split > *:before {
+        display: none;
+      }
+
+      /* Message height tuned */
+      #contact textarea#message {
+        min-height: 14em;
+      }
+
+      /* Standort Panel als Feature-Kachel */
+      .location-panel {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(212, 212, 255, 0.08);
+        border-radius: 12px;
+        padding: 0.8em;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+        min-height: 14em;
+        justify-content: flex-start;
+      }
+
+      .location-panel input[type="text"] {
+        margin: 0;
+      }
+
+      .location-panel small {
+        margin-bottom: auto;
+      }
+
+      /* Contact Info horizontal */
+      #contact section.split {
+        display: flex;
+        gap: 3em;
+        justify-content: space-around;
+      }
+
+      #contact section.split > section {
+        flex: 1;
+        text-align: center;
+      }
+
+      /* Contact Info buttons horizontal */
+      #contact-info {
+        border-bottom: 0 !important;
+      }
+
+      #contact-info .contact-method ul {
+        display: flex;
+        gap: 1.5em;
+        flex-wrap: wrap;
+      }
+
+      #contact-info .contact-method ul li {
+        flex: 0 1 auto;
+        margin-bottom: 0 !important;
+      }
+
+      #contact-info .contact-method .button {
+        display: inline-block;
+        padding: 0.9em 1.8em;
+      }
+
+      /* Buttons vollbreit im Kontaktformular */
+      #contact form ul.actions {
+        width: 100%;
+        display: flex;
+        gap: 1em;
+        margin-left: 0;
+      }
+
+      #contact form ul.actions li {
+        flex: 1 1 0;
+        padding: 0;
+      }
+
+      #contact form ul.actions li input[type="submit"],
+      #contact form ul.actions li input[type="reset"] {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    </style>
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -132,23 +241,19 @@
       </nav>
 
       <!-- Banner -->
-      <section id="banner" class="style6">
+      <section
+        id="banner"
+        class="style6"
+        style="background: linear-gradient(135deg, #6fc3df 0%, #9bf1ff 100%)"
+      >
         <div class="inner">
-          <span class="image">
-            <img
-              src="images/kontakt.jpg"
-              alt="Kontaktformular der kleinen Musikschule Karlsruhe"
-              loading="lazy"
-            />
-          </span>
           <header class="major">
-            <h1>Kontakt</h1>
+            <h1>Kontakt & Probestunde</h1>
           </header>
           <div class="content">
             <p>
-              Melde dich jetzt und sichere dir deine kostenlose Probestunde für
-              Gitarrenunterricht, Klavierunterricht, Schlagzeug, Ukulele oder
-              E‑Bass in Karlsruhe!
+              Starte deine musikalische Reise – kostenlose Probestunde, keine
+              Verpflichtung!
             </p>
           </div>
         </div>
@@ -156,17 +261,49 @@
 
       <!-- Main -->
       <div id="main">
-        <!-- One -->
         <section id="one">
           <div class="inner">
             <header class="major">
-              <h2>Schreib uns eine Nachricht</h2>
+              <h2>Über 50 Karlsruher lernen schon bei uns! 🌟</h2>
             </header>
             <p>
-              Hast du Fragen oder möchtest eine kostenlose Probestunde
-              vereinbaren? Fülle einfach das Formular aus und wir melden uns
-              schnellstmöglich bei dir!
+              <strong>Warum warten?</strong> Kontaktiere uns noch heute und
+              vereinbare deine
+              <strong>kostenlose 30-Minuten Probestunde</strong>. Keine
+              Anmeldepflicht. Keine versteckten Kosten. Nur du, ein Musiklehrer
+              und dein Lieblingsinstrument. 🎸
             </p>
+            <div
+              style="
+                background: rgba(155, 241, 255, 0.05);
+                border-left: 4px solid #9bf1ff;
+                padding: 1.5em;
+                border-radius: 8px;
+                margin: 2em 0;
+              "
+            >
+              <strong>✓ Unterricht zuhause oder bei uns</strong><br />
+              <strong>✓ Dein Tempo, dein Lieblingslied</strong><br />
+              <strong>✓ 100% flexibel & ohne Vertrag</strong><br />
+              <strong>✓ Qualifizierte Musiklehrer mit Herz</strong>
+            </div>
+            <div
+              style="
+                background: rgba(155, 241, 255, 0.1);
+                padding: 1.5em;
+                border-radius: 8px;
+                margin-bottom: 2em;
+              "
+            >
+              <h3 style="margin-top: 0; color: #9bf1ff">
+                Wie es funktioniert:
+              </h3>
+              <p style="margin: 0.5em 0">
+                <strong>1.</strong> Füll das Formular aus (2 Min)<br />
+                <strong>2.</strong> Wir melden uns innerhalb von 24 Stunden<br />
+                <strong>3.</strong> Einige deine Probestunde aus 🎵
+              </p>
+            </div>
           </div>
         </section>
       </div>
@@ -189,73 +326,95 @@
                   <label for="email">Email *</label>
                   <input type="email" name="email" id="email" required />
                 </div>
-                <div class="field">
+                <div class="field half">
                   <label for="message">Nachricht *</label>
                   <textarea
                     name="message"
                     id="message"
-                    rows="6"
+                    rows="4"
                     required
                   ></textarea>
                 </div>
-                <div class="field">
+                <div class="field half">
                   <label for="location"
                     >Standort (optional - für Heimservice-Planung)</label
                   >
-                  <input
-                    type="text"
-                    name="location"
-                    id="location"
-                    placeholder="Dein Standort wird hier angezeigt"
-                    readonly
-                    style="
-                      background: rgba(255, 255, 255, 0.05);
-                      cursor: default;
-                    "
-                  />
-                  <input type="hidden" name="coordinates" id="coordinates" />
-                  <button
-                    type="button"
-                    onclick="shareLocation()"
-                    style="
-                      margin-top: 0.8em;
-                      width: 100%;
-                      background: linear-gradient(
-                        135deg,
-                        #667eea 0%,
-                        #764ba2 100%
-                      );
-                      color: white;
-                      border: none;
-                      padding: 1em 1.5em;
-                      font-weight: 600;
-                      border-radius: 50px;
-                      cursor: pointer;
-                      transition: all 0.3s ease;
-                      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-                      font-size: 1em;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      gap: 0.5em;
-                    "
-                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.6)'; this.style.background='linear-gradient(135deg, #764ba2 0%, #667eea 100%)'"
-                    onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'; this.style.background='linear-gradient(135deg, #667eea 0%, #764ba2 100%)'"
-                    onmousedown="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(102, 126, 234, 0.5)'"
-                    onmouseup="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.6)'"
-                  >
-                    <span style="font-size: 1.2em">📍</span>
-                    <span>Standort teilen</span>
-                  </button>
-                  <small
-                    id="locationStatus"
-                    style="
-                      display: block;
-                      margin-top: 0.5em;
-                      color: rgba(255, 255, 255, 0.7);
-                      min-height: 1.2em;
-                    "
-                  ></small>
+                  <div class="location-panel">
+                    <input
+                      type="text"
+                      name="location"
+                      id="location"
+                      placeholder="Dein Standort wird hier angezeigt"
+                      readonly
+                      style="
+                        background: rgba(255, 255, 255, 0.05);
+                        cursor: default;
+                      "
+                    />
+                    <input type="hidden" name="coordinates" id="coordinates" />
+                    <button
+                      type="button"
+                      onclick="shareLocation()"
+                      style="
+                        margin-top: 0.8em;
+                        width: 100%;
+                        background: linear-gradient(
+                          135deg,
+                          #667eea 0%,
+                          #764ba2 100%
+                        );
+                        color: white;
+                        border: none;
+                        padding: 1em 1.5em;
+                        font-weight: 600;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+                        font-size: 1em;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5em;
+                      "
+                      onmouseover="
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow =
+                          '0 6px 20px rgba(102, 126, 234, 0.6)';
+                        this.style.background =
+                          'linear-gradient(135deg, #764ba2 0%, #667eea 100%)';
+                      "
+                      onmouseout="
+                        this.style.transform = '';
+                        this.style.boxShadow =
+                          '0 4px 15px rgba(102, 126, 234, 0.4)';
+                        this.style.background =
+                          'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                      "
+                      onmousedown="
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow =
+                          '0 3px 10px rgba(102, 126, 234, 0.5)';
+                      "
+                      onmouseup="
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow =
+                          '0 6px 20px rgba(102, 126, 234, 0.6)';
+                      "
+                    >
+                      <span style="font-size: 1.2em">📍</span>
+                      <span>Standort teilen</span>
+                    </button>
+                    <small
+                      id="locationStatus"
+                      style="
+                        display: block;
+                        margin-top: 0.5em;
+                        color: rgba(255, 255, 255, 0.7);
+                        min-height: 1.2em;
+                      "
+                    ></small>
+                  </div>
                 </div>
               </div>
               <div class="field">
@@ -283,28 +442,6 @@
               </ul>
             </form>
           </section>
-          <section class="split">
-            <section>
-              <div class="contact-method">
-                <span class="icon solid alt fa-envelope"></span>
-                <h3>Email</h3>
-                <a href="mailto:alex@kleine-musikschule.de"
-                  >info@kleine-musikschule.de</a
-                >
-              </div>
-            </section>
-            <section>
-              <div class="contact-method">
-                <span class="icon solid alt fa-home"></span>
-                <h3>Impressum</h3>
-                <span
-                  >Alexander Flöter<br />
-                  Tullastraße 82<br />
-                  76131 Karlsruhe<br />
-                </span>
-              </div>
-            </section>
-          </section>
         </div>
       </section>
 
@@ -316,34 +453,28 @@
           </nav>
           <ul class="icons">
             <li>
-              <a href="#" class="icon brands alt fa-twitter"
-                ><span class="label">Twitter</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-facebook-f"
-                ><span class="label">Facebook</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-instagram"
+              <a
+                href="https://www.instagram.com/kleine_musikschule/"
+                class="icon brands alt fa-instagram"
+                target="_blank"
+                rel="noreferrer"
                 ><span class="label">Instagram</span></a
               >
             </li>
             <li>
-              <a href="#" class="icon brands alt fa-github"
-                ><span class="label">GitHub</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-linkedin-in"
-                ><span class="label">LinkedIn</span></a
+              <a
+                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
+                class="icon brands alt fa-music"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="label">TikTok</span></a
               >
             </li>
           </ul>
           <ul class="copyright">
-            <li>&copy; Untitled</li>
-            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            <li>&copy; Kleine Musikschule Karlsruhe</li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
       </footer>
@@ -388,7 +519,7 @@
               showPopup(
                 "✓ Vielen Dank für deine Nachricht!",
                 "Wir melden uns schnellstmöglich bei dir.",
-                "success"
+                "success",
               );
               form.reset();
             } else {
@@ -396,7 +527,7 @@
               showPopup(
                 "⚠ Fehler beim Senden",
                 "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
-                "error"
+                "error",
               );
             }
           } catch (error) {
@@ -404,7 +535,7 @@
             showPopup(
               "⚠ Fehler beim Senden",
               "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
-              "error"
+              "error",
             );
           }
 
@@ -521,7 +652,7 @@
             try {
               // Get address from coordinates
               const response = await fetch(
-                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`,
               );
               const data = await response.json();
               const address =
@@ -536,7 +667,7 @@
               button.disabled = false;
             } catch (error) {
               locationInput.value = `Koordinaten: ${lat.toFixed(
-                6
+                6,
               )}, ${lon.toFixed(6)}`;
               coordinatesInput.value = `${lat},${lon}`;
               statusDiv.textContent = "✓ Koordinaten erfasst";
@@ -571,7 +702,7 @@
             enableHighAccuracy: true,
             timeout: 10000,
             maximumAge: 0,
-          }
+          },
         );
       }
     </script>
