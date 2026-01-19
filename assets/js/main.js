@@ -11,6 +11,17 @@
     $header = $("#header"),
     $banner = $("#banner");
 
+  // Load global responsive overrides across all pages.
+  var responsiveStyleId = "responsive-overrides";
+
+  if (!document.getElementById(responsiveStyleId)) {
+    var responsiveLink = document.createElement("link");
+    responsiveLink.id = responsiveStyleId;
+    responsiveLink.rel = "stylesheet";
+    responsiveLink.href = "/assets/css/responsive-overrides.css?v=20260119";
+    document.head.appendChild(responsiveLink);
+  }
+
   // Breakpoints.
   breakpoints({
     xlarge: ["1281px", "1680px"],
@@ -59,7 +70,7 @@
 
                 $t.css(
                   "background-position",
-                  "center " + pos * (-1 * intensity) + "px"
+                  "center " + pos * (-1 * intensity) + "px",
                 );
               });
             };
