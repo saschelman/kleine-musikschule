@@ -18,7 +18,7 @@
     var responsiveLink = document.createElement("link");
     responsiveLink.id = responsiveStyleId;
     responsiveLink.rel = "stylesheet";
-    responsiveLink.href = "/assets/css/responsive-overrides.css?v=20260119";
+    responsiveLink.href = "/assets/css/responsive-overrides.css?v=20260126";
     document.head.appendChild(responsiveLink);
   }
 
