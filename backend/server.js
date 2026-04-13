@@ -135,25 +135,36 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
   const coordinates = sanitizeText(req.body?.coordinates, 120);
   const datenschutz = Boolean(req.body?.datenschutz);
 
+  console.log("[contact] request received", {
+    name,
+    email,
+    hasMessage: Boolean(message),
+    datenschutz,
+  });
+
   if (!name || !email || !message) {
+    console.warn("[contact] validation failed: missing required fields");
     return res
       .status(400)
       .json({ error: "Bitte Name, E-Mail und Nachricht ausfüllen." });
   }
 
   if (!datenschutz) {
+    console.warn("[contact] validation failed: datenschutz not confirmed");
     return res
       .status(400)
       .json({ error: "Datenschutz muss bestätigt werden." });
   }
 
   if (!isValidEmail(email)) {
+    console.warn("[contact] validation failed: invalid email");
     return res
       .status(400)
       .json({ error: "Bitte eine gültige E-Mail-Adresse eingeben." });
   }
 
   if (!MAIL_TO) {
+    console.error("[contact] MAIL_TO is not configured");
     return res
       .status(500)
       .json({ error: "Mail-Empfänger ist nicht konfiguriert." });
@@ -192,6 +203,8 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
     });
 
     await sendCustomerConfirmationEmail(name, email);
+
+    console.log("[contact] mail sent successfully", { to: MAIL_TO, email });
 
     return res.status(200).json({ ok: true });
   } catch (error) {
