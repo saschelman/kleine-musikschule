@@ -47,11 +47,15 @@ function sendMailWithTimeout(mailOptions, timeoutMs = 15000) {
 
 const corsOrigin = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",").map((item) => item.trim())
-  : null;
+  : [
+      "https://www.kleine-muskischule.de",
+      "https://kleine-muskischule.de",
+      "https://kleine-muskischule-webseite-forty.onrender.com",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+    ];
 
-if (corsOrigin) {
-  app.use(cors({ origin: corsOrigin }));
-}
+app.use(cors({ origin: corsOrigin }));
 
 app.use(helmet());
 app.use(express.json({ limit: "200kb" }));
