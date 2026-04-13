@@ -88,7 +88,7 @@
             "name": "Wie lange dauert eine Unterrichtseinheit?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Zur Wahl stehen 30 oder 45 Minuten pro Einheit; Preise stehen auf der Preiseseite."
+              "text": "Zur Wahl stehen 30 oder 45 Minuten pro Einheit; Preise stehen auf der Preise-Seite."
             }
           },
           {
@@ -130,6 +130,78 @@
               "@type": "Answer",
               "text": "In Karlsruhe und Umgebung, z. B. Durlach, Ettlingen, Rheinstetten, Weingarten, Stutensee und Bruchsal."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich auch als kompletter Anfänger starten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, absolut. Viele starten bei uns ohne Vorerfahrung. Wir bauen die Grundlagen Schritt für Schritt mit dir auf."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Muss ich Noten lesen können?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Du kannst auch ohne Notenkenntnisse anfangen. Auf Wunsch integrieren wir Notenlesen später in deinem Tempo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was passiert, wenn ich einen Termin absagen muss?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sprich uns einfach möglichst früh an. Gemeinsam finden wir in der Regel einen Ersatztermin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich eigene Songwünsche mitbringen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, sehr gerne. Eigene Songs sind sogar ideal, weil der Unterricht dadurch motivierender und persönlicher wird."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bietet ihr auch Unterricht ohne Heimservice an?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Wenn du keinen Heimservice möchtest, kannst du auch online oder an unseren Unterrichtsstandorten lernen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie finde ich den passenden Standort?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Schreib uns kurz deinen Stadtteil oder deine Postleitzahl. Wir schlagen dir dann den sinnvollsten Standort oder eine Online-Option vor."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich zwischen zuhause, Standort und online wechseln?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In vielen Fällen ja. Je nach Verfügbarkeit planen wir den Unterricht flexibel und finden mit dir ein passendes Modell."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was sollte ich zur ersten Stunde mitbringen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wenn vorhanden, dein Instrument und gute Laune. Wenn nicht, beraten wir dich vorab, was für den Start sinnvoll ist."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gibt es Unterricht in den Ferien?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das hängt von Modell und Verfügbarkeit ab. Wir informieren dich transparent und planen Termine gemeinsam mit dir."
+            }
           }
         ]
       }
@@ -140,6 +212,7 @@
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    <link rel="stylesheet" href="assets/css/faq.css?v=20260413-1" />
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -151,7 +224,7 @@
       <header id="header" class="alt style2">
         <a href="index.html" class="logo">
           <img
-            src="images/logo.png"
+            src="images/logo_small.png"
             alt="Logo der kleinen Musikschule Karlsruhe"
             class="logo-img"
             loading="lazy"
@@ -200,141 +273,18 @@
               uns einfach im <a href="kontakt.html">Kontakt</a>-Bereich.
             </p>
 
-            <style>
-              .faq-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1.5rem;
-              }
-              .faq-card {
-                border-radius: 16px;
-                color: #fff;
-                position: relative;
-                overflow: hidden;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                transition: all 0.3s ease;
-                border: 2px solid transparent;
-              }
-              .faq-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-              }
-              .faq-card::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 4px;
-                background: rgba(255, 255, 255, 0.5);
-              }
-              .faq-card::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(
-                  135deg,
-                  rgba(255, 255, 255, 0.1) 0%,
-                  rgba(255, 255, 255, 0.05) 50%,
-                  rgba(0, 0, 0, 0.1) 100%
-                );
-                pointer-events: none;
-              }
-              .faq-card details {
-                padding: 1.5rem 1.5rem 1.3rem;
-                backdrop-filter: saturate(130%);
-                position: relative;
-                z-index: 1;
-              }
-              .faq-card summary {
-                cursor: pointer;
-                font-weight: 700;
-                font-size: 1.08rem;
-                letter-spacing: 0.01em;
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                line-height: 1.4;
-                transition: all 0.2s ease;
-              }
-              .faq-card summary::-webkit-details-marker {
-                display: none;
-              }
-              .faq-card summary:hover {
-                transform: translateX(4px);
-              }
-              .faq-card summary::before {
-                content: "+";
-                display: inline-flex;
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                align-items: center;
-                justify-content: center;
-                font-weight: 900;
-                font-size: 1.3rem;
-                background: rgba(255, 255, 255, 0.25);
-                color: #fff;
-                flex-shrink: 0;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-              }
-              .faq-card details[open] summary::before {
-                content: "–";
-                transform: rotate(90deg);
-                background: rgba(255, 255, 255, 0.35);
-              }
-              .faq-card .faq-content {
-                overflow: hidden;
-                max-height: 0;
-                opacity: 0;
-                transition:
-                  max-height 0.4s ease,
-                  opacity 0.3s ease,
-                  transform 0.3s ease;
-                transform: translateY(-10px);
-              }
-              .faq-card details[open] .faq-content {
-                max-height: 500px;
-                opacity: 1;
-                transform: translateY(0);
-              }
-              .faq-card p {
-                margin-top: 1rem;
-                padding-left: 0.5rem;
-                color: rgba(255, 255, 255, 0.96);
-                line-height: 1.6;
-                font-size: 0.95rem;
-              }
-              .faq-card a {
-                color: #fff;
-                text-decoration-color: rgba(255, 255, 255, 0.5);
-                font-weight: 600;
-              }
-              .faq-card a:hover {
-                text-decoration-color: #fff;
-              }
-
-              /* Enhanced color palette */
-              .faq-card--blue {
-                background: linear-gradient(135deg, #76c2df 0%, #4fa8ca 100%);
-              }
-              .faq-card--purple {
-                background: linear-gradient(135deg, #8878d3 0%, #6a59b3 100%);
-              }
-              .faq-card--salmon {
-                background: linear-gradient(135deg, #f0a39c 0%, #de7f76 100%);
-              }
-              .faq-card--sand {
-                background: linear-gradient(135deg, #e5c29a 0%, #cf9e6e 100%);
-              }
-              .faq-card--green {
-                background: linear-gradient(135deg, #85ceb0 0%, #58ac8b 100%);
-              }
-              .faq-card--indigo {
-                background: linear-gradient(135deg, #8faee5 0%, #6e8ecc 100%);
-              }
-            </style>
+            <div class="faq-tools">
+              <label for="faqSearch" class="faq-search-label"
+                >Frage suchen</label
+              >
+              <input
+                type="search"
+                id="faqSearch"
+                class="faq-search-input"
+                placeholder="z. B. Probestunde, Preise, Zuhause, Englisch"
+                aria-label="FAQ durchsuchen"
+              />
+            </div>
 
             <section class="faq-grid">
               <div class="faq-card faq-card--blue">
@@ -468,45 +418,125 @@
                   </div>
                 </details>
               </div>
+              <div class="faq-card faq-card--blue">
+                <details>
+                  <summary>
+                    Kann ich auch als kompletter Anfänger starten?
+                  </summary>
+                  <div class="faq-content">
+                    <p>
+                      Ja, absolut. Viele starten bei uns ohne Vorerfahrung. Wir
+                      bauen die Grundlagen Schritt für Schritt mit dir auf.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--green">
+                <details>
+                  <summary>Muss ich Noten lesen können?</summary>
+                  <div class="faq-content">
+                    <p>
+                      Nein. Du kannst auch ohne Notenkenntnisse anfangen. Wenn
+                      du möchtest, integrieren wir Notenlesen später in deinem
+                      Tempo.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--purple">
+                <details>
+                  <summary>
+                    Was passiert, wenn ich einen Termin absagen muss?
+                  </summary>
+                  <div class="faq-content">
+                    <p>
+                      Sag uns einfach möglichst früh Bescheid. In der Regel
+                      finden wir gemeinsam einen passenden Ersatztermin.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--salmon">
+                <details>
+                  <summary>Kann ich eigene Songwünsche mitbringen?</summary>
+                  <div class="faq-content">
+                    <p>
+                      Sehr gerne. Eigene Songs sind ideal, weil der Unterricht
+                      dadurch persönlicher wird und die Motivation hoch bleibt.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--indigo">
+                <details>
+                  <summary>
+                    Bietet ihr auch Unterricht ohne Heimservice an?
+                  </summary>
+                  <div class="faq-content">
+                    <p>
+                      Ja. Wenn du keinen Heimservice möchtest, kannst du auch
+                      <strong>online</strong> oder an unseren
+                      <strong>Unterrichtsstandorten</strong> lernen.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--sand">
+                <details>
+                  <summary>Wie finde ich den passenden Standort?</summary>
+                  <div class="faq-content">
+                    <p>
+                      Schreib uns kurz deinen Stadtteil oder deine Postleitzahl.
+                      Wir schlagen dir dann den sinnvollsten Standort oder eine
+                      <strong>Online-Option</strong> vor.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--blue">
+                <details>
+                  <summary>
+                    Kann ich zwischen zuhause, Standort und online wechseln?
+                  </summary>
+                  <div class="faq-content">
+                    <p>
+                      In vielen Fällen ja. Je nach Verfügbarkeit planen wir den
+                      Unterricht flexibel und finden mit dir ein passendes
+                      Modell.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--green">
+                <details>
+                  <summary>
+                    Was sollte ich zur ersten Stunde mitbringen?
+                  </summary>
+                  <div class="faq-content">
+                    <p>
+                      Wenn vorhanden, dein Instrument und gute Laune. Wenn
+                      nicht, beraten wir dich vorab, was für den Start sinnvoll
+                      ist.
+                    </p>
+                  </div>
+                </details>
+              </div>
+              <div class="faq-card faq-card--purple">
+                <details>
+                  <summary>Gibt es Unterricht in den Ferien?</summary>
+                  <div class="faq-content">
+                    <p>
+                      Das hängt von Modell und Verfügbarkeit ab. Wir informieren
+                      dich transparent und planen Termine gemeinsam mit dir.
+                    </p>
+                  </div>
+                </details>
+              </div>
             </section>
-
-            <script>
-              // Smooth FAQ animation
-              document
-                .querySelectorAll(".faq-card details")
-                .forEach((details) => {
-                  const content = details.querySelector(".faq-content");
-                  const summary = details.querySelector("summary");
-
-                  // Set initial state
-                  if (!details.hasAttribute("open")) {
-                    content.style.maxHeight = "0";
-                    content.style.opacity = "0";
-                  }
-
-                  summary.addEventListener("click", (e) => {
-                    e.preventDefault();
-
-                    if (details.hasAttribute("open")) {
-                      // Closing animation
-                      content.style.maxHeight = "0";
-                      content.style.opacity = "0";
-                      content.style.transform = "translateY(-10px)";
-                      setTimeout(() => {
-                        details.removeAttribute("open");
-                      }, 300);
-                    } else {
-                      // Opening animation
-                      details.setAttribute("open", "");
-                      setTimeout(() => {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                        content.style.opacity = "1";
-                        content.style.transform = "translateY(0)";
-                      }, 10);
-                    }
-                  });
-                });
-            </script>
+            <p id="faqNoResults" class="faq-no-results">
+              Keine passende Frage gefunden. Schreib uns gern direkt über den
+              <a href="kontakt.html">Kontaktbereich</a>.
+            </p>
 
             <ul class="actions" style="margin-top: 2rem">
               <li>
@@ -567,6 +597,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/faq.js?v=20260413-1"></script>
     <script src="assets/js/cookie-consent.js"></script>
   </body>
 </html>

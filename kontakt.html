@@ -125,22 +125,22 @@
         display: none;
       }
 
-      /* Message height tuned */
+      /* Message height */
       #contact textarea#message {
-        min-height: 14em;
+        min-height: 10em;
       }
 
-      /* Standort Panel als Feature-Kachel */
+      /* Standort Panel – einfach & clean */
       .location-panel {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(212, 212, 255, 0.08);
-        border-radius: 12px;
-        padding: 0.8em;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
         display: flex;
         flex-direction: column;
-        gap: 0.3em;
-        min-height: 14em;
+        gap: 0.8em;
+        min-height: auto;
         justify-content: flex-start;
       }
 
@@ -149,40 +149,7 @@
       }
 
       .location-panel small {
-        margin-bottom: auto;
-      }
-
-      /* Contact Info horizontal */
-      #contact section.split {
-        display: flex;
-        gap: 3em;
-        justify-content: space-around;
-      }
-
-      #contact section.split > section {
-        flex: 1;
-        text-align: center;
-      }
-
-      /* Contact Info buttons horizontal */
-      #contact-info {
-        border-bottom: 0 !important;
-      }
-
-      #contact-info .contact-method ul {
-        display: flex;
-        gap: 1.5em;
-        flex-wrap: wrap;
-      }
-
-      #contact-info .contact-method ul li {
-        flex: 0 1 auto;
-        margin-bottom: 0 !important;
-      }
-
-      #contact-info .contact-method .button {
-        display: inline-block;
-        padding: 0.9em 1.8em;
+        margin-bottom: 0;
       }
 
       /* Buttons vollbreit im Kontaktformular */
@@ -190,6 +157,7 @@
         width: 100%;
         display: flex;
         gap: 1em;
+        margin-top: 1.2em;
         margin-left: 0;
       }
 
@@ -202,6 +170,43 @@
       #contact form ul.actions li input[type="reset"] {
         width: 100%;
         box-sizing: border-box;
+      }
+
+      /* Datenschutz-Checkbox: native, clean und lesbar */
+      #contact .consent-field {
+        display: flex;
+        align-items: center;
+        gap: 0.65em;
+        margin-top: 0.75em;
+      }
+
+      #contact .consent-field input[type="checkbox"] {
+        position: static !important;
+        opacity: 1 !important;
+        -webkit-appearance: checkbox;
+        appearance: checkbox;
+        width: 1.05em;
+        height: 1.05em;
+        margin: 0;
+        flex-shrink: 0;
+        vertical-align: middle;
+        accent-color: #9bf1ff;
+      }
+
+      #contact .consent-field input[type="checkbox"] + label:before,
+      #contact .consent-field input[type="checkbox"] + label:after {
+        display: none !important;
+        content: none !important;
+      }
+
+      #contact .consent-field label {
+        display: inline-block;
+        margin: 0;
+        padding-left: 0 !important;
+        line-height: 1.4;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 0.95em;
       }
     </style>
     <noscript
@@ -264,46 +269,13 @@
         <section id="one">
           <div class="inner">
             <header class="major">
-              <h2>Über 50 Karlsruher lernen schon bei uns! 🌟</h2>
+              <h2>Vereinbare deine kostenlose Probestunde</h2>
             </header>
             <p>
-              <strong>Warum warten?</strong> Kontaktiere uns noch heute und
-              vereinbare deine
-              <strong>kostenlose 30-Minuten Probestunde</strong>. Keine
-              Anmeldepflicht. Keine versteckten Kosten. Nur du, ein Musiklehrer
-              und dein Lieblingsinstrument. 🎸
+              Schreib uns einfach eine kurze Nachricht – wir melden uns
+              innerhalb von 24 Stunden zurück und finden einen Termin, der zu
+              dir passt.
             </p>
-            <div
-              style="
-                background: rgba(155, 241, 255, 0.05);
-                border-left: 4px solid #9bf1ff;
-                padding: 1.5em;
-                border-radius: 8px;
-                margin: 2em 0;
-              "
-            >
-              <strong>✓ Unterricht zuhause oder bei uns</strong><br />
-              <strong>✓ Dein Tempo, dein Lieblingslied</strong><br />
-              <strong>✓ 100% flexibel & ohne Vertrag</strong><br />
-              <strong>✓ Qualifizierte Musiklehrer mit Herz</strong>
-            </div>
-            <div
-              style="
-                background: rgba(155, 241, 255, 0.1);
-                padding: 1.5em;
-                border-radius: 8px;
-                margin-bottom: 2em;
-              "
-            >
-              <h3 style="margin-top: 0; color: #9bf1ff">
-                Wie es funktioniert:
-              </h3>
-              <p style="margin: 0.5em 0">
-                <strong>1.</strong> Füll das Formular aus (2 Min)<br />
-                <strong>2.</strong> Wir melden uns innerhalb von 24 Stunden<br />
-                <strong>3.</strong> Einige deine Probestunde aus 🎵
-              </p>
-            </div>
           </div>
         </section>
       </div>
@@ -314,7 +286,8 @@
           <section>
             <form
               id="contactForm"
-              action="https://formspree.io/f/myzyjwqa"
+              action="/api/contact"
+              data-api-base=""
               method="POST"
             >
               <div class="fields">
@@ -354,70 +327,39 @@
                     <input type="hidden" name="coordinates" id="coordinates" />
                     <button
                       type="button"
+                      id="locationButton"
                       onclick="shareLocation()"
                       style="
-                        margin-top: 0.8em;
+                        margin-top: 0.5em;
                         width: 100%;
-                        background: linear-gradient(
-                          135deg,
-                          #667eea 0%,
-                          #764ba2 100%
-                        );
-                        color: white;
-                        border: none;
-                        padding: 1em 1.5em;
+                        padding: 0.75em 1.5em;
                         font-weight: 600;
-                        border-radius: 50px;
+                        border-radius: 4px;
                         cursor: pointer;
-                        transition: all 0.3s ease;
-                        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-                        font-size: 1em;
+                        font-size: 0.95em;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        gap: 0.5em;
-                      "
-                      onmouseover="
-                        this.style.transform = 'translateY(-2px)';
-                        this.style.boxShadow =
-                          '0 6px 20px rgba(102, 126, 234, 0.6)';
-                        this.style.background =
-                          'linear-gradient(135deg, #764ba2 0%, #667eea 100%)';
-                      "
-                      onmouseout="
-                        this.style.transform = '';
-                        this.style.boxShadow =
-                          '0 4px 15px rgba(102, 126, 234, 0.4)';
-                        this.style.background =
-                          'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-                      "
-                      onmousedown="
-                        this.style.transform = 'translateY(0)';
-                        this.style.boxShadow =
-                          '0 3px 10px rgba(102, 126, 234, 0.5)';
-                      "
-                      onmouseup="
-                        this.style.transform = 'translateY(-2px)';
-                        this.style.boxShadow =
-                          '0 6px 20px rgba(102, 126, 234, 0.6)';
+                        text-align: center;
+                        gap: 0.4em;
                       "
                     >
-                      <span style="font-size: 1.2em">📍</span>
-                      <span>Standort teilen</span>
+                      📍 Standort teilen (optional)
                     </button>
                     <small
                       id="locationStatus"
                       style="
                         display: block;
-                        margin-top: 0.5em;
+                        margin-top: 0.3em;
                         color: rgba(255, 255, 255, 0.7);
-                        min-height: 1.2em;
+                        min-height: auto;
+                        font-size: 0.85em;
                       "
                     ></small>
                   </div>
                 </div>
               </div>
-              <div class="field">
+              <div class="field consent-field">
                 <input
                   type="checkbox"
                   id="datenschutz"
@@ -506,10 +448,25 @@
           submitButton.value = "Wird gesendet...";
 
           try {
-            const response = await fetch(form.action, {
+            const payload = {
+              name: form.name.value,
+              email: form.email.value,
+              message: form.message.value,
+              location: form.location.value,
+              coordinates: form.coordinates.value,
+              datenschutz: form.datenschutz.checked,
+            };
+
+            const apiBase = (form.dataset.apiBase || "").trim();
+            const submitUrl = apiBase
+              ? `${apiBase.replace(/\/$/, "")}/api/contact`
+              : form.action;
+
+            const response = await fetch(submitUrl, {
               method: "POST",
-              body: new FormData(form),
+              body: JSON.stringify(payload),
               headers: {
+                "Content-Type": "application/json",
                 Accept: "application/json",
               },
             });
@@ -523,12 +480,13 @@
               );
               form.reset();
             } else {
+              const data = await response.json().catch(() => ({}));
+              const errorMessage =
+                data.error ||
+                "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.";
+
               // Show error popup
-              showPopup(
-                "⚠ Fehler beim Senden",
-                "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
-                "error",
-              );
+              showPopup("⚠ Fehler beim Senden", errorMessage, "error");
             }
           } catch (error) {
             // Show error popup
@@ -559,46 +517,40 @@
           justify-content: center;
           align-items: center;
           z-index: 10000;
-          backdrop-filter: blur(5px);
           animation: fadeIn 0.3s ease;
         `;
 
         // Create popup
         const popup = document.createElement("div");
-        const bgColor =
-          type === "success"
-            ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-            : "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)";
+        const bgColor = type === "success" ? "#1c1c1c" : "#1c1c1c";
+        const borderColor = type === "success" ? "#9bf1ff" : "#ff6b6b";
         popup.style.cssText = `
           background: ${bgColor};
-          padding: 3em;
-          border-radius: 15px;
-          max-width: 500px;
+          border: 2px solid ${borderColor};
+          padding: 2.5em;
+          border-radius: 8px;
+          max-width: 450px;
           width: 90%;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           text-align: center;
           animation: slideIn 0.3s ease;
           color: white;
         `;
 
         popup.innerHTML = `
-          <h2 style="margin: 0 0 0.5em 0; font-size: 2em; font-weight: 700;">${title}</h2>
-          <p style="margin: 0 0 1.5em 0; font-size: 1.2em; opacity: 0.9;">${message}</p>
+          <h2 style="margin: 0 0 0.8em 0; font-size: 1.5em; font-weight: 600;">${title}</h2>
+          <p style="margin: 0 0 1.5em 0; font-size: 1em; opacity: 0.9; line-height: 1.5;">${message}</p>
           <button onclick="this.parentElement.parentElement.remove()" style="
             background: white;
-            color: #333;
+            color: #1c1c1c;
             border: none;
-            padding: 0.8em 2.5em;
-            font-size: 1em;
+            padding: 0.7em 2em;
+            font-size: 0.95em;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-          " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Klingt gut!</button>
+            transition: opacity 0.2s ease;
+          " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Okay</button>
         `;
 
         overlay.appendChild(popup);
@@ -612,7 +564,7 @@
             to { opacity: 1; }
           }
           @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
+            from { transform: translateY(-20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
           }
         `;
@@ -630,11 +582,11 @@
         const locationInput = document.getElementById("location");
         const coordinatesInput = document.getElementById("coordinates");
         const statusDiv = document.getElementById("locationStatus");
-        const button = event.target;
+        const button = document.getElementById("locationButton");
 
         if (!navigator.geolocation) {
           statusDiv.textContent =
-            "❌ Geolocation wird von deinem Browser nicht unterstützt.";
+            "Geolocation wird von deinem Browser nicht unterstützt.";
           statusDiv.style.color = "#ff6b6b";
           return;
         }
@@ -660,10 +612,9 @@
 
               locationInput.value = address;
               coordinatesInput.value = `${lat},${lon}`;
-              statusDiv.textContent =
-                "✓ Standort erfolgreich erfasst und wird mit deiner Nachricht gesendet";
+              statusDiv.textContent = "✓ Standort erfasst";
               statusDiv.style.color = "#9bf1ff";
-              button.textContent = "✓ Standort geteilt";
+              button.textContent = "✓ Standort erhalten";
               button.disabled = false;
             } catch (error) {
               locationInput.value = `Koordinaten: ${lat.toFixed(
@@ -672,26 +623,24 @@
               coordinatesInput.value = `${lat},${lon}`;
               statusDiv.textContent = "✓ Koordinaten erfasst";
               statusDiv.style.color = "#9bf1ff";
-              button.textContent = "✓ Standort geteilt";
+              button.textContent = "✓ Standort erhalten";
               button.disabled = false;
             }
           },
           function (error) {
-            let errorMessage = "❌ ";
+            let errorMessage = "";
             switch (error.code) {
               case error.PERMISSION_DENIED:
-                errorMessage +=
-                  "Standortzugriff verweigert. Bitte erlaube den Zugriff in deinen Browser-Einstellungen.";
+                errorMessage = "Standortzugriff verweigert.";
                 break;
               case error.POSITION_UNAVAILABLE:
-                errorMessage += "Standort konnte nicht ermittelt werden.";
+                errorMessage = "Standort konnte nicht ermittelt werden.";
                 break;
               case error.TIMEOUT:
-                errorMessage +=
-                  "Zeitüberschreitung bei der Standortermittlung.";
+                errorMessage = "Zeitüberschreitung bei der Standortermittlung.";
                 break;
               default:
-                errorMessage += "Fehler beim Ermitteln des Standorts.";
+                errorMessage = "Fehler beim Ermitteln des Standorts.";
             }
             statusDiv.textContent = errorMessage;
             statusDiv.style.color = "#ff6b6b";
