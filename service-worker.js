@@ -1,14 +1,5 @@
-const CACHE_NAME = "musikschule-v1";
+const CACHE_NAME = "musikschule-v2";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/überuns.html",
-  "/lehre.html",
-  "/instrumente.html",
-  "/preise.html",
-  "/blog.html",
-  "/faq.html",
-  "/kontakt.html",
   "/assets/css/main.css",
   "/assets/js/main.js",
   "/images/logo_small.png",
@@ -21,20 +12,50 @@ self.addEventListener("install", (event) => {
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
       return cache.addAll(urlsToCache);
-    })
+    }),
   );
+  self.skipWaiting();
 });
 
-// Fetch from cache first, then network
+// HTML: network first to avoid stale pages.
+// Static assets: cache first for speed.
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") {
+    return;
+  }
+
+  const request = event.request;
+  const isDocument = request.mode === "navigate";
+
+  if (isDocument) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, responseClone);
+          });
+          return response;
+        })
+        .catch(() => caches.match(request)),
+    );
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request).then((response) => {
+    caches.match(request).then((response) => {
       // Cache hit - return response
       if (response) {
         return response;
       }
-      return fetch(event.request);
-    })
+      return fetch(request).then((networkResponse) => {
+        const responseClone = networkResponse.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(request, responseClone);
+        });
+        return networkResponse;
+      });
+    }),
   );
 });
 
@@ -48,8 +69,9 @@ self.addEventListener("activate", (event) => {
           if (cacheWhitelist.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }
-        })
+        }),
       );
-    })
+    }),
   );
+  self.clients.claim();
 });
