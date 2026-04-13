@@ -286,7 +286,7 @@
           <section>
             <form
               id="contactForm"
-              action="/api/contact"
+              action="https://kleine-musikschule-contact-api.onrender.com/api/contact"
               data-api-base=""
               method="POST"
             >
@@ -457,10 +457,8 @@
               datenschutz: form.datenschutz.checked,
             };
 
-            const apiBase = (form.dataset.apiBase || "").trim();
-            const submitUrl = apiBase
-              ? `${apiBase.replace(/\/$/, "")}/api/contact`
-              : form.action;
+            const apiBase = resolveApiBase(form);
+            const submitUrl = `${apiBase.replace(/\/$/, "")}/api/contact`;
 
             const response = await fetch(submitUrl, {
               method: "POST",
@@ -501,6 +499,26 @@
           submitButton.disabled = false;
           submitButton.value = originalButtonValue;
         });
+
+      function resolveApiBase(form) {
+        const configuredApiBase = (form.dataset.apiBase || "").trim();
+
+        if (configuredApiBase) {
+          return configuredApiBase;
+        }
+
+        const hostname = window.location.hostname.toLowerCase();
+
+        if (
+          hostname === "localhost" ||
+          hostname === "127.0.0.1" ||
+          hostname === "::1"
+        ) {
+          return "http://localhost:3000";
+        }
+
+        return "https://kleine-musikschule-contact-api.onrender.com";
+      }
 
       // Popup function
       function showPopup(title, message, type) {
