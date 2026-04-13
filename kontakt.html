@@ -286,8 +286,7 @@
           <section>
             <form
               id="contactForm"
-              action="https://kleine-muskischule-webseite-forty.onrender.com/api/contact"
-              data-api-base=""
+              action="https://formspree.io/f/myzyjwqa"
               method="POST"
             >
               <div class="fields">
@@ -448,23 +447,10 @@
           submitButton.value = "Wird gesendet...";
 
           try {
-            const payload = {
-              name: form.name.value,
-              email: form.email.value,
-              message: form.message.value,
-              location: form.location.value,
-              coordinates: form.coordinates.value,
-              datenschutz: form.datenschutz.checked,
-            };
-
-            const apiBase = resolveApiBase(form);
-            const submitUrl = `${apiBase.replace(/\/$/, "")}/api/contact`;
-
-            const response = await fetch(submitUrl, {
+            const response = await fetch(form.action, {
               method: "POST",
-              body: JSON.stringify(payload),
+              body: new FormData(form),
               headers: {
-                "Content-Type": "application/json",
                 Accept: "application/json",
               },
             });
@@ -478,13 +464,12 @@
               );
               form.reset();
             } else {
-              const data = await response.json().catch(() => ({}));
-              const errorMessage =
-                data.error ||
-                "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.";
-
               // Show error popup
-              showPopup("⚠ Fehler beim Senden", errorMessage, "error");
+              showPopup(
+                "⚠ Fehler beim Senden",
+                "Bitte versuche es erneut oder kontaktiere uns direkt per E-Mail.",
+                "error",
+              );
             }
           } catch (error) {
             // Show error popup
@@ -499,26 +484,6 @@
           submitButton.disabled = false;
           submitButton.value = originalButtonValue;
         });
-
-      function resolveApiBase(form) {
-        const configuredApiBase = (form.dataset.apiBase || "").trim();
-
-        if (configuredApiBase) {
-          return configuredApiBase;
-        }
-
-        const hostname = window.location.hostname.toLowerCase();
-
-        if (
-          hostname === "localhost" ||
-          hostname === "127.0.0.1" ||
-          hostname === "::1"
-        ) {
-          return "http://localhost:3000";
-        }
-
-        return "https://kleine-muskischule-webseite-forty.onrender.com";
-      }
 
       // Popup function
       function showPopup(title, message, type) {
