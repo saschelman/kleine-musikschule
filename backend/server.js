@@ -25,11 +25,25 @@ const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT || 587),
   secure: process.env.SMTP_SECURE === "true",
+  connectionTimeout: Number(process.env.SMTP_CONNECTION_TIMEOUT || 10000),
+  greetingTimeout: Number(process.env.SMTP_GREETING_TIMEOUT || 10000),
+  socketTimeout: Number(process.env.SMTP_SOCKET_TIMEOUT || 15000),
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
 });
+
+function sendMailWithTimeout(mailOptions, timeoutMs = 15000) {
+  return Promise.race([
+    transporter.sendMail(mailOptions),
+    new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error("SMTP send timeout"));
+      }, timeoutMs);
+    }),
+  ]);
+}
 
 const corsOrigin = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",").map((item) => item.trim())
@@ -83,7 +97,7 @@ async function sendCustomerConfirmationEmail(name, email) {
     "Kleine Musikschule Karlsruhe",
   ].join("\n");
 
-  await transporter.sendMail({
+  await sendMailWithTimeout({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
@@ -193,7 +207,7 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
   `;
 
   try {
-    await transporter.sendMail({
+    await sendMailWithTimeout({
       from: MAIL_FROM,
       to: MAIL_TO,
       replyTo: email,
