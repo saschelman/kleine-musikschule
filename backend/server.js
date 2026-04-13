@@ -50,6 +50,16 @@ const contactRateLimit = rateLimit({
   message: { error: "Zu viele Anfragen. Bitte versuche es später erneut." },
 });
 
+const confirmationRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 12,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    error: "Zu viele Bestätigungsanfragen. Bitte später erneut versuchen.",
+  },
+});
+
 function sanitizeText(value, maxLength) {
   if (typeof value !== "string") {
     return "";
@@ -58,9 +68,64 @@ function sanitizeText(value, maxLength) {
   return value.trim().slice(0, maxLength);
 }
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+async function sendCustomerConfirmationEmail(name, email) {
+  const autoReplyText = [
+    `Hallo ${name},`,
+    "",
+    "vielen Dank für deine Nachricht an die kleine Musikschule Karlsruhe.",
+    "Wir melden uns so schnell wie möglich bei dir zurück.",
+    "",
+    "Musikalische Grüße",
+    "Kleine Musikschule Karlsruhe",
+  ].join("\n");
+
+  await transporter.sendMail({
+    from: MAIL_FROM,
+    to: email,
+    replyTo: MAIL_REPLY_TO,
+    subject: "Wir haben deine Nachricht erhalten",
+    text: autoReplyText,
+  });
+}
+
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true });
 });
+
+app.post(
+  "/api/contact/customer-confirmation",
+  confirmationRateLimit,
+  async (req, res) => {
+    const name = sanitizeText(req.body?.name, 120);
+    const email = sanitizeText(req.body?.email, 180);
+
+    if (!name || !email) {
+      return res
+        .status(400)
+        .json({ error: "Bitte Name und E-Mail ausfüllen." });
+    }
+
+    if (!isValidEmail(email)) {
+      return res
+        .status(400)
+        .json({ error: "Bitte eine gültige E-Mail-Adresse eingeben." });
+    }
+
+    try {
+      await sendCustomerConfirmationEmail(name, email);
+      return res.status(200).json({ ok: true });
+    } catch (error) {
+      console.error("[confirmation-mail-error]", error);
+      return res
+        .status(500)
+        .json({ error: "Bestätigungsmail konnte nicht gesendet werden." });
+    }
+  },
+);
 
 app.post("/api/contact", contactRateLimit, async (req, res) => {
   const name = sanitizeText(req.body?.name, 120);
@@ -82,8 +147,7 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
       .json({ error: "Datenschutz muss bestätigt werden." });
   }
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
+  if (!isValidEmail(email)) {
     return res
       .status(400)
       .json({ error: "Bitte eine gültige E-Mail-Adresse eingeben." });
@@ -117,16 +181,6 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
     <p>${message.replace(/\n/g, "<br>")}</p>
   `;
 
-  const autoReplyText = [
-    `Hallo ${name},`,
-    "",
-    "vielen Dank für deine Nachricht an die kleine Musikschule Karlsruhe.",
-    "Wir melden uns so schnell wie möglich bei dir zurück.",
-    "",
-    "Musikalische Grüße",
-    "Kleine Musikschule Karlsruhe",
-  ].join("\n");
-
   try {
     await transporter.sendMail({
       from: MAIL_FROM,
@@ -137,22 +191,14 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
       html: internalHtml,
     });
 
-    await transporter.sendMail({
-      from: MAIL_FROM,
-      to: email,
-      replyTo: MAIL_REPLY_TO,
-      subject: "Wir haben deine Nachricht erhalten",
-      text: autoReplyText,
-    });
+    await sendCustomerConfirmationEmail(name, email);
 
     return res.status(200).json({ ok: true });
   } catch (error) {
     console.error("[mail-error]", error);
-    return res
-      .status(500)
-      .json({
-        error: "Versand fehlgeschlagen. Bitte später erneut versuchen.",
-      });
+    return res.status(500).json({
+      error: "Versand fehlgeschlagen. Bitte später erneut versuchen.",
+    });
   }
 });
 

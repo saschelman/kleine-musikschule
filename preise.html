@@ -257,34 +257,48 @@
       }
 
       .location-check-btn {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        padding: 1em 2.5em;
-        font-size: 1.1em;
+        background: rgba(255, 255, 255, 0.05);
+        color: #9bf1ff;
+        border: 1px solid rgba(155, 241, 255, 0.35);
+        padding: 0 1.4em;
+        font-size: 1em;
         font-weight: 600;
-        border-radius: 50px;
+        border-radius: 6px;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        box-shadow: none;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 0.5em;
-        white-space: normal;
+        height: 3.15em;
+        box-sizing: border-box;
+        white-space: nowrap;
         text-align: center;
         line-height: 1.4;
       }
 
       .location-check-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        transform: translateY(-1px);
+        border-color: rgba(155, 241, 255, 0.6);
+        background: rgba(155, 241, 255, 0.12);
       }
 
       .location-check-btn:active {
         transform: translateY(0);
-        box-shadow: 0 3px 10px rgba(102, 126, 234, 0.5);
+        background: rgba(155, 241, 255, 0.08);
+      }
+
+      .location-address-input {
+        min-width: 280px;
+        flex: 1 1 320px;
+        max-width: 520px;
+      }
+
+      .location-address-input input {
+        margin: 0;
+        height: 3.15em;
+        box-sizing: border-box;
       }
 
       @media screen and (max-width: 736px) {
@@ -305,6 +319,12 @@
           padding: 0.9em 1.8em;
           font-size: 1em;
           width: 100%;
+        }
+
+        .location-address-input {
+          min-width: 100%;
+          max-width: 100%;
+          flex: 1 1 100%;
         }
       }
 
@@ -542,7 +562,8 @@
                 </h3>
                 <p style="margin-bottom: 1em">
                   Klicke auf den Button und wir prüfen automatisch, ob du in
-                  unserer Heimservice-Zone liegst:
+                  unserer Heimservice-Zone liegst. Du kannst auch unten deine
+                  Adresse eingeben:
                 </p>
                 <div
                   style="
@@ -551,9 +572,17 @@
                     margin-bottom: 1em;
                     flex-wrap: wrap;
                     justify-content: center;
+                    align-items: stretch;
                   "
                   class="location-btn-container"
                 >
+                  <div class="location-address-input">
+                    <input
+                      type="text"
+                      id="manualAddress"
+                      placeholder="Adresse eingeben (optional)"
+                    />
+                  </div>
                   <button onclick="checkLocation()" class="location-check-btn">
                     <span style="font-size: 1.2em">📍</span>
                     Meinen Standort prüfen
@@ -743,14 +772,126 @@
               // Location checker function
               var locationMarker = null;
 
+              function renderLocationResult(inZone, distance, address) {
+                const resultDiv = document.getElementById("locationResult");
+
+                if (inZone) {
+                  resultDiv.style.background = "rgba(59, 130, 246, 0.2)";
+                  resultDiv.style.border = "2px solid rgba(59, 130, 246, 0.5)";
+                  resultDiv.innerHTML = `
+                    <strong style="color: #9bf1ff;">✓ Glückwunsch!</strong><br>
+                    <p style="margin: 0.5em 0;">Dein Standort liegt in unserer <strong>Standard-Heimservice-Zone</strong>.</p>
+                    <p style="margin: 0.5em 0; font-size: 0.9em;">📍 Entfernung zur Schule: ca. ${distance.toFixed(
+                      1,
+                    )} km</p>
+                    <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.8);">
+                      → <strong>Keine Extrakosten</strong> für Heimservice!
+                    </p>
+                  `;
+                } else {
+                  let extraCost = 0;
+                  if (distance > 10) {
+                    extraCost = 20;
+                  } else if (distance > 7) {
+                    extraCost = 15;
+                  } else {
+                    extraCost = 10;
+                  }
+
+                  resultDiv.style.background = "rgba(239, 68, 68, 0.2)";
+                  resultDiv.style.border = "2px solid rgba(239, 68, 68, 0.5)";
+                  resultDiv.innerHTML = `
+                    <strong style="color: #ff9999;">ℹ️ Außerhalb der Hauptzone</strong><br>
+                    <p style="margin: 0.5em 0;">Dein Standort liegt außerhalb unserer Standard-Zone.</p>
+                    <p style="margin: 0.5em 0; font-size: 0.9em;">📍 Entfernung zur Schule: ca. ${distance.toFixed(
+                      1,
+                    )} km</p>
+                    <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.9);">
+                      → <strong>Geschätzte Extrakosten: +${extraCost}€</strong> pro Unterrichtseinheit<br>
+                      <small style="color: rgba(255,255,255,0.7);">Kontaktiere uns für ein genaues Angebot!</small>
+                    </p>
+                  `;
+                }
+
+                locationMarker.bindPopup(address).openPopup();
+              }
+
+              function evaluateLocation(point, address) {
+                const inMainZone = isPointInPolygon(point, heimserviceArea);
+                const inDurlach = isPointInPolygon(point, durlachArea);
+                const inZone = inMainZone || inDurlach;
+
+                const schoolLocation = [49.0094, 8.4044];
+                const distance = calculateDistance(
+                  point[0],
+                  point[1],
+                  schoolLocation[0],
+                  schoolLocation[1],
+                );
+
+                if (locationMarker) {
+                  map.removeLayer(locationMarker);
+                }
+
+                locationMarker = L.marker(point, {
+                  icon: L.divIcon({
+                    html: `<div style="background-color: ${
+                      inZone ? "#3b82f6" : "#ef4444"
+                    }; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.4);"></div>`,
+                    className: "location-marker",
+                    iconSize: [20, 20],
+                  }),
+                }).addTo(map);
+
+                map.setView(point, 14);
+                renderLocationResult(inZone, distance, address);
+              }
+
               window.checkLocation = async function () {
                 const resultDiv = document.getElementById("locationResult");
+                const manualAddress = document
+                  .getElementById("manualAddress")
+                  .value.trim();
 
                 // Show loading
                 resultDiv.style.display = "block";
                 resultDiv.style.background = "rgba(155, 241, 255, 0.1)";
                 resultDiv.style.border = "2px solid rgba(155, 241, 255, 0.3)";
-                resultDiv.innerHTML = "🔍 Ermittle deinen Standort...";
+                resultDiv.innerHTML = manualAddress
+                  ? "🔍 Prüfe eingegebene Adresse..."
+                  : "🔍 Ermittle deinen Standort...";
+
+                if (manualAddress) {
+                  try {
+                    const response = await fetch(
+                      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+                        manualAddress,
+                      )}&limit=1`,
+                    );
+                    const data = await response.json();
+
+                    if (!Array.isArray(data) || data.length === 0) {
+                      resultDiv.style.background = "rgba(239, 68, 68, 0.2)";
+                      resultDiv.style.border =
+                        "2px solid rgba(239, 68, 68, 0.5)";
+                      resultDiv.innerHTML =
+                        "❌ Adresse nicht gefunden. Bitte überprüfe die Eingabe.";
+                      return;
+                    }
+
+                    const lat = Number(data[0].lat);
+                    const lon = Number(data[0].lon);
+                    const address = data[0].display_name || manualAddress;
+                    evaluateLocation([lat, lon], address);
+                    return;
+                  } catch (error) {
+                    resultDiv.style.background = "rgba(239, 68, 68, 0.2)";
+                    resultDiv.style.border = "2px solid rgba(239, 68, 68, 0.5)";
+                    resultDiv.innerHTML =
+                      "❌ Fehler bei der Adresssuche. Bitte versuche es erneut.";
+                    return;
+                  }
+                }
 
                 // Check if geolocation is supported
                 if (!navigator.geolocation) {
@@ -775,86 +916,7 @@
                       );
                       const data = await response.json();
                       const address = data.display_name || "Dein Standort";
-
-                      // Check if point is in heimservice zone
-                      const inMainZone = isPointInPolygon(
-                        point,
-                        heimserviceArea,
-                      );
-                      const inDurlach = isPointInPolygon(point, durlachArea);
-                      const inZone = inMainZone || inDurlach;
-
-                      // Calculate distance to school
-                      const schoolLocation = [49.0094, 8.4044];
-                      const distance = calculateDistance(
-                        lat,
-                        lon,
-                        schoolLocation[0],
-                        schoolLocation[1],
-                      );
-
-                      // Remove old marker if exists
-                      if (locationMarker) {
-                        map.removeLayer(locationMarker);
-                      }
-
-                      // Add marker for checked location
-                      locationMarker = L.marker(point, {
-                        icon: L.divIcon({
-                          html: `<div style="background-color: ${
-                            inZone ? "#3b82f6" : "#ef4444"
-                          }; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.4);"></div>`,
-                          className: "location-marker",
-                          iconSize: [20, 20],
-                        }),
-                      }).addTo(map);
-
-                      // Center map on location
-                      map.setView(point, 14);
-
-                      // Display result
-                      if (inZone) {
-                        resultDiv.style.background = "rgba(59, 130, 246, 0.2)";
-                        resultDiv.style.border =
-                          "2px solid rgba(59, 130, 246, 0.5)";
-                        resultDiv.innerHTML = `
-                          <strong style="color: #9bf1ff;">✓ Glückwunsch!</strong><br>
-                          <p style="margin: 0.5em 0;">Dein Standort liegt in unserer <strong>Standard-Heimservice-Zone</strong>.</p>
-                          <p style="margin: 0.5em 0; font-size: 0.9em;">📍 Entfernung zur Schule: ca. ${distance.toFixed(
-                            1,
-                          )} km</p>
-                          <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.8); font-size: 0.9em;">
-                            → <strong>Keine Extrakosten</strong> für Heimservice!
-                          </p>
-                        `;
-                      } else {
-                        // Estimate extra cost based on distance
-                        let extraCost = 0;
-                        if (distance > 10) {
-                          extraCost = 20;
-                        } else if (distance > 7) {
-                          extraCost = 15;
-                        } else {
-                          extraCost = 10;
-                        }
-
-                        resultDiv.style.background = "rgba(239, 68, 68, 0.2)";
-                        resultDiv.style.border =
-                          "2px solid rgba(239, 68, 68, 0.5)";
-                        resultDiv.innerHTML = `
-                          <strong style="color: #ff9999;">ℹ️ Außerhalb der Hauptzone</strong><br>
-                          <p style="margin: 0.5em 0;">Dein Standort liegt außerhalb unserer Standard-Zone.</p>
-                          <p style="margin: 0.5em 0; font-size: 0.9em;">📍 Entfernung zur Schule: ca. ${distance.toFixed(
-                            1,
-                          )} km</p>
-                          <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.9);">
-                            → <strong>Geschätzte Extrakosten: +${extraCost}€</strong> pro Unterrichtseinheit<br>
-                            <small style="color: rgba(255,255,255,0.7);">Kontaktiere uns für ein genaues Angebot!</small>
-                          </p>
-                        `;
-                      }
-
-                      locationMarker.bindPopup(address).openPopup();
+                      evaluateLocation(point, address);
                     } catch (error) {
                       resultDiv.style.background = "rgba(239, 68, 68, 0.2)";
                       resultDiv.style.border =
@@ -963,7 +1025,7 @@
                     🏠 Heimservice + Extrakosten
                   </h3>
                   <p style="margin-bottom: 0.5em">
-                    <strong>Außenbezirke (Rote Zone):</strong>
+                    <strong>Außenbezirke :</strong>
                   </p>
                   <ul
                     style="
