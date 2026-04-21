@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -166,8 +166,7 @@
       <!-- Menu -->
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
-          <li><a href="überuns.html">Über uns</a></li>
-          <li><a href="lehre.html">Lehre</a></li>
+          <li><a href="überuns.html">Über uns & Lehrweise</a></li>
           <li><a href="instrumente.html">Instrumente</a></li>
           <li><a href="preise.html">Preise</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -210,7 +209,7 @@
       <div id="main">
         <!-- One -->
         <section id="one" class="tiles">
-          <article>
+          <article class="tile-about">
             <video
               class="tile-video"
               muted
@@ -228,33 +227,14 @@
             </video>
             <header class="major">
               <h3>
-                <a href="überuns.html" class="link">Über uns</a>
+                <a href="überuns.html" class="link">Über uns & Lehrweise</a>
               </h3>
-              <p>Lerne unser engagiertes Team kennen!</p>
-            </header>
-          </article>
-          <article>
-            <video
-              class="tile-video"
-              muted
-              loop
-              playsinline
-              preload="none"
-              loading="lazy"
-              aria-label="Lehre – So unterrichten wir"
-            >
-              <source src="vids/lehre.mp4" type="video/mp4" />
               <p>
-                Video nicht verfügbar —
-                <a href="vids/lehre.mp4">Herunterladen</a>
+                Lerne unser Team kennen und erfahre mehr über unsere Lehrweise.
               </p>
-            </video>
-            <header class="major">
-              <h3><a href="lehre.html" class="link">Lehre</a></h3>
-              <p>Unsere moderne, motivierende Lehrweise.</p>
             </header>
           </article>
-          <article>
+          <article class="tile-instruments">
             <video
               class="tile-video"
               muted
@@ -277,7 +257,7 @@
               <p>Alle Instrumente, die du bei uns lernen kannst.</p>
             </header>
           </article>
-          <article>
+          <article class="tile-prices" style="width: 33.3333%">
             <video
               class="tile-video"
               muted
@@ -298,7 +278,7 @@
               <p>Transparente und faire Preise für alle.</p>
             </header>
           </article>
-          <article>
+          <article class="tile-faq" style="width: 33.3333%">
             <video
               class="tile-video"
               muted
@@ -318,7 +298,7 @@
               <p>Antworten auf alle wichtigen Fragen.</p>
             </header>
           </article>
-          <article>
+          <article class="tile-contact" style="width: 33.3333%">
             <video
               class="tile-video"
               muted
@@ -605,39 +585,40 @@
         object-fit: cover;
         object-position: center;
         z-index: 0;
-        opacity: 0.15;
+        opacity: 0.3;
       }
 
       .tiles article:before {
-        opacity: 0.85;
+        opacity: 0.78;
       }
 
       .tiles article:after {
-        background-color: rgba(36, 41, 67, 0.12);
+        background-color: transparent;
       }
 
-      .tiles article:nth-child(6n - 5):before {
-        background-color: #6fc3df;
+      .tiles article.tile-about:before {
+        background: linear-gradient(135deg, #6fc3df 0%, #9bf1ff 100%);
+        opacity: 1;
       }
 
-      .tiles article:nth-child(6n - 4):before {
-        background-color: #8d82c4;
+      .tiles article.tile-instruments:before {
+        background: linear-gradient(135deg, #d96b5f 0%, #ec8d81 100%);
+        opacity: 1;
       }
 
-      .tiles article:nth-child(6n - 3):before {
-        background-color: #ec8d81;
+      .tiles article.tile-prices:before {
+        background: linear-gradient(135deg, #ec8d81 0%, #f3b1a8 100%);
+        opacity: 1;
       }
 
-      .tiles article:nth-child(6n - 2):before {
-        background-color: #e7b788;
+      .tiles article.tile-faq:before {
+        background: linear-gradient(135deg, #8ea9e8 0%, #c1d0f5 100%);
+        opacity: 1;
       }
 
-      .tiles article:nth-child(6n - 1):before {
-        background-color: #6fc3df;
-      }
-
-      .tiles article:nth-child(6n):before {
-        background-color: #87c5a4;
+      .tiles article.tile-contact:before {
+        background: linear-gradient(135deg, #87c5a4 0%, #bfe3d0 100%);
+        opacity: 1;
       }
 
       .tiles article header {
@@ -668,6 +649,26 @@
       }
 
       @media (max-width: 640px) {
+        .tiles article .tile-video {
+          opacity: 0.38;
+        }
+
+        .tiles article:before {
+          opacity: 0.68;
+        }
+
+        .tiles article:after {
+          background-color: transparent;
+        }
+
+        .tiles article.tile-about:before,
+        .tiles article.tile-instruments:before,
+        .tiles article.tile-prices:before,
+        .tiles article.tile-faq:before,
+        .tiles article.tile-contact:before {
+          opacity: 1;
+        }
+
         #banner.major .actions {
           flex-direction: column;
           align-items: stretch;

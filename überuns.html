@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -6,7 +6,7 @@
 -->
 <html lang="de">
   <head>
-    <title>Über uns | Kleine Musikschule Karlsruhe</title>
+    <title>Über uns & Lehrweise | Kleine Musikschule Karlsruhe</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -45,11 +45,11 @@
     <link rel="icon" href="images/logo_small.png" />
     <meta
       name="description"
-      content="Lerne das Team der kleinen Musikschule Karlsruhe kennen. Mobile Musikschule: Unterricht zuhause, online oder vor Ort – für Kinder & Erwachsene. Probestunde gratis."
+      content="Lerne das Team der kleinen Musikschule Karlsruhe kennen und erfahre mehr über unsere Lehrweise. Mobile Musikschule: Unterricht zuhause, online oder vor Ort – für Kinder & Erwachsene."
     />
     <meta
       name="keywords"
-      content="Über uns, Musikschule Karlsruhe, Gitarrenunterricht Karlsruhe, Klavierunterricht Karlsruhe, Schlagzeugunterricht Karlsruhe, Ukuleleunterricht Karlsruhe, Bassunterricht Karlsruhe, Team, Musiklehrer, Musikunterricht, Probestunde"
+      content="Über uns, Lehrweise, Musikschule Karlsruhe, Gitarrenunterricht Karlsruhe, Klavierunterricht Karlsruhe, Schlagzeugunterricht Karlsruhe, Ukuleleunterricht Karlsruhe, Bassunterricht Karlsruhe, Team, Musiklehrer, Musikunterricht, Probestunde"
     />
     <link
       rel="canonical"
@@ -57,11 +57,11 @@
     />
     <meta
       property="og:title"
-      content="Über uns | Kleine Musikschule Karlsruhe"
+      content="Über uns & Lehrweise | Kleine Musikschule Karlsruhe"
     />
     <meta
       property="og:description"
-      content="Das Team der kleinen Musikschule Karlsruhe stellt sich vor. Musikunterricht mit Herz!"
+      content="Team und Lehrweise der kleinen Musikschule Karlsruhe: persönlich, flexibel und mit Freude am Musizieren."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -81,6 +81,65 @@
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    <style>
+      .usp-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+        margin: 2.25rem 0 2.75rem;
+      }
+
+      .usp-card {
+        background: linear-gradient(
+          160deg,
+          rgba(155, 241, 255, 0.14),
+          rgba(155, 241, 255, 0.04)
+        );
+        border: 1px solid rgba(155, 241, 255, 0.2);
+        border-left: 4px solid #9bf1ff;
+        border-radius: 14px;
+        padding: 1.8rem 1.6rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .usp-card h4 {
+        margin: 0 0 0.75rem 0;
+        color: #9bf1ff;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .usp-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        line-height: 1;
+        color: #d5fbff;
+        background: rgba(155, 241, 255, 0.18);
+        border: 1px solid rgba(155, 241, 255, 0.35);
+      }
+
+      .usp-card p {
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      @media screen and (max-width: 736px) {
+        .usp-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .usp-card {
+          padding: 1.35rem 1.2rem;
+        }
+      }
+    </style>
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -109,7 +168,7 @@
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
           <li><a href="index.html">Home</a></li>
-          <li><a href="lehre.html">Lehre</a></li>
+          <li><a href="überuns.html">Lehre</a></li>
           <li><a href="instrumente.html">Instrumente</a></li>
           <li><a href="preise.html">Preise</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -127,10 +186,10 @@
       >
         <div class="inner">
           <header class="major">
-            <h1>Über uns</h1>
+            <h1>Über uns & Lehrweise</h1>
           </header>
           <div class="content">
-            <p>Lerne uns und unsere Leidenschaft für Musik kennen!</p>
+            <p>Lerne uns kennen und erfahre, wie wir unterrichten.</p>
           </div>
         </div>
       </section>
@@ -167,97 +226,52 @@
             <header class="major">
               <h3>Was macht uns besonders?</h3>
             </header>
-            <div
-              class="row"
-              style="margin: 3em auto; max-width: 1100px; padding: 0 1em"
-            >
-              <div class="col-6 col-12-medium" style="margin-bottom: 2em">
-                <div
-                  style="
-                    background: rgba(155, 241, 255, 0.08);
-                    padding: 2.2em;
-                    border-radius: 10px;
-                    border-left: 4px solid #9bf1ff;
-                    height: 100%;
-                  "
-                >
-                  <h4
-                    style="margin-top: 0; margin-bottom: 0.8em; color: #9bf1ff"
-                  >
-                    ✅ Dein Lieblingslied im Fokus
-                  </h4>
-                  <p style="margin: 0; line-height: 1.6">
-                    Statt stundenlang Noten zu pauken: Lerne die Songs, die dir
-                    wirklich gefallen. Das macht den Unterschied zwischen "Ich
-                    muss" und "Ich will"!
-                  </p>
-                </div>
-              </div>
-              <div class="col-6 col-12-medium" style="margin-bottom: 2em">
-                <div
-                  style="
-                    background: rgba(155, 241, 255, 0.08);
-                    padding: 2.2em;
-                    border-radius: 10px;
-                    border-left: 4px solid #9bf1ff;
-                    height: 100%;
-                  "
-                >
-                  <h4
-                    style="margin-top: 0; margin-bottom: 0.8em; color: #9bf1ff"
-                  >
-                    ✅ Ohne Druck, mit Spaß
-                  </h4>
-                  <p style="margin: 0">
-                    Null Stress. Zero Leistungsdruck. Wir feiern jeden Erfolg,
-                    egal wie klein. Dein persönlicher Musiklernclub statt
-                    starrer Musikschule.
-                  </p>
-                </div>
-              </div>
-              <div class="col-6 col-12-medium" style="margin-bottom: 2em">
-                <div
-                  style="
-                    background: rgba(155, 241, 255, 0.08);
-                    padding: 2.2em;
-                    border-radius: 10px;
-                    border-left: 4px solid #9bf1ff;
-                    height: 100%;
-                  "
-                >
-                  <h4
-                    style="margin-top: 0; margin-bottom: 0.8em; color: #9bf1ff"
-                  >
-                    ✅ 100% Flexibilität
-                  </h4>
-                  <p style="margin: 0; line-height: 1.6">
-                    Montagmorgen stressig? Urlaub geplant? Verschiebe einfach.
-                    <strong>Du bestimmst deine Lernzeiten</strong> – nicht wir.
-                  </p>
-                </div>
-              </div>
-              <div class="col-6 col-12-medium">
-                <div
-                  style="
-                    background: rgba(155, 241, 255, 0.08);
-                    padding: 2.2em;
-                    border-radius: 10px;
-                    border-left: 4px solid #9bf1ff;
-                    height: 100%;
-                  "
-                >
-                  <h4
-                    style="margin-top: 0; margin-bottom: 0.8em; color: #9bf1ff"
-                  >
-                    ✅ Qualifizierte Lehrer
-                  </h4>
-                  <p style="margin: 0; line-height: 1.6">
-                    Aktive Musiker mit viel Erfahrung in Unterricht und Bühne.
-                    Wir unterrichten mit Herz und holen dich genau da ab, wo du
-                    stehst.
-                  </p>
-                </div>
-              </div>
+            <div class="usp-grid" aria-label="Vorteile der Musikschule">
+              <article class="usp-card">
+                <h4>
+                  <span class="usp-icon" aria-hidden="true">&#10003;</span>
+                  Dein Lieblingslied im Fokus
+                </h4>
+                <p>
+                  Statt stundenlang Noten zu pauken: Lerne die Songs, die dir
+                  wirklich gefallen. Das macht den Unterschied zwischen "Ich
+                  muss" und "Ich will".
+                </p>
+              </article>
+
+              <article class="usp-card">
+                <h4>
+                  <span class="usp-icon" aria-hidden="true">&#10003;</span>
+                  Ohne Druck, mit Spaß
+                </h4>
+                <p>
+                  Null Stress und kein Leistungsdruck. Wir feiern jeden Erfolg,
+                  egal wie klein, und lernen in einer entspannten Atmosphäre.
+                </p>
+              </article>
+
+              <article class="usp-card">
+                <h4>
+                  <span class="usp-icon" aria-hidden="true">&#10003;</span>
+                  100% Flexibilität
+                </h4>
+                <p>
+                  Montagmorgen stressig? Urlaub geplant? Verschiebe einfach.
+                  <strong>Du bestimmst deine Lernzeiten</strong>, nicht wir.
+                </p>
+              </article>
+
+              <article class="usp-card">
+                <h4>
+                  <span class="usp-icon" aria-hidden="true">&#10003;</span>
+                  Qualifizierte Lehrer
+                </h4>
+                <p>
+                  Aktive Musiker mit viel Erfahrung in Unterricht und Bühne. Wir
+                  unterrichten mit Herz und holen dich genau da ab, wo du
+                  stehst.
+                </p>
+              </article>
             </div>
             <header class="major">
               <h3>Für wen wir da sind</h3>
@@ -291,11 +305,6 @@
             <ul class="actions">
               <li>
                 <a href="kontakt.html" class="button">Kontaktiere uns jetzt</a>
-              </li>
-              <li>
-                <a href="lehre.html" class="button"
-                  >Erfahre mehr über unsere Lehrweise</a
-                >
               </li>
             </ul>
           </div>
