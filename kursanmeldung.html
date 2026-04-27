@@ -197,6 +197,71 @@
       .course-info-note strong {
         color: #dffbff;
       }
+
+      .form-popup-overlay {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background: rgba(10, 16, 32, 0.72);
+        z-index: 10000;
+        backdrop-filter: blur(2px);
+      }
+
+      .form-popup {
+        width: min(520px, 94vw);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: linear-gradient(
+          155deg,
+          rgba(23, 28, 45, 0.98),
+          rgba(13, 17, 30, 0.98)
+        );
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+        padding: 1.2rem 1.2rem 1.1rem;
+      }
+
+      .form-popup h3 {
+        margin: 0 0 0.45rem 0;
+        font-size: 1.25rem;
+        letter-spacing: 0.02em;
+      }
+
+      .form-popup p {
+        margin: 0;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .form-popup.success h3 {
+        color: #9bf1ff;
+      }
+
+      .form-popup.error h3 {
+        color: #ff8d8d;
+      }
+
+      .form-popup-actions {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .form-popup-actions button {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding: 0.55rem 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .form-popup-actions button:hover {
+        background: rgba(155, 241, 255, 0.16);
+      }
     </style>
     <noscript>
       <link rel="stylesheet" href="assets/css/noscript.css" />
@@ -500,40 +565,114 @@
     <script src="assets/js/cookie-consent.js"></script>
 
     <script>
-      document
-        .getElementById("registrationForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
+      function showFormPopup(title, message, type) {
+        const overlay = document.createElement("div");
+        overlay.className = "form-popup-overlay";
 
-          const form = e.target;
-          const submitButton = form.querySelector('input[type="submit"]');
-          const originalButtonValue = submitButton.value;
+        const popup = document.createElement("div");
+        popup.className = `form-popup ${type}`;
+        popup.setAttribute("role", "dialog");
+        popup.setAttribute("aria-modal", "true");
 
-          submitButton.disabled = true;
-          submitButton.value = "Wird gesendet...";
+        popup.innerHTML = `
+          <h3>${title}</h3>
+          <p>${message}</p>
+          <div class="form-popup-actions">
+            <button type="button">OK</button>
+          </div>
+        `;
 
-          try {
-            const response = await fetch(form.action, {
-              method: "POST",
-              body: new FormData(form),
-              headers: {
-                Accept: "application/json",
-              },
-            });
-
-            if (response.ok) {
-              alert("Glückwunsch! Sie sind zum Kurs angemeldet.");
-              form.reset();
-            } else {
-              alert("Fehler beim Senden. Bitte erneut versuchen.");
-            }
-          } catch (error) {
-            alert("Fehler beim Senden. Bitte erneut versuchen.");
-          }
-
-          submitButton.disabled = false;
-          submitButton.value = originalButtonValue;
+        const closePopup = () => overlay.remove();
+        popup.querySelector("button").addEventListener("click", closePopup);
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closePopup();
         });
+
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+      }
+
+      const registrationForm = document.getElementById("registrationForm");
+
+      function getGermanValidationMessage(field) {
+        const validity = field.validity;
+
+        if (validity.valueMissing) {
+          if (field.type === "checkbox") {
+            return "Bitte bestätigen Sie dieses Feld.";
+          }
+          if (field.tagName === "SELECT") {
+            return "Bitte wählen Sie eine Option aus.";
+          }
+          return "Bitte füllen Sie dieses Feld aus.";
+        }
+
+        if (validity.typeMismatch && field.type === "email") {
+          return "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
+        }
+
+        return "Bitte überprüfen Sie dieses Feld.";
+      }
+
+      Array.from(registrationForm.elements).forEach(function (field) {
+        if (!field.willValidate) return;
+
+        field.addEventListener("invalid", function () {
+          this.setCustomValidity(getGermanValidationMessage(this));
+        });
+
+        const clearCustomValidity = function () {
+          this.setCustomValidity("");
+        };
+
+        field.addEventListener("input", clearCustomValidity);
+        field.addEventListener("change", clearCustomValidity);
+      });
+
+      registrationForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const submitButton = form.querySelector('input[type="submit"]');
+        const originalButtonValue = submitButton.value;
+
+        submitButton.disabled = true;
+        submitButton.value = "Wird gesendet...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            showFormPopup(
+              "Anmeldung erfolgreich",
+              "Glückwunsch! Sie sind zum Kurs angemeldet.",
+              "success",
+            );
+            form.reset();
+          } else {
+            showFormPopup(
+              "Senden fehlgeschlagen",
+              "Fehler beim Senden. Bitte erneut versuchen.",
+              "error",
+            );
+          }
+        } catch (error) {
+          showFormPopup(
+            "Senden fehlgeschlagen",
+            "Fehler beim Senden. Bitte erneut versuchen.",
+            "error",
+          );
+        }
+
+        submitButton.disabled = false;
+        submitButton.value = originalButtonValue;
+      });
     </script>
   </body>
 </html>
