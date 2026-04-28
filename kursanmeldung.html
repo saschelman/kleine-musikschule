@@ -382,22 +382,12 @@
             >
               <input
                 type="hidden"
-                name="formular"
+                name="Kursanmledung"
                 value="Kursanmeldung zu Musikkurs: ein tierisches Orchester"
               />
               <input
                 type="hidden"
-                name="kurs_zeitraum"
-                value="Immer donnerstags: 4. Juni 2026, 11. Juni 2026, 18. Juni 2026; 25. Juni 2026 Pause (kein Termin); 2. Juli 2026, 9. Juli 2026, 16. Juli 2026; 23. Juli 2026 Abschlusskonzert 16:00 bis 18:00 Uhr"
-              />
-              <input
-                type="hidden"
-                name="kurs_zeiten"
-                value="1. Kurs 16.00-16.45 Uhr oder 2. Kurs 17.00-17.45 Uhr"
-              />
-              <input
-                type="hidden"
-                name="kurs_preis"
+                name="Preis"
                 value="139 EUR pro Teilnehmenden"
               />
               <div class="fields">
@@ -407,7 +397,7 @@
                   >
                   <input
                     type="text"
-                    name="kursteilnehmer_vorname"
+                    name="Kursteilnehmer Vorname"
                     id="kursteilnehmer_vorname"
                     required
                   />
@@ -418,7 +408,7 @@
                   >
                   <input
                     type="text"
-                    name="kursteilnehmer_nachname"
+                    name="Kursteilnehmer Nachname"
                     id="kursteilnehmer_nachname"
                     required
                   />
@@ -429,7 +419,7 @@
                   >
                   <input
                     type="text"
-                    name="vertreter_vorname"
+                    name="Vertreter Vorname"
                     id="vertreter_vorname"
                     required
                   />
@@ -440,26 +430,31 @@
                   >
                   <input
                     type="text"
-                    name="vertreter_nachname"
+                    name="Vertreter Nachname"
                     id="vertreter_nachname"
                     required
                   />
                 </div>
                 <div class="field">
                   <label for="adresse">Adresse *</label>
-                  <input type="text" name="adresse" id="adresse" required />
+                  <input type="text" name="Adresse" id="adresse" required />
                 </div>
                 <div class="field half">
                   <label for="email">E-Mail *</label>
-                  <input type="email" name="email" id="email" required />
+                  <input type="email" name="Email" id="email" required />
                 </div>
                 <div class="field half">
                   <label for="telefon">Telefonnummer *</label>
-                  <input type="tel" name="telefon" id="telefon" required />
+                  <input
+                    type="tel"
+                    name="Telefonnummer"
+                    id="telefon"
+                    required
+                  />
                 </div>
                 <div class="field half">
                   <label for="kurswahl">Gewünschter Kurs *</label>
-                  <select name="kurswahl" id="kurswahl" required>
+                  <select name="Kurswahl" id="Kurswahl" required>
                     <option value="" selected disabled>Bitte auswählen</option>
                     <option value="1. Kurs 16.00 - 16.45 Uhr">
                       1. Kurs (16.00 - 16.45 Uhr)
@@ -475,7 +470,7 @@
                 <input
                   type="checkbox"
                   id="medien_erlaubnis"
-                  name="medien_erlaubnis"
+                  name="Medien Erlaubnis"
                 />
                 <label for="medien_erlaubnis"
                   >Ich erkläre mich mit der Anfertigung und Verwendung von
@@ -487,7 +482,12 @@
               </div>
 
               <div class="field consent-field">
-                <input type="checkbox" id="agb" name="agb" required />
+                <input
+                  type="checkbox"
+                  id="agb"
+                  name="AGB akzeptiert"
+                  required
+                />
                 <label for="agb"
                   >Ich akzeptiere die
                   <a href="agb-kurs.html">Allgemeinen Geschäftsbedingungen</a>
@@ -499,7 +499,7 @@
                 <input
                   type="checkbox"
                   id="datenschutz"
-                  name="datenschutz"
+                  name="Datenschutz akzeptiert"
                   required
                 />
                 <label for="datenschutz"
