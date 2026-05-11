@@ -7,14 +7,13 @@
 <html lang="de">
   <head>
     <title>
-      Kursanmeldung zu Musikkurs: ein tierisches Orchester | Kleine Musikschule
-      Karlsruhe
+      Kursanmeldung: Ein tierisches Orchester | Kleine Musikschule Karlsruhe
     </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Kursanmeldung zu Musikkurs: ein tierisches Orchester."
+      content="Kursanmeldung zum 7-wöchigen Musikkurs Ein tierisches Orchester für Kinder von 4 bis 6 Jahren mit Dschungel-Safari, Klängen, Instrumenten und Abschlusskonzert."
     />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="theme-color" content="#9bf1ff" />
@@ -184,18 +183,94 @@
         color: transparent;
       }
 
-      .course-info-note {
-        margin-top: 0.65rem;
-        padding: 0.75rem 0.85rem;
-        border-left: 3px solid #9bf1ff;
-        background: rgba(155, 241, 255, 0.09);
-        border-radius: 4px;
-        font-size: 0.95rem;
-        line-height: 1.55;
+      .course-overview {
+        margin-top: 1rem;
+        display: grid;
+        gap: 1rem;
       }
 
-      .course-info-note strong {
+
+
+      .course-detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .course-detail-card {
+        padding: 1.25rem 1.25rem 1.15rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(10, 16, 32, 0.28);
+      }
+
+      .course-detail-card h4 {
+        margin: 0 0 0.65rem 0;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #9bf1ff;
+      }
+
+      .course-detail-card p,
+      .course-detail-card ul {
+        margin: 0;
+      }
+
+      .course-detail-card ul {
+        padding-left: 1.1rem;
+      }
+
+      .course-detail-card li + li {
+        margin-top: 0.35rem;
+      }
+
+      .course-callout {
+        margin-top: 0.35rem;
+        padding: 1rem 1.1rem;
+        border-left: 3px solid #9bf1ff;
+        background: rgba(155, 241, 255, 0.08);
+        border-radius: 4px;
+        line-height: 1.6;
+      }
+
+      .course-callout strong {
         color: #dffbff;
+      }
+
+
+
+      .course-cta {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.05rem;
+        border-radius: 999px;
+        border: 1px solid rgba(155, 241, 255, 0.35);
+        background: rgba(155, 241, 255, 0.12);
+        color: #fff;
+        text-decoration: none;
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .course-cta:hover {
+        transform: translateY(-1px);
+        background: rgba(155, 241, 255, 0.18);
+        border-color: rgba(155, 241, 255, 0.55);
+      }
+
+      .course-cta span {
+        opacity: 0.9;
+      }
+
+      @media (max-width: 736px) {
+        .course-detail-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       .form-popup-overlay {
@@ -316,57 +391,103 @@
               <h2>Kursinformationen</h2>
             </header>
 
-            <div class="course-info-box">
-              <div class="course-info-head">
-                <span class="course-info-kicker">Musikkurs</span>
-                <h3>Ein tierisches Orchester</h3>
+            <div class="course-overview">
+              <div class="course-info-box">
+                <div class="course-info-head">
+                  <span class="course-info-kicker">Musikkurs</span>
+                  <h3>Ein tierisches Orchester</h3>
+                </div>
+
+                <div class="course-info-section">
+                  <p>
+                    7-wöchiger Musikkurs für Kinder von 4 bis 6 Jahren mit
+                    spielerischem Kennenlernen von Klängen und Instrumenten.
+                  </p>
+                </div>
+
+                <div class="course-info-section">
+                  <h4>Was dich erwartet</h4>
+                  <p>
+                    Bist du bereit für ein tierisches Abenteuer? Komm mit auf
+                    Dschungel-Safari und lerne mit deinen neuen tierischen
+                    Freunden die Welt der Klänge und Musik kennen! In unserem
+                    7-wöchigen Projektkurs gibt es für kleine Entdecker
+                    (4–6 Jahre) einiges zu lernen und zu entdecken.
+                  </p>
+                  <p>
+                    Begleite den kleinen Elefanten auf seiner musikalischen Reise
+                    durch den Dschungel, wo er viele neue Klänge und Freunde
+                    kennenlernt. Jede Woche treffen wir ein neues Tier und
+                    probieren gemeinsam aus, wie es am liebsten musiziert. Mit
+                    immer wieder neuen Instrumenten bringen wir den Urwald zum
+                    Klingen.
+                  </p>
+                  <p>
+                    Wir erforschen geheimnisvolle Dschungelgeräusche, probieren
+                    aus, wie das Wetter klingt, und wachsen Woche für Woche zu
+                    einer tollen musikalischen Gemeinschaft zusammen.
+                  </p>
+                  <p>
+                    Am Ende der spannenden Reise hat sich das tierische Orchester
+                    gefunden und gibt eine große Vorstellung. Dazu werden Mama,
+                    Papa und alle Fans ganz herzlich in den Dschungel eingeladen.
+                  </p>
+                </div>
               </div>
 
-              <div class="course-info-section">
-                <h4>Termine</h4>
-                <p class="course-info-subline" style="margin-bottom: 0.35rem">
-                  Immer donnerstags
-                </p>
-                <ul>
-                  <li>4. Juni 2026</li>
-                  <li>11. Juni 2026</li>
-                  <li>18. Juni 2026</li>
-                  <li>
-                    25. Juni 2026:
-                    <span class="pause-highlight">Pause (kein Termin)</span>
-                  </li>
-                  <li>2. Juli 2026</li>
-                  <li>9. Juli 2026</li>
-                  <li>16. Juli 2026</li>
-                  <li>
-                    23. Juli 2026:
-                    <span class="concert-highlight">Abschlusskonzert</span>
-                  </li>
-                </ul>
+              <div class="course-info-box">
+                <div class="course-info-head">
+                  <span class="course-info-kicker">Termine & Uhrzeiten</span>
+                  <h3>Wann findet der Kurs statt?</h3>
+                </div>
+
+                <div class="course-info-section">
+                  <h4>Termine</h4>
+                  <p class="course-info-subline" style="margin-bottom: 0.35rem">
+                    Immer donnerstags
+                  </p>
+                  <ul>
+                    <li>4. Juni 2026</li>
+                    <li>11. Juni 2026</li>
+                    <li>18. Juni 2026</li>
+                    <li>
+                      25. Juni 2026:
+                      <span class="pause-highlight">Pause (kein Termin)</span>
+                    </li>
+                    <li>2. Juli 2026</li>
+                    <li>9. Juli 2026</li>
+                    <li>16. Juli 2026</li>
+                    <li>
+                      23. Juli 2026:
+                      <span class="concert-highlight">Abschlusskonzert</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="course-info-section">
+                  <h4>Uhrzeiten</h4>
+                  <ul>
+                    <li>1. Kurs: 16:00 bis 16:45 Uhr</li>
+                    <li>2. Kurs: 17:00 bis 17:45 Uhr</li>
+                    <li>Abschlusskonzert: 16:00 bis 18:00 Uhr</li>
+                  </ul>
+                </div>
               </div>
 
-              <div class="course-info-section">
-                <h4>Zeiten</h4>
-                <ul>
-                  <li>1. Kurs: 16:00 bis 16:45 Uhr</li>
-                  <li>2. Kurs: 17:00 bis 17:45 Uhr</li>
-                  <li>Abschlusskonzert: 16:00 bis 18:00 Uhr</li>
-                </ul>
-              </div>
-
-              <div class="course-info-section">
-                <h4>Kursgebühr</h4>
-                <p class="course-info-note">
-                  Die Kursgebühr beträgt
-                  <strong>139 EUR pro Teilnehmenden</strong>. Bitte überweisen
-                  Sie den Betrag nach der Anmeldung innerhalb von 14 Tagen
-                  an:<br />
-                  <strong>Alexander Flöter</strong><br />
-                  <strong>IBAN:</strong> DE28 1203 0000 1200 7970 64<br />
-                  <strong>Verwendungszweck:</strong> Vorname Nachname
-                  (Kursteilnehmer/in)
-                </p>
-              </div>
+              <div class="course-detail-grid" style="grid-template-columns: 1fr;">
+                <article class="course-detail-card">
+                  <h4>Preis</h4>
+                  <p class="course-callout">
+                    Die Kursgebühr beträgt <strong>139 EUR pro Teilnehmenden</strong>.
+                    Bitte überweisen Sie den Betrag nach der Anmeldung innerhalb
+                    von 14 Tagen an <strong>Alexander Flöter</strong>:
+                  </p>
+                  <p style="margin-top: 0.65rem">
+                    <strong>IBAN:</strong> DE28 1203 0000 1200 7970 64<br />
+                    <strong>Verwendungszweck:</strong> Vorname Nachname
+                    (Kursteilnehmer/in)
+                  </p>
+                </article>
             </div>
           </div>
         </section>
