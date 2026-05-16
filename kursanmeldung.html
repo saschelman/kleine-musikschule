@@ -183,6 +183,23 @@
         color: transparent;
       }
 
+      .rainbow-text {
+        font-weight: 700;
+        background: linear-gradient(
+          90deg,
+          #ff4d4d 0%,
+          #ff9f1c 18%,
+          #ffd60a 36%,
+          #2ec4b6 54%,
+          #3a86ff 72%,
+          #8338ec 88%,
+          #ff006e 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
       .course-overview {
         margin-top: 1rem;
         display: grid;
@@ -457,11 +474,6 @@
                     <li>9. Juli 2026</li>
                     <li>16. Juli 2026</li>
                     <li>30. Juli 2026</li>
-                    
-                    <li>
-                      31. Juli 2026:
-                      <span class="concert-highlight">Abschlusskonzert</span>
-                    </li>
                   </ul>
                 </div>
 
@@ -470,8 +482,17 @@
                   <ul>
                     <li>1. Kurs: 16:00 bis 16:45 Uhr</li>
                     <li>2. Kurs: 17:00 bis 17:45 Uhr</li>
-                    <li>Abschlusskonzert: 16:00 bis 18:00 Uhr</li>
                   </ul>
+                </div>
+
+                <div class="course-info-section">
+                  <h4 class="rainbow-text">Abschlusskonzert</h4>
+                  <p>
+                    Zum großen Finale laden wir alle Familien herzlich ein:
+                    Unser <span class="rainbow-text">Abschlusskonzert</span>
+                    findet am <strong>31. Juli</strong> von
+                    <strong>16:00 bis 18:00 Uhr</strong> statt.
+                  </p>
                 </div>
               </div>
 
