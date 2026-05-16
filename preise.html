@@ -410,7 +410,7 @@
                       </div>
                       <div class="price-item">
                         <span class="price-label">Sorglos Umgebung</span>
-                        <span class="price-value">110 €</span>
+                        <span class="price-value">nicht verfügbar</span>
                       </div>
                     </div>
                   </div>
@@ -471,7 +471,7 @@
                       </div>
                       <div class="price-item">
                         <span class="price-label">Sorglos Umgebung</span>
-                        <span class="price-value">350 €</span>
+                        <span class="price-value">nicht verfügbar</span>
                       </div>
                     </div>
                   </div>
@@ -781,58 +781,96 @@
                 var zoneType = result.zoneType;
                 var address = result.address;
                 var outsideSurcharge = result.surcharge;
-                var greenMonthly30 = 90;
-                var greenTenCard30 = 300;
-                var orangePerLesson = 5;
                 var monthlyLessons = 4;
                 var tenCardLessons = 10;
 
-                var monthlyPrice = greenMonthly30;
-                var tenCardPrice = greenTenCard30;
+                var greenMonthly = { 30: 90, 45: 120, 60: 160 };
+                var greenTen = { 30: 300, 45: 450, 60: 600 };
+
+                function formatRows(prefix, monthlyObj, tenObj, durations) {
+                  durations = durations || [30, 45, 60];
+                  var lines = durations
+                    .map(function (d) {
+                      return (
+                        d +
+                        " Min: <strong>" +
+                        monthlyObj[d] +
+                        " €</strong> &nbsp;&nbsp; | &nbsp;&nbsp; 10er: <strong>" +
+                        tenObj[d] +
+                        " €</strong>"
+                      );
+                    })
+                    .join("<br>");
+                  return `
+                    <div style="margin-top:0.25em;">
+                      <strong>${prefix}</strong>
+                      <div style="margin-top:0.5em;color: rgba(255,255,255,0.9);">
+                        ${lines}
+                      </div>
+                    </div>
+                  `;
+                }
 
                 if (zoneType === "green") {
                   resultDiv.style.background = "rgba(34, 197, 94, 0.18)";
                   resultDiv.style.border = "2px solid rgba(34, 197, 94, 0.5)";
-                  monthlyPrice = greenMonthly30;
-                  tenCardPrice = greenTenCard30;
                   resultDiv.innerHTML = `
                     <strong style="color: #86efac;">✓ Sorglos Stadt</strong><br>
-                    <p style="margin: 0.5em 0;">Dein Standort liegt in <strong>Sorglos Stadt</strong>.</p>
-                    <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.9);">
-                      Monatsabo (30 Min): <strong>${monthlyPrice} €</strong><br>
-                      10er-Karte (30 Min): <strong>${tenCardPrice} €</strong>
-                    </p>
+                    <p style="margin: 0.25em 0;">Dein Standort liegt in <strong>Sorglos Stadt</strong>.</p>
+                    ${formatRows("Preise", greenMonthly, greenTen)}
                   `;
                 } else if (zoneType === "orange") {
+                  // Sorglos Umgebung: fixed uplifts from 'Stadt' prices
                   resultDiv.style.background = "rgba(249, 115, 22, 0.2)";
                   resultDiv.style.border = "2px solid rgba(249, 115, 22, 0.5)";
-                  monthlyPrice =
-                    greenMonthly30 + orangePerLesson * monthlyLessons;
-                  tenCardPrice =
-                    greenTenCard30 + orangePerLesson * tenCardLessons;
+                  var orangeMonthly = {
+                    30: greenMonthly[30] + 20,
+                    45: greenMonthly[45] + 20,
+                    60: greenMonthly[60] + 20,
+                  };
+                  var orangeTen = {
+                    30: greenTen[30] + 50,
+                    45: greenTen[45] + 50,
+                    60: greenTen[60] + 50,
+                  };
                   resultDiv.innerHTML = `
                     <strong style="color: #fdba74;">ℹ️ Sorglos Umgebung</strong><br>
-                    <p style="margin: 0.5em 0;">Dein Standort liegt in <strong>Sorglos Umgebung</strong>.</p>
-                    <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.9);">
-                      Monatsabo (30 Min): <strong>${monthlyPrice} €</strong><br>
-                      10er-Karte (30 Min): <strong>${tenCardPrice} €</strong>
-                    </p>
+                    <p style="margin: 0.25em 0;">Dein Standort liegt in <strong>Sorglos Umgebung</strong>.</p>
+                    ${formatRows("Preise", orangeMonthly, orangeTen, [45, 60])}
                   `;
                 } else {
+                  // Individuelle Zone: approximate by adding outside surcharge per lesson
                   resultDiv.style.background = "rgba(245, 158, 11, 0.2)";
                   resultDiv.style.border = "2px solid rgba(245, 158, 11, 0.5)";
-                  monthlyPrice =
-                    greenMonthly30 + outsideSurcharge * monthlyLessons;
-                  tenCardPrice =
-                    greenTenCard30 + outsideSurcharge * tenCardLessons;
+                  var indivMonthly = {
+                    45:
+                      Math.round(
+                        (greenMonthly[45] + outsideSurcharge * monthlyLessons) *
+                          100,
+                      ) / 100,
+                    60:
+                      Math.round(
+                        (greenMonthly[60] + outsideSurcharge * monthlyLessons) *
+                          100,
+                      ) / 100,
+                  };
+                  var indivTen = {
+                    45:
+                      Math.round(
+                        (greenTen[45] + outsideSurcharge * tenCardLessons) *
+                          100,
+                      ) / 100,
+                    60:
+                      Math.round(
+                        (greenTen[60] + outsideSurcharge * tenCardLessons) *
+                          100,
+                      ) / 100,
+                  };
                   resultDiv.innerHTML = `
                     <strong style="color: #fcd34d;">ℹ️ Individuelle Zone</strong><br>
-                    <p style="margin: 0.5em 0;">Dein Standort liegt <strong>außerhalb von Sorglos Umgebung</strong>.</p>
-                    <p style="margin: 0.5em 0 0 0; color: rgba(255,255,255,0.9);">
-                      Monatsabo (30 Min): <strong>ca. ${monthlyPrice} €</strong><br>
-                      10er-Karte (30 Min): <strong>ca. ${tenCardPrice} €</strong><br>
-                      <small>Genauer Preis auf Anfrage.</small>
-                    </p>
+                    <p style="margin: 0.25em 0;">Dein Standort liegt <strong>außerhalb von Sorglos Umgebung</strong>. Es sind nur 45 und 60 Minuten buchbar.</p>
+                    ${formatRows("Ungefähre Preise", indivMonthly, indivTen, [45, 60])}
+                    <p style="margin:0.5em 0 0 0; color: rgba(255,255,255,0.85);"><small>Genauer Preis auf Anfrage.</small></p>
                   `;
                 }
 
@@ -1153,7 +1191,3 @@
     <script src="assets/js/cookie-consent.js"></script>
   </body>
 </html>
-
-
-
-
