@@ -140,7 +140,18 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    <link
+      rel="preload"
+      href="assets/css/main.min.css?v=20251226-1"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1"
+    /></noscript>
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -150,15 +161,17 @@
     <div id="wrapper">
       <!-- Header -->
       <header id="header" class="alt">
-        <a href="index.html" class="logo"
-          ><img
+        <a href="index.html" class="logo">
+          <img
             src="images/logo_small.png"
             alt="Logo der kleinen Musikschule Karlsruhe"
             class="logo-img"
-            loading="lazy"
+            width="64"
+            height="64"
+            fetchpriority="high"
           />
-          <strong>kleine</strong> <span>musikschule Karlsruhe</span></a
-        >
+          <strong>kleine</strong> <span>musikschule Karlsruhe</span>
+        </a>
         <nav>
           <a href="#menu">Menu</a>
         </nav>
@@ -167,7 +180,7 @@
       <!-- Menu -->
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
-          <li><a href="überuns.html">Über uns & Lehrweise</a></li>
+          <li><a href="überuns.html">Über mich & Lernweise</a></li>
           <li><a href="instrumente.html">Instrumente</a></li>
           <li><a href="preise.html">Preise</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -189,8 +202,8 @@
           <div class="content">
             <p>
               Musikunterricht in Karlsruhe<br />
-              Gitarre, Klavier, Schlagzeug, Ukulele, E-Bass für Anfänger und
-              Fortgeschrittene in jedem Alter.
+              Gitarre, Ukulele, E-Bass für Anfänger und Fortgeschrittene in
+              jedem Alter.
             </p>
             <ul class="actions">
               <li>
@@ -218,7 +231,7 @@
               playsinline
               preload="none"
               loading="lazy"
-              aria-label="Über uns – Vorstellungsvideo der Musikschule"
+              aria-label="Über mich – Vorstellungsvideo der Musikschule"
             >
               <source src="vids/überuns.mp4" type="video/mp4" />
               <p>
@@ -228,11 +241,9 @@
             </video>
             <header class="major">
               <h3>
-                <a href="überuns.html" class="link">Über uns & Lehrweise</a>
+                <a href="überuns.html" class="link">Über mich & Lernweise</a>
               </h3>
-              <p>
-                Lerne unser Team kennen und erfahre mehr über unsere Lehrweise.
-              </p>
+              <p>Lerne mich kennen und erfahre mehr über meine Lernweise.</p>
             </header>
           </article>
           <article class="tile-instruments">
@@ -505,14 +516,14 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {

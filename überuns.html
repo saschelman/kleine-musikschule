@@ -6,7 +6,7 @@
 -->
 <html lang="de">
   <head>
-    <title>Über uns & Lehrweise | Kleine Musikschule Karlsruhe</title>
+    <title>Über mich & Lernweise | Kleine Musikschule Karlsruhe</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -21,7 +21,7 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Über uns",
+            "name": "Über mich",
             "item": "https://www.kleine-muskischule.de/überuns.html"
           }
         ]
@@ -45,11 +45,11 @@
     <link rel="icon" href="images/logo_small.png" />
     <meta
       name="description"
-      content="Lerne das Team der kleinen Musikschule Karlsruhe kennen und erfahre mehr über unsere Lehrweise. Mobile Musikschule: Unterricht zuhause, online oder vor Ort – für Kinder & Erwachsene."
+      content="Lerne Alex und seine Lernweise bei der kleinen Musikschule Karlsruhe kennen. Mobile Musikschule: Unterricht zuhause, online oder vor Ort – für Kinder, Jugendliche, Erwachsene und Rentner."
     />
     <meta
       name="keywords"
-      content="Über uns, Lehrweise, Musikschule Karlsruhe, Gitarrenunterricht Karlsruhe, Klavierunterricht Karlsruhe, Schlagzeugunterricht Karlsruhe, Ukuleleunterricht Karlsruhe, Bassunterricht Karlsruhe, Team, Musiklehrer, Musikunterricht, Probestunde"
+      content="Über mich, Lernweise, Musikschule Karlsruhe, Gitarrenunterricht Karlsruhe, Klavierunterricht Karlsruhe, Schlagzeugunterricht Karlsruhe, Ukuleleunterricht Karlsruhe, Bassunterricht Karlsruhe, Alex, Musiklehrer, Musikunterricht, Probestunde"
     />
     <link
       rel="canonical"
@@ -57,11 +57,11 @@
     />
     <meta
       property="og:title"
-      content="Über uns & Lehrweise | Kleine Musikschule Karlsruhe"
+      content="Über mich & Lernweise | Kleine Musikschule Karlsruhe"
     />
     <meta
       property="og:description"
-      content="Team und Lehrweise der kleinen Musikschule Karlsruhe: persönlich, flexibel und mit Freude am Musizieren."
+      content="Alex und seine Lernweise bei der kleinen Musikschule Karlsruhe: persönlich, flexibel und mit Freude am Musizieren."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -80,7 +80,8 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    <link rel="preload" href="assets/css/main.min.css?v=20251226-1" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
     <style>
       .usp-grid {
         display: grid;
@@ -129,6 +130,28 @@
         line-height: 1.7;
       }
 
+      .about-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: center;
+        margin: 0 0 2.75rem;
+      }
+
+      .about-hero-image {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 16px;
+        display: block;
+        object-fit: cover;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        justify-self: start;
+      }
+
+      .about-hero-text p:last-child {
+        margin-bottom: 0;
+      }
+
       @media screen and (max-width: 736px) {
         .usp-grid {
           grid-template-columns: 1fr;
@@ -137,6 +160,16 @@
 
         .usp-card {
           padding: 1.35rem 1.2rem;
+        }
+
+        .about-hero {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .about-hero-image {
+          max-width: 100%;
         }
       }
     </style>
@@ -150,15 +183,17 @@
       <!-- Header -->
       <!-- Note: The "styleN" class below should match that of the banner element. -->
       <header id="header" class="alt style2">
-        <a href="index.html" class="logo"
-          ><img
+        <a href="index.html" class="logo">
+          <img
             src="images/logo_small.png"
             alt="Logo der kleinen Musikschule Karlsruhe"
             class="logo-img"
-            loading="lazy"
+            width="64"
+            height="64"
+            fetchpriority="high"
           />
-          <strong>kleine</strong> <span>musikschule Karlsruhe</span></a
-        >
+          <strong>kleine</strong> <span>musikschule Karlsruhe</span>
+        </a>
         <nav>
           <a href="#menu">Menu</a>
         </nav>
@@ -168,7 +203,7 @@
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
           <li><a href="index.html">Home</a></li>
-          <li><a href="überuns.html">Lehre</a></li>
+          <li><a href="überuns.html">Über mich</a></li>
           <li><a href="instrumente.html">Instrumente</a></li>
           <li><a href="preise.html">Preise</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -186,10 +221,10 @@
       >
         <div class="inner">
           <header class="major">
-            <h1>Über uns & Lehrweise</h1>
+            <h1>Über mich & Lernweise</h1>
           </header>
           <div class="content">
-            <p>Lerne uns kennen und erfahre, wie wir unterrichten.</p>
+            <p>Lerne mich kennen und erfahre, wie ich Musikunterricht gestalte.</p>
           </div>
         </div>
       </section>
@@ -198,33 +233,55 @@
       <div id="main">
         <section id="one">
           <div class="inner">
+            <div class="about-hero">
+              <img
+                src="images/IMG_2963-2.jpg"
+                alt="Alex von der kleinen Musikschule"
+                class="about-hero-image"
+                loading="lazy"
+              />
+              <div class="about-hero-text">
+                <header class="major">
+                  <h2>Über mich</h2>
+                </header>
+                <p>
+                  Ich bin Alex, 28 Jahre alt, und Musik begleitet mich seit
+                  meinem ganzen Leben. Seit über 5 Jahren unterrichte ich
+                  Kinder, Jugendliche, Erwachsene und Rentner.
+                </p>
+                <p>
+                  Außerdem gebe ich Musikkurse in Kitas und anderen
+                  Einrichtungen. Mir ist wichtig, dass der Unterricht
+                  persönlich, verständlich und mit Freude am Musizieren
+                  gestaltet ist.
+                </p>
+              </div>
+            </div>
             <header class="major">
-              <h2>Warum die kleine Musikschule? 🎵</h2>
+              <h2>Meine Lernweise 🎵</h2>
             </header>
             <p>
-              Mit <strong>mehr als 50 Schülern</strong> in Karlsruhe haben wir
+              Mit <strong>mehr als 50 Schülern</strong> in Karlsruhe habe ich
               eine einfache Mission:
-              <strong>Musik sollte Freude bereiten, nicht Stress</strong>. Wir
-              sind eine
+              <strong>Musik soll Freude bereiten, nicht Stress</strong>. Ich
+              bin eine
               <strong>mobile Musikschule, die zu dir nach Hause kommt</strong>
-              – oder du lernst bei uns vor Ort. Keine langen Anfahrten, keine
-              festen Uhrzeiten, die nicht passen.
+              – oder du lernst bei mir vor Ort. Keine langen Anfahrten, keine
+              starren Zeiten, die nicht passen.
               <strong>Dein Leben, deine Musik, dein Tempo.</strong>
             </p>
             <header class="major">
-              <h3>Die Geschichte dahinter</h3>
+              <h3>Was mir wichtig ist</h3>
             </header>
             <p>
-              Gegründet aus einer simplen Frustration: Viele Musikschulen sind
-              zu starr, zu formal und vergessen, dass Musik
-              <strong>Lust und Leidenschaft</strong> ist. Deshalb haben wir
-              entschieden, es anders zu machen. Unser Team besteht aus
-              leidenschaftlichen Musikern, die selbst lange Wege zur Schule
-              fahren mussten. Das sollte es nicht geben. Darum:
+              Viele Musikschulen sind zu starr, zu formal und vergessen, dass
+              Musik <strong>Lust und Leidenschaft</strong> ist. Deshalb mache
+              ich es anders: Der Unterricht wird an dich angepasst, damit du in
+              deinem eigenen Tempo und mit echter Motivation lernen kannst.
               <strong>Der Unterricht kommt zu dir!</strong>
             </p>
             <header class="major">
-              <h3>Was macht uns besonders?</h3>
+              <h3>Was macht den Unterricht besonders?</h3>
             </header>
             <div class="usp-grid" aria-label="Vorteile der Musikschule">
               <article class="usp-card">
@@ -264,26 +321,24 @@
               <article class="usp-card">
                 <h4>
                   <span class="usp-icon" aria-hidden="true">&#10003;</span>
-                  Qualifizierte Lehrer
+                  Erfahrung aus Unterricht und Praxis
                 </h4>
                 <p>
-                  Aktive Musiker mit viel Erfahrung in Unterricht und Bühne. Wir
-                  unterrichten mit Herz und holen dich genau da ab, wo du
-                  stehst.
+                  Ich unterrichte mit viel Erfahrung aus der Praxis und hole
+                  dich genau da ab, wo du gerade stehst.
                 </p>
               </article>
             </div>
             <header class="major">
-              <h3>Für wen wir da sind</h3>
+              <h3>Für wen ich da bin</h3>
             </header>
             <p>
-              <strong>Kinder</strong> die gerade laufen können und
-              <strong>Senioren</strong> die noch träumen:
+              <strong>Kinder</strong>, <strong>Jugendliche</strong>,
+              <strong>Erwachsene</strong> und <strong>Rentner</strong>:
               <strong>Anfänger ohne jede Erfahrung</strong> und
-              <strong>Fortgeschrittene, die weiter wachsen wollen</strong>. Egal
-              ob
-              <strong>Gitarre, Klavier, Schlagzeug, Ukulele oder Bass</strong>
-              – bei uns ist jeder willkommen. 🎶
+              <strong>Fortgeschrittene, die weiter wachsen wollen</strong>.
+              Egal ob <strong>Gitarre, Klavier, Schlagzeug, Ukulele oder Bass</strong>
+              – bei mir ist jeder willkommen. 🎶
             </p>
             <header class="major">
               <h3>Die nächsten Schritte</h3>
@@ -314,7 +369,7 @@
       <footer id="footer">
         <div class="inner">
           <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="index.html">Home</a> &gt; <span>Über uns</span>
+            <a href="index.html">Home</a> &gt; <span>Über mich</span>
           </nav>
           <ul class="icons">
             <li>
@@ -346,13 +401,13 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
   </body>
 </html>

@@ -59,7 +59,18 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    <link
+      rel="preload"
+      href="assets/css/main.min.css?v=20251226-1"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1"
+    /></noscript>
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
@@ -70,15 +81,17 @@
       <!-- Header -->
       <!-- Note: The "styleN" class below should match that of the banner element. -->
       <header id="header" class="alt style2">
-        <a href="index.html" class="logo"
-          ><img
+        <a href="index.html" class="logo">
+          <img
             src="images/logo_small.png"
             alt="Logo der kleinen Musikschule Karlsruhe"
             class="logo-img"
-            loading="lazy"
+            width="64"
+            height="64"
+            fetchpriority="high"
           />
-          <strong>kleine</strong> <span>musikschule Karlsruhe</span></a
-        >
+          <strong>kleine</strong> <span>musikschule Karlsruhe</span>
+        </a>
         <nav>
           <a href="#menu">Menu</a>
         </nav>
@@ -88,7 +101,7 @@
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
           <li><a href="index.html">Home</a></li>
-          <li><a href="überuns.html">Über uns</a></li>
+          <li><a href="überuns.html">Über mich</a></li>
           <li><a href="überuns.html">Lehre</a></li>
           <li><a href="preise.html">Preise</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -202,42 +215,6 @@
             </div>
           </section>
           <section>
-            <a href="instrumente/schlagzeug/" class="image">
-              <img
-                src="images/drum-wallpaper.jpg"
-                alt="Schlagzeugunterricht in Karlsruhe"
-                data-position="top center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Schlagzeug</h3>
-                </header>
-                <p>
-                  Herzschlag der Band: Beats, Dynamik und Energie. Akustik‑Set
-                  für Bühne, E‑Drums für leises Üben – beides macht richtig Spaß
-                  und schult Koordination.
-                </p>
-                <p>
-                  Mehr zum
-                  <a href="instrumente/schlagzeug/index.html"
-                    >Schlagzeugunterricht in Karlsruhe</a
-                  >
-                  – <a href="kontakt.html">Probestunde anfragen</a>.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="instrumente/schlagzeug/index.html" class="button"
-                      >Schlagzeug‑Wiki</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section>
             <a href="instrumente/bass/" class="image">
               <img
                 src="images/basswallpaper.jpg"
@@ -267,42 +244,6 @@
                   <li>
                     <a href="instrumente/bass/index.html" class="button"
                       >E‑Bass‑Wiki</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section>
-            <a href="instrumente/klavier/" class="image">
-              <img
-                src="images/pianowallpaper.jpg"
-                alt="Klavierunterricht in Karlsruhe"
-                data-position="center 100%"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Klavier / Keyboard</h3>
-                </header>
-                <p>
-                  Das Fundament jeder Band: satter Ton, klares Timing und
-                  Groove. Einsteigerfreundlich mit 4 Saiten – ideal, um Rhythmus
-                  und Band‑Feeling zu lernen.
-                </p>
-                <p>
-                  Mehr zum
-                  <a href="instrumente/klavier/index.html"
-                    >Klavierunterricht in Karlsruhe</a
-                  >
-                  – <a href="kontakt.html">Probestunde vereinbaren</a>.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="instrumente/klavier/index.html" class="button"
-                      >Klavier‑Wiki</a
                     >
                   </li>
                 </ul>
@@ -347,13 +288,13 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
   </body>
 </html>

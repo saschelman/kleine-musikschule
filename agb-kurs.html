@@ -11,7 +11,8 @@
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="assets/css/main.css" /></noscript>
     <link rel="icon" href="images/logo_small.png" />
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
@@ -25,7 +26,9 @@
             src="images/logo_small.png"
             alt="Logo der kleinen Musikschule Karlsruhe"
             class="logo-img"
-            loading="lazy"
+            width="64"
+            height="64"
+            fetchpriority="high"
           />
           <strong>kleine</strong> <span>musikschule Karlsruhe</span>
         </a>
@@ -35,7 +38,7 @@
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
           <li><a href="index.html">Home</a></li>
-          <li><a href="überuns.html">Über uns</a></li>
+          <li><a href="überuns.html">Über mich</a></li>
           <li><a href="überuns.html">Lehre</a></li>
           <li><a href="instrumente.html">Instrumente</a></li>
           <li><a href="preise.html">Preise</a></li>
@@ -144,12 +147,12 @@
       </footer>
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
