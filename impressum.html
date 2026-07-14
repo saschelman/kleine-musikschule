@@ -15,7 +15,15 @@
       href="https://www.kleine-muskischule.de/impressum.html"
     />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link
+      rel="preload"
+      href="assets/css/main.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
     <noscript><link rel="stylesheet" href="assets/css/main.css" /></noscript>
     <link rel="icon" href="images/logo_small.png" />
     <noscript
@@ -205,7 +213,3 @@
     <script src="assets/js/main.js" defer></script>
   </body>
 </html>
-
-
-
-
