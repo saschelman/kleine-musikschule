@@ -12,7 +12,7 @@ app.set("trust proxy", 1);
 const PORT = Number(process.env.PORT || 3000);
 const MAIL_TO = process.env.MAIL_TO;
 const MAIL_FROM =
-  process.env.MAIL_FROM || "Kleine Musikschule <noreply@kleine-muskischule.de>";
+  process.env.MAIL_FROM || "Kleine Musikschule <noreply@kleine-musikschule.de>";
 const MAIL_REPLY_TO = process.env.MAIL_REPLY_TO || MAIL_TO;
 
 if (!MAIL_TO) {
@@ -48,9 +48,9 @@ function sendMailWithTimeout(mailOptions, timeoutMs = 15000) {
 const corsOrigin = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",").map((item) => item.trim())
   : [
-      "https://www.kleine-muskischule.de",
-      "https://kleine-muskischule.de",
-      "https://kleine-muskischule-webseite-forty.onrender.com",
+      "https://www.kleine-musikschule.de",
+      "https://kleine-musikschule.de",
+      "https://kleine-musikschule-webseite-forty.onrender.com",
       "http://localhost:3000",
       "http://127.0.0.1:3000",
     ];
@@ -189,7 +189,7 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
   }
 
   const internalText = [
-    "Neue Kontaktanfrage über kleine-muskischule.de",
+    "Neue Kontaktanfrage über kleine-musikschule.de",
     "",
     `Name: ${name}`,
     `E-Mail: ${email}`,

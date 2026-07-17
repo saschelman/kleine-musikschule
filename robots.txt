@@ -4,4 +4,4 @@ Disallow: /kursanmeldung.html
 Disallow: /agb-kurs.html
 Disallow: /medien-einwilligung.html
 
-Sitemap: https://www.kleine-muskischule.de/sitemap.xml
+Sitemap: https://www.kleine-musikschule.de/sitemap.xml

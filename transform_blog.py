@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
 import re
 
-# Pfad zur Datei
-file_path = r"c:\Webseite Musikschule\kleine-muskischule-webseite-forty\blog\10-tipps-zum-dranbleiben.html"
+# Pfad zur Datei relativ zum Skript-Verzeichnis bestimmen
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(script_dir, "blog", "10-tipps-zum-dranbleiben.html")
 
 # Datei einlesen
 with open(file_path, 'r', encoding='utf-8') as f:

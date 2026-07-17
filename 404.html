@@ -1,7 +1,19 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="de">
   <head>
     <title>Seite nicht gefunden (404) | Kleine Musikschule Karlsruhe</title>
+    <script>
+      (function() {
+        var path = window.location.pathname.toLowerCase();
+        if (path.indexOf('klavier') !== -1 || path.indexOf('schlagzeug') !== -1 || path.indexOf('drums') !== -1 || path.indexOf('keyboard') !== -1) {
+          if (path.indexOf('blog') !== -1) {
+            window.location.replace('/blog.html');
+          } else {
+            window.location.replace('/instrumente.html');
+          }
+        }
+      })();
+    </script>
     <meta
       name="description"
       content="Die gesuchte Seite wurde nicht gefunden. Zurück zur Startseite der kleinen Musikschule Karlsruhe."
