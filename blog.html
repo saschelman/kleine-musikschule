@@ -65,11 +65,11 @@
 
       <nav id="menu">
         <ul class="links" role="menubar" aria-label="Seitennavigation">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="überuns.html">Über mich</a></li>
-          <li><a href="überuns.html">Lehre</a></li>
+          <li><a href="überuns.html">Über mich & Lernweise</a></li>
           <li><a href="instrumente.html">Instrumente</a></li>
+          <li><a href="kurse.html">Kurse</a></li>
           <li><a href="preise.html">Preise</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
@@ -107,249 +107,163 @@
           </div>
         </section>
 
-        <section id="two" class="spotlights">
-          <!-- Neues Quiz: Welches Instrument passt zu mir? -->
+        <section id="two">
+          <div class="inner">
+            <style>
+              .blog-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                margin-top: 2rem;
+              }
+              .blog-card {
+                background: rgba(36, 41, 67, 0.25);
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+              }
+              .blog-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                border-color: rgba(155, 241, 255, 0.4);
+              }
+              .blog-card-img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+              }
+              .blog-card-content {
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+              }
+              .blog-card-content h3 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                font-size: 1.25rem;
+              }
+              .blog-card-content p {
+                font-size: 0.95em;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.75);
+                flex-grow: 1;
+                margin-bottom: 1.5rem;
+              }
+              .blog-card .button {
+                align-self: flex-start;
+                font-size: 0.8em;
+                padding: 0 1.5em;
+              }
+              @media (max-width: 980px) {
+                .blog-grid {
+                  grid-template-columns: repeat(2, 1fr);
+                }
+              }
+              @media (max-width: 736px) {
+                .blog-grid {
+                  grid-template-columns: 1fr;
+                  gap: 1.5rem;
+                }
+              }
+            </style>
 
-          <section>
-            <a href="blog/10-tipps-zum-dranbleiben.html" class="image">
-              <img
-                src="images/drannbleiben.jpg"
-                alt="10 Tipps zum Dranbleiben"
-                data-position="center center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>10 Tipps zum Dranbleiben</h3>
-                </header>
-                <p>
-                  Musiklernen ist ein Marathon, kein Sprint. Hier sind meine
-                  besten Tipps, wie du motiviert bleibst und langfristig am Ball
-                  bleibst – auch wenn es mal schwierig wird.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/10-tipps-zum-dranbleiben.html" class="button"
-                      >Mehr erfahren</a
-                    >
-                  </li>
-                </ul>
+            <div class="blog-grid">
+              
+              <div class="blog-card">
+                <a href="blog/10-tipps-zum-dranbleiben.html">
+                  <img src="images/drannbleiben.jpg" alt="10 Tipps zum Dranbleiben" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/10-tipps-zum-dranbleiben.html" style="border: none;">10 Tipps zum Dranbleiben</a></h3>
+                  <p>Musiklernen ist ein Marathon, kein Sprint. Motivation behalten und langfristig am Ball bleiben.</p>
+                  <a href="blog/10-tipps-zum-dranbleiben.html" class="button small">Weiterlesen</a>
+                </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <a href="blog/quiz-musiker.html" class="image">
-              <img
-                src="images/guitar-wallpaper.jpg"
-                alt="Was für ein Musiker bin ich – Interaktives Quiz"
-                data-position="top center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>🎵 Was für ein Musiker wäre ich gerne? – Quiz</h3>
-                </header>
-                <p>
-                  Starte mit deiner Instrumentenwahl und beantworte 9 kurze
-                  Charakterfragen: Finde deinen Musik‑Typ – vom
-                  Jazz‑Gitarren‑Virtuosen bis zur Bass‑Slap‑Legende.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/quiz-musiker.html" class="button primary"
-                      >Quiz starten</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
 
-          <section>
-            <a href="blog/ueben-mit-metronom.html" class="image">
-              <img
-                src="images/metronome.jpg"
-                alt="Üben mit Metronom"
-                data-position="25% 25%"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Warum ein Metronom dein bester Freund ist</h3>
-                </header>
-                <p>
-                  Timing ist alles! Erfahre, warum das Üben mit einem Metronom
-                  dein Spiel auf das nächste Level bringt und wie du es richtig
-                  einsetzt.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/ueben-mit-metronom.html" class="button"
-                      >Mehr erfahren</a
-                    >
-                  </li>
-                </ul>
+              <div class="blog-card">
+                <a href="blog/quiz-musiker.html">
+                  <img src="images/guitar-wallpaper.jpg" alt="Was für ein Musiker bin ich" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/quiz-musiker.html" style="border: none;">Was für ein Musiker wäre ich gerne? – Quiz</a></h3>
+                  <p>Finde in 9 Fragen deinen Musik-Typ – vom Virtuosen bis zur Slap-Legende.</p>
+                  <a href="blog/quiz-musiker.html" class="button small">Quiz starten</a>
+                </div>
               </div>
-            </div>
-          </section>
 
-          <section>
-            <a href="blog/erste-akkorde-gitarre.html" class="image">
-              <img
-                src="images/nahaufnahme-mann-der-lernt-wie-man-die-gitarre-stimmt.jpg"
-                alt="Erste Akkorde auf der Gitarre"
-                data-position="center center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Die ersten 5 Akkorde auf der Gitarre</h3>
-                </header>
-                <p>
-                  Mit nur fünf Akkorden kannst du hunderte Songs spielen! Lerne
-                  Em, Am, C, G und D – die Grundlage für fast jeden Gitarristen.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/erste-akkorde-gitarre.html" class="button"
-                      >Mehr erfahren</a
-                    >
-                  </li>
-                </ul>
+              <div class="blog-card">
+                <a href="blog/ueben-mit-metronom.html">
+                  <img src="images/metronome.jpg" alt="Üben mit Metronom" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/ueben-mit-metronom.html" style="border: none;">Metronom: Dein bester Freund</a></h3>
+                  <p>Timing ist alles! Erfahre, warum das Üben mit einem Metronom dein Spiel auf das nächste Level bringt.</p>
+                  <a href="blog/ueben-mit-metronom.html" class="button small">Weiterlesen</a>
+                </div>
               </div>
-            </div>
-          </section>
 
-          <section>
-            <a href="blog/gitarren-akkorde-ubersicht.html" class="image">
-              <img
-                src="images/gitarre.jpg"
-                alt="Gitarren-Akkorde Übersicht"
-                data-position="center center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Gitarren-Akkorde – Interaktive Übersicht</h3>
-                </header>
-                <p>
-                  Alle wichtigen Gitarren-Akkorde mit interaktiven
-                  Grifftabellen. Wähle eine Tonart und einen Akkordtyp und sieh
-                  sofort die genaue Griffweise auf dem Griffbrett – mit 3
-                  verschiedenen Positionen pro Akkord.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a
-                      href="blog/gitarren-akkorde-ubersicht.html"
-                      class="button primary"
-                      >Zu den Akkorden</a
-                    >
-                  </li>
-                </ul>
+              <div class="blog-card">
+                <a href="blog/erste-akkorde-gitarre.html">
+                  <img src="images/nahaufnahme-mann-der-lernt-wie-man-die-gitarre-stimmt.jpg" alt="Erste Akkorde" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/erste-akkorde-gitarre.html" style="border: none;">Die 5 ersten Gitarren-Akkorde</a></h3>
+                  <p>Mit nur fünf Akkorden kannst du hunderte Songs spielen! Lerne Em, Am, C, G und D.</p>
+                  <a href="blog/erste-akkorde-gitarre.html" class="button small">Weiterlesen</a>
+                </div>
               </div>
-            </div>
-          </section>
 
-            <a href="blog/musik-im-alter-lernen.html" class="image">
-              <img
-                src="images/nahaufnahme-mann-der-lernt-wie-man-die-gitarre-stimmt.jpg"
-                alt="Musik im Alter lernen"
-                data-position="25% 25%"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Musik lernen im Alter – es ist nie zu spät!</h3>
-                </header>
-                <p>
-                  Du bist nie zu alt, um ein Instrument zu lernen! Erfahre,
-                  warum Musik im Alter besonders wertvoll ist und wie du den
-                  perfekten Einstieg findest.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/musik-im-alter-lernen.html" class="button"
-                      >Mehr erfahren</a
-                    >
-                  </li>
-                </ul>
+              <div class="blog-card">
+                <a href="blog/gitarren-akkorde-ubersicht.html">
+                  <img src="images/gitarre.jpg" alt="Gitarren-Akkorde Übersicht" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/gitarren-akkorde-ubersicht.html" style="border: none;">Akkord-Übersicht (Interaktiv)</a></h3>
+                  <p>Alle wichtigen Akkorde mit Grifftabellen. Wähle eine Tonart und sieh sofort die Griffweise.</p>
+                  <a href="blog/gitarren-akkorde-ubersicht.html" class="button small">Zu den Akkorden</a>
+                </div>
               </div>
-            </div>
-          </section>
 
-          <!-- Neue Beiträge integriert -->
-          <section>
-            <a href="blog/musiktheorie-grundlagen.html" class="image">
-              <img
-                src="images/lehre.jpg"
-                alt="Musiktheorie Grundlagen"
-                data-position="center center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Musiktheorie – die wichtigsten Grundlagen</h3>
-                </header>
-                <p>
-                  Intervalle, Tonleitern, Akkorde: Kompakt erklärt und direkt
-                  praktisch anwendbar, damit du Musik besser verstehst und
-                  schneller Fortschritte machst.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/musiktheorie-grundlagen.html" class="button"
-                      >Mehr erfahren</a
-                    >
-                  </li>
-                </ul>
+              <div class="blog-card">
+                <a href="blog/musik-im-alter-lernen.html">
+                  <img src="images/nahaufnahme-mann-der-lernt-wie-man-die-gitarre-stimmt.jpg" alt="Musik im Alter lernen" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/musik-im-alter-lernen.html" style="border: none;">Musik lernen im Alter</a></h3>
+                  <p>Es ist nie zu spät! Warum Musik im Alter besonders wertvoll ist und wie du den perfekten Einstieg findest.</p>
+                  <a href="blog/musik-im-alter-lernen.html" class="button small">Weiterlesen</a>
+                </div>
               </div>
-            </div>
-          </section>
 
-          <section>
-            <a href="blog/fehler-gitarre-lernen.html" class="image">
-              <img
-                src="images/bunte-picks-am-verstarker.jpg"
-                alt="Fehler beim Gitarre lernen"
-                data-position="center center"
-                loading="lazy"
-              />
-            </a>
-            <div class="content">
-              <div class="inner">
-                <header class="major">
-                  <h3>Die häufigsten Fehler beim Gitarre lernen</h3>
-                </header>
-                <p>
-                  Typische Anfängerfallen erkennen und vermeiden: Haltung,
-                  Rhythmus, Übe-Routine und Motivation – so kommst du schneller
-                  voran.
-                </p>
-                <ul class="actions">
-                  <li>
-                    <a href="blog/fehler-gitarre-lernen.html" class="button"
-                      >Mehr erfahren</a
-                    >
-                  </li>
-                </ul>
+              <div class="blog-card">
+                <a href="blog/musiktheorie-grundlagen.html">
+                  <img src="images/lehre.jpg" alt="Musiktheorie Grundlagen" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/musiktheorie-grundlagen.html" style="border: none;">Musiktheorie Basics</a></h3>
+                  <p>Intervalle, Tonleitern, Akkorde kompakt erklärt, damit du schneller Fortschritte machst.</p>
+                  <a href="blog/musiktheorie-grundlagen.html" class="button small">Weiterlesen</a>
+                </div>
               </div>
+
+              <div class="blog-card">
+                <a href="blog/fehler-gitarre-lernen.html">
+                  <img src="images/bunte-picks-am-verstarker.jpg" alt="Fehler beim Gitarre lernen" class="blog-card-img" />
+                </a>
+                <div class="blog-card-content">
+                  <h3><a href="blog/fehler-gitarre-lernen.html" style="border: none;">Häufigste Fehler beim Lernen</a></h3>
+                  <p>Typische Anfängerfallen bei Haltung, Rhythmus und Motivation erkennen und vermeiden.</p>
+                  <a href="blog/fehler-gitarre-lernen.html" class="button small">Weiterlesen</a>
+                </div>
+              </div>
+
             </div>
-          </section>
+          </div>
         </section>
 
         <section id="three">

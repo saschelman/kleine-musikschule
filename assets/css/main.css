@@ -3556,7 +3556,8 @@ button:disabled,
 
 #header .logo {
   border: 0;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.8em;
   height: inherit;
   line-height: inherit;
@@ -3580,7 +3581,8 @@ button:disabled,
   background: none;
   border-radius: 0;
   outline: none;
-  #header .logo img:focus,
+}
+#header .logo img:focus,
   #header .logo .logo-img:focus {
     outline: 2px solid #9bf1ff;
     outline-offset: 2px;
@@ -4528,4 +4530,14 @@ body.is-menu-visible #menu .inner {
   transform: none;
   opacity: 1;
   visibility: visible;
+}
+
+/* Logo flexbox overlap fix */
+#header .logo {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+#header .logo img, #header .logo .logo-img {
+  flex-shrink: 0 !important;
+  min-width: 48px; /* Ensures the image doesn't get squished by flexbox */
 }

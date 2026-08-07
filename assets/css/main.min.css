@@ -3580,7 +3580,8 @@ button:disabled,
   background: none;
   border-radius: 0;
   outline: none;
-  #header .logo img:focus,
+}
+#header .logo img:focus,
   #header .logo .logo-img:focus {
     outline: 2px solid #9bf1ff;
     outline-offset: 2px;
@@ -4530,3 +4531,21 @@ body.is-menu-visible #menu .inner {
   visibility: visible;
 }
 
+
+.blog-post-meta { display: inline-block; background: rgba(155, 241, 255, 0.1); color: #9bf1ff; padding: 0.3em 1em; border-radius: 20px; font-size: 0.8em; font-weight: 600; margin-top: 1em; }
+.author-box { display: flex; align-items: center; background: rgba(36, 41, 67, 0.4); border-radius: 8px; padding: 2em; margin-top: 4em; border: 1px solid rgba(255, 255, 255, 0.1); gap: 2em; }
+.author-box img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid #9bf1ff; }
+.author-box h3 { margin: 0 0 0.5em 0; font-size: 1.3em; color: #9bf1ff; }
+.author-box p { margin: 0; font-size: 0.95em; line-height: 1.6; }
+.post-navigation { display: flex; justify-content: space-between; margin-top: 2em; gap: 1em; }
+@media (max-width: 736px) { .author-box { flex-direction: column; text-align: center; padding: 1.5em; gap: 1em; } .post-navigation { flex-direction: column; } .post-navigation .button { width: 100%; text-align: center; } }
+
+/* Logo flexbox overlap fix */
+#header .logo {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+#header .logo img, #header .logo .logo-img {
+  flex-shrink: 0 !important;
+  min-width: 48px; /* Ensures the image doesn't get squished by flexbox */
+}
