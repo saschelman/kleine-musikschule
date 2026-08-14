@@ -93,6 +93,7 @@
       }
 
       .quiz-container {
+        width: 100%;
         max-width: 900px;
         margin: 4rem auto;
         padding: 4rem 5rem;
@@ -429,16 +430,23 @@
 
       /* Responsive */
       @media screen and (max-width: 768px) {
-        .quiz-container { padding: 2.5rem 2rem; border-radius: 24px; margin: 2rem auto; }
-        .quiz-start h2 { font-size: 2.5rem !important; }
+        .quiz-container { padding: 2.5rem 1.5rem; border-radius: 24px; margin: 2rem auto; }
+        .quiz-start h2 { font-size: 2.2rem !important; }
         .quiz-start p { font-size: 1.1rem !important; margin-bottom: 2rem !important; }
-        .question-text { font-size: 1.8rem !important; }
+        .question-text { font-size: 1.6rem !important; }
         .answers-grid { grid-template-columns: 1fr; }
         .answer-btn { min-height: 80px !important; padding: 1.25rem !important; font-size: 1.1rem !important; }
         .result-card { padding: 2.5rem 1.5rem; }
-        .result-title { font-size: 2.2rem !important; }
+        .result-title { font-size: 2rem !important; }
         .result-actions { flex-direction: column; }
         .btn-primary, .btn-secondary { width: 100%; }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .quiz-container { padding: 1.5rem 1rem; margin: 1rem auto; }
+        .quiz-start h2 { font-size: 1.8rem !important; }
+        .question-text { font-size: 1.4rem !important; }
+        .result-title { font-size: 1.6rem !important; }
       }
 
       /* Blog Content Styling */

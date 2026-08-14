@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Only run on desktop
-  if (window.innerWidth <= 768) return;
-
   const faqGrid = document.querySelector(".faq-grid");
   const faqTools = document.querySelector(".faq-tools");
   if (!faqGrid) return;
@@ -10,12 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   faqGrid.style.display = "none";
   if (faqTools) faqTools.style.display = "none";
 
+  const isMobile = window.innerWidth <= 768;
+
   // Create container
   const container = document.createElement("div");
   container.id = "faq-bubble-container";
   container.style.position = "relative";
   container.style.width = "100%";
-  container.style.height = "750px";
+  container.style.height = isMobile ? "1100px" : "750px";
   container.style.overflow = "hidden";
   container.style.margin = "2rem 0";
   container.style.background = "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)";
@@ -42,8 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "faq-card--green": "rgba(52, 211, 153, 0.75)"
     };
     
-    // Some questions have longer answers, give them a slightly larger base radius based on text length
-    const baseR = 95; 
+    // Adjust radius for mobile
+    const baseR = isMobile ? 65 : 95; 
+    const expandedR = isMobile ? 150 : 210;
     
     return {
       id: i,
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       color: colors[colorClass] || colors["faq-card--blue"],
       r: baseR,
       baseR: baseR,
-      expandedR: 210,
+      expandedR: expandedR,
       expanded: false
     };
   });
