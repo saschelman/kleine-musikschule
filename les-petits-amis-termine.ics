@@ -1,0 +1,74 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kleine Musikschule Karlsruhe//Les Petits Amis//DE
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261012T093000
+DTEND;TZID=Europe/Berlin:20261012T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261019T093000
+DTEND;TZID=Europe/Berlin:20261019T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261102T093000
+DTEND;TZID=Europe/Berlin:20261102T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261109T093000
+DTEND;TZID=Europe/Berlin:20261109T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261116T093000
+DTEND;TZID=Europe/Berlin:20261116T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261123T093000
+DTEND;TZID=Europe/Berlin:20261123T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261130T093000
+DTEND;TZID=Europe/Berlin:20261130T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261207T093000
+DTEND;TZID=Europe/Berlin:20261207T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261214T093000
+DTEND;TZID=Europe/Berlin:20261214T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Les Petits Amis - Kurs
+DTSTART;TZID=Europe/Berlin:20261221T093000
+DTEND;TZID=Europe/Berlin:20261221T100000
+LOCATION:Welfenstraße 30a, 76137 Karlsruhe
+DESCRIPTION:Kleine Musikschule Karlsruhe - Les Petits Amis
+END:VEVENT
+END:VCALENDAR
