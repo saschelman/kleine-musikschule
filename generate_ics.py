@@ -22,7 +22,7 @@ for y, m, d in dates:
     dtstart = f"{y}{m:02d}{d:02d}T093000"
     dtend = f"{y}{m:02d}{d:02d}T100000"
     ics_content += f"""BEGIN:VEVENT
-SUMMARY:Les Petits Amis - Kurs
+SUMMARY:Musikkurs - Les Petits Amis
 DTSTART;TZID=Europe/Berlin:{dtstart}
 DTEND;TZID=Europe/Berlin:{dtend}
 LOCATION:Welfenstraße 30a, 76137 Karlsruhe
