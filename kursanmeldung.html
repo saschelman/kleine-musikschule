@@ -8,13 +8,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kursanmeldung - Kleine Musikschule Karlsruhe</title>
+    <title>Kursanmeldung Pfinztal - Kleine Musikschule Karlsruhe</title>
     <meta
       name="description"
-      content="Unverbindliche Voranmeldung zum 10-wöchigen Musikkurs für Kinder in Pfinztal. Spielerisches Kennenlernen von Klängen und Instrumenten."
+      content="Anmeldung zum 10-wöchigen Musikkurs für Kinder in Pfinztal. Spielerisches Kennenlernen von Klängen und Instrumenten."
     />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="theme-color" content="#9bf1ff" />
+    <meta property="og:image" content="https://www.kleine-musikschule.de/images/pexels-kseniachernaya-8535234.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <link rel="icon" href="images/logo_small.png" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="preload" href="assets/css/main.min.css?v=20251226-1" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -417,7 +420,7 @@
             </header>
             <p>
               Wir singen, tanzen, bewegen uns und entdecken gemeinsam neue
-              Instrumente und Klänge. Dies ist eine <strong>unverbindliche Voranmeldung für einen neuen Kurs nach den Sommerferien</strong>.
+              Instrumente und Klänge.
             </p>
 
             <div class="course-overview">
@@ -468,22 +471,47 @@
 
                 <div class="course-info-section">
                   <h4>Termine & Uhrzeit</h4>
-                  <p>
+                  <p style="line-height: 1.5; margin-bottom: 0.75rem;">
                     Immer <strong>montags um 15:30 Uhr</strong>
                   </p>
+                  <ul
+                    style="font-size: 0.9em; opacity: 0.9; margin-bottom: 0.5rem; padding-left: 1.2em; display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem;">
+                    <li>12.10.2026</li>
+                    <li>19.10.2026</li>
+                    <li>26.10.2026</li>
+                    <li>02.11.2026</li>
+                    <li>09.11.2026</li>
+                    <li>16.11.2026</li>
+                    <li>23.11.2026</li>
+                    <li>30.11.2026</li>
+                    <li>07.12.2026</li>
+                    <li>14.12.2026</li>
+                  </ul>
+                  <a href="pfinztal-termine.ics" class="course-cta"
+                    style="padding: 0.6em 1em; font-size: 0.85em; margin-top: 0.6rem;">
+                    <span class="icon solid fa-calendar-alt"></span>
+                    <span>Termine im Kalender speichern (iCal)</span>
+                  </a>
                 </div>
 
                 <div class="course-info-section">
                   <h4>Gruppengröße & Dauer</h4>
                   <p>
-                    Der Kurs findet in kleinen, überschaubaren Gruppen von <strong>bis zu 5 Kindern</strong> statt. Eine Kurseinheit dauert <strong>30 Minuten</strong>.
+                    Der Kurs findet in kleinen, überschaubaren Gruppen von <strong>5 bis 6 Kindern</strong> statt. Eine Kurseinheit dauert <strong>30 Minuten</strong>.
                   </p>
                 </div>
 
                 <div class="course-info-section">
                   <h4>Kosten</h4>
                   <p>
-                    <strong>100 €</strong> für 10 Kurseinheiten.
+                    <strong>99 €</strong> für 10 Kurseinheiten.<br />
+                    <small><em>Inhaber des Karlsruher Passes erhalten 30% Rabatt auf die Kursgebühr.</em></small>
+                  </p>
+                  <p style="margin-top: 0.65rem; line-height: 1.5;">
+                    Bitte überweisen Sie den Betrag nach der Anmeldung an:<br />
+                    <strong>Alexander Flöter</strong><br />
+                    <strong>IBAN:</strong> DE28 1203 0000 1200 7970 64<br />
+                    <strong>Verwendungszweck:</strong> Vorname Nachname (Kursteilnehmer/in)
                   </p>
                 </div>
               </div>
@@ -527,6 +555,17 @@
                     type="text"
                     name="Kursteilnehmer Nachname"
                     id="kursteilnehmer_nachname"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="kursteilnehmer_alter"
+                    >Alter des Kindes *</label
+                  >
+                  <input
+                    type="text"
+                    name="Alter"
+                    id="kursteilnehmer_alter"
                     required
                   />
                 </div>
@@ -619,7 +658,7 @@
                 <li>
                   <input
                     type="submit"
-                    value="Unverbindliche Voranmeldung senden"
+                    value="Verbindliche Anmeldung senden"
                     class="primary"
                   />
                 </li>

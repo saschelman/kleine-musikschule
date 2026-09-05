@@ -1,0 +1,74 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kleine Musikschule Karlsruhe//Musikkurs Pfinztal//DE
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261012T153000
+DTEND;TZID=Europe/Berlin:20261012T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261019T153000
+DTEND;TZID=Europe/Berlin:20261019T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261026T153000
+DTEND;TZID=Europe/Berlin:20261026T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261102T153000
+DTEND;TZID=Europe/Berlin:20261102T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261109T153000
+DTEND;TZID=Europe/Berlin:20261109T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261116T153000
+DTEND;TZID=Europe/Berlin:20261116T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261123T153000
+DTEND;TZID=Europe/Berlin:20261123T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261130T153000
+DTEND;TZID=Europe/Berlin:20261130T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261207T153000
+DTEND;TZID=Europe/Berlin:20261207T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Musikkurs für Kinder (Pfinztal)
+DTSTART;TZID=Europe/Berlin:20261214T153000
+DTEND;TZID=Europe/Berlin:20261214T160000
+LOCATION:Dieselstrasse 1, 76327 Pfinztal
+DESCRIPTION:Kleine Musikschule Karlsruhe - Musikkurs für Kinder (Pfinztal)
+END:VEVENT
+END:VCALENDAR
