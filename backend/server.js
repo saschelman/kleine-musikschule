@@ -198,7 +198,11 @@ app.post(
       });
 
       // Send confirmation to Customer
-      await sendKursanmeldungConfirmationEmail(vVorname, email, kurs);
+      try {
+        await sendKursanmeldungConfirmationEmail(vVorname, email, kurs);
+      } catch (confirmError) {
+        console.warn("[kursanmeldung] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
+      }
 
       return res.status(200).json({ ok: true });
     } catch (error) {
@@ -264,7 +268,11 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
       html: internalHtml,
     });
 
-    await sendCustomerConfirmationEmail(name, email);
+    try {
+      await sendCustomerConfirmationEmail(name, email);
+    } catch (confirmError) {
+      console.warn("[contact] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
+    }
 
     console.log("[contact] mail sent successfully", { to: MAIL_TO, email });
 
