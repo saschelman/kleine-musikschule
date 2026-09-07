@@ -16,6 +16,7 @@ const {
   getInternalContactText,
   getInternalContactHtml,
 } = require("./emails/templates");
+const { speichereAnmeldung, getExcelFilePath } = require("./excel-store");
 
 const app = express();
 app.set("trust proxy", 1);
@@ -237,6 +238,18 @@ app.post(
       adresse, email, telefon, nachricht, medien
     });
 
+    // Save to Excel
+    try {
+      await speichereAnmeldung({
+        kurs, kurszeit, kVorname, kNachname, alter,
+        vVorname, vNachname, adresse, email, telefon,
+        nachricht, agb, datenschutz, medien,
+      });
+      console.log("[kursanmeldung] Anmeldung in Excel gespeichert");
+    } catch (excelError) {
+      console.error("[kursanmeldung] Excel-Speicherfehler:", excelError.message);
+    }
+
     try {
       // Send to Music School
       await sendEmailViaResend({
@@ -333,6 +346,15 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
       error: "Versand fehlgeschlagen. Bitte später erneut versuchen.",
     });
   }
+});
+
+// Download Excel file with all registrations
+app.get("/api/admin/anmeldungen/download", (_req, res) => {
+  const filePath = getExcelFilePath();
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: "Noch keine Anmeldungen vorhanden." });
+  }
+  res.download(filePath, "kurs-anmeldungen.xlsx");
 });
 
 app.listen(PORT, () => {
