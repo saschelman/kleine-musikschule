@@ -94,7 +94,7 @@ function getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, ku
               <li>14.12.2026</li>
             </ul>
             <p style="margin-top: 15px;">
-              <a href="\${icalLink}" style="display: inline-block; padding: 10px 15px; background-color: #2c3e50; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold;">
+              <a href="${icalLink}" style="display: inline-block; padding: 10px 15px; background-color: #2c3e50; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold;">
                 📅 Termine im Kalender speichern (iCal)
               </a>
             </p>
