@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
@@ -12,7 +12,7 @@ app.set("trust proxy", 1);
 const PORT = Number(process.env.PORT || 3000);
 const MAIL_TO = process.env.MAIL_TO;
 const MAIL_FROM =
-  process.env.MAIL_FROM || "Kleine Musikschule <noreply@kleine-musikschule.de>";
+  process.env.MAIL_FROM || "Kleine Musikschule <onboarding@resend.dev>";
 const MAIL_REPLY_TO = process.env.MAIL_REPLY_TO || MAIL_TO;
 
 if (!MAIL_TO) {
@@ -21,28 +21,22 @@ if (!MAIL_TO) {
   );
 }
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: process.env.SMTP_SECURE === "true",
-  connectionTimeout: Number(process.env.SMTP_CONNECTION_TIMEOUT || 10000),
-  greetingTimeout: Number(process.env.SMTP_GREETING_TIMEOUT || 10000),
-  socketTimeout: Number(process.env.SMTP_SOCKET_TIMEOUT || 15000),
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-function sendMailWithTimeout(mailOptions, timeoutMs = 15000) {
-  return Promise.race([
-    transporter.sendMail(mailOptions),
-    new Promise((_, reject) => {
-      setTimeout(() => {
-        reject(new Error("SMTP send timeout"));
-      }, timeoutMs);
-    }),
-  ]);
+async function sendEmailViaResend(mailOptions) {
+  const { data, error } = await resend.emails.send({
+    from: mailOptions.from,
+    to: mailOptions.to,
+    subject: mailOptions.subject,
+    html: mailOptions.html,
+    text: mailOptions.text,
+    reply_to: mailOptions.replyTo,
+  });
+
+  if (error) {
+    throw new Error(`Resend Error: ${error.message}`);
+  }
+  return data;
 }
 
 const corsOrigin = process.env.CORS_ORIGIN
@@ -101,7 +95,7 @@ async function sendCustomerConfirmationEmail(name, email) {
     "Kleine Musikschule Karlsruhe",
   ].join("\n");
 
-  await sendMailWithTimeout({
+  await sendEmailViaResend({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
@@ -140,7 +134,7 @@ async function sendKursanmeldungConfirmationEmail(vorname, email, courseName) {
     </html>
   `;
 
-  await sendMailWithTimeout({
+  await sendEmailViaResend({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
@@ -236,7 +230,7 @@ app.post(
 
     try {
       // Send to Music School
-      await sendMailWithTimeout({
+      await sendEmailViaResend({
         from: MAIL_FROM,
         to: MAIL_TO,
         replyTo: email,
@@ -321,7 +315,7 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
   `;
 
   try {
-    await sendMailWithTimeout({
+    await sendEmailViaResend({
       from: MAIL_FROM,
       to: MAIL_TO,
       replyTo: email,
