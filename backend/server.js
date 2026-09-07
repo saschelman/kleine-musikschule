@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const fs = require("fs");
+const path = require("path");
 const express = require("express");
 const { Resend } = require("resend");
 const helmet = require("helmet");
@@ -33,14 +35,20 @@ if (!MAIL_TO) {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function sendEmailViaResend(mailOptions) {
-  const { data, error } = await resend.emails.send({
+  const sendPayload = {
     from: mailOptions.from,
     to: mailOptions.to,
     subject: mailOptions.subject,
     html: mailOptions.html,
     text: mailOptions.text,
     reply_to: mailOptions.replyTo,
-  });
+  };
+
+  if (mailOptions.attachments) {
+    sendPayload.attachments = mailOptions.attachments;
+  }
+
+  const { data, error } = await resend.emails.send(sendPayload);
 
   if (error) {
     throw new Error(`Resend Error: ${error.message}`);
@@ -103,24 +111,54 @@ async function sendCustomerConfirmationEmail(name, email) {
   });
 }
 
+function getIcsAttachment(icsFilePath, filename) {
+  try {
+    const fullPath = path.resolve(__dirname, "..", icsFilePath);
+    const content = fs.readFileSync(fullPath, "utf8");
+    return {
+      filename: filename,
+      content: Buffer.from(content).toString("base64"),
+      content_type: "text/calendar",
+    };
+  } catch (err) {
+    console.warn(`[ical] Could not read ${icsFilePath}:`, err.message);
+    return null;
+  }
+}
+
 async function sendKursanmeldungConfirmationEmail(kVorname, vVorname, email, courseName, kurszeit) {
   let htmlContent;
+  let icsAttachment = null;
   
   if (courseName && courseName.includes("Les Petits Amis")) {
     htmlContent = getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseName);
+    icsAttachment = getIcsAttachment(
+      "assets/downloads/les-petits-amis-termine.ics",
+      "Les-Petits-Amis-Termine.ics"
+    );
   } else if (courseName && courseName.includes("Pfinztal")) {
     htmlContent = getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, kurszeit);
+    const icsFile = (kurszeit && kurszeit.includes("15:10"))
+      ? "assets/downloads/pfinztal-termine-1.ics"
+      : "assets/downloads/pfinztal-termine-2.ics";
+    icsAttachment = getIcsAttachment(icsFile, "Pfinztal-Termine.ics");
   } else {
     htmlContent = getCourseRegistrationAutoReplyHtml(vVorname, courseName, kurszeit);
   }
 
-  await sendEmailViaResend({
+  const mailOptions = {
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
     subject: `Bestätigung deiner Anmeldung: ${courseName}`,
     html: htmlContent,
-  });
+  };
+
+  if (icsAttachment) {
+    mailOptions.attachments = [icsAttachment];
+  }
+
+  await sendEmailViaResend(mailOptions);
 }
 
 app.get("/api/health", (_req, res) => {

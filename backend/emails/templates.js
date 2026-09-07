@@ -37,11 +37,7 @@ function getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseNam
               <li>07.12.2026</li>
               <li>14.12.2026</li>
             </ul>
-            <p style="margin-top: 15px;">
-              <a href="https://kleine-musikschule.de/assets/downloads/les-petits-amis-termine.ics" style="display: inline-block; padding: 10px 15px; background-color: #2c3e50; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold;">
-                📅 Termine im Kalender speichern (iCal)
-              </a>
-            </p>
+            <p style="margin-top: 15px; font-size: 14px; color: #666;">📅 <em>Die Termine findest du auch als iCal-Datei im Anhang dieser E-Mail – einfach öffnen und im Kalender speichern!</em></p>
           </div>
           <p style="font-size: 16px; line-height: 1.6;">
             Ganz herzliche musikalische Grüße,<br>
@@ -58,10 +54,6 @@ function getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseNam
 }
 
 function getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, kurszeit) {
-  const icalLink = (kurszeit && kurszeit.includes("15:10"))
-    ? "https://kleine-musikschule.de/assets/downloads/pfinztal-termine-1.ics"
-    : "https://kleine-musikschule.de/assets/downloads/pfinztal-termine-2.ics";
-
   const kurszeitHtml = kurszeit
     ? `<p style="font-size: 16px; line-height: 1.6; margin-bottom: 10px;">Ausgewählte Kurszeit: <strong>${kurszeit}</strong></p>`
     : "";
@@ -93,11 +85,7 @@ function getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, ku
               <li>07.12.2026</li>
               <li>14.12.2026</li>
             </ul>
-            <p style="margin-top: 15px;">
-              <a href="${icalLink}" style="display: inline-block; padding: 10px 15px; background-color: #2c3e50; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: bold;">
-                📅 Termine im Kalender speichern (iCal)
-              </a>
-            </p>
+            <p style="margin-top: 15px; font-size: 14px; color: #666;">📅 <em>Die Termine findest du auch als iCal-Datei im Anhang dieser E-Mail – einfach öffnen und im Kalender speichern!</em></p>
           </div>
           <p style="font-size: 16px; line-height: 1.6;">
             Ganz herzliche musikalische Grüße,<br>
