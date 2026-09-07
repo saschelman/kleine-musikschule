@@ -9,6 +9,7 @@ const {
   getContactAutoReplyText,
   getCourseRegistrationAutoReplyHtml,
   getLesPetitsAmisRegistrationAutoReplyHtml,
+  getPfinztalRegistrationAutoReplyHtml,
   getInternalCourseRegistrationHtml,
   getInternalContactText,
   getInternalContactHtml,
@@ -107,6 +108,8 @@ async function sendKursanmeldungConfirmationEmail(kVorname, vVorname, email, cou
   
   if (courseName && courseName.includes("Les Petits Amis")) {
     htmlContent = getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseName);
+  } else if (courseName && courseName.includes("Pfinztal")) {
+    htmlContent = getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, kurszeit);
   } else {
     htmlContent = getCourseRegistrationAutoReplyHtml(vVorname, courseName, kurszeit);
   }
