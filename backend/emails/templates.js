@@ -45,7 +45,7 @@ function getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseNam
           </div>
           <p style="font-size: 16px; line-height: 1.6;">
             Ganz herzliche musikalische Grüße,<br>
-            <strong>Deine kleine Musikschule Karlsruhe</strong>
+            <strong>Alexander Flöter<br>Kleine Musikschule Karlsruhe</strong>
           </p>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
@@ -82,7 +82,7 @@ function getCourseRegistrationAutoReplyHtml(vorname, courseName, kurszeit) {
           </div>
           <p style="font-size: 16px; line-height: 1.6;">
             Ganz herzliche musikalische Grüße,<br>
-            <strong>Deine kleine Musikschule Karlsruhe</strong>
+            <strong>Alexander Flöter<br>Kleine Musikschule Karlsruhe</strong>
           </p>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
