@@ -700,9 +700,9 @@
       popup.setAttribute("role", "dialog");
       popup.setAttribute("aria-modal", "true");
 
-      const successIcon = \`<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>\`;
-      const errorIcon = \`<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>\`;
-      const icon = type === 'success' ? \`<div class="form-popup-icon">\${successIcon}</div>\` : \`<div class="form-popup-icon error">\${errorIcon}</div>\`;
+      const successIcon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+      const errorIcon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+      const icon = type === 'success' ? `<div class="form-popup-icon">${successIcon}</div>` : `<div class="form-popup-icon error">${errorIcon}</div>`;
 
       popup.innerHTML = `
           ${ icon }
@@ -734,40 +734,7 @@
 
     const registrationForm = document.getElementById("registrationForm");
 
-    function getGermanValidationMessage(field) {
-      const validity = field.validity;
 
-      if (validity.valueMissing) {
-        if (field.type === "checkbox") {
-          return "Bitte bestätigen Sie dieses Feld.";
-        }
-        if (field.tagName === "SELECT") {
-          return "Bitte wählen Sie eine Option aus.";
-        }
-        return "Bitte füllen Sie dieses Feld aus.";
-      }
-
-      if (validity.typeMismatch && field.type === "email") {
-        return "Bitte geben Sie eine gültige E-Mail-Adresse ein.";
-      }
-
-      return "Bitte überprüfen Sie dieses Feld.";
-    }
-
-    Array.from(registrationForm.elements).forEach(function (field) {
-      if (!field.willValidate) return;
-
-      field.addEventListener("invalid", function () {
-        this.setCustomValidity(getGermanValidationMessage(this));
-      });
-
-      const clearCustomValidity = function () {
-        this.setCustomValidity("");
-      };
-
-      field.addEventListener("input", clearCustomValidity);
-      field.addEventListener("change", clearCustomValidity);
-    });
 
     registrationForm.addEventListener("submit", async function (e) {
       e.preventDefault();
