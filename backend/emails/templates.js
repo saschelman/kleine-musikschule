@@ -68,7 +68,7 @@ function getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, ku
           </div>
           <p style="font-size: 16px; line-height: 1.6;">Hallo <strong>${kVorname}</strong> und <strong>${vVorname}</strong>,</p>
           <p style="font-size: 16px; line-height: 1.6;">
-            ich habe eure Anmeldung für den <strong>Musikkurs für Kinder in Pfinztal</strong> erhalten. Ich freue mich wirklich sehr über das Interesse!
+            ich habe eure Anmeldung für den <strong>Musikkurs für Kinder (Pfinztal)</strong> erhalten. Ich freue mich wirklich sehr über das Interesse!
           </p>
           ${kurszeitHtml}
           <div style="background-color: #f8fbfa; border-left: 4px solid #9bf1ff; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0;">
