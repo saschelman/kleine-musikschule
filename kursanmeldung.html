@@ -361,8 +361,8 @@
     }
 
     /* Modern Checkboxes & Radio Buttons */
-    input[type="checkbox"] + label:before,
-    input[type="radio"] + label:before {
+    input[type="checkbox"]+label:before,
+    input[type="radio"]+label:before {
       content: '' !important;
       display: inline-block;
       position: absolute;
@@ -376,45 +376,45 @@
       transition: all 0.25s ease;
     }
 
-    input[type="radio"] + label:before {
+    input[type="radio"]+label:before {
       border-radius: 50%;
     }
 
-    input[type="checkbox"]:checked + label:before,
-    input[type="radio"]:checked + label:before {
+    input[type="checkbox"]:checked+label:before,
+    input[type="radio"]:checked+label:before {
       background-color: #9bf1ff;
       border-color: #9bf1ff;
       box-shadow: 0 0 12px rgba(155, 241, 255, 0.4);
     }
 
-    input[type="checkbox"]:checked + label:before {
+    input[type="checkbox"]:checked+label:before {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242943' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
       background-size: 65%;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    input[type="radio"]:checked + label:before {
+    input[type="radio"]:checked+label:before {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23242943'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");
       background-size: 100%;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    input[type="checkbox"]:focus + label:before,
-    input[type="radio"]:focus + label:before {
+    input[type="checkbox"]:focus+label:before,
+    input[type="radio"]:focus+label:before {
       border-color: #9bf1ff;
       box-shadow: 0 0 0 3px rgba(155, 241, 255, 0.25);
     }
 
-    input[type="checkbox"] + label:hover:before,
-    input[type="radio"] + label:hover:before {
+    input[type="checkbox"]+label:hover:before,
+    input[type="radio"]+label:hover:before {
       border-color: rgba(255, 255, 255, 0.8);
       background: rgba(255, 255, 255, 0.15);
     }
-    
-    input[type="checkbox"]:checked + label:hover:before,
-    input[type="radio"]:checked + label:hover:before {
+
+    input[type="checkbox"]:checked+label:hover:before,
+    input[type="radio"]:checked+label:hover:before {
       background-color: #8ae0ee;
       border-color: #8ae0ee;
     }
@@ -566,7 +566,8 @@
       <div class="inner">
         <section>
           <h2>Anmeldung</h2>
-          <p style="background: rgba(155, 241, 255, 0.1); border-left: 4px solid #9bf1ff; padding: 1rem 1.5rem; border-radius: 4px; font-weight: 600; color: #fff; margin-bottom: 2rem;">
+          <p
+            style="background: rgba(155, 241, 255, 0.1); border-left: 4px solid #9bf1ff; padding: 1rem 1.5rem; border-radius: 4px; font-weight: 600; color: #fff; margin-bottom: 2rem;">
             ⏳ <strong>Wichtiger Hinweis:</strong> Der Anmeldeschluss für diesen Kurs ist am 5. Oktober um 0:00 Uhr.
           </p>
           <form id="registrationForm" action="https://noreply-email.onrender.com/api/kursanmeldung" method="POST">
@@ -610,11 +611,13 @@
                 <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 0.5rem;">
                   <div>
                     <input type="radio" id="kurszeit_1" name="Kurszeit" value="Kurs 1 (15:10 - 15:40 Uhr)" required
-                      checked />
-                    <label for="kurszeit_1">Kurs 1 (15:10 - 15:40 Uhr)</label>
+                      disabled />
+                    <label for="kurszeit_1" style="color: gray;">Kurs 1 (15:10 - 15:40 Uhr) – Leider bereits
+                      voll</label>
                   </div>
                   <div>
-                    <input type="radio" id="kurszeit_2" name="Kurszeit" value="Kurs 2 (15:50 - 16:20 Uhr)" required />
+                    <input type="radio" id="kurszeit_2" name="Kurszeit" value="Kurs 2 (15:50 - 16:20 Uhr)" required
+                      checked />
                     <label for="kurszeit_2">Kurs 2 (15:50 - 16:20 Uhr)</label>
                   </div>
                 </div>
@@ -705,7 +708,7 @@
       const icon = type === 'success' ? `<div class="form-popup-icon">${successIcon}</div>` : `<div class="form-popup-icon error">${errorIcon}</div>`;
 
       popup.innerHTML = `
-          ${ icon }
+          ${icon}
           <h3>${title}</h3>
           <p>${message}</p>
           <div class="form-popup-actions">
@@ -771,7 +774,7 @@
           method: "POST",
           body: new FormData(form),
           headers: { Accept: "application/json" },
-        }).catch(() => {});
+        }).catch(() => { });
 
         if (response.ok) {
           showFormPopup(
