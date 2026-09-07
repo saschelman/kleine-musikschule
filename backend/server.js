@@ -8,6 +8,7 @@ const cors = require("cors");
 const {
   getContactAutoReplyText,
   getCourseRegistrationAutoReplyHtml,
+  getLesPetitsAmisRegistrationAutoReplyHtml,
   getInternalCourseRegistrationHtml,
   getInternalContactText,
   getInternalContactHtml,
@@ -101,13 +102,21 @@ async function sendCustomerConfirmationEmail(name, email) {
   });
 }
 
-async function sendKursanmeldungConfirmationEmail(vorname, email, courseName, kurszeit) {
+async function sendKursanmeldungConfirmationEmail(kVorname, vVorname, email, courseName, kurszeit) {
+  let htmlContent;
+  
+  if (courseName && courseName.includes("Les Petits Amis")) {
+    htmlContent = getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseName);
+  } else {
+    htmlContent = getCourseRegistrationAutoReplyHtml(vVorname, courseName, kurszeit);
+  }
+
   await sendEmailViaResend({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
     subject: `Bestätigung deiner Anmeldung: ${courseName}`,
-    html: getCourseRegistrationAutoReplyHtml(vorname, courseName, kurszeit),
+    html: htmlContent,
   });
 }
 
@@ -199,7 +208,7 @@ app.post(
 
       // Send confirmation to Customer
       try {
-        await sendKursanmeldungConfirmationEmail(vVorname, email, kurs, kurszeit);
+        await sendKursanmeldungConfirmationEmail(kVorname, vVorname, email, kurs, kurszeit);
       } catch (confirmError) {
         console.warn("[kursanmeldung] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
       }
