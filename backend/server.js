@@ -101,13 +101,13 @@ async function sendCustomerConfirmationEmail(name, email) {
   });
 }
 
-async function sendKursanmeldungConfirmationEmail(vorname, email, courseName) {
+async function sendKursanmeldungConfirmationEmail(vorname, email, courseName, kurszeit) {
   await sendEmailViaResend({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
-    subject: `Bestätigung deiner Voranmeldung: ${courseName}`,
-    html: getCourseRegistrationAutoReplyHtml(vorname, courseName),
+    subject: `Bestätigung deiner Anmeldung: ${courseName}`,
+    html: getCourseRegistrationAutoReplyHtml(vorname, courseName, kurszeit),
   });
 }
 
@@ -199,7 +199,7 @@ app.post(
 
       // Send confirmation to Customer
       try {
-        await sendKursanmeldungConfirmationEmail(vVorname, email, kurs);
+        await sendKursanmeldungConfirmationEmail(vVorname, email, kurs, kurszeit);
       } catch (confirmError) {
         console.warn("[kursanmeldung] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
       }
