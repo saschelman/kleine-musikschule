@@ -5,6 +5,13 @@ const { Resend } = require("resend");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
+const {
+  getContactAutoReplyText,
+  getCourseRegistrationAutoReplyHtml,
+  getInternalCourseRegistrationHtml,
+  getInternalContactText,
+  getInternalContactHtml,
+} = require("./emails/templates");
 
 const app = express();
 app.set("trust proxy", 1);
@@ -85,61 +92,22 @@ function isValidEmail(email) {
 }
 
 async function sendCustomerConfirmationEmail(name, email) {
-  const autoReplyText = [
-    `Hallo ${name},`,
-    "",
-    "vielen Dank für deine Nachricht an die kleine Musikschule Karlsruhe.",
-    "Wir melden uns so schnell wie möglich bei dir zurück.",
-    "",
-    "Musikalische Grüße",
-    "Kleine Musikschule Karlsruhe",
-  ].join("\n");
-
   await sendEmailViaResend({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
     subject: "Wir haben deine Nachricht erhalten",
-    text: autoReplyText,
+    text: getContactAutoReplyText(name),
   });
 }
 
 async function sendKursanmeldungConfirmationEmail(vorname, email, courseName) {
-  const subject = `Bestätigung deiner Voranmeldung: ${courseName}`;
-  const htmlTemplate = `
-    <html>
-      <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f7f6; padding: 20px; color: #333;">
-        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
-          <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #2c3e50; margin: 0; font-size: 24px;">Vielen Dank für die Anmeldung! 🎵</h1>
-          </div>
-          <p style="font-size: 16px; line-height: 1.6;">Hallo <strong>${vorname}</strong>,</p>
-          <p style="font-size: 16px; line-height: 1.6;">
-            wir haben deine Voranmeldung für <strong>${courseName}</strong> erhalten. Wir freuen uns sehr über das Interesse!
-          </p>
-          <div style="background-color: #f8fbfa; border-left: 4px solid #9bf1ff; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0;">
-            <h3 style="margin-top: 0; color: #2c3e50; font-size: 16px;">Wie geht es jetzt weiter?</h3>
-            <p style="margin: 0; font-size: 15px; line-height: 1.5;">Wir prüfen aktuell die freien Plätze und melden uns in Kürze mit allen weiteren Details bei dir zurück.</p>
-          </div>
-          <p style="font-size: 16px; line-height: 1.6;">
-            Musikalische Grüße,<br>
-            <strong>Deine Kleine Musikschule Karlsruhe</strong>
-          </p>
-          <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
-          <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
-            Dies ist eine automatisch generierte E-Mail. Bitte antworte nicht darauf.
-          </p>
-        </div>
-      </body>
-    </html>
-  `;
-
   await sendEmailViaResend({
     from: MAIL_FROM,
     to: email,
     replyTo: MAIL_REPLY_TO,
-    subject: subject,
-    html: htmlTemplate,
+    subject: `Bestätigung deiner Voranmeldung: ${courseName}`,
+    html: getCourseRegistrationAutoReplyHtml(vorname, courseName),
   });
 }
 
@@ -183,6 +151,7 @@ app.post(
   confirmationRateLimit,
   async (req, res) => {
     const kurs = sanitizeText(req.body?.["Kursanmeldung"], 200) || "Musikkurs";
+    const kurszeit = sanitizeText(req.body?.["Kurszeit"], 100);
     const kVorname = sanitizeText(req.body?.["Kursteilnehmer Vorname"], 120);
     const kNachname = sanitizeText(req.body?.["Kursteilnehmer Nachname"], 120);
     const alter = sanitizeText(req.body?.["Alter"], 50);
@@ -213,20 +182,10 @@ app.post(
       return res.status(500).json({ error: "Mail-Empfänger ist nicht konfiguriert." });
     }
 
-    const internalHtml = `
-      <h2>Neue Kursanmeldung: ${kurs}</h2>
-      <h3>Kursteilnehmer/in</h3>
-      <p><strong>Name:</strong> ${kVorname} ${kNachname}</p>
-      <p><strong>Alter:</strong> ${alter}</p>
-      <h3>Gesetzliche/r Vertreter/in</h3>
-      <p><strong>Name:</strong> ${vVorname} ${vNachname}</p>
-      <p><strong>Adresse:</strong> ${adresse}</p>
-      <p><strong>E-Mail:</strong> ${email}</p>
-      <p><strong>Telefon:</strong> ${telefon}</p>
-      <h3>Weitere Infos</h3>
-      <p><strong>Nachricht:</strong><br>${nachricht ? nachricht.replace(/\n/g, "<br>") : "-"}</p>
-      <p><strong>Medien-Erlaubnis erteilt:</strong> ${medien ? "Ja" : "Nein"}</p>
-    `;
+    const internalHtml = getInternalCourseRegistrationHtml({
+      kurs, kurszeit, kVorname, kNachname, alter, vVorname, vNachname,
+      adresse, email, telefon, nachricht, medien
+    });
 
     try {
       // Send to Music School
@@ -292,27 +251,8 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
       .json({ error: "Mail-Empfänger ist nicht konfiguriert." });
   }
 
-  const internalText = [
-    "Neue Kontaktanfrage über kleine-musikschule.de",
-    "",
-    `Name: ${name}`,
-    `E-Mail: ${email}`,
-    `Standort: ${location || "-"}`,
-    `Koordinaten: ${coordinates || "-"}`,
-    "",
-    "Nachricht:",
-    message,
-  ].join("\n");
-
-  const internalHtml = `
-    <h2>Neue Kontaktanfrage</h2>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>E-Mail:</strong> ${email}</p>
-    <p><strong>Standort:</strong> ${location || "-"}</p>
-    <p><strong>Koordinaten:</strong> ${coordinates || "-"}</p>
-    <p><strong>Nachricht:</strong></p>
-    <p>${message.replace(/\n/g, "<br>")}</p>
-  `;
+  const internalText = getInternalContactText({ name, email, location, coordinates, message });
+  const internalHtml = getInternalContactHtml({ name, email, location, coordinates, message });
 
   try {
     await sendEmailViaResend({

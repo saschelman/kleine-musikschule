@@ -302,60 +302,121 @@
       align-items: center;
       justify-content: center;
       padding: 1rem;
-      background: rgba(10, 16, 32, 0.72);
+      background: rgba(9, 14, 28, 0.85);
       z-index: 10000;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .form-popup {
-      width: min(520px, 94vw);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      background: linear-gradient(155deg,
-          rgba(23, 28, 45, 0.98),
-          rgba(13, 17, 30, 0.98));
-      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
-      padding: 1.2rem 1.2rem 1.1rem;
+      width: min(480px, 92vw);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(165deg, rgba(35, 42, 63, 0.98), rgba(20, 25, 42, 0.98));
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transform: translateY(20px) scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .form-popup-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(155, 241, 255, 0.15);
+      color: #9bf1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 1.5rem auto;
+      box-shadow: 0 0 20px rgba(155, 241, 255, 0.2);
+    }
+
+    .form-popup-icon.error {
+      background: rgba(255, 141, 141, 0.15);
+      color: #ff8d8d;
+      box-shadow: 0 0 20px rgba(255, 141, 141, 0.2);
     }
 
     .form-popup h3 {
-      margin: 0 0 0.45rem 0;
-      font-size: 1.25rem;
+      margin: 0 0 0.8rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
       letter-spacing: 0.02em;
     }
 
     .form-popup p {
-      margin: 0;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.88);
-    }
-
-    .form-popup.success h3 {
-      color: #9bf1ff;
-    }
-
-    .form-popup.error h3 {
-      color: #ff8d8d;
+      margin: 0 0 2rem 0;
+      line-height: 1.6;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
     }
 
     .form-popup-actions {
-      margin-top: 1rem;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
     }
 
-    .form-popup-actions button {
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      padding: 0.55rem 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
+    /* Modern Checkboxes & Radio Buttons */
+    input[type="checkbox"] + label:before,
+    input[type="radio"] + label:before {
+      content: '' !important;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1.65em;
+      height: 1.65em;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.25s ease;
     }
 
-    .form-popup-actions button:hover {
-      background: rgba(155, 241, 255, 0.16);
+    input[type="radio"] + label:before {
+      border-radius: 50%;
+    }
+
+    input[type="checkbox"]:checked + label:before,
+    input[type="radio"]:checked + label:before {
+      background-color: #9bf1ff;
+      border-color: #9bf1ff;
+      box-shadow: 0 0 12px rgba(155, 241, 255, 0.4);
+    }
+
+    input[type="checkbox"]:checked + label:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242943' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: 65%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    input[type="radio"]:checked + label:before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23242943'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    input[type="checkbox"]:focus + label:before,
+    input[type="radio"]:focus + label:before {
+      border-color: #9bf1ff;
+      box-shadow: 0 0 0 3px rgba(155, 241, 255, 0.25);
+    }
+
+    input[type="checkbox"] + label:hover:before,
+    input[type="radio"] + label:hover:before {
+      border-color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    input[type="checkbox"]:checked + label:hover:before,
+    input[type="radio"]:checked + label:hover:before {
+      background-color: #8ae0ee;
+      border-color: #8ae0ee;
     }
   </style>
   <noscript>
@@ -472,9 +533,6 @@
                   <li>07.12.2026</li>
                   <li>14.12.2026</li>
                 </ul>
-                <p style="margin-top: 1rem; font-size: 0.95em; opacity: 0.9;">
-                  <em>Hinweis: Die Teilnehmer werden nach Alter in die beiden Kurse eingeteilt.</em>
-                </p>
               </div>
 
               <div class="course-info-section">
@@ -508,6 +566,9 @@
       <div class="inner">
         <section>
           <h2>Anmeldung</h2>
+          <p style="background: rgba(155, 241, 255, 0.1); border-left: 4px solid #9bf1ff; padding: 1rem 1.5rem; border-radius: 4px; font-weight: 600; color: #fff; margin-bottom: 2rem;">
+            ⏳ <strong>Wichtiger Hinweis:</strong> Der Anmeldeschluss für diesen Kurs ist am 5. Oktober um 0:00 Uhr.
+          </p>
           <form id="registrationForm" action="https://noreply-email.onrender.com/api/kursanmeldung" method="POST">
             <input type="hidden" name="Kursanmeldung" value="Kursanmeldung zu Musikkurs für Kinder (Pfinztal)" />
 
@@ -545,9 +606,23 @@
                 <input type="tel" name="Telefonnummer" id="telefon" required />
               </div>
               <div class="field">
+                <label>Gewünschte Kurszeit *</label>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                  <div>
+                    <input type="radio" id="kurszeit_1" name="Kurszeit" value="Kurs 1 (15:10 - 15:40 Uhr)" required
+                      checked />
+                    <label for="kurszeit_1">Kurs 1 (15:10 - 15:40 Uhr)</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="kurszeit_2" name="Kurszeit" value="Kurs 2 (15:50 - 16:20 Uhr)" required />
+                    <label for="kurszeit_2">Kurs 2 (15:50 - 16:20 Uhr)</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
                 <label for="nachricht">Nachricht</label>
                 <textarea name="Nachricht" id="nachricht" rows="3"
-                  placeholder="Hier ist Platz für deine Nachricht (z. B. falls eine bestimmte Kurszeit besser für euch passt oder du Anmerkungen hast)."></textarea>
+                  placeholder="Hier ist Platz für deine Nachricht (optional)."></textarea>
               </div>
 
             </div>
@@ -625,15 +700,24 @@
       popup.setAttribute("role", "dialog");
       popup.setAttribute("aria-modal", "true");
 
+      const successIcon = \`<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>\`;
+      const errorIcon = \`<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>\`;
+      const icon = type === 'success' ? \`<div class="form-popup-icon">\${successIcon}</div>\` : \`<div class="form-popup-icon error">\${errorIcon}</div>\`;
+
       popup.innerHTML = `
+          ${ icon }
           <h3>${title}</h3>
           <p>${message}</p>
           <div class="form-popup-actions">
-            <button type="button">OK</button>
+            <button type="button" class="button primary">Schließen</button>
           </div>
         `;
 
-      const closePopup = () => overlay.remove();
+      const closePopup = () => {
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 300);
+      };
+
       popup.querySelector("button").addEventListener("click", closePopup);
       overlay.addEventListener("click", function (e) {
         if (e.target === overlay) closePopup();
@@ -641,6 +725,11 @@
 
       overlay.appendChild(popup);
       document.body.appendChild(overlay);
+
+      requestAnimationFrame(() => {
+        overlay.style.opacity = '1';
+        popup.style.transform = 'translateY(0) scale(1)';
+      });
     }
 
     const registrationForm = document.getElementById("registrationForm");
@@ -693,7 +782,7 @@
       try {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        
+
         // Checkboxes in FormData only appear if checked (usually with value "on")
         // We explicitly set the boolean values for the backend to be safe
         data["Medien Erlaubnis"] = form.elements["medien_erlaubnis"].checked;
@@ -711,8 +800,8 @@
 
         if (response.ok) {
           showFormPopup(
-            "Voranmeldung erfolgreich",
-            "Vielen Dank! Die Voranmeldung wurde erfolgreich gesendet.",
+            "Erfolgreich angemeldet!",
+            "Vielen Dank! Die Anmeldung wurde erfolgreich gesendet.",
             "success",
           );
           form.reset();
