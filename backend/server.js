@@ -237,8 +237,7 @@ app.post(
     });
 
     try {
-      // Send to Music School
-      await sendEmailViaResend({
+      const emailToSchool = sendEmailViaResend({
         from: MAIL_FROM,
         to: MAIL_TO,
         replyTo: email,
@@ -246,12 +245,12 @@ app.post(
         html: internalHtml,
       });
 
-      // Send confirmation to Customer
-      try {
-        await sendKursanmeldungConfirmationEmail(kVorname, vVorname, email, kurs, kurszeit);
-      } catch (confirmError) {
-        console.warn("[kursanmeldung] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
-      }
+      const emailToCustomer = sendKursanmeldungConfirmationEmail(kVorname, vVorname, email, kurs, kurszeit)
+        .catch(confirmError => {
+          console.warn("[kursanmeldung] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
+        });
+
+      await Promise.all([emailToSchool, emailToCustomer]);
 
       return res.status(200).json({ ok: true });
     } catch (error) {
@@ -308,7 +307,7 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
   const internalHtml = getInternalContactHtml({ name, email, location, coordinates, message });
 
   try {
-    await sendEmailViaResend({
+    const emailToSchool = sendEmailViaResend({
       from: MAIL_FROM,
       to: MAIL_TO,
       replyTo: email,
@@ -317,11 +316,12 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
       html: internalHtml,
     });
 
-    try {
-      await sendCustomerConfirmationEmail(name, email);
-    } catch (confirmError) {
-      console.warn("[contact] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
-    }
+    const emailToCustomer = sendCustomerConfirmationEmail(name, email)
+      .catch(confirmError => {
+        console.warn("[contact] Auto-Reply an Kunden fehlgeschlagen. Resend Sandbox Limit?", confirmError.message);
+      });
+
+    await Promise.all([emailToSchool, emailToCustomer]);
 
     console.log("[contact] mail sent successfully", { to: MAIL_TO, email });
 
