@@ -170,19 +170,93 @@ function getCourseRegistrationAutoReplyHtml(vorname, courseName, kurszeit) {
 
 function getInternalCourseRegistrationHtml(data) {
   return `
-    <h2>Neue Kursanmeldung: ${data.kurs}</h2>
-    ${data.kurszeit ? `<p><strong>Gewünschte Kurszeit:</strong> ${data.kurszeit}</p>` : ''}
-    <h3>Kursteilnehmer/in</h3>
-    <p><strong>Name:</strong> ${data.kVorname} ${data.kNachname}</p>
-    <p><strong>Alter:</strong> ${data.alter}</p>
-    <h3>Gesetzliche/r Vertreter/in</h3>
-    <p><strong>Name:</strong> ${data.vVorname} ${data.vNachname}</p>
-    <p><strong>Adresse:</strong> ${data.adresse}</p>
-    <p><strong>E-Mail:</strong> ${data.email}</p>
-    <p><strong>Telefon:</strong> ${data.telefon}</p>
-    <h3>Weitere Infos</h3>
-    <p><strong>Nachricht:</strong><br>${data.nachricht ? data.nachricht.replace(/\n/g, "<br>") : "-"}</p>
-    <p><strong>Medien-Erlaubnis erteilt:</strong> ${data.medien ? "Ja" : "Nein"}</p>
+    <html>
+      <body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; padding: 20px; color: #334155; margin: 0;">
+        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden;">
+          
+          <div style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); padding: 30px 20px; text-align: center; border-bottom: 4px solid #38bdf8;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.025em;">Neue Kursanmeldung</h1>
+            <p style="color: #e0f2fe; margin: 10px 0 0 0; font-size: 16px; font-weight: 500;">${data.kurs}</p>
+          </div>
+
+          <div style="padding: 30px;">
+            ${data.kurszeit ? `
+            <div style="background-color: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 15px 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0;">
+              <p style="margin: 0; color: #0369a1; font-size: 15px;"><strong>Gewünschte Kurszeit:</strong> ${data.kurszeit}</p>
+            </div>
+            ` : ''}
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td colspan="2" style="padding: 0 0 10px 0; border-bottom: 2px solid #e2e8f0;">
+                  <h3 style="color: #0f172a; margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Kursteilnehmer/in</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; width: 40%; color: #64748b; font-size: 14px;">Name</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500;">${data.kVorname} ${data.kNachname}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">Alter</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500; border-top: 1px solid #f1f5f9;">${data.alter || '-'}</td>
+              </tr>
+            </table>
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td colspan="2" style="padding: 0 0 10px 0; border-bottom: 2px solid #e2e8f0;">
+                  <h3 style="color: #0f172a; margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Gesetzliche/r Vertreter/in</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; width: 40%; color: #64748b; font-size: 14px;">Name</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500;">${data.vVorname} ${data.vNachname}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">Adresse</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500; border-top: 1px solid #f1f5f9;">${data.adresse}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">E-Mail</td>
+                <td style="padding: 12px 0; border-top: 1px solid #f1f5f9;"><a href="mailto:${data.email}" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">${data.email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">Telefon</td>
+                <td style="padding: 12px 0; border-top: 1px solid #f1f5f9;"><a href="tel:${data.telefon}" style="color: #1e293b; text-decoration: none; font-weight: 500;">${data.telefon}</a></td>
+              </tr>
+            </table>
+
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td colspan="2" style="padding: 0 0 10px 0; border-bottom: 2px solid #e2e8f0;">
+                  <h3 style="color: #0f172a; margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Weitere Infos</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; width: 40%; color: #64748b; font-size: 14px;">Medien-Erlaubnis</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500;">
+                  ${data.medien ? '<span style="color: #10b981;">✓ Ja erteilt</span>' : '<span style="color: #ef4444;">✗ Nein</span>'}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 12px 0 6px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">Nachricht</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 15px; background-color: #f8fafc; border-radius: 6px; color: #334155; line-height: 1.6; font-size: 15px; font-style: italic;">
+                  ${data.nachricht ? data.nachricht.replace(/\n/g, "<br>") : "Keine zusätzliche Nachricht hinterlassen."}
+                </td>
+              </tr>
+            </table>
+          </div>
+          
+          <div style="background-color: #f1f5f9; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
+            <p style="margin: 0; font-size: 12px; color: #94a3b8;">
+              Kleine Musikschule Karlsruhe &mdash; Automatisierte Benachrichtigung
+            </p>
+          </div>
+        </div>
+      </body>
+    </html>
   `;
 }
 
@@ -202,13 +276,70 @@ function getInternalContactText(data) {
 
 function getInternalContactHtml(data) {
   return `
-    <h2>Neue Kontaktanfrage</h2>
-    <p><strong>Name:</strong> ${data.name}</p>
-    <p><strong>E-Mail:</strong> ${data.email}</p>
-    <p><strong>Standort:</strong> ${data.location || "-"}</p>
-    <p><strong>Koordinaten:</strong> ${data.coordinates || "-"}</p>
-    <p><strong>Nachricht:</strong></p>
-    <p>${data.message.replace(/\n/g, "<br>")}</p>
+    <html>
+      <body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; padding: 20px; color: #334155; margin: 0;">
+        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); overflow: hidden;">
+          
+          <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 30px 20px; text-align: center; border-bottom: 4px solid #34d399;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.025em;">Neue Kontaktanfrage</h1>
+            <p style="color: #d1fae5; margin: 10px 0 0 0; font-size: 16px; font-weight: 500;">kleine-musikschule.de</p>
+          </div>
+
+          <div style="padding: 30px;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td colspan="2" style="padding: 0 0 10px 0; border-bottom: 2px solid #e2e8f0;">
+                  <h3 style="color: #0f172a; margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Absender-Daten</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; width: 40%; color: #64748b; font-size: 14px;">Name</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500;">${data.name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">E-Mail</td>
+                <td style="padding: 12px 0; border-top: 1px solid #f1f5f9;"><a href="mailto:${data.email}" style="color: #10b981; text-decoration: none; font-weight: 500;">${data.email}</a></td>
+              </tr>
+            </table>
+
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+              <tr>
+                <td colspan="2" style="padding: 0 0 10px 0; border-bottom: 2px solid #e2e8f0;">
+                  <h3 style="color: #0f172a; margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Standort (Optional)</h3>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; width: 40%; color: #64748b; font-size: 14px;">Adresse / Ort</td>
+                <td style="padding: 12px 0; color: #1e293b; font-weight: 500;">${data.location || '<span style="color:#94a3b8; font-weight:normal;">Nicht angegeben</span>'}</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; color: #64748b; font-size: 14px; border-top: 1px solid #f1f5f9;">Koordinaten</td>
+                <td style="padding: 12px 0; color: #64748b; font-size: 13px; border-top: 1px solid #f1f5f9; font-family: monospace;">${data.coordinates || '-'}</td>
+              </tr>
+            </table>
+
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td colspan="2" style="padding: 0 0 10px 0; border-bottom: 2px solid #e2e8f0;">
+                  <h3 style="color: #0f172a; margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Nachricht</h3>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 20px; background-color: #f8fafc; border-radius: 8px; color: #334155; line-height: 1.6; font-size: 15px; border-left: 4px solid #34d399; margin-top: 10px; display: block;">
+                  ${data.message.replace(/\n/g, "<br>")}
+                </td>
+              </tr>
+            </table>
+          </div>
+          
+          <div style="background-color: #f1f5f9; padding: 20px; text-align: center; border-top: 1px solid #e2e8f0;">
+            <p style="margin: 0; font-size: 12px; color: #94a3b8;">
+              Kleine Musikschule Karlsruhe &mdash; Automatisierte Benachrichtigung
+            </p>
+          </div>
+        </div>
+      </body>
+    </html>
   `;
 }
 
