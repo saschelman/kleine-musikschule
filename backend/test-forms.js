@@ -16,18 +16,14 @@ async function testNormalContactForm() {
   try {
     const response = await fetch(`${BASE_URL}/api/contact`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     });
 
     if (response.ok) {
       console.log('✅ Normales Kontaktformular: Erfolgreich gesendet!');
     } else {
-      const errorText = await response.text();
-      console.error(`❌ Normales Kontaktformular: Fehler (${response.status}) - ${errorText}`);
+      console.error(`❌ Normales Kontaktformular: Fehler (${response.status})`);
     }
   } catch (error) {
     console.error('❌ Normales Kontaktformular: Netzwerkfehler -', error.message);
@@ -48,7 +44,7 @@ async function testCourseRegistration() {
     "Adresse": "Teststraße 1, 76133 Karlsruhe",
     "Email": TEST_EMAIL,
     "Telefonnummer": "0123456789",
-    "Nachricht": "Automatischer Test für die Kursanmeldung mit der neuen Signatur.",
+    "Nachricht": "Automatischer Test für die Kursanmeldung.",
     "Medien Erlaubnis": true,
     "AGB akzeptiert": true,
     "Datenschutz akzeptiert": true
@@ -57,21 +53,53 @@ async function testCourseRegistration() {
   try {
     const response = await fetch(`${BASE_URL}/api/kursanmeldung`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
     });
 
     if (response.ok) {
       console.log('✅ Kursanmeldung: Erfolgreich gesendet!');
     } else {
-      const errorText = await response.text();
-      console.error(`❌ Kursanmeldung: Fehler (${response.status}) - ${errorText}`);
+      console.error(`❌ Kursanmeldung: Fehler (${response.status})`);
     }
   } catch (error) {
     console.error('❌ Kursanmeldung: Netzwerkfehler -', error.message);
+  }
+}
+
+async function testLesPetitsAmisRegistration() {
+  console.log('\nTesting Les Petits Amis Form (/api/kursanmeldung)...');
+  
+  const payload = {
+    "Kursanmeldung": "Musikkurs für Kinder (Les Petits Amis)",
+    "Kursteilnehmer Vorname": "Mio",
+    "Kursteilnehmer Nachname": "Flöter",
+    "Alter": "4",
+    "Vertreter Vorname": "Alexander",
+    "Vertreter Nachname": "Flöter",
+    "Adresse": "Französische Straße 2, 76133 Karlsruhe",
+    "Email": TEST_EMAIL,
+    "Telefonnummer": "0123456789",
+    "Nachricht": "Automatischer Test für Les Petits Amis.",
+    "Medien Erlaubnis": true,
+    "AGB akzeptiert": true,
+    "Datenschutz akzeptiert": true
+  };
+
+  try {
+    const response = await fetch(`${BASE_URL}/api/kursanmeldung`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      console.log('✅ Les Petits Amis: Erfolgreich gesendet!');
+    } else {
+      console.error(`❌ Les Petits Amis: Fehler (${response.status})`);
+    }
+  } catch (error) {
+    console.error('❌ Les Petits Amis: Netzwerkfehler -', error.message);
   }
 }
 
@@ -79,6 +107,7 @@ async function runTests() {
   console.log('Starte Formular-Tests...\n');
   await testNormalContactForm();
   await testCourseRegistration();
+  await testLesPetitsAmisRegistration();
   console.log('\nAlle Tests abgeschlossen! Überprüfe nun dein Postfach (' + TEST_EMAIL + ') auf die Auto-Replies.');
 }
 
