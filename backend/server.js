@@ -11,6 +11,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const {
   getContactAutoReplyText,
+  getContactAutoReplyHtml,
   getCourseRegistrationAutoReplyHtml,
   getLesPetitsAmisRegistrationAutoReplyHtml,
   getPfinztalRegistrationAutoReplyHtml,
@@ -109,6 +110,7 @@ async function sendCustomerConfirmationEmail(name, email) {
     replyTo: MAIL_REPLY_TO,
     subject: "Wir haben deine Nachricht erhalten",
     text: getContactAutoReplyText(name),
+    html: getContactAutoReplyHtml(name),
   });
 }
 

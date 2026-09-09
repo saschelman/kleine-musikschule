@@ -10,6 +10,36 @@ function getContactAutoReplyText(name) {
   ].join("\n");
 }
 
+function getContactAutoReplyHtml(name) {
+  return `
+    <html>
+      <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f7f6; padding: 20px; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+          <div style="text-align: center; margin-bottom: 30px;">
+            <img src="https://kleine-musikschule.de/images/logo_small.png" alt="Kleine Musikschule Karlsruhe" style="max-width: 120px; height: auto; margin-bottom: 20px;">
+            <h1 style="color: #2c3e50; margin: 0; font-size: 24px;">Wir haben deine Nachricht erhalten! 🎵</h1>
+          </div>
+          <p style="font-size: 16px; line-height: 1.6;">Hallo <strong>${name}</strong>,</p>
+          <p style="font-size: 16px; line-height: 1.6;">
+            vielen Dank für deine Nachricht an die kleine Musikschule Karlsruhe.
+          </p>
+          <div style="background-color: #f8fbfa; border-left: 4px solid #9bf1ff; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0;">
+            <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #333;">Wir werden dein Anliegen so schnell wie möglich bearbeiten und melden uns in Kürze persönlich bei dir zurück.</p>
+          </div>
+          <p style="font-size: 16px; line-height: 1.6;">
+            Ganz herzliche musikalische Grüße,<br>
+            <strong>Alexander Flöter<br>Kleine Musikschule Karlsruhe</strong>
+          </p>
+          <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
+          <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
+            Dies ist eine automatisch generierte E-Mail. Bitte antworte nicht direkt auf diese Nachricht, sondern schreibe bei Fragen an <a href="mailto:alex@kleine-musikschule.de" style="color: #999;">alex@kleine-musikschule.de</a>.
+          </p>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
 function getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseName) {
   return `
     <html>
@@ -184,6 +214,7 @@ function getInternalContactHtml(data) {
 
 module.exports = {
   getContactAutoReplyText,
+  getContactAutoReplyHtml,
   getCourseRegistrationAutoReplyHtml,
   getLesPetitsAmisRegistrationAutoReplyHtml,
   getPfinztalRegistrationAutoReplyHtml,
