@@ -7,6 +7,8 @@ const { Resend } = require("resend");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 const {
   getContactAutoReplyText,
   getCourseRegistrationAutoReplyHtml,
@@ -237,6 +239,29 @@ app.post(
     });
 
     try {
+      await prisma.courseRegistration.create({
+        data: {
+          kurs,
+          kurszeit: kurszeit || null,
+          kVorname,
+          kNachname,
+          alter: alter || null,
+          vVorname,
+          vNachname,
+          adresse,
+          email,
+          telefon,
+          nachricht: nachricht || null,
+          agb,
+          datenschutz,
+          medien,
+        }
+      });
+    } catch (dbError) {
+      console.error("[db-error] Fehler beim Speichern der Kursanmeldung in der DB:", dbError);
+    }
+
+    try {
       const emailToSchool = sendEmailViaResend({
         from: MAIL_FROM,
         to: MAIL_TO,
@@ -305,6 +330,21 @@ app.post("/api/contact", contactRateLimit, async (req, res) => {
 
   const internalText = getInternalContactText({ name, email, location, coordinates, message });
   const internalHtml = getInternalContactHtml({ name, email, location, coordinates, message });
+
+  try {
+    await prisma.contactRequest.create({
+      data: {
+        name,
+        email,
+        message,
+        location: location || null,
+        coordinates: coordinates || null,
+        datenschutz,
+      }
+    });
+  } catch (dbError) {
+    console.error("[db-error] Fehler beim Speichern der Kontaktanfrage in der DB:", dbError);
+  }
 
   try {
     const emailToSchool = sendEmailViaResend({

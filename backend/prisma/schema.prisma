@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CourseRegistration {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  
+  kurs         String
+  kurszeit     String?
+  kVorname     String
+  kNachname    String
+  alter        String?
+  vVorname     String
+  vNachname    String
+  adresse      String
+  email        String
+  telefon      String
+  nachricht    String?  @db.Text
+  
+  agb          Boolean  @default(false)
+  datenschutz  Boolean  @default(false)
+  medien       Boolean  @default(false)
+}
+
+model ContactRequest {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  
+  name         String
+  email        String
+  message      String   @db.Text
+  location     String?
+  coordinates  String?
+  
+  datenschutz  Boolean  @default(false)
+}
