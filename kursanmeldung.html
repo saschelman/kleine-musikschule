@@ -769,13 +769,6 @@
           body: JSON.stringify(data),
         });
 
-        // Backup: Also send to Formspree (fire-and-forget)
-        fetch("https://formspree.io/f/myzyjwqa", {
-          method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
-        }).catch(() => { });
-
         if (response.ok) {
           showFormPopup(
             "Erfolgreich angemeldet!",
