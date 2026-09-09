@@ -2,7 +2,20 @@ const { Resend } = require("resend");
 const path = require("path");
 const fs = require("fs");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization: The client is only created on the first email send,
+// not at module load time. This prevents a startup crash if RESEND_API_KEY
+// is not yet set in the local .env file.
+let _resendClient = null;
+
+function getResendClient() {
+  if (!_resendClient) {
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error("[emailService] RESEND_API_KEY is not set in environment variables.");
+    }
+    _resendClient = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resendClient;
+}
 
 const MAIL_TO = process.env.MAIL_TO;
 const MAIL_FROM = process.env.MAIL_FROM || "Kleine Musikschule <onboarding@resend.dev>";
@@ -26,7 +39,7 @@ async function sendEmailViaResend(mailOptions) {
     sendPayload.attachments = mailOptions.attachments;
   }
 
-  const { data, error } = await resend.emails.send(sendPayload);
+  const { data, error } = await getResendClient().emails.send(sendPayload);
 
   if (error) {
     throw new Error(`Resend Error: ${error.message}`);

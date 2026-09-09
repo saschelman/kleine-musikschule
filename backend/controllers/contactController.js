@@ -1,5 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+const prisma = require("../services/db");
 
 const { sendEmailViaResend, MAIL_TO } = require("../services/emailService");
 const { sanitizeText, isValidEmail } = require("../utils/validation");
