@@ -13,10 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    summary.setAttribute(
-      "aria-expanded",
-      details.hasAttribute("open") ? "true" : "false",
-    );
+    summary.setAttribute("aria-expanded", details.hasAttribute("open") ? "true" : "false");
 
     summary.addEventListener("click", function (e) {
       e.preventDefault();
@@ -51,22 +48,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cards.forEach(function (card) {
       const summaryText = (
-        card.querySelector("summary") &&
-        card.querySelector("summary").textContent
+        card.querySelector("summary") && card.querySelector("summary").textContent
           ? card.querySelector("summary").textContent
           : ""
       ).toLowerCase();
       const answerText = (
-        card.querySelector(".faq-content") &&
-        card.querySelector(".faq-content").textContent
+        card.querySelector(".faq-content") && card.querySelector(".faq-content").textContent
           ? card.querySelector(".faq-content").textContent
           : ""
       ).toLowerCase();
 
-      const isMatch =
-        query === "" ||
-        summaryText.includes(query) ||
-        answerText.includes(query);
+      const isMatch = query === "" || summaryText.includes(query) || answerText.includes(query);
 
       card.classList.toggle("is-hidden", !isMatch);
 

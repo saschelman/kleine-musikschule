@@ -1,10 +1,5 @@
 const CACHE_NAME = "musikschule-v2";
-const urlsToCache = [
-  "/assets/css/main.css",
-  "/assets/js/main.js",
-  "/images/logo_small.png",
-  "/images/logo.png",
-];
+const urlsToCache = ["/assets/css/main.css", "/assets/js/main.js", "/images/logo_small.png", "/images/logo.png"];
 
 // Install service worker and cache resources
 self.addEventListener("install", (event) => {

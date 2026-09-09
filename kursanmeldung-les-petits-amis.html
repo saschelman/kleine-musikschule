@@ -5,692 +5,766 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kursanmeldung Les Petits Amis - Kleine Musikschule Karlsruhe</title>
+    <meta
+      name="description"
+      content="Anmeldung zum 10-wöchigen Kurs Les Petits Amis in Karlsruhe. Spielerisches Kennenlernen von Klängen und Instrumenten."
+    />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#9bf1ff" />
+    <meta property="og:image" content="https://www.kleine-musikschule.de/images/pexels-kseniachernaya-8535234.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link rel="icon" href="images/logo_small.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="preload"
+      href="assets/css/main.min.css?v=20251226-1"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
+    </noscript>
+    <style>
+      #contact {
+        border-bottom: 0 !important;
+      }
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kursanmeldung Les Petits Amis - Kleine Musikschule Karlsruhe</title>
-  <meta name="description"
-    content="Anmeldung zum 10-wöchigen Kurs Les Petits Amis in Karlsruhe. Spielerisches Kennenlernen von Klängen und Instrumenten." />
-  <meta name="robots" content="noindex, nofollow, noarchive" />
-  <meta name="theme-color" content="#9bf1ff" />
-  <meta property="og:image" content="https://www.kleine-musikschule.de/images/pexels-kseniachernaya-8535234.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <link rel="icon" href="images/logo_small.png" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="preload" href="assets/css/main.min.css?v=20251226-1" as="style"
-    onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" />
-  </noscript>
-  <style>
-    #contact {
-      border-bottom: 0 !important;
-    }
+      #contact > .inner {
+        display: block !important;
+      }
 
-    #contact>.inner {
-      display: block !important;
-    }
+      #contact > .inner > :nth-child(2n - 1) {
+        padding: 4em 0 2em 0;
+        border-right: 0;
+        width: 100%;
+      }
 
-    #contact>.inner> :nth-child(2n - 1) {
-      padding: 4em 0 2em 0;
-      border-right: 0;
-      width: 100%;
-    }
+      #contact form ul.actions {
+        width: 100%;
+        display: flex;
+        gap: 1em;
+        margin-top: 1.2em;
+        margin-left: 0;
+      }
 
-    #contact form ul.actions {
-      width: 100%;
-      display: flex;
-      gap: 1em;
-      margin-top: 1.2em;
-      margin-left: 0;
-    }
+      #contact form ul.actions li {
+        flex: 1 1 0;
+        padding: 0;
+      }
 
-    #contact form ul.actions li {
-      flex: 1 1 0;
-      padding: 0;
-    }
+      #contact form ul.actions li input[type="submit"],
+      #contact form ul.actions li input[type="reset"] {
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-    #contact form ul.actions li input[type="submit"],
-    #contact form ul.actions li input[type="reset"] {
-      width: 100%;
-      box-sizing: border-box;
-    }
+      #contact .consent-field {
+        display: flex;
+        align-items: center;
+        gap: 0.65em;
+        margin-top: 0.8em;
+      }
 
-    #contact .consent-field {
-      display: flex;
-      align-items: center;
-      gap: 0.65em;
-      margin-top: 0.8em;
-    }
+      #contact .consent-field input[type="checkbox"] {
+        position: relative !important;
+        opacity: 1 !important;
+        z-index: 2;
+        pointer-events: auto !important;
+        clip: auto !important;
+        clip-path: none !important;
+        overflow: visible !important;
+        -webkit-appearance: checkbox;
+        appearance: checkbox;
+        width: 1.05em;
+        height: 1.05em;
+        margin: 0;
+        flex-shrink: 0;
+        vertical-align: middle;
+        accent-color: #9bf1ff;
+        cursor: pointer;
+      }
 
-    #contact .consent-field input[type="checkbox"] {
-      position: relative !important;
-      opacity: 1 !important;
-      z-index: 2;
-      pointer-events: auto !important;
-      clip: auto !important;
-      clip-path: none !important;
-      overflow: visible !important;
-      -webkit-appearance: checkbox;
-      appearance: checkbox;
-      width: 1.05em;
-      height: 1.05em;
-      margin: 0;
-      flex-shrink: 0;
-      vertical-align: middle;
-      accent-color: #9bf1ff;
-      cursor: pointer;
-    }
+      #contact .consent-field input[type="checkbox"] + label:before,
+      #contact .consent-field input[type="checkbox"] + label:after {
+        display: none !important;
+        content: none !important;
+      }
 
-    #contact .consent-field input[type="checkbox"]+label:before,
-    #contact .consent-field input[type="checkbox"]+label:after {
-      display: none !important;
-      content: none !important;
-    }
+      #contact .consent-field label {
+        display: inline-block;
+        margin: 0;
+        padding-left: 0 !important;
+        line-height: 1.4;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 0.95em;
+      }
 
-    #contact .consent-field label {
-      display: inline-block;
-      margin: 0;
-      padding-left: 0 !important;
-      line-height: 1.4;
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.95em;
-    }
+      .course-info-box {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 12px;
+        padding: 1.5rem;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        margin-top: 1rem;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+      }
 
-    .course-info-box {
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 12px;
-      padding: 1.5rem;
-      background: linear-gradient(145deg,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.02));
-      margin-top: 1rem;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-    }
+      .course-info-head {
+        padding-bottom: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        margin-bottom: 0.95rem;
+      }
 
-    .course-info-head {
-      padding-bottom: 0.9rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      margin-bottom: 0.95rem;
-    }
+      .course-info-kicker {
+        display: inline-block;
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.95;
+        margin-bottom: 0.35rem;
+        color: #9bf1ff;
+      }
 
-    .course-info-kicker {
-      display: inline-block;
-      font-size: 0.74rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.95;
-      margin-bottom: 0.35rem;
-      color: #9bf1ff;
-    }
+      .course-info-box h3 {
+        margin: 0;
+        font-size: 1.45rem;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
 
-    .course-info-box h3 {
-      margin: 0;
-      font-size: 1.45rem;
-      letter-spacing: 0.02em;
-      text-transform: none;
-    }
+      .course-info-subline {
+        margin: 0.45rem 0 0 0;
+        opacity: 0.9;
+        font-size: 1rem;
+      }
 
-    .course-info-subline {
-      margin: 0.45rem 0 0 0;
-      opacity: 0.9;
-      font-size: 1rem;
-    }
+      .course-info-section {
+        padding-top: 0.95rem;
+        margin-top: 0.2rem;
+      }
 
-    .course-info-section {
-      padding-top: 0.95rem;
-      margin-top: 0.2rem;
-    }
+      .course-info-section + .course-info-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
 
-    .course-info-section+.course-info-section {
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-    }
+      .course-info-section h4 {
+        margin: 0 0 0.55rem 0;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #9bf1ff;
+      }
 
-    .course-info-section h4 {
-      margin: 0 0 0.55rem 0;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9bf1ff;
-    }
+      .course-info-box p,
+      .course-info-box ul {
+        margin: 0;
+      }
 
-    .course-info-box p,
-    .course-info-box ul {
-      margin: 0;
-    }
+      .course-info-box ul {
+        padding-left: 1.1rem;
+        margin-bottom: 0.65rem;
+      }
 
-    .course-info-box ul {
-      padding-left: 1.1rem;
-      margin-bottom: 0.65rem;
-    }
+      .course-info-box ul.actions {
+        padding-left: 0;
+        margin-top: 1.25rem;
+      }
 
-    .course-info-box ul.actions {
-      padding-left: 0;
-      margin-top: 1.25rem;
-    }
+      .course-info-box li {
+        margin: 0.32rem 0;
+        line-height: 1.5;
+      }
 
-    .course-info-box li {
-      margin: 0.32rem 0;
-      line-height: 1.5;
-    }
+      .pause-highlight {
+        color: #ff6b6b;
+        font-weight: 700;
+      }
 
-    .pause-highlight {
-      color: #ff6b6b;
-      font-weight: 700;
-    }
+      .concert-highlight {
+        font-weight: 700;
+        background: linear-gradient(90deg, #9bf1ff, #ffd166, #ff6b6b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
 
-    .concert-highlight {
-      font-weight: 700;
-      background: linear-gradient(90deg, #9bf1ff, #ffd166, #ff6b6b);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .rainbow-text {
-      font-weight: 700;
-      background: linear-gradient(90deg,
+      .rainbow-text {
+        font-weight: 700;
+        background: linear-gradient(
+          90deg,
           #ff4d4d 0%,
           #ff9f1c 18%,
           #ffd60a 36%,
           #2ec4b6 54%,
           #3a86ff 72%,
           #8338ec 88%,
-          #ff006e 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .course-overview {
-      margin-top: 1rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-
-
-    .course-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .course-detail-card {
-      padding: 1.25rem 1.25rem 1.15rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(10, 16, 32, 0.28);
-    }
-
-    .course-detail-card h4 {
-      margin: 0 0 0.65rem 0;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9bf1ff;
-    }
-
-    .course-detail-card p,
-    .course-detail-card ul {
-      margin: 0;
-    }
-
-    .course-detail-card ul {
-      padding-left: 1.1rem;
-    }
-
-    .course-detail-card li+li {
-      margin-top: 0.35rem;
-    }
-
-    .course-callout {
-      margin-top: 0.35rem;
-      padding: 1rem 1.1rem;
-      border-left: 3px solid #9bf1ff;
-      background: rgba(155, 241, 255, 0.08);
-      border-radius: 4px;
-      line-height: 1.6;
-    }
-
-    .course-callout strong {
-      color: #dffbff;
-    }
-
-
-
-    .course-cta {
-      margin-top: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.05rem;
-      border-radius: 999px;
-      border: 1px solid rgba(155, 241, 255, 0.35);
-      background: rgba(155, 241, 255, 0.12);
-      color: #fff;
-      text-decoration: none;
-      transition:
-        transform 0.18s ease,
-        background 0.18s ease,
-        border-color 0.18s ease;
-    }
-
-    .course-cta:hover {
-      transform: translateY(-1px);
-      background: rgba(155, 241, 255, 0.18);
-      border-color: rgba(155, 241, 255, 0.55);
-    }
-
-    .course-cta span {
-      opacity: 0.9;
-    }
-
-    @media (max-width: 736px) {
-      .course-detail-grid {
-        grid-template-columns: 1fr;
+          #ff006e 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
-    }
 
-    .form-popup-overlay {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      background: rgba(9, 14, 28, 0.85);
-      z-index: 10000;
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+      .course-overview {
+        margin-top: 1rem;
+        display: grid;
+        gap: 1rem;
+      }
 
-    .form-popup {
-      width: min(480px, 92vw);
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: linear-gradient(165deg, rgba(35, 42, 63, 0.98), rgba(20, 25, 42, 0.98));
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transform: translateY(20px) scale(0.95);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+      .course-detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
 
-    .form-popup-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(155, 241, 255, 0.15);
-      color: #9bf1ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      margin: 0 auto 1.5rem auto;
-      box-shadow: 0 0 20px rgba(155, 241, 255, 0.2);
-    }
+      .course-detail-card {
+        padding: 1.25rem 1.25rem 1.15rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(10, 16, 32, 0.28);
+      }
 
-    .form-popup-icon.error {
-      background: rgba(255, 141, 141, 0.15);
-      color: #ff8d8d;
-      box-shadow: 0 0 20px rgba(255, 141, 141, 0.2);
-    }
+      .course-detail-card h4 {
+        margin: 0 0 0.65rem 0;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #9bf1ff;
+      }
 
-    .form-popup h3 {
-      margin: 0 0 0.8rem 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
+      .course-detail-card p,
+      .course-detail-card ul {
+        margin: 0;
+      }
 
-    .form-popup p {
-      margin: 0 0 2rem 0;
-      line-height: 1.6;
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.85);
-    }
+      .course-detail-card ul {
+        padding-left: 1.1rem;
+      }
 
-    .form-popup-actions {
-      display: flex;
-      justify-content: center;
-    }
+      .course-detail-card li + li {
+        margin-top: 0.35rem;
+      }
 
-    /* Modern Checkboxes & Radio Buttons */
-    input[type="checkbox"] + label:before,
-    input[type="radio"] + label:before {
-      content: '' !important;
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1.65em;
-      height: 1.65em;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.05);
-      transition: all 0.25s ease;
-    }
+      .course-callout {
+        margin-top: 0.35rem;
+        padding: 1rem 1.1rem;
+        border-left: 3px solid #9bf1ff;
+        background: rgba(155, 241, 255, 0.08);
+        border-radius: 4px;
+        line-height: 1.6;
+      }
 
-    input[type="radio"] + label:before {
-      border-radius: 50%;
-    }
+      .course-callout strong {
+        color: #dffbff;
+      }
 
-    input[type="checkbox"]:checked + label:before,
-    input[type="radio"]:checked + label:before {
-      background-color: #9bf1ff;
-      border-color: #9bf1ff;
-      box-shadow: 0 0 12px rgba(155, 241, 255, 0.4);
-    }
+      .course-cta {
+        margin-top: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.05rem;
+        border-radius: 999px;
+        border: 1px solid rgba(155, 241, 255, 0.35);
+        background: rgba(155, 241, 255, 0.12);
+        color: #fff;
+        text-decoration: none;
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
 
-    input[type="checkbox"]:checked + label:before {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242943' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-      background-size: 65%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+      .course-cta:hover {
+        transform: translateY(-1px);
+        background: rgba(155, 241, 255, 0.18);
+        border-color: rgba(155, 241, 255, 0.55);
+      }
 
-    input[type="radio"]:checked + label:before {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23242943'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");
-      background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+      .course-cta span {
+        opacity: 0.9;
+      }
 
-    input[type="checkbox"]:focus + label:before,
-    input[type="radio"]:focus + label:before {
-      border-color: #9bf1ff;
-      box-shadow: 0 0 0 3px rgba(155, 241, 255, 0.25);
-    }
+      @media (max-width: 736px) {
+        .course-detail-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    input[type="checkbox"] + label:hover:before,
-    input[type="radio"] + label:hover:before {
-      border-color: rgba(255, 255, 255, 0.8);
-      background: rgba(255, 255, 255, 0.15);
-    }
-    
-    input[type="checkbox"]:checked + label:hover:before,
-    input[type="radio"]:checked + label:hover:before {
-      background-color: #8ae0ee;
-      border-color: #8ae0ee;
-    }
-  </style>
-  <noscript>
-    <link rel="stylesheet" href="assets/css/noscript.css" />
-  </noscript>
-</head>
+      .form-popup-overlay {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background: rgba(9, 14, 28, 0.85);
+        z-index: 10000;
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
-<body class="is-preload">
-  <div id="wrapper">
-    <header id="header" class="alt style2">
-      <a href="index.html" class="logo">
-        <img src="images/logo_small.png" alt="Logo der kleinen Musikschule Karlsruhe" class="logo-img" width="64"
-          height="64" fetchpriority="high" />
-        <strong>kleine</strong> <span>musikschule Karlsruhe</span>
-      </a>
-      <nav>
-        <a href="#menu">Menu</a>
+      .form-popup {
+        width: min(480px, 92vw);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: linear-gradient(165deg, rgba(35, 42, 63, 0.98), rgba(20, 25, 42, 0.98));
+        box-shadow:
+          0 24px 48px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        transform: translateY(20px) scale(0.95);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .form-popup-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(155, 241, 255, 0.15);
+        color: #9bf1ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        margin: 0 auto 1.5rem auto;
+        box-shadow: 0 0 20px rgba(155, 241, 255, 0.2);
+      }
+
+      .form-popup-icon.error {
+        background: rgba(255, 141, 141, 0.15);
+        color: #ff8d8d;
+        box-shadow: 0 0 20px rgba(255, 141, 141, 0.2);
+      }
+
+      .form-popup h3 {
+        margin: 0 0 0.8rem 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .form-popup p {
+        margin: 0 0 2rem 0;
+        line-height: 1.6;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .form-popup-actions {
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Modern Checkboxes & Radio Buttons */
+      input[type="checkbox"] + label:before,
+      input[type="radio"] + label:before {
+        content: "" !important;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1.65em;
+        height: 1.65em;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.25s ease;
+      }
+
+      input[type="radio"] + label:before {
+        border-radius: 50%;
+      }
+
+      input[type="checkbox"]:checked + label:before,
+      input[type="radio"]:checked + label:before {
+        background-color: #9bf1ff;
+        border-color: #9bf1ff;
+        box-shadow: 0 0 12px rgba(155, 241, 255, 0.4);
+      }
+
+      input[type="checkbox"]:checked + label:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23242943' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+        background-size: 65%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      input[type="radio"]:checked + label:before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23242943'%3E%3Ccircle cx='12' cy='12' r='8'/%3E%3C/svg%3E");
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      input[type="checkbox"]:focus + label:before,
+      input[type="radio"]:focus + label:before {
+        border-color: #9bf1ff;
+        box-shadow: 0 0 0 3px rgba(155, 241, 255, 0.25);
+      }
+
+      input[type="checkbox"] + label:hover:before,
+      input[type="radio"] + label:hover:before {
+        border-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      input[type="checkbox"]:checked + label:hover:before,
+      input[type="radio"]:checked + label:hover:before {
+        background-color: #8ae0ee;
+        border-color: #8ae0ee;
+      }
+    </style>
+    <noscript>
+      <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header" class="alt style2">
+        <a href="index.html" class="logo">
+          <img
+            src="images/logo_small.png"
+            alt="Logo der kleinen Musikschule Karlsruhe"
+            class="logo-img"
+            width="64"
+            height="64"
+            fetchpriority="high"
+          />
+          <strong>kleine</strong>
+          <span>musikschule Karlsruhe</span>
+        </a>
+        <nav>
+          <a href="#menu">Menu</a>
+        </nav>
+      </header>
+
+      <nav id="menu">
+        <ul class="links" role="menubar" aria-label="Seitennavigation">
+          <li><a href="überuns.html">Über mich & Lernweise</a></li>
+          <li><a href="instrumente.html">Instrumente</a></li>
+          <li><a href="kurse.html">Kurse</a></li>
+          <li><a href="preise.html">Preise</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
       </nav>
-    </header>
 
-    <nav id="menu">
-      <ul class="links" role="menubar" aria-label="Seitennavigation">
-        <li><a href="überuns.html">Über mich & Lernweise</a></li>
-        <li><a href="instrumente.html">Instrumente</a></li>
-        <li><a href="kurse.html">Kurse</a></li>
-        <li><a href="preise.html">Preise</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
-
-    <section id="banner" class="style6">
-      <span class="image">
-        <img src="images/pexels-kseniachernaya-8535234.jpg" alt="" />
-      </span>
-      <div class="inner">
-        <header class="major">
-          <h1>Kursanmeldung</h1>
-        </header>
-        <div class="content"></div>
-      </div>
-    </section>
-
-    <div id="main">
-      <section id="one">
+      <section id="banner" class="style6">
+        <span class="image">
+          <img src="images/pexels-kseniachernaya-8535234.jpg" alt="" />
+        </span>
         <div class="inner">
           <header class="major">
-            <h2>Kursinformationen</h2>
+            <h1>Kursanmeldung</h1>
           </header>
-          <p>
-            Wir singen, tanzen, bewegen uns und entdecken gemeinsam neue
-            Instrumente und Klänge.
-          </p>
+          <div class="content"></div>
+        </div>
+      </section>
 
-          <div class="course-overview">
-            <div class="course-info-box">
-              <div class="course-info-head">
-                <span class="course-info-kicker">Musikkurs</span>
-                <h3>Les Petits Amis</h3>
-              </div>
+      <div id="main">
+        <section id="one">
+          <div class="inner">
+            <header class="major">
+              <h2>Kursinformationen</h2>
+            </header>
+            <p>Wir singen, tanzen, bewegen uns und entdecken gemeinsam neue Instrumente und Klänge.</p>
 
-              <div class="course-info-section">
-                <p>
-                  10-wöchiger Musikkurs für Kinder in jedem Alter mit
-                  spielerischem Kennenlernen von Klängen und Instrumenten.
-                </p>
-              </div>
+            <div class="course-overview">
+              <div class="course-info-box">
+                <div class="course-info-head">
+                  <span class="course-info-kicker">Musikkurs</span>
+                  <h3>Les Petits Amis</h3>
+                </div>
 
-              <div class="course-info-section">
-                <h4>Was dich erwartet</h4>
-                <p>
-                  Gemeinsames Singen, Tanzen, Lachen und das Entdecken neuer Klänge und Instrumente.
-                </p>
-              </div>
-            </div>
+                <div class="course-info-section">
+                  <p>
+                    10-wöchiger Musikkurs für Kinder in jedem Alter mit spielerischem Kennenlernen von Klängen und
+                    Instrumenten.
+                  </p>
+                </div>
 
-            <div class="course-info-box">
-              <div class="course-info-head">
-                <span class="course-info-kicker">Termine, Ort & Details</span>
-                <h3>Wann und wo findet der Kurs statt?</h3>
-              </div>
-
-              <div class="course-info-section">
-                <h4>Ort</h4>
-                <p style="margin-bottom: 1rem; line-height: 1.6; font-size: 1.1em;">
-                  <strong>Welfenstraße 30a, 76137 Karlsruhe</strong>
-                </p>
-                <div
-                  style="border-radius: 8px; overflow: hidden; width: 100%; border: 1px solid rgba(255, 255, 255, 0.16); display: flex;">
-                  <iframe
-                    src="https://maps.google.com/maps?q=Welfenstra%C3%9Fe%2030a%2C%2076137%20Karlsruhe&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    width="100%" height="250" style="border:0; display: block;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                  </iframe>
+                <div class="course-info-section">
+                  <h4>Was dich erwartet</h4>
+                  <p>Gemeinsames Singen, Tanzen, Lachen und das Entdecken neuer Klänge und Instrumente.</p>
                 </div>
               </div>
 
-              <div class="course-info-section">
-                <h4>Termine & Uhrzeit</h4>
-                <p style="line-height: 1.5; margin-bottom: 0.75rem;">
-                  Immer <strong>montags um 09:30 Uhr</strong>
-                </p>
-                <ul
-                  style="font-size: 0.9em; opacity: 0.9; margin-bottom: 0.5rem; padding-left: 1.2em; display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem;">
-                  <li>12.10.2026</li>
-                  <li>19.10.2026</li>
-                  <li>26.10.2026</li>
-                  <li>02.11.2026</li>
-                  <li>09.11.2026</li>
-                  <li>16.11.2026</li>
-                  <li>23.11.2026</li>
-                  <li>30.11.2026</li>
-                  <li>07.12.2026</li>
-                  <li>14.12.2026</li>
-                </ul>
-                <a href="assets/downloads/les-petits-amis-termine.ics" class="course-cta"
-                  style="padding: 0.6em 1em; font-size: 0.85em; margin-top: 0.6rem;">
-                  <span class="icon solid fa-calendar-alt"></span>
-                  <span>Termine im Kalender speichern (iCal)</span>
-                </a>
-              </div>
+              <div class="course-info-box">
+                <div class="course-info-head">
+                  <span class="course-info-kicker">Termine, Ort & Details</span>
+                  <h3>Wann und wo findet der Kurs statt?</h3>
+                </div>
 
-              <div class="course-info-section">
-                <h4>Gruppengröße & Dauer</h4>
-                <p>
-                  Der Kurs findet in kleinen, überschaubaren Gruppen von <strong>bis zu 5 Kindern</strong> statt. Eine
-                  Kurseinheit dauert <strong>30 Minuten</strong>.
-                </p>
-              </div>
+                <div class="course-info-section">
+                  <h4>Ort</h4>
+                  <p style="margin-bottom: 1rem; line-height: 1.6; font-size: 1.1em">
+                    <strong>Welfenstraße 30a, 76137 Karlsruhe</strong>
+                  </p>
+                  <div
+                    style="
+                      border-radius: 8px;
+                      overflow: hidden;
+                      width: 100%;
+                      border: 1px solid rgba(255, 255, 255, 0.16);
+                      display: flex;
+                    "
+                  >
+                    <iframe
+                      src="https://maps.google.com/maps?q=Welfenstra%C3%9Fe%2030a%2C%2076137%20Karlsruhe&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                      width="100%"
+                      height="250"
+                      style="border: 0; display: block"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                </div>
 
-              <div class="course-info-section">
-                <h4>Kosten</h4>
-                <p>
-                  <strong>99 €</strong> für 10 Kurseinheiten.<br />
-                  <small><em>Inhaber des Karlsruher Passes erhalten 30% Rabatt auf die Kursgebühr.</em></small>
-                </p>
-                <p style="margin-top: 0.65rem; line-height: 1.5;">
-                  Bitte überweisen Sie den Betrag nach der Anmeldung an:<br />
-                  <strong>Alexander Flöter</strong><br />
-                  <strong>IBAN:</strong> DE28 1203 0000 1200 7970 64<br />
-                  <strong>Verwendungszweck:</strong> Vorname Nachname (Kursteilnehmer/in)
-                </p>
+                <div class="course-info-section">
+                  <h4>Termine & Uhrzeit</h4>
+                  <p style="line-height: 1.5; margin-bottom: 0.75rem">
+                    Immer
+                    <strong>montags um 09:30 Uhr</strong>
+                  </p>
+                  <ul
+                    style="
+                      font-size: 0.9em;
+                      opacity: 0.9;
+                      margin-bottom: 0.5rem;
+                      padding-left: 1.2em;
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 0.2rem;
+                    "
+                  >
+                    <li>12.10.2026</li>
+                    <li>19.10.2026</li>
+                    <li>26.10.2026</li>
+                    <li>02.11.2026</li>
+                    <li>09.11.2026</li>
+                    <li>16.11.2026</li>
+                    <li>23.11.2026</li>
+                    <li>30.11.2026</li>
+                    <li>07.12.2026</li>
+                    <li>14.12.2026</li>
+                  </ul>
+                  <a
+                    href="assets/downloads/les-petits-amis-termine.ics"
+                    class="course-cta"
+                    style="padding: 0.6em 1em; font-size: 0.85em; margin-top: 0.6rem"
+                  >
+                    <span class="icon solid fa-calendar-alt"></span>
+                    <span>Termine im Kalender speichern (iCal)</span>
+                  </a>
+                </div>
+
+                <div class="course-info-section">
+                  <h4>Gruppengröße & Dauer</h4>
+                  <p>
+                    Der Kurs findet in kleinen, überschaubaren Gruppen von
+                    <strong>bis zu 5 Kindern</strong>
+                    statt. Eine Kurseinheit dauert
+                    <strong>30 Minuten</strong>
+                    .
+                  </p>
+                </div>
+
+                <div class="course-info-section">
+                  <h4>Kosten</h4>
+                  <p>
+                    <strong>99 €</strong>
+                    für 10 Kurseinheiten.
+                    <br />
+                    <small><em>Inhaber des Karlsruher Passes erhalten 30% Rabatt auf die Kursgebühr.</em></small>
+                  </p>
+                  <p style="margin-top: 0.65rem; line-height: 1.5">
+                    Bitte überweisen Sie den Betrag nach der Anmeldung an:
+                    <br />
+                    <strong>Alexander Flöter</strong>
+                    <br />
+                    <strong>IBAN:</strong>
+                    DE28 1203 0000 1200 7970 64
+                    <br />
+                    <strong>Verwendungszweck:</strong>
+                    Vorname Nachname (Kursteilnehmer/in)
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-
-    <section id="contact">
-      <div class="inner">
-        <section>
-          <h2>Anmeldung</h2>
-          <p style="background: rgba(155, 241, 255, 0.1); border-left: 4px solid #9bf1ff; padding: 1rem 1.5rem; border-radius: 4px; font-weight: 600; color: #fff; margin-bottom: 2rem;">
-            ⏳ <strong>Wichtiger Hinweis:</strong> Der Anmeldeschluss für diesen Kurs ist am 5. Oktober um 0:00 Uhr.
-          </p>
-          <form id="registrationForm" action="https://noreply-email.onrender.com/api/kursanmeldung" method="POST">
-            <input type="hidden" name="Kursanmeldung" value="Musikkurs für Kinder (Les Petits Amis)" />
-
-            <div class="fields">
-              <div class="field half">
-                <label for="kursteilnehmer_vorname">Vorname Kursteilnehmer/in *</label>
-                <input type="text" name="Kursteilnehmer Vorname" id="kursteilnehmer_vorname" required />
-              </div>
-              <div class="field half">
-                <label for="kursteilnehmer_nachname">Nachname Kursteilnehmer/in *</label>
-                <input type="text" name="Kursteilnehmer Nachname" id="kursteilnehmer_nachname" required />
-              </div>
-              <div class="field">
-                <label for="kursteilnehmer_alter">Alter des Kindes *</label>
-                <input type="text" name="Alter" id="kursteilnehmer_alter" required />
-              </div>
-              <div class="field half">
-                <label for="vertreter_vorname">Vorname gesetzlicher Vertreter *</label>
-                <input type="text" name="Vertreter Vorname" id="vertreter_vorname" required />
-              </div>
-              <div class="field half">
-                <label for="vertreter_nachname">Nachname gesetzlicher Vertreter *</label>
-                <input type="text" name="Vertreter Nachname" id="vertreter_nachname" required />
-              </div>
-              <div class="field">
-                <label for="adresse">Adresse *</label>
-                <input type="text" name="Adresse" id="adresse" required />
-              </div>
-              <div class="field half">
-                <label for="email">E-Mail *</label>
-                <input type="email" name="Email" id="email" required />
-              </div>
-              <div class="field half">
-                <label for="telefon">Telefonnummer *</label>
-                <input type="tel" name="Telefonnummer" id="telefon" required />
-              </div>
-
-            </div>
-
-            <div class="field consent-field">
-              <input type="checkbox" id="medien_erlaubnis" name="Medien Erlaubnis" />
-              <label for="medien_erlaubnis">Ich erkläre mich mit der Anfertigung und Verwendung von
-                Foto-, Video- und Tonaufnahmen im Rahmen der Kleinen
-                Musikschule Karlsruhe einverstanden (optional).
-                <a href="medien-einwilligung.html">Details zur Einwilligung</a>.</label>
-            </div>
-
-            <div class="field consent-field">
-              <input type="checkbox" id="agb" name="AGB akzeptiert" required />
-              <label for="agb">Ich akzeptiere die
-                <a href="agb-kurs.html">Allgemeinen Geschäftsbedingungen</a>
-                (AGB).</label>
-            </div>
-
-            <div class="field consent-field">
-              <input type="checkbox" id="datenschutz" name="Datenschutz akzeptiert" required />
-              <label for="datenschutz">Ich habe die
-                <a href="datenschutz.html">Datenschutzerklärung</a> gelesen
-                und stimme ihr zu.</label>
-            </div>
-
-            <ul class="actions">
-              <li>
-                <input type="submit" value="Verbindliche Anmeldung senden" class="primary" />
-              </li>
-              <li><input type="reset" value="Zurücksetzen" /></li>
-            </ul>
-          </form>
         </section>
       </div>
-    </section>
 
-    <footer id="footer">
-      <div class="inner">
-        <ul class="icons">
-          <li>
-            <a href="https://www.instagram.com/kleine_musikschule/" class="icon brands alt fa-instagram" target="_blank"
-              rel="noreferrer"><span class="label">Instagram</span></a>
-          </li>
-          <li>
-            <a href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE" class="icon brands alt fa-music"
-              target="_blank" rel="noreferrer"><span class="label">TikTok</span></a>
-          </li>
-        </ul>
-        <ul class="copyright">
-          <li>&copy; Kleine Musikschule Karlsruhe</li>
-          <li><a href="datenschutz.html">Datenschutz</a></li>
-          <li><a href="impressum.html">Impressum</a></li>
-        </ul>
-      </div>
-    </footer>
-  </div>
+      <section id="contact">
+        <div class="inner">
+          <section>
+            <h2>Anmeldung</h2>
+            <p
+              style="
+                background: rgba(155, 241, 255, 0.1);
+                border-left: 4px solid #9bf1ff;
+                padding: 1rem 1.5rem;
+                border-radius: 4px;
+                font-weight: 600;
+                color: #fff;
+                margin-bottom: 2rem;
+              "
+            >
+              ⏳
+              <strong>Wichtiger Hinweis:</strong>
+              Der Anmeldeschluss für diesen Kurs ist am 5. Oktober um 0:00 Uhr.
+            </p>
+            <form id="registrationForm" action="https://noreply-email.onrender.com/api/kursanmeldung" method="POST">
+              <input type="hidden" name="Kursanmeldung" value="Musikkurs für Kinder (Les Petits Amis)" />
 
-  <script src="assets/js/jquery.min.js" defer></script>
-  <script src="assets/js/jquery.scrolly.min.js" defer></script>
-  <script src="assets/js/jquery.scrollex.min.js" defer></script>
-  <script src="assets/js/browser.min.js" defer></script>
-  <script src="assets/js/breakpoints.min.js" defer></script>
-  <script src="assets/js/util.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/cookie-consent.js" defer></script>
+              <div class="fields">
+                <div class="field half">
+                  <label for="kursteilnehmer_vorname">Vorname Kursteilnehmer/in *</label>
+                  <input type="text" name="Kursteilnehmer Vorname" id="kursteilnehmer_vorname" required />
+                </div>
+                <div class="field half">
+                  <label for="kursteilnehmer_nachname">Nachname Kursteilnehmer/in *</label>
+                  <input type="text" name="Kursteilnehmer Nachname" id="kursteilnehmer_nachname" required />
+                </div>
+                <div class="field">
+                  <label for="kursteilnehmer_alter">Alter des Kindes *</label>
+                  <input type="text" name="Alter" id="kursteilnehmer_alter" required />
+                </div>
+                <div class="field half">
+                  <label for="vertreter_vorname">Vorname gesetzlicher Vertreter *</label>
+                  <input type="text" name="Vertreter Vorname" id="vertreter_vorname" required />
+                </div>
+                <div class="field half">
+                  <label for="vertreter_nachname">Nachname gesetzlicher Vertreter *</label>
+                  <input type="text" name="Vertreter Nachname" id="vertreter_nachname" required />
+                </div>
+                <div class="field">
+                  <label for="adresse">Adresse *</label>
+                  <input type="text" name="Adresse" id="adresse" required />
+                </div>
+                <div class="field half">
+                  <label for="email">E-Mail *</label>
+                  <input type="email" name="Email" id="email" required />
+                </div>
+                <div class="field half">
+                  <label for="telefon">Telefonnummer *</label>
+                  <input type="tel" name="Telefonnummer" id="telefon" required />
+                </div>
+              </div>
 
-  <script>
-    function showFormPopup(title, message, type) {
-      const overlay = document.createElement("div");
-      overlay.className = "form-popup-overlay";
+              <div class="field consent-field">
+                <input type="checkbox" id="medien_erlaubnis" name="Medien Erlaubnis" />
+                <label for="medien_erlaubnis">
+                  Ich erkläre mich mit der Anfertigung und Verwendung von Foto-, Video- und Tonaufnahmen im Rahmen der
+                  Kleinen Musikschule Karlsruhe einverstanden (optional).
+                  <a href="medien-einwilligung.html">Details zur Einwilligung</a>
+                  .
+                </label>
+              </div>
 
-      const popup = document.createElement("div");
-      popup.className = `form-popup ${type}`;
-      popup.setAttribute("role", "dialog");
-      popup.setAttribute("aria-modal", "true");
+              <div class="field consent-field">
+                <input type="checkbox" id="agb" name="AGB akzeptiert" required />
+                <label for="agb">
+                  Ich akzeptiere die
+                  <a href="agb-kurs.html">Allgemeinen Geschäftsbedingungen</a>
+                  (AGB).
+                </label>
+              </div>
 
-      const successIcon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
-      const errorIcon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
-      const icon = type === 'success' ? `<div class="form-popup-icon">${successIcon}</div>` : `<div class="form-popup-icon error">${errorIcon}</div>`;
+              <div class="field consent-field">
+                <input type="checkbox" id="datenschutz" name="Datenschutz akzeptiert" required />
+                <label for="datenschutz">
+                  Ich habe die
+                  <a href="datenschutz.html">Datenschutzerklärung</a>
+                  gelesen und stimme ihr zu.
+                </label>
+              </div>
 
-      popup.innerHTML = `
+              <ul class="actions">
+                <li>
+                  <input type="submit" value="Verbindliche Anmeldung senden" class="primary" />
+                </li>
+                <li><input type="reset" value="Zurücksetzen" /></li>
+              </ul>
+            </form>
+          </section>
+        </div>
+      </section>
+
+      <footer id="footer">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a
+                href="https://www.instagram.com/kleine_musikschule/"
+                class="icon brands alt fa-instagram"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="label">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
+                class="icon brands alt fa-music"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="label">TikTok</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Kleine Musikschule Karlsruhe</li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
+
+    <script>
+      function showFormPopup(title, message, type) {
+        const overlay = document.createElement("div");
+        overlay.className = "form-popup-overlay";
+
+        const popup = document.createElement("div");
+        popup.className = `form-popup ${type}`;
+        popup.setAttribute("role", "dialog");
+        popup.setAttribute("aria-modal", "true");
+
+        const successIcon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+        const errorIcon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+        const icon =
+          type === "success"
+            ? `<div class="form-popup-icon">${successIcon}</div>`
+            : `<div class="form-popup-icon error">${errorIcon}</div>`;
+
+        popup.innerHTML = `
           ${icon}
           <h3>${title}</h3>
           <p>${message}</p>
@@ -699,85 +773,74 @@
           </div>
         `;
 
-      const closePopup = () => {
-        overlay.style.opacity = '0';
-        setTimeout(() => overlay.remove(), 300);
-      };
-      
-      popup.querySelector("button").addEventListener("click", closePopup);
-      overlay.addEventListener("click", function (e) {
-        if (e.target === overlay) closePopup();
-      });
+        const closePopup = () => {
+          overlay.style.opacity = "0";
+          setTimeout(() => overlay.remove(), 300);
+        };
 
-      overlay.appendChild(popup);
-      document.body.appendChild(overlay);
-      
-      requestAnimationFrame(() => {
-        overlay.style.opacity = '1';
-        popup.style.transform = 'translateY(0) scale(1)';
-      });
-    }
-
-    const registrationForm = document.getElementById("registrationForm");
-
-
-
-    registrationForm.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const form = e.target;
-      const submitButton = form.querySelector('input[type="submit"]');
-      const originalButtonValue = submitButton.value;
-
-      submitButton.disabled = true;
-      submitButton.value = "Wird gesendet...";
-
-      try {
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Checkboxes in FormData only appear if checked (usually with value "on")
-        // We explicitly set the boolean values for the backend to be safe
-        data["Medien Erlaubnis"] = form.elements["medien_erlaubnis"].checked;
-        data["AGB akzeptiert"] = form.elements["agb"].checked;
-        data["Datenschutz akzeptiert"] = form.elements["datenschutz"].checked;
-
-        // Primary: Send to backend
-        const response = await fetch("https://noreply-email.onrender.com/api/kursanmeldung", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(data),
+        popup.querySelector("button").addEventListener("click", closePopup);
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closePopup();
         });
 
-        if (response.ok) {
-          showFormPopup(
-            "Erfolgreich angemeldet!",
-            "Vielen Dank! Die Anmeldung wurde erfolgreich gesendet.",
-            "success",
-          );
-          form.reset();
-        } else {
-          showFormPopup(
-            "Senden fehlgeschlagen",
-            "Fehler beim Senden. Bitte erneut versuchen.",
-            "error",
-          );
-        }
-      } catch (error) {
-        showFormPopup(
-          "Senden fehlgeschlagen",
-          "Fehler beim Senden. Bitte erneut versuchen.",
-          "error",
-        );
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+
+        requestAnimationFrame(() => {
+          overlay.style.opacity = "1";
+          popup.style.transform = "translateY(0) scale(1)";
+        });
       }
 
-      submitButton.disabled = false;
-      submitButton.value = originalButtonValue;
-    });
-  </script>
-</body>
+      const registrationForm = document.getElementById("registrationForm");
 
+      registrationForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const submitButton = form.querySelector('input[type="submit"]');
+        const originalButtonValue = submitButton.value;
+
+        submitButton.disabled = true;
+        submitButton.value = "Wird gesendet...";
+
+        try {
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          // Checkboxes in FormData only appear if checked (usually with value "on")
+          // We explicitly set the boolean values for the backend to be safe
+          data["Medien Erlaubnis"] = form.elements["medien_erlaubnis"].checked;
+          data["AGB akzeptiert"] = form.elements["agb"].checked;
+          data["Datenschutz akzeptiert"] = form.elements["datenschutz"].checked;
+
+          // Primary: Send to backend
+          const response = await fetch("https://noreply-email.onrender.com/api/kursanmeldung", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            showFormPopup(
+              "Erfolgreich angemeldet!",
+              "Vielen Dank! Die Anmeldung wurde erfolgreich gesendet.",
+              "success",
+            );
+            form.reset();
+          } else {
+            showFormPopup("Senden fehlgeschlagen", "Fehler beim Senden. Bitte erneut versuchen.", "error");
+          }
+        } catch (error) {
+          showFormPopup("Senden fehlgeschlagen", "Fehler beim Senden. Bitte erneut versuchen.", "error");
+        }
+
+        submitButton.disabled = false;
+        submitButton.value = originalButtonValue;
+      });
+    </script>
+  </body>
 </html>

@@ -16,7 +16,15 @@
     <meta name="theme-color" content="#9bf1ff" />
     <link rel="icon" href="images/logo_small.png" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="preload" href="assets/css/main.min.css?v=20251226-1" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link
+      rel="preload"
+      href="assets/css/main.min.css?v=20251226-1"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
     <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
     <style>
       #contact {
@@ -98,11 +106,7 @@
         border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 12px;
         padding: 1.5rem;
-        background: linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.02)
-        );
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
         margin-top: 1rem;
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
       }
@@ -209,8 +213,6 @@
         gap: 1rem;
       }
 
-
-
       .course-detail-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -257,8 +259,6 @@
       .course-callout strong {
         color: #dffbff;
       }
-
-
 
       .course-cta {
         margin-top: 1rem;
@@ -309,11 +309,7 @@
         width: min(520px, 94vw);
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.24);
-        background: linear-gradient(
-          155deg,
-          rgba(23, 28, 45, 0.98),
-          rgba(13, 17, 30, 0.98)
-        );
+        background: linear-gradient(155deg, rgba(23, 28, 45, 0.98), rgba(13, 17, 30, 0.98));
         box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
         padding: 1.2rem 1.2rem 1.1rem;
       }
@@ -374,7 +370,8 @@
             height="64"
             fetchpriority="high"
           />
-          <strong>kleine</strong> <span>musikschule Karlsruhe</span>
+          <strong>kleine</strong>
+          <span>musikschule Karlsruhe</span>
         </a>
         <nav>
           <a href="#menu">Menu</a>
@@ -392,10 +389,7 @@
         </ul>
       </nav>
 
-      <section
-        id="banner"
-        class="style6"
-      >
+      <section id="banner" class="style6">
         <span class="image">
           <img src="images/pexels-kseniachernaya-8535234.jpg" alt="" />
         </span>
@@ -405,10 +399,9 @@
           </header>
           <div class="content">
             <p>
-              In meinen Kursen entdecken wir gemeinsam die wunderbare Welt der Musik.
-              Egal ob für die ganz Kleinen oder für größere Kinder – hier wird gesungen, 
-              getanzt, bewegt und gelacht. Wir lernen spielerisch neue Klänge und Instrumente kennen 
-              und erleben zusammen tolle musikalische Abenteuer!
+              In meinen Kursen entdecken wir gemeinsam die wunderbare Welt der Musik. Egal ob für die ganz Kleinen oder
+              für größere Kinder – hier wird gesungen, getanzt, bewegt und gelacht. Wir lernen spielerisch neue Klänge
+              und Instrumente kennen und erleben zusammen tolle musikalische Abenteuer!
             </p>
           </div>
         </div>
@@ -430,7 +423,8 @@
 
                 <div class="course-info-section">
                   <p>
-                    10-wöchiger Musikkurs für Kinder in jedem Alter. Gemeinsam singen, tanzen und neue Instrumente entdecken!
+                    10-wöchiger Musikkurs für Kinder in jedem Alter. Gemeinsam singen, tanzen und neue Instrumente
+                    entdecken!
                   </p>
                   <ul class="actions">
                     <li><a href="kursanmeldung.html" class="button primary">Details & Anmeldung</a></li>
@@ -446,31 +440,45 @@
 
                 <div class="course-info-section">
                   <p>
-                    Projektkurs für Kinder von 2,5 bis 6 Jahren mit
-                    spielerischem Kennenlernen von Klängen, Dschungel-Safari und einem tollen Abschlusskonzert.
+                    Projektkurs für Kinder von 2,5 bis 6 Jahren mit spielerischem Kennenlernen von Klängen,
+                    Dschungel-Safari und einem tollen Abschlusskonzert.
                   </p>
                   <ul class="actions">
-                    <li><a href="#" class="button disabled" style="background-color: #444 !important; border-color: #444 !important; color: #999 !important; cursor: not-allowed; pointer-events: none; box-shadow: none;">Kurs vorbei</a></li>
+                    <li>
+                      <a
+                        href="#"
+                        class="button disabled"
+                        style="
+                          background-color: #444 !important;
+                          border-color: #444 !important;
+                          color: #999 !important;
+                          cursor: not-allowed;
+                          pointer-events: none;
+                          box-shadow: none;
+                        "
+                      >
+                        Kurs vorbei
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
-            
+
             <hr style="margin: 4em 0" />
 
             <header class="major">
               <h2>Kurse vor Ort gesucht?</h2>
             </header>
             <p>
-              Du suchst noch einen Kursleiter für musikalische Früherziehung in deiner Stadt? 
-              Oder in deiner Kita? Melde dich gerne bei mir, und wir besprechen gemeinsam die Möglichkeiten!
+              Du suchst noch einen Kursleiter für musikalische Früherziehung in deiner Stadt? Oder in deiner Kita? Melde
+              dich gerne bei mir, und wir besprechen gemeinsam die Möglichkeiten!
             </p>
             <ul class="actions">
               <li><a href="kontakt.html" class="button">Jetzt anfragen</a></li>
             </ul>
-        </div>
-      </section>
-
+          </div>
+        </section>
       </div>
 
       <footer id="footer">
@@ -487,8 +495,9 @@
                 class="icon brands alt fa-instagram"
                 target="_blank"
                 rel="noreferrer"
-                ><span class="label">Instagram</span></a
               >
+                <span class="label">Instagram</span>
+              </a>
             </li>
             <li>
               <a
@@ -496,8 +505,9 @@
                 class="icon brands alt fa-music"
                 target="_blank"
                 rel="noreferrer"
-                ><span class="label">TikTok</span></a
               >
+                <span class="label">TikTok</span>
+              </a>
             </li>
           </ul>
           <ul class="copyright">

@@ -48,8 +48,7 @@
           if (this.length == 0 || intensity === 0) return $this;
 
           if (this.length > 1) {
-            for (var i = 0; i < this.length; i++)
-              $(this[i])._parallax(intensity);
+            for (var i = 0; i < this.length; i++) $(this[i])._parallax(intensity);
 
             return $this;
           }
@@ -65,13 +64,9 @@
               $t.css("background-position", "center center", "important");
 
               $window.on("scroll._parallax", function () {
-                var pos =
-                  parseInt($window.scrollTop()) - parseInt($t.position().top);
+                var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
 
-                $t.css(
-                  "background-position",
-                  "center " + pos * (-1 * intensity) + "px",
-                );
+                $t.css("background-position", "center " + pos * (-1 * intensity) + "px");
               });
             };
 
@@ -85,11 +80,9 @@
             breakpoints.on(">medium", on);
           });
 
-          $window
-            .off("load._parallax resize._parallax")
-            .on("load._parallax resize._parallax", function () {
-              $window.trigger("scroll");
-            });
+          $window.off("load._parallax resize._parallax").on("load._parallax resize._parallax", function () {
+            $window.trigger("scroll");
+          });
 
           return $(this);
         };

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   container.style.background = "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)";
   container.style.borderRadius = "24px";
   container.style.border = "1px solid rgba(255,255,255,0.1)";
-  
+
   faqGrid.parentNode.insertBefore(container, faqGrid);
 
   // Extract data from DOM
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const summary = card.querySelector("summary").textContent.trim();
     const contentHtml = card.querySelector(".faq-content").innerHTML;
     // Extract color class
-    const colorClass = Array.from(card.classList).find(c => c.startsWith("faq-card--")) || "faq-card--blue";
-    
+    const colorClass = Array.from(card.classList).find((c) => c.startsWith("faq-card--")) || "faq-card--blue";
+
     // Map to a hex color for background (glassmorphism style)
     const colors = {
       "faq-card--blue": "rgba(96, 165, 250, 0.75)",
@@ -38,13 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
       "faq-card--salmon": "rgba(251, 113, 133, 0.75)",
       "faq-card--sand": "rgba(251, 191, 36, 0.75)",
       "faq-card--indigo": "rgba(129, 140, 248, 0.75)",
-      "faq-card--green": "rgba(52, 211, 153, 0.75)"
+      "faq-card--green": "rgba(52, 211, 153, 0.75)",
     };
-    
+
     // Adjust radius for mobile
-    const baseR = isMobile ? 65 : 95; 
+    const baseR = isMobile ? 65 : 95;
     const expandedR = isMobile ? 150 : 210;
-    
+
     return {
       id: i,
       question: summary,
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       r: baseR,
       baseR: baseR,
       expandedR: expandedR,
-      expanded: false
+      expanded: false,
     };
   });
 
@@ -61,23 +61,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const height = container.clientHeight;
 
   // Setup D3 Simulation
-  const simulation = d3.forceSimulation(nodes)
+  const simulation = d3
+    .forceSimulation(nodes)
     .force("charge", d3.forceManyBody().strength(15)) // Slight repulsion to keep them spread
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("collide", d3.forceCollide().radius(d => d.r + 5).iterations(4))
+    .force(
+      "collide",
+      d3
+        .forceCollide()
+        .radius((d) => d.r + 5)
+        .iterations(4),
+    )
     .force("x", d3.forceX(width / 2).strength(0.015))
     .force("y", d3.forceY(height / 2).strength(0.015));
 
   // Create DOM elements for bubbles
-  const bubbleSelection = d3.select(container)
+  const bubbleSelection = d3
+    .select(container)
     .selectAll(".faq-bubble")
     .data(nodes)
     .enter()
     .append("div")
     .attr("class", "faq-bubble")
-    .style("background", d => d.color)
-    .style("width", d => `${d.r * 2}px`)
-    .style("height", d => `${d.r * 2}px`)
+    .style("background", (d) => d.color)
+    .style("width", (d) => `${d.r * 2}px`)
+    .style("height", (d) => `${d.r * 2}px`)
     .style("border-radius", "50%")
     .style("position", "absolute")
     .style("display", "flex")
@@ -85,38 +93,44 @@ document.addEventListener("DOMContentLoaded", () => {
     .style("justify-content", "center")
     .style("cursor", "pointer")
     .style("transform", "translate(-50%, -50%)") // center positioning on x/y
-    .html(d => `
+    .html(
+      (d) => `
       <div class="bubble-content">
         <div class="bubble-q">${d.question}</div>
         <div class="bubble-a">${d.answerHtml}</div>
       </div>
-    `)
-    .on("click", function(event, d) {
+    `,
+    )
+    .on("click", function (event, d) {
       // Toggle expanded state
       d.expanded = !d.expanded;
-      
+
       // Update radius
       d.r = d.expanded ? d.expandedR : d.baseR;
-      
+
       // Update DOM element size & border radius
       d3.select(this)
         .classed("expanded", d.expanded)
-        .transition().duration(500)
+        .transition()
+        .duration(500)
         .style("width", `${d.r * 2}px`)
         .style("height", `${d.r * 2}px`)
         .style("min-height", `${d.r * 2}px`)
         .style("border-radius", "50%")
         .style("z-index", d.expanded ? 10 : 1)
-        .style("background", d.expanded ? d.color.replace('0.75', '0.95') : d.color);
-        
+        .style("background", d.expanded ? d.color.replace("0.75", "0.95") : d.color);
+
       // Re-heat simulation
-      simulation.force("collide", d3.forceCollide().radius(n => n.r + 8).iterations(4));
+      simulation.force(
+        "collide",
+        d3
+          .forceCollide()
+          .radius((n) => n.r + 8)
+          .iterations(4),
+      );
       simulation.alpha(0.5).restart();
     })
-    .call(d3.drag()
-      .on("start", dragstarted)
-      .on("drag", dragged)
-      .on("end", dragended));
+    .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
 
   function dragstarted(event, d) {
     if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -139,16 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   simulation.on("tick", () => {
     // Keep within bounds
-    nodes.forEach(d => {
+    nodes.forEach((d) => {
       d.x = Math.max(d.r, Math.min(width - d.r, d.x));
       d.y = Math.max(d.r, Math.min(height - d.r, d.y));
     });
 
-    bubbleSelection
-      .style("left", d => `${d.x}px`)
-      .style("top", d => `${d.y}px`);
+    bubbleSelection.style("left", (d) => `${d.x}px`).style("top", (d) => `${d.y}px`);
   });
-  
+
   // Resize handler
   window.addEventListener("resize", () => {
     const newWidth = container.clientWidth;

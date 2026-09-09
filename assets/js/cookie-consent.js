@@ -39,11 +39,9 @@
       localStorage.setItem(key, "accepted");
       banner.remove();
     });
-    document
-      .getElementById("cc-decline")
-      .addEventListener("click", function () {
-        localStorage.setItem(key, "declined");
-        banner.remove();
-      });
+    document.getElementById("cc-decline").addEventListener("click", function () {
+      localStorage.setItem(key, "declined");
+      banner.remove();
+    });
   });
 })();

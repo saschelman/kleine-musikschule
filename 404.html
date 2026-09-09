@@ -3,13 +3,18 @@
   <head>
     <title>Seite nicht gefunden (404) | Kleine Musikschule Karlsruhe</title>
     <script>
-      (function() {
+      (function () {
         var path = window.location.pathname.toLowerCase();
-        if (path.indexOf('klavier') !== -1 || path.indexOf('schlagzeug') !== -1 || path.indexOf('drums') !== -1 || path.indexOf('keyboard') !== -1) {
-          if (path.indexOf('blog') !== -1) {
-            window.location.replace('/blog.html');
+        if (
+          path.indexOf("klavier") !== -1 ||
+          path.indexOf("schlagzeug") !== -1 ||
+          path.indexOf("drums") !== -1 ||
+          path.indexOf("keyboard") !== -1
+        ) {
+          if (path.indexOf("blog") !== -1) {
+            window.location.replace("/blog.html");
           } else {
-            window.location.replace('/instrumente.html');
+            window.location.replace("/instrumente.html");
           }
         }
       })();
@@ -32,13 +37,9 @@
         this.rel = 'stylesheet';
       "
     />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1"
-    /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
     <link rel="icon" href="images/logo_small.png" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   </head>
   <body class="is-preload">
     <div id="wrapper">
@@ -52,7 +53,8 @@
             height="64"
             fetchpriority="high"
           />
-          <strong>kleine</strong> <span>musikschule Karlsruhe</span>
+          <strong>kleine</strong>
+          <span>musikschule Karlsruhe</span>
         </a>
         <nav><a href="#menu">Menu</a></nav>
       </header>
@@ -76,10 +78,7 @@
               <h1>404 – Seite nicht gefunden</h1>
               <p>Oops! Diese Seite gibt es leider nicht (mehr).</p>
             </header>
-            <p>
-              Vielleicht hilft dir meine Navigation oben weiter. Du kannst auch
-              direkt zurück zur Startseite.
-            </p>
+            <p>Vielleicht hilft dir meine Navigation oben weiter. Du kannst auch direkt zurück zur Startseite.</p>
             <ul class="actions" style="justify-content: center">
               <li><a href="index.html" class="button">Zur Startseite</a></li>
               <li><a href="blog.html" class="button">Zum Blog</a></li>
@@ -91,7 +90,9 @@
       <footer id="footer">
         <div class="inner">
           <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="index.html">Home</a> &gt; <span>404</span>
+            <a href="index.html">Home</a>
+            &gt;
+            <span>404</span>
           </nav>
           <ul class="icons">
             <li>
@@ -100,8 +101,9 @@
                 class="icon brands alt fa-instagram"
                 target="_blank"
                 rel="noreferrer"
-                ><span class="label">Instagram</span></a
               >
+                <span class="label">Instagram</span>
+              </a>
             </li>
             <li>
               <a
@@ -109,8 +111,9 @@
                 class="icon brands alt fa-music"
                 target="_blank"
                 rel="noreferrer"
-                ><span class="label">TikTok</span></a
               >
+                <span class="label">TikTok</span>
+              </a>
             </li>
           </ul>
           <ul class="copyright">

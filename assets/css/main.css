@@ -3583,11 +3583,10 @@ button:disabled,
   outline: none;
 }
 #header .logo img:focus,
-  #header .logo .logo-img:focus {
-    outline: 2px solid #9bf1ff;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(155, 241, 255, 0.2);
-  }
+#header .logo .logo-img:focus {
+  outline: 2px solid #9bf1ff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(155, 241, 255, 0.2);
 }
 
 #header .logo:hover img,
@@ -4537,7 +4536,8 @@ body.is-menu-visible #menu .inner {
   display: inline-flex !important;
   align-items: center !important;
 }
-#header .logo img, #header .logo .logo-img {
+#header .logo img,
+#header .logo .logo-img {
   flex-shrink: 0 !important;
   min-width: auto; /* Ensures the image doesn't get squished by flexbox */
 }
