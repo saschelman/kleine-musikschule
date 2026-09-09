@@ -32,7 +32,7 @@ function getContactAutoReplyHtml(name) {
               <strong style="color: #2c3e50;">Alexander Flöter</strong><br>
               <span style="color: #666; font-size: 14px;">Kleine Musikschule Karlsruhe</span>
             </p>
-            <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #9bf1ff; display: block;">
+            <img src="https://kleine-musikschule.de/images/alex-portrait-square.jpg" alt="Alexander Flöter" width="120" height="120" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #9bf1ff; display: block;">
           </div>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
@@ -79,7 +79,7 @@ function getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseNam
               <strong style="color: #2c3e50;">Alexander Flöter</strong><br>
               <span style="color: #666; font-size: 14px;">Kleine Musikschule Karlsruhe</span>
             </p>
-            <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #9bf1ff; display: block;">
+            <img src="https://kleine-musikschule.de/images/alex-portrait-square.jpg" alt="Alexander Flöter" width="120" height="120" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #9bf1ff; display: block;">
           </div>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
@@ -131,7 +131,7 @@ function getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, ku
               <strong style="color: #2c3e50;">Alexander Flöter</strong><br>
               <span style="color: #666; font-size: 14px;">Kleine Musikschule Karlsruhe</span>
             </p>
-            <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #9bf1ff; display: block;">
+            <img src="https://kleine-musikschule.de/images/alex-portrait-square.jpg" alt="Alexander Flöter" width="120" height="120" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #9bf1ff; display: block;">
           </div>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
