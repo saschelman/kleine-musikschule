@@ -26,17 +26,14 @@ function getContactAutoReplyHtml(name) {
           <div style="background-color: #f8fbfa; border-left: 4px solid #9bf1ff; padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0;">
             <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #333;">Wir werden dein Anliegen so schnell wie möglich bearbeiten und melden uns in Kürze persönlich bei dir zurück.</p>
           </div>
-          <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 25px; margin-bottom: 25px;">
-            <tr>
-              <td style="padding-right: 15px; vertical-align: middle;">
-                <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #9bf1ff;">
-              </td>
-              <td style="vertical-align: middle;">
-                <p style="font-size: 15px; line-height: 1.4; margin: 0; color: #333;">Ganz herzliche musikalische Grüße,</p>
-                <p style="font-size: 15px; line-height: 1.4; margin: 4px 0 0 0; color: #2c3e50;"><strong>Alexander Flöter</strong><br><span style="color: #666; font-size: 13px;">Kleine Musikschule Karlsruhe</span></p>
-              </td>
-            </tr>
-          </table>
+          <div style="margin-top: 25px; margin-bottom: 25px;">
+            <p style="font-size: 16px; line-height: 1.5; margin: 0 0 15px 0; color: #333;">
+              Ganz herzliche musikalische Grüße,<br>
+              <strong style="color: #2c3e50;">Alexander Flöter</strong><br>
+              <span style="color: #666; font-size: 14px;">Kleine Musikschule Karlsruhe</span>
+            </p>
+            <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #9bf1ff; display: block;">
+          </div>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
             Dies ist eine automatisch generierte E-Mail. Bitte antworte nicht direkt auf diese Nachricht, sondern schreibe bei Fragen an <a href="mailto:alex@kleine-musikschule.de" style="color: #999;">alex@kleine-musikschule.de</a>.
@@ -76,17 +73,14 @@ function getLesPetitsAmisRegistrationAutoReplyHtml(kVorname, vVorname, courseNam
             </ul>
             <p style="margin-top: 15px; font-size: 14px; color: #666;">📅 <em>Die Termine findest du auch als iCal-Datei im Anhang dieser E-Mail – einfach öffnen und im Kalender speichern!</em></p>
           </div>
-          <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 25px; margin-bottom: 25px;">
-            <tr>
-              <td style="padding-right: 15px; vertical-align: middle;">
-                <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #9bf1ff;">
-              </td>
-              <td style="vertical-align: middle;">
-                <p style="font-size: 15px; line-height: 1.4; margin: 0; color: #333;">Ganz herzliche musikalische Grüße,</p>
-                <p style="font-size: 15px; line-height: 1.4; margin: 4px 0 0 0; color: #2c3e50;"><strong>Alexander Flöter</strong><br><span style="color: #666; font-size: 13px;">Kleine Musikschule Karlsruhe</span></p>
-              </td>
-            </tr>
-          </table>
+          <div style="margin-top: 25px; margin-bottom: 25px;">
+            <p style="font-size: 16px; line-height: 1.5; margin: 0 0 15px 0; color: #333;">
+              Ganz herzliche musikalische Grüße,<br>
+              <strong style="color: #2c3e50;">Alexander Flöter</strong><br>
+              <span style="color: #666; font-size: 14px;">Kleine Musikschule Karlsruhe</span>
+            </p>
+            <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #9bf1ff; display: block;">
+          </div>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
             Dies ist eine automatisch generierte E-Mail. Bitte antworte nicht direkt auf diese Nachricht, sondern schreibe bei Fragen an <a href="mailto:alex@kleine-musikschule.de" style="color: #999;">alex@kleine-musikschule.de</a>.
@@ -131,17 +125,14 @@ function getPfinztalRegistrationAutoReplyHtml(kVorname, vVorname, courseName, ku
             </ul>
             <p style="margin-top: 15px; font-size: 14px; color: #666;">📅 <em>Die Termine findest du auch als iCal-Datei im Anhang dieser E-Mail – einfach öffnen und im Kalender speichern!</em></p>
           </div>
-          <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 25px; margin-bottom: 25px;">
-            <tr>
-              <td style="padding-right: 15px; vertical-align: middle;">
-                <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 55px; height: 55px; border-radius: 50%; object-fit: cover; border: 2px solid #9bf1ff;">
-              </td>
-              <td style="vertical-align: middle;">
-                <p style="font-size: 15px; line-height: 1.4; margin: 0; color: #333;">Ganz herzliche musikalische Grüße,</p>
-                <p style="font-size: 15px; line-height: 1.4; margin: 4px 0 0 0; color: #2c3e50;"><strong>Alexander Flöter</strong><br><span style="color: #666; font-size: 13px;">Kleine Musikschule Karlsruhe</span></p>
-              </td>
-            </tr>
-          </table>
+          <div style="margin-top: 25px; margin-bottom: 25px;">
+            <p style="font-size: 16px; line-height: 1.5; margin: 0 0 15px 0; color: #333;">
+              Ganz herzliche musikalische Grüße,<br>
+              <strong style="color: #2c3e50;">Alexander Flöter</strong><br>
+              <span style="color: #666; font-size: 14px;">Kleine Musikschule Karlsruhe</span>
+            </p>
+            <img src="https://kleine-musikschule.de/images/IMG_2963-2.jpg" alt="Alexander Flöter" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #9bf1ff; display: block;">
+          </div>
           <hr style="border: none; border-top: 1px solid #eee; margin: 40px 0 20px;">
           <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">
             Dies ist eine automatisch generierte E-Mail. Bitte antworte nicht direkt auf diese Nachricht, sondern schreibe bei Fragen an <a href="mailto:alex@kleine-musikschule.de" style="color: #999;">alex@kleine-musikschule.de</a>.
