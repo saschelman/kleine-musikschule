@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /kursanmeldung.html
+Disallow: /kursanmeldung-les-petits-amis.html
 Disallow: /agb-kurs.html
 Disallow: /medien-einwilligung.html
 

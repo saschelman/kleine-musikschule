@@ -1,0 +1,15 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Design source files (keep in external storage)
+*.psd
+*.ai
+*.sketch
