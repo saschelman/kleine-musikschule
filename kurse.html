@@ -13,19 +13,19 @@
       content="Kursanmeldung zum 7-wöchigen Musikkurs Ein tierisches Orchester für Kinder von 4 bis 6 Jahren mit Dschungel-Safari, Klängen, Instrumenten und Abschlusskonzert."
     />
     <meta name="robots" content="noindex, nofollow, noarchive" />
-    <meta name="theme-color" content="#9bf1ff" />
+    <meta name="theme-color" content="#ff9f43" />
     <link rel="icon" href="images/logo_small.png" />
     <link rel="manifest" href="/manifest.json" />
     <link
       rel="preload"
-      href="assets/css/main.min.css?v=20251226-1"
+      href="assets/css/main.min.css?v=20260911-15"
       as="style"
       onload="
         this.onload = null;
         this.rel = 'stylesheet';
       "
     />
-    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20260911-15" /></noscript>
     <style>
       #contact {
         border-bottom: 0 !important;
@@ -82,7 +82,7 @@
         margin: 0;
         flex-shrink: 0;
         vertical-align: middle;
-        accent-color: #9bf1ff;
+        accent-color: #ff9f43;
         cursor: pointer;
       }
 
@@ -103,17 +103,19 @@
       }
 
       .course-info-box {
-        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 12px;
         padding: 1.5rem;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
         margin-top: 1rem;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        color: rgba(26, 26, 26, 0.9);
       }
+      .course-info-box:nth-child(1) { background: rgba(255, 159, 67, 0.85); }
+      .course-info-box:nth-child(2) { background: rgba(141, 130, 196, 0.85); }
+      .course-info-box:nth-child(3) { background: rgba(236, 141, 129, 0.85); }
 
       .course-info-head {
         padding-bottom: 0.9rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(26, 26, 26, 0.15);
         margin-bottom: 0.95rem;
       }
 
@@ -122,9 +124,8 @@
         font-size: 0.74rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        opacity: 0.95;
         margin-bottom: 0.35rem;
-        color: #9bf1ff;
+        color: rgba(26, 26, 26, 0.8);
       }
 
       .course-info-box h3 {
@@ -132,6 +133,8 @@
         font-size: 1.45rem;
         letter-spacing: 0.02em;
         text-transform: none;
+        color: #1a1a1a;
+        font-weight: 700;
       }
 
       .course-info-subline {
@@ -146,7 +149,7 @@
       }
 
       .course-info-section + .course-info-section {
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        border-top: 1px solid rgba(26, 26, 26, 0.12);
       }
 
       .course-info-section h4 {
@@ -154,7 +157,8 @@
         font-size: 0.9rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #9bf1ff;
+        color: #1a1a1a;
+        font-weight: 700;
       }
 
       .course-info-box p,
@@ -184,7 +188,7 @@
 
       .concert-highlight {
         font-weight: 700;
-        background: linear-gradient(90deg, #9bf1ff, #ffd166, #ff6b6b);
+        background: linear-gradient(90deg, #ff9f43, #ffd166, #ff6b6b);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -222,8 +226,7 @@
       .course-detail-card {
         padding: 1.25rem 1.25rem 1.15rem;
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(10, 16, 32, 0.28);
+        background: rgba(255, 255, 255, 0.5);
       }
 
       .course-detail-card h4 {
@@ -231,7 +234,8 @@
         font-size: 0.9rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #9bf1ff;
+        color: #1a1a1a;
+        font-weight: 700;
       }
 
       .course-detail-card p,
@@ -250,14 +254,14 @@
       .course-callout {
         margin-top: 0.35rem;
         padding: 1rem 1.1rem;
-        border-left: 3px solid #9bf1ff;
-        background: rgba(155, 241, 255, 0.08);
+        border-left: 3px solid rgba(26, 26, 26, 0.5);
+        background: rgba(255, 255, 255, 0.4);
         border-radius: 4px;
         line-height: 1.6;
       }
 
       .course-callout strong {
-        color: #dffbff;
+        color: #1a1a1a;
       }
 
       .course-cta {
@@ -267,9 +271,9 @@
         gap: 0.5rem;
         padding: 0.85rem 1.05rem;
         border-radius: 999px;
-        border: 1px solid rgba(155, 241, 255, 0.35);
-        background: rgba(155, 241, 255, 0.12);
-        color: #fff;
+        border: 1px solid rgba(255, 159, 67, 0.35);
+        background: rgba(255, 159, 67, 0.12);
+        color: #1a1a1a;
         text-decoration: none;
         transition:
           transform 0.18s ease,
@@ -279,8 +283,8 @@
 
       .course-cta:hover {
         transform: translateY(-1px);
-        background: rgba(155, 241, 255, 0.18);
-        border-color: rgba(155, 241, 255, 0.55);
+        background: rgba(255, 159, 67, 0.18);
+        border-color: rgba(255, 159, 67, 0.55);
       }
 
       .course-cta span {
@@ -308,7 +312,7 @@
       .form-popup {
         width: min(520px, 94vw);
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.24);
+        border: 1px solid rgba(26, 26, 26, 0.24);
         background: linear-gradient(155deg, rgba(23, 28, 45, 0.98), rgba(13, 17, 30, 0.98));
         box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
         padding: 1.2rem 1.2rem 1.1rem;
@@ -323,11 +327,11 @@
       .form-popup p {
         margin: 0;
         line-height: 1.5;
-        color: rgba(255, 255, 255, 0.88);
+        color: rgba(26, 26, 26, 0.88);
       }
 
       .form-popup.success h3 {
-        color: #9bf1ff;
+        color: #ff9f43;
       }
 
       .form-popup.error h3 {
@@ -341,21 +345,21 @@
       }
 
       .form-popup-actions button {
-        border: 1px solid rgba(255, 255, 255, 0.25);
+        border: 1px solid rgba(26, 26, 26, 0.25);
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.1);
-        color: #fff;
+        color: #1a1a1a;
         padding: 0.55rem 1.1rem;
         font-weight: 600;
         cursor: pointer;
       }
 
       .form-popup-actions button:hover {
-        background: rgba(155, 241, 255, 0.16);
+        background: rgba(255, 159, 67, 0.16);
       }
     </style>
     <noscript>
-      <link rel="stylesheet" href="assets/css/noscript.css" />
+      <link rel="stylesheet" href="assets/css/noscript.css?v=20260911-15" />
     </noscript>
   </head>
   <body class="is-preload">
@@ -389,7 +393,7 @@
         </ul>
       </nav>
 
-      <section id="banner" class="style6">
+      <section id="banner" class="style3">
         <span class="image">
           <img src="images/pexels-kseniachernaya-8535234.jpg" alt="" />
         </span>
@@ -483,50 +487,57 @@
 
       <footer id="footer">
         <div class="inner">
-          <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
-            <span class="separator">/</span>
-            <span class="current" aria-current="page">Kurse</span>
-          </nav>
-          <ul class="icons">
-            <li>
-              <a
-                href="https://www.instagram.com/kleine_musikschule/"
-                class="icon brands alt fa-instagram"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
-                class="icon brands alt fa-music"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">TikTok</span>
-              </a>
-            </li>
-          </ul>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="überuns.html">Über mich</a></li>
+                <li><a href="kurse.html">Kurse</a></li>
+                <li><a href="preise.html">Preise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Social Media</h3>
+              <ul class="icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/kleine_musikschule_karlsruhe/"
+                    class="icon brands alt fa-instagram"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="label">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Rechtliches</h3>
+              <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+              </ul>
+            </div>
+          </div>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
       </footer>
-    </div>
+
+</div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/cookie-consent.js" defer></script>
+    <script src="assets/js/jquery.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/browser.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/breakpoints.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/util.js?v=20260911-12" defer></script>
+    <script src="assets/js/main.js?v=20260911-12" defer></script>
+    <script src="assets/js/cookie-consent.js?v=20260911-12" defer></script>
   </body>
 </html>

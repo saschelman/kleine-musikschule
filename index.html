@@ -39,7 +39,7 @@
         "email": "alex@kleine-musikschule.de",
         "priceRange": "$$",
         "sameAs": [
-          "https://www.instagram.com/kleine_musikschule/",
+          "https://www.instagram.com/kleine_musikschule_karlsruhe/",
           "https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
         ],
         "contactPoint": {
@@ -110,19 +110,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#9bf1ff" />
+    <meta name="theme-color" content="#ff9f43" />
     <link rel="manifest" href="/manifest.json" />
     <link
       rel="preload"
-      href="assets/css/main.min.css?v=20251226-1"
+      href="assets/css/main.min.css?v=20260911-15"
       as="style"
       onload="
         this.onload = null;
         this.rel = 'stylesheet';
       "
     />
-    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20260911-15" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css?v=20260911-15" /></noscript>
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -160,8 +160,15 @@
       </nav>
 
       <!-- Banner -->
-      <section id="banner" class="major" style="background: linear-gradient(135deg, #6fc3df 0%, #9bf1ff 100%)">
-        <div class="inner">
+      <style>
+        #banner:after { background-color: rgba(253, 250, 246, 0.65) !important; }
+        body.is-preload #banner:after { background-color: #fdfaf6 !important; }
+      </style>
+      <section id="banner" class="major" style="position: relative; background: #fdfaf6; overflow: hidden;">
+        <!-- Blurred Background Image -->
+        <div style="position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; background-image: url('images/IMG_2503.jpg'); background-size: cover; background-position: center; filter: blur(3px); opacity: 0.9; z-index: 0;"></div>
+        
+        <div class="inner" style="position: relative; z-index: 2; text-shadow: none;">
           <header class="major">
             <h1>Musikunterricht, der zu dir kommt</h1>
           </header>
@@ -311,7 +318,7 @@
             <header class="major">
               <h2>Warum an der Kleinen Musikschule?</h2>
             </header>
-            <p style="font-size: 1.05em; color: rgba(255, 255, 255, 0.85); margin-bottom: 2em">
+            <p style="font-size: 1.05em; color: #3a3a3a; margin-bottom: 2em">
               <strong>Unterricht kommt zu dir | Dein Lieblingslied | Kein Druck | 100% flexibel</strong>
             </p>
 
@@ -369,17 +376,18 @@
               <div class="col-6 col-12-medium">
                 <div
                   style="
-                    background: rgba(155, 241, 255, 0.05);
+                    background: rgba(141, 130, 196, 0.85);
+                    color: #1a1a1a;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
                     padding: 2em;
                     border-radius: 8px;
-                    border-top: 4px solid #9bf1ff;
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                   "
                 >
-                  <h3>10 Tipps zum Dranbleiben</h3>
-                  <p style="flex-grow: 1; margin-bottom: 0">
+                  <h3 style="color: #1a1a1a; font-weight: 700;">10 Tipps zum Dranbleiben</h3>
+                  <p style="flex-grow: 1; margin-bottom: 0; color: rgba(26, 26, 26, 0.9);">
                     Motivationstief? Mit diesen 10 erprobten Tipps bleibst du beim Musiklernen am Ball! Erfahre, wie du
                     mit cleveren Routinen langfristig motiviert bleibst.
                   </p>
@@ -391,22 +399,69 @@
               <div class="col-6 col-12-medium">
                 <div
                   style="
-                    background: rgba(155, 241, 255, 0.05);
+                    background: rgba(236, 141, 129, 0.85);
+                    color: #1a1a1a;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
                     padding: 2em;
                     border-radius: 8px;
-                    border-top: 4px solid #ec8d81;
                     height: 100%;
                     display: flex;
                     flex-direction: column;
                   "
                 >
-                  <h3>Welcher Typ von Musiker bin ich?</h3>
-                  <p style="flex-grow: 1; margin-bottom: 0">
+                  <h3 style="color: #1a1a1a; font-weight: 700;">Welcher Typ von Musiker bin ich?</h3>
+                  <p style="flex-grow: 1; margin-bottom: 0; color: rgba(26, 26, 26, 0.9);">
                     Mach mein Quiz und finde heraus, ob du ein kreativer Improvisator, strukturierter Perfektionist oder
                     vielseitiger Allrounder bist.
                   </p>
                   <ul class="actions" style="margin-top: 2em; margin-bottom: 0">
                     <li><a href="blog/quiz-musiker.html" class="button next">Quiz starten</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="col-6 col-12-medium" style="margin-top: 2em">
+                <div
+                  style="
+                    background: rgba(240, 173, 78, 0.85);
+                    color: #1a1a1a;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                    padding: 2em;
+                    border-radius: 8px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <h3 style="color: #1a1a1a; font-weight: 700;">Gitarren-Akkorde Übersicht</h3>
+                  <p style="flex-grow: 1; margin-bottom: 0; color: rgba(26, 26, 26, 0.9);">
+                    Finde jeden Gitarren-Akkord sofort. Mit unserem interaktiven Griffbrett siehst du sofort, wo du deine Finger platzieren musst.
+                  </p>
+                  <ul class="actions" style="margin-top: 2em; margin-bottom: 0">
+                    <li><a href="blog/gitarren-akkorde-ubersicht.html" class="button next">Zu den Akkorden</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="col-6 col-12-medium" style="margin-top: 2em">
+                <div
+                  style="
+                    background: rgba(255, 159, 67, 0.85);
+                    color: #1a1a1a;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                    padding: 2em;
+                    border-radius: 8px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                  "
+                >
+                  <h3 style="color: #1a1a1a; font-weight: 700;">Skalen & Tonleitern (Interaktiv)</h3>
+                  <p style="flex-grow: 1; margin-bottom: 0; color: rgba(26, 26, 26, 0.9);">
+                    Lerne alle wichtigen Skalen wie die Pentatonik auf dem ganzen Griffbrett. Inklusive farblicher Markierung der Lagen (CAGED-System).
+                  </p>
+                  <ul class="actions" style="margin-top: 2em; margin-bottom: 0">
+                    <li><a href="blog/gitarren-skalen-ubersicht.html" class="button next">Zu den Skalen</a></li>
                   </ul>
                 </div>
               </div>
@@ -422,51 +477,61 @@
       <!-- Contact -->
 
       <!-- Footer -->
+
       <footer id="footer">
         <div class="inner">
-          <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
-          </nav>
-          <ul class="icons">
-            <li>
-              <a
-                href="https://www.instagram.com/kleine_musikschule/"
-                class="icon brands alt fa-instagram"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
-                class="icon brands alt fa-music"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">TikTok</span>
-              </a>
-            </li>
-          </ul>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="überuns.html">Über mich</a></li>
+                <li><a href="kurse.html">Kurse</a></li>
+                <li><a href="preise.html">Preise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Social Media</h3>
+              <ul class="icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/kleine_musikschule_karlsruhe/"
+                    class="icon brands alt fa-instagram"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="label">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Rechtliches</h3>
+              <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+              </ul>
+            </div>
+          </div>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
       </footer>
-    </div>
+
+</div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/cookie-consent.js" defer></script>
+    <script src="assets/js/jquery.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/browser.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/breakpoints.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/util.js?v=20260911-12" defer></script>
+    <script src="assets/js/main.js?v=20260911-12" defer></script>
+    <script src="assets/js/cookie-consent.js?v=20260911-12" defer></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -545,46 +610,7 @@
         opacity: 0.15;
       }
 
-      .tiles article:before {
-        opacity: 0.85;
-      }
 
-      .tiles article:after {
-        background-color: rgba(36, 41, 67, 0.12);
-      }
-
-      .tiles article:nth-child(6n - 5):before {
-        background-color: #6fc3df;
-      }
-
-      .tiles article:nth-child(6n - 4):before {
-        background-color: #8d82c4;
-      }
-
-      .tiles article:nth-child(6n - 3):before {
-        background-color: #ec8d81;
-      }
-
-      .tiles article:nth-child(6n - 2):before {
-        background-color: #e7b788;
-      }
-
-      .tiles article:nth-child(6n - 1):before {
-        background-color: #6fc3df;
-      }
-
-      .tiles article:nth-child(6n):before {
-        background-color: #87c5a4;
-      }
-
-      .tiles article header {
-        position: relative;
-        z-index: 3;
-      }
-
-      .tiles article:before {
-        z-index: 2;
-      }
 
       /* Reduce the overall height of the hero banner */
       #banner.major {
@@ -661,23 +687,25 @@
         gap: 1.5rem;
       }
       .feature-card {
-        background: linear-gradient(145deg, rgba(30, 40, 60, 0.4), rgba(15, 20, 35, 0.3));
-        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
         padding: 1.5rem 1.5rem;
         transition:
           transform 0.3s ease,
-          box-shadow 0.3s ease,
-          border-color 0.3s ease;
+          box-shadow 0.3s ease;
         display: flex;
         align-items: flex-start;
         gap: 1.25rem;
         text-align: left;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       }
+      .feature-card:nth-child(1) { background: rgba(255, 159, 67, 0.85); }
+      .feature-card:nth-child(2) { background: rgba(141, 130, 196, 0.85); }
+      .feature-card:nth-child(3) { background: rgba(236, 141, 129, 0.85); }
+      .feature-card:nth-child(4) { background: rgba(255, 209, 102, 0.85); }
+
       .feature-card:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        border-color: rgba(155, 241, 255, 0.4);
       }
       .feature-icon {
         font-size: 2.25rem;
@@ -689,16 +717,17 @@
         flex-grow: 1;
       }
       .feature-card h3 {
-        color: #9bf1ff;
-        font-size: 1.1rem;
+        color: #1a1a1a;
+        font-size: 1.15rem;
         margin-bottom: 0.4rem;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.02em;
+        font-weight: 700;
       }
       .feature-card p {
         margin: 0;
         line-height: 1.5;
         font-size: 0.95em;
-        color: rgba(255, 255, 255, 0.75);
+        color: rgba(26, 26, 26, 0.9);
       }
       @media (max-width: 736px) {
         .features-grid {

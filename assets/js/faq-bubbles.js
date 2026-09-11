@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const faqTools = document.querySelector(".faq-tools");
   if (!faqGrid) return;
 
+  // Inject realistic bubble styles
+  const style = document.createElement("style");
+  style.innerHTML = `
+    .faq-bubble {
+      border-radius: 50% !important;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+      border: 1px solid rgba(255,255,255,0.4) !important;
+      transition: box-shadow 0.3s ease;
+    }
+    .faq-bubble:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    }
+    .faq-bubble.expanded {
+      border-radius: 50% !important;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+    }
+  `;
+  document.head.appendChild(style);
+
   // Hide original elements
   faqGrid.style.display = "none";
   if (faqTools) faqTools.style.display = "none";
@@ -86,8 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .style("background", (d) => d.color)
     .style("width", (d) => `${d.r * 2}px`)
     .style("height", (d) => `${d.r * 2}px`)
-    .style("border-radius", "50%")
-    .style("position", "absolute")
+        .style("position", "absolute")
     .style("display", "flex")
     .style("align-items", "center")
     .style("justify-content", "center")
@@ -116,8 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .style("width", `${d.r * 2}px`)
         .style("height", `${d.r * 2}px`)
         .style("min-height", `${d.r * 2}px`)
-        .style("border-radius", "50%")
-        .style("z-index", d.expanded ? 10 : 1)
+                .style("z-index", d.expanded ? 10 : 1)
         .style("background", d.expanded ? d.color.replace("0.75", "0.95") : d.color);
 
       // Re-heat simulation

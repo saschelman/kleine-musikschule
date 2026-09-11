@@ -7,35 +7,114 @@
 /* Footer */
 
 #footer {
-  .copyright {
-    font-size: 0.8em;
-    list-style: none;
-    padding-left: 0;
-
-    li {
-      border-left: solid 1px _palette(border);
-      color: _palette(fg);
-      display: inline-block;
-      line-height: 1;
-      margin-left: 1em;
-      padding-left: 1em;
-
-      &:first-child {
-        border-left: 0;
-        margin-left: 0;
-        padding-left: 0;
+  text-align: center;
+  padding: 4em 0 2em 0;
+  
+  .footer-columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4em;
+    margin-bottom: 3em;
+    
+    .footer-col {
+      min-width: 200px;
+      
+      h3 {
+        font-size: 1.1em;
+        margin-bottom: 1em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: _palette(fg-bold);
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          margin-bottom: 0.5em;
+          padding: 0;
+          
+          a {
+            color: _palette(fg);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            @include vendor("transition", "all 0.2s ease");
+            
+            &:hover {
+              color: _palette(highlight);
+              border-bottom-color: _palette(highlight);
+            }
+          }
+        }
       }
     }
   }
 
-  @include breakpoint("<=xsmall") {
-    .copyright {
-      li {
-        display: block;
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin: 0;
+    
+    li {
+      padding: 0;
+    }
+  }
+
+  .copyright {
+    font-size: 0.8em;
+    list-style: none;
+    padding: 2em 0 0 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    color: _palette(fg-light);
+    border-top: 1px solid _palette(border);
+
+    li {
+      border-left: solid 1px _palette(border);
+      padding-left: 1em;
+      margin: 0;
+      line-height: 1;
+
+      &:first-child {
         border-left: 0;
-        margin-left: 0;
         padding-left: 0;
-        line-height: inherit;
+      }
+      
+      a {
+        color: inherit;
+        border-bottom: none;
+        @include vendor("transition", "color 0.2s ease");
+        &:hover {
+          color: _palette(highlight);
+        }
+      }
+    }
+  }
+
+  @include breakpoint("<=small") {
+    .footer-columns {
+      gap: 2em;
+    }
+  }
+
+  @include breakpoint("<=xsmall") {
+    .footer-columns {
+      flex-direction: column;
+      gap: 2em;
+    }
+    .copyright {
+      flex-direction: column;
+      gap: 0.8em;
+      li {
+        border-left: 0;
+        padding-left: 0;
       }
     }
   }

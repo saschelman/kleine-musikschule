@@ -36,6 +36,15 @@
 			line-height: inherit;
 			padding: 0 1.5em;
 
+			img, .logo-img {
+				height: 3em;
+				width: auto;
+				max-width: 100%;
+				vertical-align: middle;
+				margin-right: 0.2em;
+				flex-shrink: 0 !important;
+			}
+
 			strong {
 				@include vendor('transition', (
 					'background-color #{_duration(transition)} ease-in-out',
@@ -185,6 +194,10 @@
 
 			.logo {
 				padding: 0 1em;
+
+				img, .logo-img {
+					height: 2.2em;
+				}
 			}
 
 			nav {

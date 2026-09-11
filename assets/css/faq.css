@@ -6,7 +6,7 @@
   display: block;
   font-size: 0.85rem;
   margin-bottom: 0.45rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(26, 26, 26, 0.75);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -14,15 +14,15 @@
 .faq-search-input {
   width: 100%;
   max-width: 560px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(26, 26, 26, 0.22);
   border-radius: 10px;
   padding: 0.75rem 0.95rem;
   background: rgba(255, 255, 255, 0.04);
 }
 
 .faq-search-input:focus {
-  border-color: rgba(155, 241, 255, 0.9);
-  box-shadow: 0 0 0 2px rgba(155, 241, 255, 0.2);
+  border-color: rgba(255, 159, 67, 0.9);
+  box-shadow: 0 0 0 2px rgba(255, 159, 67, 0.2);
 }
 
 .faq-grid {
@@ -32,18 +32,16 @@
 }
 
 .faq-card {
-  --card-bg-a: #6376b8;
-  --card-bg-b: #5265a7;
+  --card-bg-a: rgba(255, 159, 67, 0.85); /* Default to Cyan */
   border-radius: 14px;
-  color: #fff;
+  color: rgba(26, 26, 26, 0.9);
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--card-bg-a) 0%, var(--card-bg-b) 100%);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  background: var(--card-bg-a);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .faq-card::before {
@@ -56,13 +54,13 @@
 
 .faq-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .faq-card:focus-within {
   box-shadow:
-    0 0 0 2px rgba(155, 241, 255, 0.35),
-    0 12px 24px rgba(0, 0, 0, 0.22);
+    0 0 0 2px rgba(26, 26, 26, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .faq-card.is-hidden {
@@ -76,7 +74,7 @@
 }
 
 .faq-card details[open] {
-  background: rgba(10, 16, 35, 0.14);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .faq-card summary {
@@ -87,6 +85,7 @@
   align-items: center;
   gap: 0.65rem;
   line-height: 1.4;
+  color: #1a1a1a;
 }
 
 .faq-card summary::-webkit-details-marker {
@@ -103,8 +102,8 @@
   justify-content: center;
   font-weight: 900;
   font-size: 1.15rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  color: #1a1a1a;
   flex-shrink: 0;
   transition:
     transform 0.2s ease,
@@ -114,7 +113,7 @@
 .faq-card details[open] summary::before {
   content: "-";
   transform: rotate(180deg);
-  background: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .faq-card .faq-content {
@@ -128,19 +127,19 @@
 
 .faq-card p {
   margin-top: 0.8rem;
-  color: rgba(255, 255, 255, 0.93);
+  color: rgba(26, 26, 26, 0.9);
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 .faq-card a {
-  color: #fff;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
+  color: #1a1a1a;
+  text-decoration-color: rgba(26, 26, 26, 0.5);
   font-weight: 600;
 }
 
 .faq-card a:hover {
-  text-decoration-color: #fff;
+  text-decoration-color: #1a1a1a;
 }
 
 .faq-no-results {
@@ -148,9 +147,9 @@
   margin-top: 1rem;
   padding: 0.85rem 1rem;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(26, 26, 26, 0.2);
   background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(26, 26, 26, 0.9);
 }
 
 .faq-no-results.is-visible {
@@ -170,33 +169,27 @@
 }
 
 .faq-card--blue {
-  --card-bg-a: #5f95c4;
-  --card-bg-b: #4a7ead;
+  --card-bg-a: rgba(255, 159, 67, 0.85);
 }
 
 .faq-card--purple {
-  --card-bg-a: #7d78cc;
-  --card-bg-b: #6863b5;
+  --card-bg-a: rgba(141, 130, 196, 0.85);
 }
 
 .faq-card--salmon {
-  --card-bg-a: #c9877d;
-  --card-bg-b: #b6766d;
+  --card-bg-a: rgba(236, 141, 129, 0.85);
 }
 
 .faq-card--sand {
-  --card-bg-a: #c09a67;
-  --card-bg-b: #aa8555;
+  --card-bg-a: rgba(231, 183, 136, 0.85);
 }
 
 .faq-card--green {
-  --card-bg-a: #63a88e;
-  --card-bg-b: #4f9178;
+  --card-bg-a: rgba(135, 197, 164, 0.85);
 }
 
 .faq-card--indigo {
-  --card-bg-a: #6889c7;
-  --card-bg-b: #5475b0;
+  --card-bg-a: rgba(255, 209, 102, 0.85); /* Using Yellow instead of Indigo */
 }
 
 @media screen and (max-width: 736px) {
@@ -211,7 +204,7 @@
 
 /* Interactive Bubble FAQ Styles (Desktop Only) */
 .faq-bubble {
-  color: white;
+  color: #1a1a1a;
   user-select: none;
   padding: 1rem;
   backdrop-filter: blur(8px);
@@ -314,7 +307,7 @@
   margin-bottom: 0.5rem;
 }
 .faq-bubble.expanded .bubble-a a {
-  color: white;
+  color: #1a1a1a;
   text-decoration: underline;
   font-weight: 600;
 }

@@ -33,17 +33,17 @@
     <meta name="robots" content="index, follow" />
     <link
       rel="preload"
-      href="assets/css/main.min.css?v=20251226-1"
+      href="assets/css/main.min.css?v=20260911-15"
       as="style"
       onload="
         this.onload = null;
         this.rel = 'stylesheet';
       "
     />
-    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20260911-15" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css?v=20260911-15" /></noscript>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?v=20260911-15" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js?v=20260911-12"></script>
     <style>
       /* Modern pricing cards */
       .pricing-container {
@@ -54,13 +54,14 @@
       }
 
       .pricing-card {
-        background: linear-gradient(135deg, rgba(155, 241, 255, 0.08) 0%, rgba(155, 241, 255, 0.02) 100%);
-        border: 2px solid rgba(155, 241, 255, 0.2);
         border-radius: 12px;
         padding: 2.5em;
         position: relative;
         transition: all 0.3s ease;
         overflow: hidden;
+        background: #ffffff; /* Solid white */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 2px solid rgba(255, 159, 67, 0.3);
       }
 
       .pricing-card::before {
@@ -70,18 +71,12 @@
         left: 0;
         right: 0;
         height: 4px;
-        background: linear-gradient(90deg, #9bf1ff 0%, #6fc3df 100%);
+        background: #ff9f43;
       }
 
       .pricing-card:hover {
         transform: translateY(-8px);
-        border-color: rgba(155, 241, 255, 0.4);
-        box-shadow: 0 20px 40px rgba(155, 241, 255, 0.15);
-      }
-
-      .pricing-card.featured {
-        border-color: #9bf1ff;
-        background: linear-gradient(135deg, rgba(155, 241, 255, 0.12) 0%, rgba(155, 241, 255, 0.04) 100%);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
 
       .pricing-card.featured::before {
@@ -95,8 +90,8 @@
 
       .pricing-title {
         font-size: 1.5em;
-        font-weight: 600;
-        color: #9bf1ff;
+        font-weight: 700;
+        color: #ff9f43;
         margin-bottom: 0.5em;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -104,7 +99,7 @@
 
       .pricing-subtitle {
         font-size: 0.9em;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(26, 26, 26, 0.7);
         margin-bottom: 0;
       }
 
@@ -117,7 +112,7 @@
         display: flex;
         justify-content: space-between;
         padding: 1.2em 0;
-        border-bottom: 1px solid rgba(212, 212, 255, 0.1);
+        border-bottom: 1px solid rgba(26, 26, 26, 0.1);
         align-items: center;
       }
 
@@ -127,7 +122,7 @@
 
       .duration {
         font-size: 1.1em;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(26, 26, 26, 0.9);
         font-weight: 600;
       }
 
@@ -143,7 +138,7 @@
 
       .price-label {
         font-size: 0.7em;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(26, 26, 26, 0.6);
         text-transform: uppercase;
         letter-spacing: 0.15em;
         margin-bottom: 0.3em;
@@ -152,42 +147,42 @@
 
       .price-value {
         font-size: 1.4em;
-        font-weight: 600;
-        color: #9bf1ff;
+        font-weight: 700;
+        color: #ff9f43;
       }
 
       .pricing-features {
         margin-top: 2em;
         padding-top: 2em;
-        border-top: 1px solid rgba(212, 212, 255, 0.1);
+        border-top: 1px solid rgba(26, 26, 26, 0.1);
       }
 
       .feature-item {
         display: flex;
         align-items: center;
         margin: 1em 0;
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(26, 26, 26, 0.85);
       }
 
       .feature-item::before {
         content: "✓";
-        color: #9bf1ff;
+        color: #ff9f43;
         font-weight: bold;
         font-size: 1.2em;
         margin-right: 0.8em;
       }
 
       .info-box {
-        background: rgba(155, 241, 255, 0.05);
-        border-left: 3px solid #9bf1ff;
+        background: transparent;
         padding: 1.5em;
         margin: 2em 0;
+        border-left: 3px solid #ff9f43;
         border-radius: 4px;
       }
 
       .info-box p {
         margin: 0;
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(26, 26, 26, 0.85);
         line-height: 1.8;
       }
 
@@ -195,12 +190,12 @@
         height: 600px;
         width: 100%;
         border-radius: 8px;
-        border: 2px solid rgba(155, 241, 255, 0.3);
+        border: 2px solid rgba(255, 159, 67, 0.3);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
       .map-legend {
-        background: rgba(155, 241, 255, 0.05);
+        background: transparent;
         padding: 1em;
         border-radius: 0 0 8px 8px;
         display: flex;
@@ -214,13 +209,14 @@
         display: flex;
         align-items: center;
         gap: 0.5em;
+        color: rgba(26, 26, 26, 0.9);
       }
 
       .legend-color {
         width: 20px;
         height: 20px;
         border-radius: 4px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(26, 26, 26, 0.2);
       }
 
       .legend-color.heimservice {
@@ -233,8 +229,8 @@
 
       .location-check-btn {
         background: rgba(255, 255, 255, 0.05);
-        color: #9bf1ff;
-        border: 1px solid rgba(155, 241, 255, 0.35);
+        color: #ff9f43;
+        border: 1px solid rgba(255, 159, 67, 0.35);
         padding: 0 1.4em;
         font-size: 1em;
         font-weight: 600;
@@ -255,13 +251,13 @@
 
       .location-check-btn:hover {
         transform: translateY(-1px);
-        border-color: rgba(155, 241, 255, 0.6);
-        background: rgba(155, 241, 255, 0.12);
+        border-color: rgba(255, 159, 67, 0.6);
+        background: rgba(255, 159, 67, 0.12);
       }
 
       .location-check-btn:active {
         transform: translateY(0);
-        background: rgba(155, 241, 255, 0.08);
+        background: rgba(255, 159, 67, 0.08);
       }
 
       .location-address-input {
@@ -334,7 +330,7 @@
         </ul>
       </nav>
 
-      <section id="banner" class="style4" style="background: linear-gradient(135deg, #6fc3df 0%, #9bf1ff 100%)">
+      <section id="banner" class="style4">
         <div class="inner">
           <header class="major">
             <h1>Meine Preise</h1>
@@ -711,7 +707,7 @@
               // Add marker for school location
               var schoolMarker = L.marker([49.0094, 8.4044], {
                 icon: L.divIcon({
-                  html: '<div style="background-color: #9bf1ff; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.4);"></div>',
+                  html: '<div style="background-color: #ff9f43; width: 24px; height: 24px; border-radius: 50%; border: 3px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.4);"></div>',
                   className: "school-marker",
                   iconSize: [24, 24],
                 }),
@@ -751,7 +747,7 @@
                   return `
                     <div style="margin-top:0.25em;">
                       <strong>${prefix}</strong>
-                      <div style="margin-top:0.5em;color: rgba(255,255,255,0.9);">
+                      <div style="margin-top:0.5em;color: rgba(26,26,26,0.9);">
                         ${lines}
                       </div>
                     </div>
@@ -801,7 +797,7 @@
                     <strong style="color: #fcd34d;">ℹ️ Individuelle Zone</strong><br>
                     <p style="margin: 0.25em 0;">Dein Standort liegt <strong>außerhalb von Sorglos Umgebung</strong>. Es sind nur 45 und 60 Minuten buchbar.</p>
                     ${formatRows("Ungefähre Preise", indivMonthly, indivTen, [45, 60])}
-                    <p style="margin:0.5em 0 0 0; color: rgba(255,255,255,0.85);"><small>Genauer Preis auf Anfrage.</small></p>
+                    <p style="margin:0.5em 0 0 0; color: rgba(26,26,26,0.85);"><small>Genauer Preis auf Anfrage.</small></p>
                   `;
                 }
 
@@ -891,8 +887,8 @@
 
                 // Show loading
                 resultDiv.style.display = "block";
-                resultDiv.style.background = "rgba(155, 241, 255, 0.1)";
-                resultDiv.style.border = "2px solid rgba(155, 241, 255, 0.3)";
+                resultDiv.style.background = "rgba(255, 159, 67, 0.1)";
+                resultDiv.style.border = "2px solid rgba(255, 159, 67, 0.3)";
                 resultDiv.innerHTML = manualAddress
                   ? "🔍 Prüfe eingegebene Adresse..."
                   : "🔍 Ermittle deinen Standort...";
@@ -1050,49 +1046,56 @@
 
       <footer id="footer">
         <div class="inner">
-          <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
-            &gt;
-            <span>Preise</span>
-          </nav>
-          <ul class="icons">
-            <li>
-              <a
-                href="https://www.instagram.com/kleine_musikschule/"
-                class="icon brands alt fa-instagram"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
-                class="icon brands alt fa-music"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">TikTok</span>
-              </a>
-            </li>
-          </ul>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="überuns.html">Über mich</a></li>
+                <li><a href="kurse.html">Kurse</a></li>
+                <li><a href="preise.html">Preise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Social Media</h3>
+              <ul class="icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/kleine_musikschule_karlsruhe/"
+                    class="icon brands alt fa-instagram"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="label">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Rechtliches</h3>
+              <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+              </ul>
+            </div>
+          </div>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
       </footer>
-    </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/cookie-consent.js"></script>
+</div>
+
+    <script src="assets/js/jquery.min.js?v=20260911-12"></script>
+    <script src="assets/js/jquery.scrolly.min.js?v=20260911-12"></script>
+    <script src="assets/js/jquery.scrollex.min.js?v=20260911-12"></script>
+    <script src="assets/js/browser.min.js?v=20260911-12"></script>
+    <script src="assets/js/breakpoints.min.js?v=20260911-12"></script>
+    <script src="assets/js/util.js?v=20260911-12"></script>
+    <script src="assets/js/main.js?v=20260911-12"></script>
+    <script src="assets/js/cookie-consent.js?v=20260911-12"></script>
   </body>
 </html>

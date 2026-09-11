@@ -50,587 +50,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
-    <link rel="stylesheet" href="../assets/css/main.min.css?v=20251226-1" />
+    <link rel="stylesheet" href="../assets/css/main.min.css?v=20260911-15" />
     <link rel="icon" href="../images/logo_small.png" />
-    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-    <style>
-      /* Chord Selector */
-      .chord-selector {
-        padding: 1.5em 0;
-        text-align: center;
-      }
-
-      .root-note-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 0.3em;
-        margin-bottom: 1.5em;
-        background: rgba(58, 58, 58, 0.8);
-        padding: 0.5em;
-        border-radius: 12px;
-        width: fit-content;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        flex-wrap: wrap;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      }
-
-      .root-tab {
-        padding: 0.7em 1.8em;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid transparent;
-        color: #fff;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-size: 1.05em;
-        border-radius: 8px;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .root-tab::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        transition: left 0.5s;
-      }
-
-      .root-tab:hover::before {
-        left: 100%;
-      }
-
-      .root-tab:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(240, 173, 78, 0.3);
-      }
-
-      .root-tab.active {
-        background: linear-gradient(135deg, #f0ad4e 0%, #f39c12 100%);
-        color: #000;
-        border-color: #f39c12;
-        box-shadow: 0 6px 20px rgba(240, 173, 78, 0.4);
-        transform: scale(1.05);
-      }
-
-      .chord-types-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.7em;
-        justify-content: center;
-        margin: 1.5em 0;
-        padding: 0 1em;
-      }
-
-      .chord-type-btn {
-        padding: 0.7em 1.5em;
-        background: rgba(90, 90, 90, 0.6);
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        color: #fff;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-size: 0.95em;
-        position: relative;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .chord-type-btn::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        transform: translateX(-50%);
-        transition: width 0.3s ease;
-      }
-
-      .chord-type-btn:hover {
-        background: rgba(102, 126, 234, 0.3);
-        border-color: #667eea;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-      }
-
-      .chord-type-btn:hover::after {
-        width: 100%;
-      }
-
-      .chord-type-btn.active {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-color: #764ba2;
-        color: #fff;
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-        transform: scale(1.05);
-      }
-
-      .chord-type-btn.active::after {
-        width: 100%;
-      }
-
-      .advanced-toggle {
-        margin-top: 0;
-        text-align: center;
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .advanced-toggle.pushed-down {
-        transform: translateY(0);
-      }
-
-      .advanced-btn {
-        padding: 0.8em 2.5em;
-        background: rgba(118, 75, 162, 0.1);
-        border: 2px solid #764ba2;
-        border-radius: 10px;
-        color: #764ba2;
-        font-weight: bold;
-        font-size: 1.05em;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .advanced-btn::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: rgba(118, 75, 162, 0.2);
-        transform: translate(-50%, -50%);
-        transition:
-          width 0.6s,
-          height 0.6s;
-      }
-
-      .advanced-btn:hover::before {
-        width: 300px;
-        height: 300px;
-      }
-
-      .advanced-btn:hover {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        color: white;
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
-      }
-
-      .advanced-btn span {
-        position: relative;
-        z-index: 1;
-      }
-
-      .advanced-btn.active {
-        background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-        color: white;
-      }
-
-      .advanced-chords-wrapper {
-        position: relative;
-      }
-
-      .advanced-chords {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        margin-top: 0;
-        padding-top: 0;
-        transition:
-          max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-          opacity 0.4s ease,
-          margin-top 0.5s ease,
-          padding-top 0.5s ease;
-        position: relative;
-        pointer-events: none;
-        min-height: 0;
-      }
-
-      .advanced-chords.show {
-        max-height: 2000px;
-        opacity: 1;
-        margin-top: 1.5em;
-        padding-top: 1.5em;
-        padding-bottom: 3em;
-        border-top: 2px solid rgba(118, 75, 162, 0.3);
-        animation: slideDown 0.5s ease-out;
-        min-height: 200px;
-        pointer-events: auto;
-      }
-
-      @keyframes slideDown {
-        from {
-          transform: translateY(-20px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      /* Fretboard Display */
-      .fretboard-container {
-        width: 100%;
-        box-sizing: border-box;
-        background: rgba(255, 255, 255, 0.03);
-        padding: 2.5em 1.5em;
-        border-radius: 14px;
-        margin: 2.5em auto;
-        max-width: 1400px;
-        box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(102, 126, 234, 0.15);
-      }
-
-      .chord-display-name {
-        text-align: center;
-        font-size: 3em;
-        font-weight: bold;
-        color: #667eea;
-        margin-bottom: 0.3em;
-        text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
-      }
-
-      .chord-display-info {
-        text-align: center;
-        color: rgba(255, 255, 255, 0.75);
-        margin-bottom: 1.5em;
-        font-size: 1.05em;
-      }
-
-      .chord-variants {
-        display: flex;
-        justify-content: center;
-        gap: 0.5em;
-        margin-bottom: 1.5em;
-      }
-
-      .variant-btn {
-        padding: 0.3em 0.7em;
-        background: rgba(90, 90, 90, 0.6);
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        border-radius: 5px;
-        color: #fff;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        font-size: 0.75em;
-        position: relative;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .variant-btn::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        transform: translateX(-50%);
-        transition: width 0.3s ease;
-      }
-
-      .variant-btn:hover {
-        background: rgba(102, 126, 234, 0.3);
-        border-color: #667eea;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-      }
-
-      .variant-btn:hover::after {
-        width: 100%;
-      }
-
-      .variant-btn.active {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-color: #764ba2;
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        transform: scale(1.05);
-      }
-
-      .variant-btn.active::after {
-        width: 100%;
-      }
-
-      .fretboard {
-        position: relative;
-        background: #2a2a2a;
-        border-radius: 12px;
-        padding: 2.5em 2em;
-        overflow-x: auto;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .fretboard-grid {
-        display: grid;
-        grid-template-columns: 60px repeat(15, 85px);
-        gap: 0;
-        min-width: 1200px;
-        position: relative;
-        background: linear-gradient(180deg, #333 0%, #2a2a2a 100%);
-      }
-
-      .string-label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffd700;
-        font-weight: bold;
-        font-size: 1.3em;
-        background: rgba(0, 0, 0, 0.5);
-        border-right: 5px solid #d4af37;
-        letter-spacing: 2px;
-      }
-
-      .fret {
-        position: relative;
-        height: 65px;
-        border-right: 2px solid #555;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #2a2a2a;
-        transition: background 0.2s ease;
-      }
-
-      .fret:hover {
-        background: rgba(102, 126, 234, 0.1);
-      }
-
-      .fret:first-child {
-        border-left: 4px solid #888;
-      }
-
-      .fret-marker {
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        background: #666;
-        border-radius: 50%;
-        opacity: 0.4;
-        z-index: 1;
-        transition: all 0.2s ease;
-      }
-
-      .fret-marker.double {
-        top: 12px;
-      }
-
-      .fret-marker.double.bottom {
-        top: auto;
-        bottom: 12px;
-      }
-
-      .fret-number {
-        grid-column: span 1;
-        text-align: center;
-        color: #888;
-        font-size: 1em;
-        font-weight: 600;
-        padding: 0.5em 0;
-        background: #1a1a1a;
-        border-right: 2px solid #555;
-        letter-spacing: 1px;
-      }
-
-      .string-line {
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: #666;
-        pointer-events: none;
-      }
-
-      .finger-dot {
-        width: 40px;
-        height: 40px;
-        background: #667eea;
-        border: 3px solid #667eea;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-weight: bold;
-        font-size: 1.1em;
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
-        z-index: 10;
-        transition: all 0.2s ease;
-      }
-
-      .finger-dot:hover {
-        transform: scale(1.15);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.7);
-      }
-
-      .finger-dot::after {
-        content: attr(data-note);
-        position: absolute;
-        bottom: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(0, 0, 0, 0.9);
-        color: #f0ad4e;
-        padding: 0.4em 0.8em;
-        border-radius: 6px;
-        font-size: 0.85em;
-        font-weight: bold;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s ease;
-        z-index: 100;
-        border: 1px solid rgba(240, 173, 78, 0.5);
-      }
-
-      .finger-dot:hover::after {
-        opacity: 1;
-      }
-
-      .open-string {
-        color: #4ade80;
-        font-size: 1.5em;
-        font-weight: bold;
-      }
-
-      .muted-string {
-        color: #ef4444;
-        font-size: 1.5em;
-        font-weight: bold;
-      }
-
-      .chord-tips {
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-        padding: 2em;
-        border-radius: 12px;
-        margin: 2.5em 0;
-        border-left: 5px solid #667eea;
-        border: 1px solid rgba(102, 126, 234, 0.3);
-        border-left: 5px solid #667eea;
-      }
-
-      .chord-tips h3 {
-        color: #667eea;
-        font-size: 1.4em;
-        margin-top: 0;
-        margin-bottom: 1.2em;
-      }
-
-      .chord-tips p {
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.95);
-        font-size: 1.05em;
-        margin-bottom: 0;
-      }
-
-      .chord-tips ul {
-        line-height: 1.9;
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.05em;
-        margin: 0;
-      }
-
-      .chord-tips li {
-        margin-bottom: 1em;
-        padding-left: 0.5em;
-      }
-
-      .chord-tips strong {
-        color: #f0ad4e;
-      }
-
-      .chord-tips br {
-        line-height: 2;
-      }
-
-      /* Content Box Styling */
-      .content-box {
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-        padding: 1.8em;
-        border-radius: 10px;
-        margin: 2em 0;
-        border-left: 4px solid #667eea;
-        border: 1px solid rgba(102, 126, 234, 0.25);
-        border-left: 4px solid #667eea;
-      }
-
-      .content-box h3,
-      .content-box h4 {
-        color: #667eea;
-        margin-top: 0;
-        margin-bottom: 1em;
-      }
-
-      .content-box p {
-        margin-bottom: 0.8em;
-      }
-
-      .content-box:last-child {
-        margin-bottom: 0;
-      }
-
-      @media screen and (max-width: 736px) {
-        .fretboard-grid {
-          min-width: 700px;
-        }
-
-        .fretboard-grid {
-          grid-template-columns: 30px repeat(15, 50px);
-        }
-
-        .fret {
-          height: 40px;
-        }
-
-        .chord-display-name {
-          font-size: 1.8em;
-        }
-
-        .chord-tips {
-          padding: 1.5em;
-        }
-
-        .chord-tips h3 {
-          font-size: 1.2em;
-        }
-
-        .chord-tips p,
-        .chord-tips ul {
-          font-size: 0.95em;
-          line-height: 1.7;
-        }
-      }
-    </style>
-    <script src="../assets/js/guitar-chords.js"></script>
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css?v=20260911-15" /></noscript>
+    
+    <script src="../assets/js/guitar-chords.js?v=20260911-12"></script>
+    <link rel="stylesheet" href="../assets/css/fretboard.css?v=20260911-15" />
   </head>
   <body class="is-preload blog-post">
     <div id="wrapper">
@@ -665,7 +90,7 @@
               <h1>Gitarren-Akkorde Übersicht</h1>
               <p>📅 Dezember 2024 | 🎸 Deine komplette Akkord-Bibliothek zum Nachschlagen</p>
             </header>
-            <p style="margin-top: 0.5em; font-size: 0.98em; color: rgba(255, 255, 255, 0.9)">
+            <p style="margin-top: 0.5em; font-size: 0.98em; color: rgba(26, 26, 26, 0.9)">
               <strong>Gitarrenunterricht in Karlsruhe</strong>
               – Akkorde lernen mit System. Jetzt
               <a href="../kontakt.html">kostenlose Probestunde</a>
@@ -717,68 +142,29 @@
               </div>
             </div>
 
-            <div class="chord-tips">
+            <div class="legend-box">
               <h3>📝 Wie liest man das Griffbrett?</h3>
-              <p>
-                <strong>Weiße Punkte mit Zahlen:</strong>
-                Zeigen wo du deine Finger platzieren sollst (1=Zeigefinger, 2=Mittelfinger, 3=Ringfinger, 4=Kleiner
-                Finger)
-                <br />
-                <strong>O (Grün):</strong>
-                Leere Saite - spielen ohne Finger aufzulegen
-                <br />
-                <strong>X (Rot):</strong>
-                Diese Saite nicht spielen
-                <br />
-                <strong>Saiten:</strong>
-                Von oben nach unten: E, B, G, D, A, E (dünn nach dick)
-              </p>
-            </div>
-
-            <div class="chord-tips">
-              <h3>💡 Tipps zum Üben</h3>
-              <ul>
+              <ul class="legend-list">
                 <li>
-                  <strong>Langsam starten:</strong>
-                  Übe jeden Akkord erst langsam, bis alle Saiten klar klingen
+                  <span class="legend-icon finger-icon">1</span>
+                  <span><strong>Orange Punkte mit Zahlen:</strong> Zeigen, wo du deine Finger platzierst (1=Zeigefinger, 2=Mittelfinger, 3=Ringfinger, 4=Kleiner Finger)</span>
                 </li>
                 <li>
-                  <strong>Akkordwechsel:</strong>
-                  Übe gezielt die Wechsel zwischen häufigen Akkordkombinationen (z.B. C-G-Am-F)
+                  <span class="legend-icon open-icon">O</span>
+                  <span><strong>Grünes O:</strong> Leere Saite (Saite anschlagen, aber keinen Finger auflegen)</span>
                 </li>
                 <li>
-                  <strong>Finger-Unabhängigkeit:</strong>
-                  Setze jeden Finger einzeln auf und achte auf die richtige Position
+                  <span class="legend-icon muted-icon">X</span>
+                  <span><strong>Rotes X:</strong> Diese Saite wird nicht gespielt oder abgedämpft</span>
                 </li>
                 <li>
-                  <strong>Regelmäßigkeit:</strong>
-                  10 Minuten täglich sind besser als einmal 2 Stunden pro Woche
-                </li>
-                <li>
-                  <strong>Mit Songs üben:</strong>
-                  Such dir einfache Lieder mit den Akkorden, die du gerade lernst
+                  <span class="legend-icon strings-icon">E</span>
+                  <span><strong>Saiten:</strong> Von oben nach unten gelesen: E, B, G, D, A, E (von der dünnsten zur dicksten Saite)</span>
                 </li>
               </ul>
             </div>
 
-            <div class="content-box">
-              <h3>📚 4-Wochen Trainingsplan</h3>
 
-              <h4>Woche 1-2: Em und Am</h4>
-              <ul>
-                <li>Greife jeden Akkord einzeln und schlage alle Saiten an</li>
-                <li>Achte darauf, dass jede Saite klar klingt</li>
-                <li>Übe den Wechsel: Em → Am → Em → Am (jeweils 4 Schläge pro Akkord)</li>
-                <li>Ziel: Flüssiger Wechsel ohne lange Pausen</li>
-              </ul>
-
-              <h4>Woche 3-4: C und G hinzunehmen</h4>
-              <ul>
-                <li>Lerne C und G einzeln, bis sie sauber klingen</li>
-                <li>Übe die Kombinationen: C → Am, G → Em, C → G</li>
-                <li>Probiere die Akkordfolge: C → G → Am → Em (eine der häufigsten Folgen überhaupt!)</li>
-              </ul>
-            </div>
 
             <h2>🎸 Weiterführende Ressourcen</h2>
             <p>
@@ -807,43 +193,57 @@
 
       <footer id="footer">
         <div class="inner">
-          <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a>
-            &gt;
-            <a href="../blog.html">Blog</a>
-            &gt;
-            <span>Gitarren-Akkorde Übersicht</span>
-          </nav>
-          <ul class="icons">
-            <li>
-              <a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a>
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-youtube"><span class="label">YouTube</span></a>
-            </li>
-            <li>
-              <a href="#" class="icon brands alt fa-tiktok"><span class="label">TikTok</span></a>
-            </li>
-          </ul>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../überuns.html">Über mich</a></li>
+                <li><a href="../kurse.html">Kurse</a></li>
+                <li><a href="../preise.html">Preise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Social Media</h3>
+              <ul class="icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/kleine_musikschule_karlsruhe/"
+                    class="icon brands alt fa-instagram"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="label">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Rechtliches</h3>
+              <ul>
+                <li><a href="../faq.html">FAQ</a></li>
+                <li><a href="../kontakt.html">Kontakt</a></li>
+                <li><a href="../datenschutz.html">Datenschutz</a></li>
+                <li><a href="../impressum.html">Impressum</a></li>
+              </ul>
+            </div>
+          </div>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li>
-              Design:
-              <a href="https://html5up.net">HTML5 UP</a>
-            </li>
           </ul>
         </div>
       </footer>
-    </div>
 
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/cookie-consent.js"></script>
+</div>
+
+    <script src="../assets/js/jquery.min.js?v=20260911-12"></script>
+    <script src="../assets/js/jquery.scrolly.min.js?v=20260911-12"></script>
+    <script src="../assets/js/jquery.scrollex.min.js?v=20260911-12"></script>
+    <script src="../assets/js/browser.min.js?v=20260911-12"></script>
+    <script src="../assets/js/breakpoints.min.js?v=20260911-12"></script>
+    <script src="../assets/js/util.js?v=20260911-12"></script>
+    <script src="../assets/js/main.js?v=20260911-12"></script>
+    <script src="../assets/js/cookie-consent.js?v=20260911-12"></script>
 
     <script>
       let currentRoot = "C";
@@ -1028,6 +428,12 @@
               dot.className = "finger-dot";
               const fingerNum = fingers[stringIndex];
               dot.textContent = fingerNum > 0 ? fingerNum : "";
+              
+              const allNotes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+              const stringStartNotes = [4, 9, 2, 7, 11, 4]; // E, A, D, G, B, e
+              const noteIndex = (stringStartNotes[stringIndex] + actualFret) % 12;
+              dot.setAttribute("data-note", allNotes[noteIndex]);
+              
               fretEl.appendChild(dot);
             }
           }
@@ -1110,47 +516,7 @@
           : "Advanced ▼";
       };
 
-      // Fix grid css layout dynamically
-      const style = document.createElement("style");
-      style.textContent = `
-        .fretboard-grid {
-          display: grid;
-          grid-template-columns: 40px repeat(15, minmax(30px, 1fr));
-          gap: 0;
-          width: 100%;
-          max-width: 1000px;
-          margin: 0 auto;
-          position: relative;
-          background: linear-gradient(180deg, #333 0%, #2a2a2a 100%);
-        }
-        .fret {
-          position: relative;
-          height: 40px;
-          border-right: 2px solid #555;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: #2a2a2a;
-          transition: background 0.2s ease;
-        }
-        .fret-marker {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-        .fret-marker.double {
-            box-shadow: 0 -25px 0 rgba(255, 255, 255, 0.15),
-                        0 25px 0 rgba(255, 255, 255, 0.15);
-            background: transparent;
-        }
-      `;
-      document.head.appendChild(style);
+      // Removed inline CSS injection to rely on fretboard.css
 
       generateFretboard();
       generateRootTabs();

@@ -71,18 +71,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#9bf1ff" />
+    <meta name="theme-color" content="#ff9f43" />
     <link rel="manifest" href="/manifest.json" />
     <link
       rel="preload"
-      href="assets/css/main.min.css?v=20251226-1"
+      href="assets/css/main.min.css?v=20260911-15"
       as="style"
       onload="
         this.onload = null;
         this.rel = 'stylesheet';
       "
     />
-    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20251226-1" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css?v=20260911-15" /></noscript>
     <style>
       /* Kontakt einspaltig (Formular über Impressum) */
       #contact {
@@ -183,7 +183,7 @@
         margin: 0;
         flex-shrink: 0;
         vertical-align: middle;
-        accent-color: #9bf1ff;
+        accent-color: #ff9f43;
         cursor: pointer;
       }
 
@@ -203,7 +203,7 @@
         font-size: 0.95em;
       }
     </style>
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css?v=20260911-15" /></noscript>
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -241,7 +241,7 @@
       </nav>
 
       <!-- Banner -->
-      <section id="banner" class="style6" style="background: linear-gradient(135deg, #87c5a4 0%, #bfe3d0 100%)">
+      <section id="banner" class="style6">
         <div class="inner">
           <header class="major">
             <h1>Kontakt & Probestunde</h1>
@@ -323,7 +323,7 @@
                       style="
                         display: block;
                         margin-top: 0.3em;
-                        color: rgba(255, 255, 255, 0.7);
+                        color: rgba(26, 26, 26, 0.7);
                         min-height: auto;
                         font-size: 0.85em;
                       "
@@ -351,53 +351,61 @@
       </section>
 
       <!-- Footer -->
+
       <footer id="footer">
         <div class="inner">
-          <nav class="breadcrumbs-footer" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
-            &gt;
-            <span>Kontakt</span>
-          </nav>
-          <ul class="icons">
-            <li>
-              <a
-                href="https://www.instagram.com/kleine_musikschule/"
-                class="icon brands alt fa-instagram"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.tiktok.com/@kleinemusikschule?lang=de-DE"
-                class="icon brands alt fa-music"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span class="label">TikTok</span>
-              </a>
-            </li>
-          </ul>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="überuns.html">Über mich</a></li>
+                <li><a href="kurse.html">Kurse</a></li>
+                <li><a href="preise.html">Preise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Social Media</h3>
+              <ul class="icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/kleine_musikschule_karlsruhe/"
+                    class="icon brands alt fa-instagram"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="label">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Rechtliches</h3>
+              <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+              </ul>
+            </div>
+          </div>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-            <li><a href="impressum.html">Impressum</a></li>
           </ul>
         </div>
       </footer>
-    </div>
+
+</div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js" defer></script>
-    <script src="assets/js/jquery.scrolly.min.js" defer></script>
-    <script src="assets/js/jquery.scrollex.min.js" defer></script>
-    <script src="assets/js/browser.min.js" defer></script>
-    <script src="assets/js/breakpoints.min.js" defer></script>
-    <script src="assets/js/util.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/cookie-consent.js" defer></script>
+    <script src="assets/js/jquery.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/browser.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/breakpoints.min.js?v=20260911-12" defer></script>
+    <script src="assets/js/util.js?v=20260911-12" defer></script>
+    <script src="assets/js/main.js?v=20260911-12" defer></script>
+    <script src="assets/js/cookie-consent.js?v=20260911-12" defer></script>
 
     <script>
       // Handle form submission
@@ -474,7 +482,7 @@
         // Create popup
         const popup = document.createElement("div");
         const bgColor = type === "success" ? "#1c1c1c" : "#1c1c1c";
-        const borderColor = type === "success" ? "#9bf1ff" : "#ff6b6b";
+        const borderColor = type === "success" ? "#ff9f43" : "#ff6b6b";
         popup.style.cssText = `
           background: ${bgColor};
           border: 2px solid ${borderColor};
@@ -485,7 +493,7 @@
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           text-align: center;
           animation: slideIn 0.3s ease;
-          color: white;
+          color: #1a1a1a;
         `;
 
         popup.innerHTML = `
@@ -571,14 +579,14 @@
               locationInput.value = address;
               coordinatesInput.value = `${lat},${lon}`;
               statusDiv.textContent = "✓ Standort erfasst";
-              statusDiv.style.color = "#9bf1ff";
+              statusDiv.style.color = "#ff9f43";
               button.textContent = "✓ Standort erhalten";
               button.disabled = false;
             } catch (error) {
               locationInput.value = `Koordinaten: ${lat.toFixed(6)}, ${lon.toFixed(6)}`;
               coordinatesInput.value = `${lat},${lon}`;
               statusDiv.textContent = "✓ Koordinaten erfasst";
-              statusDiv.style.color = "#9bf1ff";
+              statusDiv.style.color = "#ff9f43";
               button.textContent = "✓ Standort erhalten";
               button.disabled = false;
             }

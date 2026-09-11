@@ -58,9 +58,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
-    <link rel="stylesheet" href="../assets/css/main.min.css?v=20251226-1" />
+    <link rel="stylesheet" href="../assets/css/main.min.css?v=20260911-15" />
     <link rel="icon" href="../images/logo_small.png" />
-    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css?v=20260911-15" /></noscript>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap");
 
@@ -146,7 +146,7 @@
         font-size: 1.2rem !important;
         font-weight: 700 !important;
         color: #fff !important;
-        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%) !important;
+        background: linear-gradient(135deg, #f0ad4e 0%, #ff9f43 100%) !important;
         border: none !important;
         border-radius: 99px !important;
         cursor: pointer;
@@ -182,16 +182,16 @@
 
       .question-number {
         font-size: 0.9rem;
-        color: #a855f7;
+        color: #ff9f43;
         font-weight: 700;
         letter-spacing: 2px;
         text-transform: uppercase;
         margin-bottom: 1rem;
         display: inline-block;
         padding: 0.5rem 1.5rem;
-        background: rgba(168, 85, 247, 0.1);
+        background: rgba(255, 159, 67, 0.1);
         border-radius: 99px;
-        border: 1px solid rgba(168, 85, 247, 0.3);
+        border: 1px solid rgba(255, 159, 67, 0.3);
       }
 
       .question-text {
@@ -235,6 +235,8 @@
         line-height: 1.4 !important;
         position: relative;
         overflow: hidden;
+        white-space: normal !important;
+        word-break: break-word !important;
       }
 
       .answer-btn::before {
@@ -407,7 +409,7 @@
 
       .progress-fill {
         height: 100%;
-        background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+        background: linear-gradient(90deg, #f0ad4e 0%, #ff9f43 100%);
         transition: width 0.4s ease-out;
         border-radius: 99px;
       }
@@ -516,16 +518,19 @@
       }
 
       /* Blog Content Styling */
-      #main p {
-        line-height: 1.8;
-        font-size: 1.05em;
-        color: rgba(255, 255, 255, 0.95);
+      .quiz-container p,
+      .quiz-container h2,
+      .quiz-container h3,
+      .quiz-container h4,
+      .quiz-container ul,
+      .quiz-container ol,
+      .quiz-container li {
+        color: rgba(255, 255, 255, 0.95) !important;
       }
 
-      #main h2,
-      #main h3,
-      #main h4 {
-        color: #667eea;
+      .quiz-container h2,
+      .quiz-container h3,
+      .quiz-container h4 {
         margin-top: 1.5em;
         margin-bottom: 0.8em;
       }
@@ -534,14 +539,18 @@
         color: #f0ad4e;
       }
 
-      #main ul,
-      #main ol {
-        line-height: 1.9;
+      .quiz-container p {
+        line-height: 1.8;
         font-size: 1.05em;
-        color: rgba(255, 255, 255, 0.9);
       }
 
-      #main li {
+      .quiz-container ul,
+      .quiz-container ol {
+        line-height: 1.9;
+        font-size: 1.05em;
+      }
+
+      .quiz-container li {
         margin-bottom: 0.8em;
       }
 
@@ -608,7 +617,7 @@
       <div id="main" class="alt">
         <section id="one">
           <div class="inner">
-            <p style="margin-top: 0.25em; font-size: 0.98em; color: rgba(255, 255, 255, 0.9)">
+            <p style="margin-top: 0.25em; font-size: 0.98em; color: rgba(26, 26, 26, 0.9)">
               <strong>Musikschule Karlsruhe</strong>
               : Gitarrenunterricht, Ukulele & Bass – jetzt
               <a href="../kontakt.html">kostenlose Probestunde</a>
@@ -661,27 +670,57 @@
       <!-- Footer -->
       <footer id="footer">
         <div class="inner">
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h3>Navigation</h3>
+              <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../überuns.html">Über mich</a></li>
+                <li><a href="../kurse.html">Kurse</a></li>
+                <li><a href="../preise.html">Preise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Social Media</h3>
+              <ul class="icons">
+                <li>
+                  <a
+                    href="https://www.instagram.com/kleine_musikschule_karlsruhe/"
+                    class="icon brands alt fa-instagram"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span class="label">Instagram</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h3>Rechtliches</h3>
+              <ul>
+                <li><a href="../faq.html">FAQ</a></li>
+                <li><a href="../kontakt.html">Kontakt</a></li>
+                <li><a href="../datenschutz.html">Datenschutz</a></li>
+                <li><a href="../impressum.html">Impressum</a></li>
+              </ul>
+            </div>
+          </div>
           <ul class="copyright">
             <li>&copy; Kleine Musikschule Karlsruhe</li>
-            <li>
-              Design:
-              <a href="https://html5up.net">HTML5 UP</a>
-            </li>
-            <li><a href="../datenschutz.html">Datenschutz</a></li>
           </ul>
         </div>
       </footer>
     </div>
 
     <!-- Scripts -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/cookie-consent.js"></script>
+    <script src="../assets/js/jquery.min.js?v=20260911-14"></script>
+    <script src="../assets/js/jquery.scrolly.min.js?v=20260911-14"></script>
+    <script src="../assets/js/jquery.scrollex.min.js?v=20260911-14"></script>
+    <script src="../assets/js/browser.min.js?v=20260911-14"></script>
+    <script src="../assets/js/breakpoints.min.js?v=20260911-14"></script>
+    <script src="../assets/js/util.js?v=20260911-14"></script>
+    <script src="../assets/js/main.js?v=20260911-14"></script>
+    <script src="../assets/js/cookie-consent.js?v=20260911-14"></script>
 
     <script>
       // Quiz Data
@@ -774,7 +813,7 @@
           icon: "🎸",
           description:
             "Du hast Gefühl, Technik und musikalische Neugier – perfekte Zutaten für virtuoses Gitarrenspiel. Von geschmackvollen Akkorden bis zu eleganten Läufen: dein Sound erzählt Geschichten.",
-          color: "linear-gradient(135deg, #76c2df 0%, #4fa8ca 100%)",
+          color: "linear-gradient(135deg, #ff9f43 0%, #e07a5f 100%)",
           link: "../instrumente/gitarre/index.html",
         },
         ukulele: {
@@ -782,7 +821,7 @@
           icon: "🎵",
           description:
             "Locker, leicht und immer positiv: Mit der Ukulele bringst du Wärme und gute Laune. Dein Stil: melodisch, entspannt und immer ein Lächeln.",
-          color: "linear-gradient(135deg, #f0a39c 0%, #de7f76 100%)",
+          color: "linear-gradient(135deg, #ffb16b 0%, #f39c12 100%)",
           link: "../instrumente/ukulele/index.html",
         },
         bass: {
@@ -790,7 +829,7 @@
           icon: "🎸",
           description:
             "Groove im Blut und ein knackiger Anschlag: Du liebst es, Linien zu formen und mit Slaps und Ghost Notes den Raum zum Schwingen zu bringen.",
-          color: "linear-gradient(135deg, #85ceb0 0%, #58ac8b 100%)",
+          color: "linear-gradient(135deg, #ffcc80 0%, #e67e22 100%)",
           link: "../instrumente/bass/index.html",
         },
       };
