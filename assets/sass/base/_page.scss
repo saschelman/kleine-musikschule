@@ -32,6 +32,12 @@
 
 		*, *:before, *:after {
 			box-sizing: inherit;
+			overflow-wrap: break-word;
+			word-wrap: break-word;
+			word-break: break-word;
+			-webkit-hyphens: auto;
+			-ms-hyphens: auto;
+			hyphens: auto;
 		}
 
 	body {

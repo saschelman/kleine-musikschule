@@ -160,6 +160,10 @@
 		@include breakpoint('<=xsmall') {
 			@include padding(4em, 0, (2em, 0, 0, 0));
 
+			h1 {
+				font-size: 1.6em;
+			}
+
 			> .inner {
 				.content {
 					p {
