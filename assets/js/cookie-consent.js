@@ -24,11 +24,11 @@
   const style = document.createElement("style");
   style.innerHTML = `
     #cookie-consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; 
-      background: rgba(36,41,67,0.95); color: #fff; padding: 1em; box-shadow: 0 -4px 12px rgba(0,0,0,0.3); }
-    #cookie-consent .cc-inner { max-width: 65em; margin: 0 auto; display: flex; align-items: center; gap: 1em; }
-    #cookie-consent p { margin: 0; flex: 1; }
-    #cookie-consent .cc-actions { display: flex; gap: 0.5em; flex-wrap: wrap; }
-    #cookie-consent .button { border: 0; cursor: pointer; }
+      background: #fdfaf6; color: #111111; padding: 1.5em 1em; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); border-top: 1px solid rgba(0,0,0,0.05); }
+    #cookie-consent .cc-inner { max-width: 65em; margin: 0 auto; display: flex; align-items: center; gap: 1.5em; flex-wrap: wrap; }
+    #cookie-consent p { margin: 0; flex: 1 1 300px; line-height: 1.6; font-weight: 600; font-size: 0.9em; }
+    #cookie-consent .cc-actions { display: flex; gap: 0.5em; flex-wrap: wrap; flex: 0 0 auto; justify-content: flex-start; }
+    #cookie-consent .button { cursor: pointer; margin: 0; }
   `;
 
   document.addEventListener("DOMContentLoaded", function () {

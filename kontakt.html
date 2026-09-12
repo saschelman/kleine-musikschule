@@ -481,7 +481,7 @@
 
         // Create popup
         const popup = document.createElement("div");
-        const bgColor = type === "success" ? "#1c1c1c" : "#1c1c1c";
+        const bgColor = type === "success" ? "#ffffff" : "#ffffff";
         const borderColor = type === "success" ? "#ff9f43" : "#ff6b6b";
         popup.style.cssText = `
           background: ${bgColor};
@@ -493,32 +493,13 @@
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
           text-align: center;
           animation: slideIn 0.3s ease;
-          color: #1a1a1a;
+          color: #111111;
         `;
 
         popup.innerHTML = `
           <h2 style="margin: 0 0 0.8em 0; font-size: 1.5em; font-weight: 600;">${title}</h2>
           <p style="margin: 0 0 1.5em 0; font-size: 1em; opacity: 0.9; line-height: 1.5;">${message}</p>
-          <button onclick="this.parentElement.parentElement.remove()" style="
-            background: #ffffff;
-            color: #1c1c1c;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            min-width: 168px;
-            height: 56px;
-            padding: 0 2.2em;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            line-height: 1;
-            font-size: 1.05em;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-          " onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Okay</button>
+          <button onclick="this.parentElement.parentElement.remove()" class="button primary" style="margin-top: 1em;">Okay</button>
         `;
 
         overlay.appendChild(popup);
