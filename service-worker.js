@@ -1,4 +1,4 @@
-const CACHE_NAME = "musikschule-v2";
+const CACHE_NAME = "musikschule-v3";
 const urlsToCache = ["/assets/css/main.css", "/assets/js/main.js", "/images/logo_small.png", "/images/logo.png"];
 
 // Install service worker and cache resources
