@@ -308,7 +308,7 @@
         align-items: center;
         justify-content: center;
         padding: 1rem;
-        background: rgba(9, 14, 28, 0.85);
+        background: rgba(255, 255, 255, 0.85);
         z-index: 10000;
         backdrop-filter: blur(8px);
         opacity: 0;
@@ -318,11 +318,9 @@
       .form-popup {
         width: min(480px, 92vw);
         border-radius: 16px;
-        border: 1px solid rgba(26, 26, 26, 0.1);
-        background: linear-gradient(165deg, rgba(35, 42, 63, 0.98), rgba(20, 25, 42, 0.98));
-        box-shadow:
-          0 24px 48px rgba(0, 0, 0, 0.5),
-          0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
         padding: 2.5rem 2rem;
         text-align: center;
         transform: translateY(20px) scale(0.95);
@@ -354,13 +352,14 @@
         font-size: 1.5rem;
         font-weight: 600;
         letter-spacing: 0.02em;
+        color: #2c3e50;
       }
 
       .form-popup p {
         margin: 0 0 2rem 0;
         line-height: 1.6;
         font-size: 1.05rem;
-        color: rgba(26, 26, 26, 0.85);
+        color: #555555;
       }
 
       .form-popup-actions {
@@ -742,6 +741,10 @@
     <script defer="" src="assets/js/util.js?v=20260911-12"></script>
     <script defer="" src="assets/js/main.js?v=20260911-12"></script>
     <script defer="" src="assets/js/cookie-consent.js?v=20260911-12"></script>
+    <script>
+      // Wake up the backend server (Render Cold Start) as soon as the page loads
+      fetch("https://noreply-email.onrender.com/api/health").catch(() => {});
+    </script>
     <script>
       function showFormPopup(title, message, type) {
         const overlay = document.createElement("div");

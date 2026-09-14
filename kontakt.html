@@ -406,6 +406,10 @@
     <script src="assets/js/util.js?v=20260911-12" defer></script>
     <script src="assets/js/main.js?v=20260911-12" defer></script>
     <script src="assets/js/cookie-consent.js?v=20260911-12" defer></script>
+    <script>
+      // Wake up the backend server (Render Cold Start) as soon as the page loads
+      fetch("https://noreply-email.onrender.com/api/health").catch(() => {});
+    </script>
 
     <script>
       // Handle form submission
