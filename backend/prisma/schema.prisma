@@ -26,6 +26,7 @@ model CourseRegistration {
   agb          Boolean  @default(false)
   datenschutz  Boolean  @default(false)
   medien       Boolean  @default(false)
+  bezahlt      Boolean  @default(false)
 }
 
 model ContactRequest {
