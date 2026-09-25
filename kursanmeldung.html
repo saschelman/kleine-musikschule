@@ -531,8 +531,9 @@
                 <div class="course-info-section">
                   <h4>Termine &amp; Uhrzeit</h4>
                   <p style="line-height: 1.5; margin-bottom: 0.75rem">
-                    Immer
-                    <strong>montags um 15:10 - 15.40Uhr und 15.50 - 16.20Uhr</strong>
+                    Kurs 1 &amp; 2:
+                    <strong>montags um 15:10 - 15:40 Uhr und 15:50 - 16:20 Uhr (bereits voll)</strong><br />
+                    Kurs 3: <strong>Zeiten stehen noch aus</strong>
                   </p>
                   <ul
                     style="
@@ -651,14 +652,16 @@
                   <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 0.5rem">
                     <div>
                       <input
-                        checked=""
+                        disabled=""
                         id="kurszeit_1"
                         name="Kurszeit"
                         required=""
                         type="radio"
                         value="Kurs 1 (15:10 - 15:40 Uhr)"
                       />
-                      <label for="kurszeit_1">Kurs 1 (15:10 - 15:40 Uhr)</label>
+                      <label for="kurszeit_1" style="color: gray">
+                        Kurs 1 (15:10 - 15:40 Uhr) – Leider bereits voll
+                      </label>
                     </div>
                     <div>
                       <input
@@ -672,6 +675,17 @@
                       <label for="kurszeit_2" style="color: gray">
                         Kurs 2 (15:50 - 16:20 Uhr) – Leider bereits voll
                       </label>
+                    </div>
+                    <div>
+                      <input
+                        checked=""
+                        id="kurszeit_3"
+                        name="Kurszeit"
+                        required=""
+                        type="radio"
+                        value="Kurs 3 (Zeiten stehen noch aus)"
+                      />
+                      <label for="kurszeit_3">Kurs 3 (Zeiten stehen noch aus)</label>
                     </div>
                   </div>
                 </div>
