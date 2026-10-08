@@ -612,8 +612,8 @@
             >
               ⏳
               <strong>Wichtiger Hinweis:</strong>
-              Der Anmeldeschluss für diesen Kurs ist am 5. Oktober um 0:00 Uhr.<br />
-              Die endgültige Anmeldung findet bei Zahlungseingang statt.
+              Alle unsere Kurse sind leider bereits vollständig belegt.<br />
+              Wir freuen uns über das große Interesse und informieren hier über neue Termine.
             </p>
             <form action="https://noreply-email.onrender.com/api/kursanmeldung" id="registrationForm" method="POST">
               <input name="Kursanmeldung" type="hidden" value="Musikkurs für Kinder (Pfinztal)" />
@@ -681,14 +681,16 @@
                     </div>
                     <div>
                       <input
-                        checked=""
+                        disabled=""
                         id="kurszeit_3"
                         name="Kurszeit"
                         required=""
                         type="radio"
                         value="Kurs 3 (14:30 - 15:00 Uhr)"
                       />
-                      <label for="kurszeit_3">Kurs 3 (14:30 - 15:00 Uhr)</label>
+                      <label for="kurszeit_3" style="color: gray">
+                        Kurs 3 (14:30 - 15:00 Uhr) – Leider bereits voll
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -729,9 +731,9 @@
               </div>
               <ul class="actions">
                 <li>
-                  <input class="primary" type="submit" value="Verbindliche Anmeldung senden" />
+                  <input class="primary" disabled="" type="submit" value="Verbindliche Anmeldung senden" />
                 </li>
-                <li><input type="reset" value="Zurücksetzen" /></li>
+                <li><input disabled="" type="reset" value="Zurücksetzen" /></li>
               </ul>
             </form>
           </section>
