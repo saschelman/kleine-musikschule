@@ -1,8 +1,22 @@
 /* Responsive overrides shared across all pages */
+
+/* Global container and media bounds */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+#wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 img,
 video,
 canvas,
-iframe {
+iframe,
+svg {
   max-width: 100%;
   height: auto;
 }
@@ -24,36 +38,189 @@ iframe {
   height: 100%;
 }
 
+/* Base text wrapping and hyphenation */
+p,
+li,
+a,
+span,
+blockquote,
+label,
+td,
+th {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Headings scale and wrap on small viewports */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(1.4rem, 1.15rem + 1.5vw, 1.85rem);
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 1.02rem + 1.1vw, 1.55rem);
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: clamp(1.05rem, 0.95rem + 0.8vw, 1.3rem);
+    line-height: 1.35;
+  }
+
+  h4 {
+    font-size: clamp(0.95rem, 0.9rem + 0.4vw, 1.15rem);
+    line-height: 1.4;
+  }
+}
+
+/* Header Major Fixes: Allow natural wrapping and bound to screen */
+header.major {
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  max-width: 100%;
+}
+
+header.major > :first-child {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+header.major > :first-child:after {
+  max-width: 100%;
+}
+
+header.major > p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 768px) {
+  header.major {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  header.major > :first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  header.major > p {
+    letter-spacing: 0.08em;
+  }
+}
+
+/* Hero banner text scales down smoothly across ALL pages */
+#banner h1,
+#banner.major h1 {
+  font-size: clamp(1.45rem, 1.15rem + 1.8vw, 2.5rem);
+  line-height: 1.2;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+#banner .content p,
+#banner.major .content p {
+  font-size: clamp(0.85rem, 0.8rem + 0.4vw, 1.1rem);
+  letter-spacing: 0.08em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
 /* Buttons and action rows wrap neatly on small screens */
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
+  width: 100%;
 }
 
 .actions li {
   width: auto;
+  max-width: 100%;
+}
+
+.actions .button,
+.actions button,
+.actions input[type="submit"],
+.actions input[type="reset"],
+.actions input[type="button"] {
+  max-width: 100%;
+  white-space: normal;
+  height: auto;
+  min-height: 3em;
+  line-height: 1.35;
+  padding: 0.8em 1.25em;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
+  .actions {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
   .actions li {
     width: 100%;
+    padding: 0 0 0.5rem 0 !important;
   }
 
-  .actions .button {
+  .actions .button,
+  .actions button,
+  .actions input[type="submit"],
+  .actions input[type="reset"],
+  .actions input[type="button"] {
     width: 100%;
-    text-align: center;
+  }
+
+  .button.next {
+    padding-right: 3.5em !important;
   }
 }
 
-/* Hero text scales down smoothly */
-#banner.major h1 {
-  font-size: clamp(2.1rem, 1.2rem + 2vw, 3.4rem);
-  line-height: 1.15;
-}
+/* Form fields: eliminate negative margin overflow */
+@media (max-width: 768px) {
+  form > .fields {
+    width: 100% !important;
+    margin: 0 0 2em 0 !important;
+  }
 
-#banner.major .content p {
-  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+  form > .fields > .field {
+    padding: 0.75em 0 0 0 !important;
+    width: 100% !important;
+  }
 }
 
 /* Tiles: revert to original gutterless layout */
@@ -66,6 +233,16 @@ iframe {
   .row > * {
     width: 100% !important;
   }
+}
+
+.row > *,
+.course-detail-card,
+.course-info-box,
+.usp-card,
+.faq-card,
+.content-box {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Tables and wide content are scrollable on mobile */
@@ -83,20 +260,59 @@ table {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
 select,
 textarea {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Blog/quiz helpers */
 .quiz-container {
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 100%;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
 }
 
+.quiz-start h1,
 .quiz-start h2 {
-  font-size: clamp(2.1rem, 1.25rem + 2vw, 3.1rem);
+  font-size: clamp(1.35rem, 1.1rem + 1.8vw, 2.5rem) !important;
+  line-height: 1.25 !important;
+  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .quiz-start p {
-  font-size: clamp(1.05rem, 0.95rem + 0.35vw, 1.3rem);
+  font-size: clamp(0.95rem, 0.9rem + 0.35vw, 1.2rem) !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* Pricing card adjustments on small screens */
+@media (max-width: 520px) {
+  .pricing-card {
+    padding: 1.25em 1rem !important;
+  }
+
+  .pricing-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6em;
+  }
+
+  .pricing-row .price-group {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .location-check-btn {
+    white-space: normal !important;
+    height: auto !important;
+    padding: 0.8em 1.2em !important;
+    width: 100%;
+  }
 }

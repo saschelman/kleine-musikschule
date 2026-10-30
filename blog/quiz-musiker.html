@@ -114,16 +114,21 @@
         animation: fadeIn 0.8s ease-out;
       }
 
+      .quiz-start h1,
       .quiz-start h2 {
-        font-size: 3.5rem !important;
+        font-size: clamp(1.4rem, 1.15rem + 1.8vw, 3rem) !important;
         margin-bottom: 1.5rem !important;
         background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        line-height: 1.1 !important;
+        line-height: 1.2 !important;
         font-weight: 800 !important;
         text-transform: none !important;
-        letter-spacing: -1px !important;
+        letter-spacing: -0.5px !important;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
+        hyphens: auto;
       }
 
       .quiz-start p {
@@ -468,15 +473,16 @@
           border-radius: 24px;
           margin: 2rem auto;
         }
+        .quiz-start h1,
         .quiz-start h2 {
-          font-size: 2.2rem !important;
+          font-size: 1.85rem !important;
         }
         .quiz-start p {
-          font-size: 1.1rem !important;
+          font-size: 1.05rem !important;
           margin-bottom: 2rem !important;
         }
         .question-text {
-          font-size: 1.6rem !important;
+          font-size: 1.5rem !important;
         }
         .answers-grid {
           grid-template-columns: 1fr;
@@ -490,7 +496,7 @@
           padding: 2.5rem 1.5rem;
         }
         .result-title {
-          font-size: 2rem !important;
+          font-size: 1.85rem !important;
         }
         .result-actions {
           flex-direction: column;
@@ -506,14 +512,15 @@
           padding: 1.5rem 1rem;
           margin: 1rem auto;
         }
+        .quiz-start h1,
         .quiz-start h2 {
-          font-size: 1.8rem !important;
+          font-size: 1.5rem !important;
         }
         .question-text {
-          font-size: 1.4rem !important;
+          font-size: 1.3rem !important;
         }
         .result-title {
-          font-size: 1.6rem !important;
+          font-size: 1.45rem !important;
         }
       }
 
@@ -593,7 +600,10 @@
         <a href="../index.html" class="logo">
           <img src="../images/logo_small.png" alt="Logo" class="logo-img" />
           <strong>kleine</strong>
-          <span>musikschule<span class="hide-mobile"> Karlsruhe</span></span>
+          <span>
+            musikschule
+            <span class="hide-mobile">Karlsruhe</span>
+          </span>
         </a>
         <nav>
           <a href="#menu">Menu</a>

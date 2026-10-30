@@ -14,14 +14,15 @@
 
 	header {
 		&.major {
-			width: -moz-max-content;
-			width: -webkit-max-content;
-			width: -ms-max-content;
-			width: max-content;
+			width: -moz-fit-content;
+			width: -webkit-fit-content;
+			width: fit-content;
+			max-width: 100%;
 			margin-bottom: _size(element-margin);
 
 			> :first-child {
 				margin-bottom: 0;
+				max-width: 100%;
 				width: calc(100% + 0.5em);
 
 				&:after {
@@ -31,6 +32,7 @@
 					height: 2px;
 					margin: 0.325em 0 0.5em 0;
 					width: 100%;
+					max-width: 100%;
 				}
 			}
 
@@ -40,6 +42,7 @@
 				letter-spacing: _font(letter-spacing-alt);
 				margin-bottom: 0;
 				text-transform: uppercase;
+				max-width: 100%;
 			}
 
 			body.is-ie & {
@@ -59,7 +62,17 @@
 
 		@include breakpoint('<=small') {
 			&.major {
+				width: 100%;
+				max-width: 100%;
+
+				> :first-child {
+					width: 100%;
+					max-width: 100%;
+				}
+
 				> p {
+					letter-spacing: 0.08em;
+
 					br {
 						display: none;
 					}

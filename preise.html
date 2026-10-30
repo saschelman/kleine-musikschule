@@ -300,9 +300,26 @@
       }
 
       @media screen and (max-width: 480px) {
+        .pricing-card {
+          padding: 1.25em 1rem;
+        }
+
+        .pricing-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.6em;
+        }
+
+        .pricing-row .price-group {
+          width: 100%;
+          align-items: flex-start;
+        }
+
         .location-check-btn {
-          padding: 0.8em 1.5em;
+          padding: 0.8em 1.2em;
           font-size: 0.95em;
+          white-space: normal;
+          height: auto;
         }
       }
     </style>
@@ -313,7 +330,10 @@
         <a href="index.html" class="logo">
           <img src="images/logo_small.png" alt="Logo" class="logo-img" loading="lazy" />
           <strong>kleine</strong>
-          <span>musikschule<span class="hide-mobile"> Karlsruhe</span></span>
+          <span>
+            musikschule
+            <span class="hide-mobile">Karlsruhe</span>
+          </span>
         </a>
         <nav><a href="#menu">Menu</a></nav>
       </header>
@@ -1086,8 +1106,7 @@
           </ul>
         </div>
       </footer>
-
-</div>
+    </div>
 
     <script src="assets/js/jquery.min.js?v=20260911-12"></script>
     <script src="assets/js/jquery.scrolly.min.js?v=20260911-12"></script>

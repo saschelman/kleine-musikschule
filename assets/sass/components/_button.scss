@@ -130,4 +130,18 @@
 			cursor: default;
 			opacity: 0.25;
 		}
+
+		@include breakpoint('<=small') {
+			letter-spacing: 0.12em;
+			padding: 0.8em 1.25em;
+			max-width: 100%;
+
+			&.next {
+				padding-right: 3.5em;
+
+				&:before, &:after {
+					right: 1em;
+				}
+			}
+		}
 	}

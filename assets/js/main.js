@@ -18,7 +18,16 @@
     var responsiveLink = document.createElement("link");
     responsiveLink.id = responsiveStyleId;
     responsiveLink.rel = "stylesheet";
-    responsiveLink.href = "/assets/css/responsive-overrides.css?v=20260126";
+    var prefix = "";
+    var mainScript = document.querySelector('script[src*="main.js"]');
+    if (mainScript) {
+      var src = mainScript.getAttribute("src") || "";
+      var idx = src.indexOf("assets/");
+      if (idx !== -1) {
+        prefix = src.substring(0, idx);
+      }
+    }
+    responsiveLink.href = (prefix || "/") + "assets/css/responsive-overrides.css?v=20261030";
     document.head.appendChild(responsiveLink);
   }
 

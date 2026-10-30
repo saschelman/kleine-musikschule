@@ -27,14 +27,15 @@
 	// Based on css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
 		html {
 			box-sizing: border-box;
+			max-width: 100%;
 			overflow-x: hidden;
 		}
 
 		*, *:before, *:after {
 			box-sizing: inherit;
+			overflow-wrap: anywhere;
 			overflow-wrap: break-word;
 			word-wrap: break-word;
-			word-break: break-word;
 			-webkit-hyphens: auto;
 			-ms-hyphens: auto;
 			hyphens: auto;
@@ -42,7 +43,9 @@
 
 	body {
 		background: _palette(bg);
+		max-width: 100%;
 		overflow-x: hidden;
+		overflow-wrap: anywhere;
 		overflow-wrap: break-word;
 		word-wrap: break-word;
 		hyphens: auto;

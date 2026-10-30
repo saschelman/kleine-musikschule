@@ -61,9 +61,11 @@
 
 			header {
 				width: auto;
+				max-width: 100%;
 
 				> :first-child {
 					width: auto;
+					max-width: 100%;
 
 					&:after {
 						max-width: 100%;
@@ -90,6 +92,8 @@
 					font-weight: _font(weight-bold);
 					letter-spacing: _font(letter-spacing-alt);
 					text-transform: uppercase;
+					max-width: 100%;
+					overflow-wrap: anywhere;
 				}
 			}
 		}
@@ -136,7 +140,8 @@
 			top: -2.75em;
 
 			h1 {
-				font-size: 2em;
+				font-size: 1.8em;
+				line-height: 1.25;
 			}
 
 			> .inner {
@@ -161,12 +166,15 @@
 			@include padding(4em, 0, (2em, 0, 0, 0));
 
 			h1 {
-				font-size: 1.6em;
+				font-size: 1.45em;
+				line-height: 1.25;
 			}
 
 			> .inner {
 				.content {
 					p {
+						letter-spacing: 0.08em;
+
 						br {
 							display: none;
 						}
@@ -176,6 +184,12 @@
 
 			&.major {
 				@include padding(6em, 0, (2em, 0, 0, 0));
+			}
+		}
+
+		@include breakpoint('<=xxsmall') {
+			h1 {
+				font-size: 1.3em;
 			}
 		}
 	}
